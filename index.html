@@ -24,7 +24,7 @@
                 <a href="#contact" onclick="navigateTo('contact')" class="hover:text-white transition">اتصل بنا</a>
                 <a href="#quote" onclick="navigateTo('quote')" class="hover:text-white transition text-orange-400 font-bold">طلب عرض سعر</a>
                 <a href="#survey" onclick="navigateTo('survey')" class="hover:text-white transition text-orange-400 font-bold">طلب معاينة ميدانية</a>
-                <a href="#sketch" onclick="navigateTo('sketch')" class="hover:text-white transition text-cyan-400 font-bold">📐 تصميم كروكي ذكي</a>
+                <a href="#sketch" onclick="navigateTo('sketch')" class="hover:text-white transition text-cyan-400 font-bold">📐 تصميم كروكي ذكي وعرض سعر فوري</a>
                 <a href="#calculator" onclick="navigateTo('calculator')" class="hover:text-white transition text-cyan-400 font-bold">حاسبة التخزين</a>
                 <a href="#compare" onclick="navigateTo('compare')" class="hover:text-white transition text-cyan-400 font-bold">مقارنة المنتجات</a>
                 <a href="#affiliate" onclick="navigateTo('affiliate')" class="hover:text-white transition text-orange-400 font-bold">برنامج البيع بالعمولة</a>
@@ -180,7 +180,7 @@
         </div>
     </div>
 
-    <!-- نافذة تسجيل الدخول (مع استمارة تسجيل الأعضاء الكاملة لتغذية قاعدة بيانات الداشبورد) -->
+    <!-- نافذة تسجيل الدخول للأعضاء -->
     <div id="auth-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4 no-print">
         <div class="bg-white w-full max-w-md rounded-3xl shadow-2xl flex flex-col overflow-hidden text-xs p-6 space-y-4 max-h-[90vh] overflow-y-auto">
             <div class="flex justify-between items-center border-b pb-3">
@@ -226,12 +226,9 @@
             <button onclick="proceedToCheckout()" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-xl transition text-center shadow text-xs">
                 إتمام عملية الشراء
             </button>
-            <!-- زر عرض السعر مقيد حصرياً للأعضاء المشتركين فقط -->
-            <div id="quotation-btn-wrapper">
-                <button onclick="checkMemberForQuotation()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-xl transition text-center shadow text-xs">
-                    📄 طلب عرض سعر رسمي (لأعضاء الموقع فقط 🔒)
-                </button>
-            </div>
+            <button onclick="checkMemberForQuotation()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-xl transition text-center shadow text-xs">
+                📄 طلب عرض سعر رسمي (مخصص للأعضاء المشتركين فقط 🔒)
+            </button>
         </div>
     </div>
 
@@ -252,7 +249,7 @@
                 <button onclick="switchAdminTab('settings')" id="tab-btn-settings" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">إعدادات الهوية واللوجو</button>
             </div>
             <div class="p-6 flex-1 overflow-y-auto space-y-6">
-                <!-- مؤشرات المخزون والأرباح -->
+                <!-- مؤشرات الأداء والمخزون -->
                 <div id="admin-tab-analytics" class="space-y-6">
                     <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
                         <div class="bg-blue-50 border p-4 rounded-2xl"><div class="text-gray-500 font-bold mb-1">إجمالي المنتجات بالمتجر</div><div class="text-2xl font-black text-blue-700" id="kpi-total-prods">0</div></div>
@@ -317,7 +314,7 @@
                     </div>
                     <div id="admin-categories-list" class="space-y-2"></div>
                 </div>
-                <!-- قائمة الأعضاء والمشتركين -->
+                <!-- قائمة الأعضاء -->
                 <div id="admin-tab-members" class="hidden space-y-6">
                     <div class="bg-slate-50 p-6 rounded-2xl border space-y-4">
                         <h4 class="font-bold text-slate-800 text-sm">قائمة الأعضاء والمشتركين المسجلين في الموقع</h4>
@@ -355,7 +352,7 @@
                                 <span class="text-[10px] text-gray-400 block mt-1">القياس الموصى به: 300×300 بكسل</span>
                             </div>
                             <div><label class="block font-bold mb-1">رقم خدمة العملاء / اتصل بنا</label><input type="text" id="s-phone" class="w-full bg-white border rounded-xl px-3 py-2" value="0543201995"></div>
-                            <button type="submit" class="bg-orange-500 text-white font-bold px-6 py-2.5 rounded-xl">حفظ الإعدادات والشعار</button>
+                            <button type="submit" class="bg-orange-500 text-white font-bold px-6 py-2.5 rounded-xl">حفظ الإعدادات</button>
                         </form>
                     </div>
                 </div>
@@ -433,8 +430,8 @@
             { id: 8, sku: "ELEV-CAM-001", model: "Zamla-Elevator-Wireless", name: "نظام كاميرات مصاعد لاسلكي بالكامل", category: "المراقبة", price: 1450.00, stock: 1, desc: "نقل فيديو عالي الدقة وثابت بدون تمديد أسلاك في شافت المصعد.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80", featured: true }
         ];
 
-        let products = JSON.parse(localStorage.getItem('zamla_products_v24')) || initialProducts;
-        let categories = JSON.parse(localStorage.getItem('zamla_categories_v24')) || [
+        let products = JSON.parse(localStorage.getItem('zamla_products_v25')) || initialProducts;
+        let categories = JSON.parse(localStorage.getItem('zamla_categories_v25')) || [
             { name: 'المراقبة', icon: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=200' },
             { name: 'أجهزة التسجيل', icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=200' },
             { name: 'الشبكات', icon: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=200' },
@@ -442,13 +439,13 @@
             { name: 'طابعات', icon: 'https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=200' },
             { name: 'الحاسب', icon: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=200' }
         ];
-        let affiliates = JSON.parse(localStorage.getItem('zamla_affiliates_v24')) || [
+        let affiliates = JSON.parse(localStorage.getItem('zamla_affiliates_v25')) || [
             { name: "أحمد محمد", phone: "0543201995", code: "ZF-AFF-7068", rate: 10 }
         ];
-        let members = JSON.parse(localStorage.getItem('zamla_members_v24')) || [
+        let members = JSON.parse(localStorage.getItem('zamla_members_v25')) || [
             { name: "عبدالله الشمري", phone: "0501234567", whatsapp: "00966501234567", location: "الرياض، الملز", nationality: "سعودي", company: "مؤسسة الاتصالات الذكية", type: "فني معتمد" }
         ];
-        let settings = JSON.parse(localStorage.getItem('zamla_settings_v24')) || { 
+        let settings = JSON.parse(localStorage.getItem('zamla_settings_v25')) || { 
             title: "ZAMLA BINT FALIH AMER", 
             logo: "logo.jpeg", 
             phone: "0543201995",
@@ -456,7 +453,7 @@
             heroDesc: "توريد وتركيب أجهزة الشبكات، كاميرات المصاعد اللاسلكية، السنترالات والحلول الأمنية المتكاملة.",
             heroImg: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&auto=format&fit=crop&q=80"
         };
-        let cart = JSON.parse(localStorage.getItem('zamla_cart_v24')) || [];
+        let cart = JSON.parse(localStorage.getItem('zamla_cart_v25')) || [];
         let currentUser = JSON.parse(localStorage.getItem('zamla_user')) || null;
         window.currentPage = 'home';
 
@@ -662,31 +659,38 @@
                 `;
             }
             else if (page === 'sketch') {
+                // أداة تصميم كروكي ذكي متطورة تتضمن حساب أطوال الكابلات، تحديد نوع التسعير (قطع فقط أم شامل التركيب)، واقتراح الإضافات التكميلية
                 main.innerHTML = `
                     <div class="max-w-3xl mx-auto px-4 py-16 no-print">
                         <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 space-y-6">
-                            <h1 class="text-2xl font-black text-slate-900 border-b pb-4">📐 أداة تصميم الكروكي الذكي وعرض السعر الفوري (AI Site Sketch & Quote)</h1>
-                            <p class="text-xs text-gray-600">أجب عن الأسئلة الفنية التالية ليقوم الذكاء الاصطناعي بتحليل المشروع وتوليد مسقط هندسي مقترح مع جلب الموديلات والأسعار:</p>
+                            <h1 class="text-2xl font-black text-slate-900 border-b pb-4">📐 أداة تصميم الكروكي الذكي وحساب الاحتياجات للمشاريع (AI Site Sketch & Estimator)</h1>
+                            <p class="text-xs text-gray-600">أدخل تفاصيل ومواصفات الموقع ليقوم الخبير الذكي بحساب عدد الكاميرات، أطوال الأسلاك، تكلفة التركيب أو القطع وحدها، وإصدار عرض السعر:</p>
                             <div class="space-y-4 text-xs">
                                 <div>
                                     <label class="block font-bold mb-1">1. ما هو نوع المشروع وطبيعته؟</label>
                                     <select id="sk-proj-type" class="w-full bg-slate-50 border rounded-xl p-3 text-sm">
-                                        <option value="فيلا سكنية">فيلا سكنية / قصر</option>
-                                        <option value="معرض تجاري">معرض تجاري أو محل</option>
-                                        <option value="مبنى إداري / فندق">مبنى إداري أو فندق</option>
-                                        <option value="مستودع / مصنع">مستودع أو مصنع لوجستي</option>
+                                        <option value="فيلا سكنية / قصر">فيلا سكنية / قصر</option>
+                                        <option value="معرض تجاري أو محل">معرض تجاري أو محل</option>
+                                        <option value="مبنى إداري أو فندق">مبنى إداري أو فندق</option>
+                                        <option value="مستودع أو مصنع لوجستي">مستودع أو مصنع لوجستي</option>
                                     </select>
                                 </div>
                                 <div><label class="block font-bold mb-1">2. أبعاد ومساحة الموقع (الطول × العرض بالمتر)</label><input type="text" id="sk-dims" placeholder="مثال: 30م × 20م" class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
                                 <div>
-                                    <label class="block font-bold mb-1">3. المتطلبات الأمنية والشبكية الأساسية:</label>
-                                    <select id="sk-needs" class="w-full bg-slate-50 border rounded-xl p-3 text-sm">
-                                        <option value="كاميرات مراقبة خارجية وداخلية مع شبكة Wi-Fi">كاميرات مراقبة خارجية وداخلية مع شبكة Wi-Fi</option>
-                                        <option value="نظام كاميرات مصاعد لاسلكي بالكامل">نظام كاميرات مصاعد لاسلكي بالكامل (بدون أسلاك)</option>
-                                        <option value="سنترال IP PBX مع كاميرات وشبكات متكاملة">سنترال IP PBX مع كاميرات وشبكات متكاملة</option>
+                                    <label class="block font-bold mb-1">3. نوع الخدمة والتسعير المطلوبة:</label>
+                                    <select id="sk-pricing-type" class="w-full bg-slate-50 border rounded-xl p-3 text-sm">
+                                        <option value="شامل التمديد والتركيب والبرمجة">توريد شامل التمديد والتركيب والبرمجة (شامل المصنعية)</option>
+                                        <option value="سعر القطع والأجهزة فقط بدون تركيب">سعر القطع والأجهزة فقط (بدون تركيب)</option>
                                     </select>
                                 </div>
-                                <button onclick="generateGeminiAIQuotedSketch()" class="w-full bg-orange-500 text-white font-bold py-3.5 rounded-xl text-sm shadow">تحليل المشروع هندسياً واقتراح عرض السعر الذكي 🤖</button>
+                                <div>
+                                    <label class="block font-bold mb-1">4. الإضافات التكميلية المطلوبة للموقع:</label>
+                                    <div class="flex gap-4 pt-1">
+                                        <label class="flex items-center gap-1"><input type="checkbox" id="sk-add-ups" class="w-4 h-4 text-orange-500 rounded"> جهاز حماية طاقة UPS</label>
+                                        <label class="flex items-center gap-1"><input type="checkbox" id="sk-add-pipe" class="w-4 h-4 text-orange-500 rounded"> مواسير حماية PVC وأنابيب</label>
+                                    </div>
+                                </div>
+                                <button onclick="generateAdvancedAISketchQuote()" class="w-full bg-orange-500 text-white font-bold py-3.5 rounded-xl text-sm shadow">حساب الاحتياجات والأسعار وتوليد عرض السعر 🤖</button>
                                 <div id="sketch-result" class="pt-4 text-xs space-y-3"></div>
                             </div>
                         </div>
@@ -783,11 +787,79 @@
             updateLanguageUI();
         }
 
+        // أداة الكروكي الذكي المتقدمة لحساب الكاميرات، الأسلاك، التركيب، والإضافات واقتراح عرض السعر
+        function generateAdvancedAISketchQuote() {
+            const type = document.getElementById('sk-proj-type').value;
+            const dims = document.getElementById('sk-dims').value;
+            const pricing = document.getElementById('sk-pricing-type').value;
+            const addUps = document.getElementById('sk-add-ups').checked;
+            const addPipe = document.getElementById('sk-add-pipe').checked;
+
+            if(!dims) { alert('الرجاء إدخال أبعاد ومساحة الموقع'); return; }
+
+            const camItem = products.find(p => p.category === 'المراقبة') || products[0];
+            const nvrItem = products.find(p => p.category === 'أجهزة التسجيل') || products[1];
+            const netItem = products.find(p => p.category === 'الشبكات') || products[2];
+
+            const camCount = 6;
+            const cableMeters = camCount * 25; // 25 متر لكل كاميرا كمتوسط
+            const cablePrice = cableMeters * 3.5; // 3.5 ريال للمتر
+            const installationFee = pricing.includes('شامل') ? (camCount * 90) : 0; // 90 ريال مصنعية تركيب البرمجة لكل كاميرا
+            const upsPrice = addUps ? 450 : 0;
+            const pipePrice = addPipe ? 300 : 0;
+
+            const equipmentTotal = (camItem ? camItem.price : 150) * camCount + (nvrItem ? nvrItem.price : 650) + (netItem ? netItem.price : 850) + cablePrice + upsPrice + pipePrice;
+            const grandTotalEstimate = equipmentTotal + installationFee;
+
+            document.getElementById('sketch-result').innerHTML = `
+                <div class="bg-slate-900 text-white p-6 rounded-2xl space-y-3 shadow-lg">
+                    <div class="flex items-center gap-2 text-orange-400 font-bold text-sm">
+                        <span>🤖 تقرير الهندسة الميدانية وحساب الاحتياجات (ZAMLA AI Estimator):</span>
+                    </div>
+                    <div class="text-xs leading-relaxed space-y-3 border-t border-slate-700 pt-3">
+                        <p><strong>📍 المشروع:</strong> ${type} (${dims}) - نظام التسعير: <strong>${pricing}</strong></p>
+                        <p><strong>📏 حسابات الكابلات والمصنعية:</strong></p>
+                        <ul class="list-disc pr-4 space-y-1 text-slate-300">
+                            <li>عدد الكاميرات المقترح: <strong>${camCount} كاميرات</strong> (تغطية تكتيكية شاملة).</li>
+                            <li>إجمالي أطوال كابلات UTP Cat6 المطلوبة: <strong>${cableMeters} متر</strong> (${cablePrice.toFixed(2)} ر.س).</li>
+                            ${addUps ? '<li>جهاز حماية طاقة UPS: مشمول (450 ر.س)</li>' : ''}
+                            ${addPipe ? '<li>مواسير وتمديدات PVC: مشمولة (300 ر.س)</li>' : ''}
+                            ${installationFee > 0 ? `<li>تكلفة التركيب والبرمجة والمصنعية: ${installationFee} ر.س</li>` : '<li>سعر القطع والأجهزة فقط (بدون مصنعية تركيب)</li>'}
+                        </ul>
+                        <p class="text-orange-300 font-bold">🛒 جدول الأجهزة والتكاليف المقترحة:</p>
+                        <ul class="list-disc pr-4 space-y-1 text-slate-300">
+                            <li>${camCount} × ${camItem ? camItem.model : 'DS-2CD1021-I'} (${camItem ? camItem.name : 'كاميرا IP'}) - ${((camItem ? camItem.price : 124.42) * camCount).toFixed(2)} ر.س</li>
+                            <li>1 × ${nvrItem ? nvrItem.model : 'DS-7608NI'} (جهاز تسجيل NVR) - ${nvrItem ? nvrItem.price : 650} ر.س</li>
+                            <li>1 × ${netItem ? netItem.model : 'RG-RAP72PRO'} (راوتر / شبكة) - ${netItem ? netItem.price : 850} ر.س</li>
+                        </ul>
+                        <div class="flex justify-between items-center bg-slate-800 p-3 rounded-xl mt-3">
+                            <span class="font-bold text-sm">الإجمالي التقديري الشامل:</span>
+                            <span class="text-orange-400 font-black text-sm">${grandTotalEstimate.toFixed(2)} ر.س</span>
+                        </div>
+                        <button onclick="addAdvancedQuoteToCart(${camItem ? camItem.id : 1}, ${nvrItem ? nvrItem.id : 2}, ${netItem ? netItem.id : 4}, ${camCount})" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl mt-2 text-xs shadow">إضافة كافة الاحتياجات للسلة وإصدار عرض السعر الرسمي 📄</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function addAdvancedQuoteToCart(id1, id2, id3, count) {
+            const p1 = products.find(p => p.id === id1);
+            const p2 = products.find(p => p.id === id2);
+            const p3 = products.find(p => p.id === id3);
+            if(p1) { p1.qty = count; cart.push(p1); }
+            if(p2) { p2.qty = 1; cart.push(p2); }
+            if(p3) { p3.qty = 1; cart.push(p3); }
+            localStorage.setItem('zamla_cart_v25', JSON.stringify(cart));
+            updateCartUI();
+            alert('تمت إضافة جميع الاحتياجات والقطع المقترحة للسلة بنجاح!');
+            navigateTo('quotation-preview');
+        }
+
         // إرسال طلب عرض السعر وطلب موافقة الإدارة مباشرة لرقم الواتساب 00966543201995
         function sendQuotationToAdminWhatsApp(subtotal, grandTotal) {
             let msg = `طلب موافقة على عرض سعر رسمي:%0A`;
             cart.forEach(item => {
-                msg += `- ${item.model} (${item.qty || 1} قطعتين) : ${item.price} ر.س%0A`;
+                msg += `- ${item.model} (${item.qty || 1} قطعة) : ${item.price} ر.س%0A`;
             });
             msg += `%0Aالمجموع بدون ضريبة: ${subtotal} ر.س%0Aالإجمالي شامل الضريبة (15%): ${grandTotal} ر.س%0A%0Aيرجى الموافقة أو الرفض.`;
             window.open(`https://wa.me/00966543201995?text=${msg}`, '_blank');
@@ -815,7 +887,7 @@
 
             const newMember = { name, phone, whatsapp, location, nationality, company, type };
             members.push(newMember);
-            localStorage.setItem('zamla_members_v24', JSON.stringify(members));
+            localStorage.setItem('zamla_members_v25', JSON.stringify(members));
 
             currentUser = { name, phone, email: phone + '@zamla.com' };
             localStorage.setItem('zamla_user', JSON.stringify(currentUser));
@@ -823,55 +895,6 @@
             toggleAuthModal();
             alert('تم تسجيل عضويتك بنجاح وأصبح بإمكانك طلب وعروض الأسعار الرسمية!');
             document.getElementById('auth-nav-btn').innerText = currentUser.name;
-        }
-
-        // توليد تحليل هندسي وعرض سعر ذكي مطابق تماماً لردود جيمناي الاحترافية
-        function generateGeminiAIQuotedSketch() {
-            const type = document.getElementById('sk-proj-type').value;
-            const dims = document.getElementById('sk-dims').value;
-            const needs = document.getElementById('sk-needs').value;
-            if(!dims) { alert('الرجاء إدخال أبعاد ومساحة الموقع'); return; }
-
-            const camItem = products.find(p => p.category === 'المراقبة') || products[0];
-            const nvrItem = products.find(p => p.category === 'أجهزة التسجيل') || products[1];
-            const netItem = products.find(p => p.category === 'الشبكات') || products[2];
-
-            const estPrice = (camItem ? camItem.price : 150) * 6 + (nvrItem ? nvrItem.price : 650) + (netItem ? netItem.price : 450);
-
-            document.getElementById('sketch-result').innerHTML = `
-                <div class="bg-slate-900 text-white p-6 rounded-2xl space-y-3 shadow-lg">
-                    <div class="flex items-center gap-2 text-orange-400 font-bold text-sm">
-                        <span>🤖 تحليل وخطة العمل ومقترح عرض السعر من ZAMLA AI (مطابق لخبراء التيار الخفيف):</span>
-                    </div>
-                    <div class="text-xs leading-relaxed space-y-3 border-t border-slate-700 pt-3">
-                        <p><strong>📍 المشروع:</strong> ${type} (${dims}) - المتطلب: ${needs}</p>
-                        <p><strong>📋 1. التحليل الهندسي الميداني والتوزيع التكتيكي:</strong></p>
-                        <ul class="list-disc pr-4 space-y-1 text-slate-300">
-                            <li><strong>التغطية الأمنية:</strong> يوصى بتركيب 6 كاميرات مراقبة خارجية وداخلية (Hikvision ColorVu 4K) لتغطية كافة المداخل والمخارج ومنع أي زوايا ميتة.</li>
-                            <li><strong>البنية التحتية للشبكات:</strong> بناءً على المساحة المقدرة (${dims})، يلزم توفر نقطة وصول لاسلكية (Wi-Fi 7) وسويتش PoE مركزي مع تمديد كابلات Cat6 نحاس نقي.</li>
-                        </ul>
-                        <p class="text-orange-300 font-bold">🛒 2. الأجهزة المقترحة مباشرة من الكتالوج المعتمد:</p>
-                        <ul class="list-disc pr-4 space-y-1 text-slate-300">
-                            <li>6 × ${camItem ? camItem.model : 'DS-2CD1021-I'} (${camItem ? camItem.name : 'كاميرا IP'}) - السعر: ${camItem ? camItem.price : 124.42} ر.س</li>
-                            <li>1 × ${nvrItem ? nvrItem.model : 'DS-7608NI'} (جهاز تسجيل NVR) - السعر: ${nvrItem ? nvrItem.price : 650} ر.س</li>
-                            <li>1 × ${netItem ? netItem.model : 'RG-RAP72PRO'} (راوتر / نقطة وصول) - السعر: ${netItem ? netItem.price : 850} ر.س</li>
-                        </ul>
-                        <div class="flex justify-between items-center bg-slate-800 p-3 rounded-xl mt-3">
-                            <span class="font-bold text-sm">إجمالي التكلفة التقديرية للمشروع:</span>
-                            <span class="text-orange-400 font-black text-sm">${estPrice.toFixed(2)} ر.س</span>
-                        </div>
-                        <button onclick="addGeminiQuoteToCart(${camItem ? camItem.id : 1}, ${nvrItem ? nvrItem.id : 2}, ${netItem ? netItem.id : 4})" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl mt-2 text-xs shadow">إضافة كافة الأجهزة المقترحة للسلة وإصدار عرض السعر الرسمي 📄</button>
-                    </div>
-                </div>
-            `;
-        }
-
-        function addGeminiQuoteToCart(id1, id2, id3) {
-            addToCart(id1);
-            addToCart(id2);
-            addToCart(id3);
-            alert('تمت إضافة الأجهزة المقترحة للسلة بنجاح!');
-            navigateTo('quotation-preview');
         }
 
         // شات الذكاء الاصطناعي الذكي
@@ -918,7 +941,7 @@
             if(!name || !phone) { alert('أدخل الاسم ورقم الجوال'); return; }
             const code = 'ZF-AFF-' + Math.floor(1000 + Math.random() * 9000);
             affiliates.push({ name, phone, code, rate });
-            localStorage.setItem('zamla_affiliates_v24', JSON.stringify(affiliates));
+            localStorage.setItem('zamla_affiliates_v25', JSON.stringify(affiliates));
             renderAffiliateTable();
             const text = `السلام عليكم ${name},%0Aتم اعتمادك في برنامج البيع بالعمولة لمؤسسة زمله بنت فالح بربح نسبة ${rate}%.%0Aكود التسويق الخاص بك هو: *${code}*`;
             window.open(`https://wa.me/966${phone.replace(/^0/, '')}?text=${text}`, '_blank');
@@ -933,7 +956,7 @@
                         <tr><th class="p-2.5">اسم المسوق</th><th class="p-2.5">الجوال</th><th class="p-2.5">الكود</th><th class="p-2.5">النسبة</th><th class="p-2.5">إجراء</th></tr>
                     </thead>
                     <tbody>
-                        ${affiliates.map((a, i) => `<tr class="border-b"><td class="p-2.5 font-bold">${a.name}</td><td class="p-2.5">${a.phone}</td><td class="p-2.5 font-mono text-orange-600 font-bold">${a.code}</td><td class="p-2.5">${a.rate}%</td><td class="p-2.5"><button onclick="affiliates.splice(${i},1); localStorage.setItem('zamla_affiliates_v24', JSON.stringify(affiliates)); renderAffiliateTable();" class="text-red-500 font-bold">حذف</button></td></tr>`).join('')}
+                        ${affiliates.map((a, i) => `<tr class="border-b"><td class="p-2.5 font-bold">${a.name}</td><td class="p-2.5">${a.phone}</td><td class="p-2.5 font-mono text-orange-600 font-bold">${a.code}</td><td class="p-2.5">${a.rate}%</td><td class="p-2.5"><button onclick="affiliates.splice(${i},1); localStorage.setItem('zamla_affiliates_v25', JSON.stringify(affiliates)); renderAffiliateTable();" class="text-red-500 font-bold">حذف</button></td></tr>`).join('')}
                     </tbody>
                 </table>
             `;
@@ -1056,7 +1079,7 @@
             } else {
                 cart.push({ ...p, qty: 1 });
             }
-            localStorage.setItem('zamla_cart_v24', JSON.stringify(cart));
+            localStorage.setItem('zamla_cart_v25', JSON.stringify(cart));
             updateCartUI();
             toggleCart();
         }
@@ -1067,13 +1090,13 @@
             if (cart[index].qty <= 0) {
                 cart.splice(index, 1);
             }
-            localStorage.setItem('zamla_cart_v24', JSON.stringify(cart));
+            localStorage.setItem('zamla_cart_v25', JSON.stringify(cart));
             updateCartUI();
         }
 
         function removeFromCart(i) {
             cart.splice(i, 1);
-            localStorage.setItem('zamla_cart_v24', JSON.stringify(cart));
+            localStorage.setItem('zamla_cart_v25', JSON.stringify(cart));
             updateCartUI();
         }
 
@@ -1106,7 +1129,7 @@
         }
 
         function toggleCart() { document.getElementById('cart-drawer').classList.toggle('-translate-x-full'); }
-        function proceedToCheckout() { alert('تم تأكيد الطلب بنجاح!'); cart = []; localStorage.removeItem('zamla_cart_v24'); updateCartUI(); toggleCart(); navigateTo('home'); }
+        function proceedToCheckout() { alert('تم تأكيد الطلب بنجاح!'); cart = []; localStorage.removeItem('zamla_cart_v25'); updateCartUI(); toggleCart(); navigateTo('home'); }
 
         function toggleAdminModal() {
             document.getElementById('admin-modal').classList.toggle('hidden');
@@ -1157,7 +1180,7 @@
                 } else {
                     products.unshift({ id: Date.now(), model, name, category, price, stock, desc, featured, image: imgUrl || "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500" });
                 }
-                localStorage.setItem('zamla_products_v24', JSON.stringify(products));
+                localStorage.setItem('zamla_products_v25', JSON.stringify(products));
                 document.getElementById('product-form').reset();
                 renderAdminProducts();
                 renderInventoryAnalytics();
@@ -1187,7 +1210,7 @@
 
         function deleteProduct(id) {
             products = products.filter(p => p.id !== id);
-            localStorage.setItem('zamla_products_v24', JSON.stringify(products));
+            localStorage.setItem('zamla_products_v25', JSON.stringify(products));
             renderAdminProducts();
             renderInventoryAnalytics();
         }
@@ -1204,7 +1227,7 @@
                 } else {
                     categories.push({ name, icon: iconUrl || 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=200' });
                 }
-                localStorage.setItem('zamla_categories_v24', JSON.stringify(categories));
+                localStorage.setItem('zamla_categories_v25', JSON.stringify(categories));
                 document.getElementById('category-form').reset();
                 renderAdminCategories();
                 populateCategoryDropdown();
@@ -1226,7 +1249,7 @@
             
             const finishHero = (imgUrl) => {
                 if(imgUrl) settings.heroImg = imgUrl;
-                localStorage.setItem('zamla_settings_v24', JSON.stringify(settings));
+                localStorage.setItem('zamla_settings_v25', JSON.stringify(settings));
                 alert('تم تحديث بنر الواجهة بنجاح!');
                 navigateTo('home');
             };
@@ -1245,7 +1268,7 @@
 
         function deleteCategory(i) {
             categories.splice(i, 1);
-            localStorage.setItem('zamla_categories_v24', JSON.stringify(categories));
+            localStorage.setItem('zamla_categories_v25', JSON.stringify(categories));
             renderAdminCategories();
             populateCategoryDropdown();
         }
@@ -1284,14 +1307,14 @@
                         };
                         products.unshift(newP);
                     });
-                    localStorage.setItem('zamla_products_v24', JSON.stringify(products));
+                    localStorage.setItem('zamla_products_v25', JSON.stringify(products));
                     renderAdminProducts();
                     renderInventoryAnalytics();
                     alert('تم استيراد الأصناف والمخزون بنجاح!');
                     switchAdminTab('products');
                 } catch(err) { alert('خطأ في قراءة ملف الأكسيل'); }
             };
-            reader.readAsDataURL(file);
+            reader.readAsArrayBuffer(file);
         }
 
         function saveSettings(e) {
@@ -1303,7 +1326,7 @@
                 settings.title = title;
                 settings.phone = phone;
                 if(logoUrl) settings.logo = logoUrl;
-                localStorage.setItem('zamla_settings_v24', JSON.stringify(settings));
+                localStorage.setItem('zamla_settings_v25', JSON.stringify(settings));
                 initApp();
                 alert('تم حفظ الإعدادات!');
             };
