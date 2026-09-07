@@ -155,7 +155,8 @@
         </button>
         <a id="whatsapp-float" href="https://wa.me/966543201995" target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white p-3.5 rounded-full shadow-2xl flex items-center justify-center transition transform hover:scale-110" title="محادثة واتساب">
             <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-    </a>
+        </a>
+    </div>
 
     <!-- نافذة شات الذكاء الاصطناعي الفوري -->
     <div id="live-chat-modal" class="fixed bottom-24 left-6 z-50 w-80 bg-white rounded-3xl shadow-2xl border hidden flex flex-col overflow-hidden text-xs no-print">
@@ -191,7 +192,7 @@
         </div>
     </div>
 
-    <!-- سلة المشتريات (مع دعم تعديل الكميات + / -) -->
+    <!-- سلة المشتريات -->
     <div id="cart-drawer" class="fixed inset-y-0 left-0 z-50 w-full sm:w-96 bg-white border-r border-gray-300 shadow-2xl transform -translate-x-full transition-transform duration-300 flex flex-col no-print">
         <div class="p-5 border-b border-gray-200 flex justify-between items-center bg-[#334155] text-white">
             <h3 class="font-bold text-sm">محتويات سلة التسوق</h3>
@@ -260,7 +261,7 @@
                     </div>
                     <div id="admin-products-list" class="space-y-2 max-h-72 overflow-y-auto border p-3 rounded-2xl bg-white"></div>
                 </div>
-                <!-- التصنيفات والبنر (Hero Banner Dynamic Editor) -->
+                <!-- التصنيفات والبنر -->
                 <div id="admin-tab-categories" class="hidden space-y-6">
                     <div class="bg-slate-50 p-4 rounded-2xl border space-y-3">
                         <h4 class="font-bold text-slate-800 text-sm">تعديل محتوى السكشن الرئيسي (Hero Banner)</h4>
@@ -272,7 +273,6 @@
                         </form>
                     </div>
                     <div class="bg-slate-50 p-4 rounded-2xl border space-y-3">
-                        <h4 class="font-bold text-slate-800 text-sm" id="cat-form-title">إضافة تصنيف جديد مع صورة</h4>
                         <form id="category-form" onsubmit="saveCategoryData(event)" class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                             <input type="hidden" id="c-edit-index" value="">
                             <input type="text" id="new-cat-name" placeholder="اسم التصنيف" required class="bg-white border rounded-xl px-3 py-2 sm:col-span-2">
@@ -282,10 +282,9 @@
                     </div>
                     <div id="admin-categories-list" class="space-y-2"></div>
                 </div>
-                <!-- جدول المسوقين والعمولات Affiliate -->
+                <!-- Affiliate -->
                 <div id="admin-tab-affiliate-admin" class="hidden space-y-6">
                     <div class="bg-slate-50 p-6 rounded-2xl border space-y-4">
-                        <h4 class="font-bold text-slate-800 text-sm">جدول تسجيل وحساب المسوقين والعمولات</h4>
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                             <input type="text" id="aff-marketer-name" placeholder="اسم المسوق" class="bg-white border rounded-xl px-3 py-2">
                             <input type="tel" id="aff-marketer-phone" placeholder="رقم الجوال (واتساب)" class="bg-white border rounded-xl px-3 py-2">
@@ -318,7 +317,7 @@
         </div>
     </div>
 
-    <!-- البرمجة الشاملة والتفاعلية واستعادة الـ 73 منتجاً بالكامل -->
+    <!-- البرمجة الشاملة والتفاعلية -->
     <script>
         const translations = {
             ar: {
@@ -374,7 +373,7 @@
             if(switcher) switcher.value = currentLang;
         }
 
-        // جميع الـ 73 منتجاً الحقيقية من الكتالوج السعودي الرسمي
+        // جميع الـ 73 منتجاً الحقيقية من الكتالوج السعودي الرسمي بالكامل
         const initialProducts = [
             { id: 1, sku: "CCTV-HIK-001", model: "DS-2CD1021-I", name: "كاميرا IP 2 ميجابكسل", category: "المراقبة", price: 124.42, stock: 25, desc: "كاميرا شبكية خارجية بدقة 2 ميجابكسل مع رؤية ليلية.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80", featured: true },
             { id: 2, sku: "CCTV-HIK-002", model: "DS-2CD1043G2-LIU", name: "كاميرا ColorVu خارجية 4 ميجابكسل", category: "المراقبة", price: 150.00, stock: 4, desc: "كاميرا IP خارجية بدقة 4 ميجابكسل من سلسلة ColorVu للتصوير الملون.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80", featured: true },
@@ -617,6 +616,17 @@
                             <h1 class="text-2xl font-black text-slate-900 border-b pb-4">🧮 حاسبة مساحة التخزين للهاردسك</h1>
                             <div class="space-y-4 text-xs">
                                 <div><label class="block font-bold mb-1">عدد الكاميرات:</label><input type="number" id="calc-cams" value="8" min="1" class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
+                                <div>
+                                    <label class="block font-bold mb-1">دقة الكاميرات:</label>
+                                    <select id="calc-res" class="w-full bg-slate-50 border rounded-xl p-3 text-sm">
+                                        <option value="15">2 ميجابكسل (2MP)</option>
+                                        <option value="30">4 ميجابكسل (4MP)</option>
+                                        <option value="45">5 ميجابكسل (5MP)</option>
+                                        <option value="60">6 ميجابكسل (6MP)</option>
+                                        <option value="80" selected>8 ميجابكسل 4K</option>
+                                        <option value="120">12 ميجابكسل</option>
+                                    </select>
+                                </div>
                                 <div><label class="block font-bold mb-1">عدد الأيام:</label><input type="number" id="calc-days" value="30" min="1" class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
                                 <button onclick="calculateStorage()" class="w-full bg-orange-500 text-white font-bold py-3.5 rounded-xl text-sm">حساب المساحة</button>
                                 <div id="calc-result" class="pt-4 text-center font-black text-base text-slate-800"></div>
@@ -733,7 +743,7 @@
             if(!name || !phone) { alert('أدخل الاسم ورقم الجوال'); return; }
             const code = 'ZF-AFF-' + Math.floor(1000 + Math.random() * 9000);
             affiliates.push({ name, phone, code, rate });
-            localStorage.setItem('zamla_affiliates_v15', JSON.stringify(affiliates));
+            localStorage.setItem('zamla_affiliates_v19', JSON.stringify(affiliates));
             renderAffiliateTable();
             const text = `السلام عليكم ${name},%0Aتم اعتمادك في برنامج البيع بالعمولة لمؤسسة زمله بنت فالح بربح نسبة ${rate}%.%0Aكود التسويق الخاص بك هو: *${code}*`;
             window.open(`https://wa.me/966${phone.replace(/^0/, '')}?text=${text}`, '_blank');
@@ -748,7 +758,7 @@
                         <tr><th class="p-2.5">اسم المسوق</th><th class="p-2.5">الجوال</th><th class="p-2.5">الكود</th><th class="p-2.5">النسبة</th><th class="p-2.5">إجراء</th></tr>
                     </thead>
                     <tbody>
-                        ${affiliates.map((a, i) => `<tr class="border-b"><td class="p-2.5 font-bold">${a.name}</td><td class="p-2.5">${a.phone}</td><td class="p-2.5 font-mono text-orange-600 font-bold">${a.code}</td><td class="p-2.5">${a.rate}%</td><td class="p-2.5"><button onclick="affiliates.splice(${i},1); localStorage.setItem('zamla_affiliates_v15', JSON.stringify(affiliates)); renderAffiliateTable();" class="text-red-500 font-bold">حذف</button></td></tr>`).join('')}
+                        ${affiliates.map((a, i) => `<tr class="border-b"><td class="p-2.5 font-bold">${a.name}</td><td class="p-2.5">${a.phone}</td><td class="p-2.5 font-mono text-orange-600 font-bold">${a.code}</td><td class="p-2.5">${a.rate}%</td><td class="p-2.5"><button onclick="affiliates.splice(${i},1); localStorage.setItem('zamla_affiliates_v19', JSON.stringify(affiliates)); renderAffiliateTable();" class="text-red-500 font-bold">حذف</button></td></tr>`).join('')}
                     </tbody>
                 </table>
             `;
@@ -756,8 +766,9 @@
 
         function calculateStorage() {
             const cams = parseInt(document.getElementById('calc-cams').value) || 8;
+            const resGB = parseInt(document.getElementById('calc-res').value) || 80;
             const days = parseInt(document.getElementById('calc-days').value) || 30;
-            const totalTB = ((cams * 80 * days) / 1024).toFixed(2);
+            const totalTB = ((cams * resGB * days) / 1024).toFixed(2);
             document.getElementById('calc-result').innerText = `المساحة الإجمالية المطلوبة: ${totalTB} TB`;
         }
 
@@ -822,8 +833,13 @@
 
         function addToCart(id) {
             const p = products.find(item => item.id === id);
-            cart.push(p);
-            localStorage.setItem('zamla_cart_v15', JSON.stringify(cart));
+            const existing = cart.find(item => item.id === id);
+            if(existing) {
+                existing.qty = (existing.qty || 1) + 1;
+            } else {
+                cart.push({ ...p, qty: 1 });
+            }
+            localStorage.setItem('zamla_cart_v19', JSON.stringify(cart));
             updateCartUI();
             toggleCart();
         }
@@ -834,18 +850,18 @@
             if (cart[index].qty <= 0) {
                 cart.splice(index, 1);
             }
-            localStorage.setItem('zamla_cart_v15', JSON.stringify(cart));
+            localStorage.setItem('zamla_cart_v19', JSON.stringify(cart));
             updateCartUI();
         }
 
         function removeFromCart(i) {
             cart.splice(i, 1);
-            localStorage.setItem('zamla_cart_v15', JSON.stringify(cart));
+            localStorage.setItem('zamla_cart_v19', JSON.stringify(cart));
             updateCartUI();
         }
 
         function updateCartUI() {
-            document.getElementById('cart-count').innerText = cart.length;
+            document.getElementById('cart-count').innerText = cart.reduce((sum, item) => sum + (item.qty || 1), 0);
             const container = document.getElementById('cart-items');
             if(!container) return;
             if(cart.length === 0) { container.innerHTML = '<p class="text-center text-gray-500 py-8">السلة فارغة</p>'; document.getElementById('cart-total').innerText = '0 ر.س'; return; }
@@ -873,7 +889,7 @@
         }
 
         function toggleCart() { document.getElementById('cart-drawer').classList.toggle('-translate-x-full'); }
-        function proceedToCheckout() { alert('تم تأكيد الطلب بنجاح!'); cart = []; localStorage.removeItem('zamla_cart_v15'); updateCartUI(); toggleCart(); navigateTo('home'); }
+        function proceedToCheckout() { alert('تم تأكيد الطلب بنجاح!'); cart = []; localStorage.removeItem('zamla_cart_v19'); updateCartUI(); toggleCart(); navigateTo('home'); }
 
         function toggleAdminModal() {
             document.getElementById('admin-modal').classList.toggle('hidden');
@@ -919,7 +935,7 @@
                 } else {
                     products.unshift({ id: Date.now(), model, name, category, price, stock, desc, featured, image: imgUrl || "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500" });
                 }
-                localStorage.setItem('zamla_products_v15', JSON.stringify(products));
+                localStorage.setItem('zamla_products_v19', JSON.stringify(products));
                 document.getElementById('product-form').reset();
                 renderAdminProducts();
                 alert('تم الحفظ بنجاح!');
@@ -948,7 +964,7 @@
 
         function deleteProduct(id) {
             products = products.filter(p => p.id !== id);
-            localStorage.setItem('zamla_products_v15', JSON.stringify(products));
+            localStorage.setItem('zamla_products_v19', JSON.stringify(products));
             renderAdminProducts();
         }
 
@@ -964,7 +980,7 @@
                 } else {
                     categories.push({ name, icon: iconUrl || 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=200' });
                 }
-                localStorage.setItem('zamla_categories_v15', JSON.stringify(categories));
+                localStorage.setItem('zamla_categories_v19', JSON.stringify(categories));
                 document.getElementById('category-form').reset();
                 renderAdminCategories();
                 populateCategoryDropdown();
@@ -986,8 +1002,8 @@
             
             const finishHero = (imgUrl) => {
                 if(imgUrl) settings.heroImg = imgUrl;
-                localStorage.setItem('zamla_settings_v15', JSON.stringify(settings));
-                alert('تم تحديث بنر الواجهة الرئيسية بنجاح!');
+                localStorage.setItem('zamla_settings_v19', JSON.stringify(settings));
+                alert('تم تحديث بنر الواجهة بنجاح!');
                 navigateTo('home');
             };
 
@@ -1005,7 +1021,7 @@
 
         function deleteCategory(i) {
             categories.splice(i, 1);
-            localStorage.setItem('zamla_categories_v15', JSON.stringify(categories));
+            localStorage.setItem('zamla_categories_v19', JSON.stringify(categories));
             renderAdminCategories();
             populateCategoryDropdown();
         }
@@ -1019,6 +1035,41 @@
             `).join('');
         }
 
+        function handleExcelUpload() {
+            const fileInput = document.getElementById('excel-file-input');
+            const file = fileInput.files[0];
+            if (!file) { alert('اختر ملف أكسيل أولاً!'); return; }
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = new Uint8Array(e.target.result);
+                    const workbook = XLSX.read(data, { type: 'array' });
+                    const sheet = workbook.Sheets[workbook.SheetNames[0]];
+                    const rows = XLSX.utils.sheet_to_json(sheet);
+                    rows.forEach((row, idx) => {
+                        const newP = {
+                            id: Date.now() + idx,
+                            model: String(row['Model'] || `ITEM-${idx}`),
+                            name: String(row['Product Name AR'] || 'منتج معتمد'),
+                            category: String(row['Category'] || 'المراقبة'),
+                            price: parseFloat(row['Saudi Price SAR'] || 150.0),
+                            stock: 15,
+                            desc: String(row['Description AR'] || 'منتج عالي الجودة.'),
+                            image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500",
+                            featured: false
+                        };
+                        products.unshift(newP);
+                    });
+                    localStorage.setItem('zamla_products_v19', JSON.stringify(products));
+                    renderAdminProducts();
+                    renderInventoryAnalytics();
+                    alert('تم استيراد الأصناف والمخزون بنجاح!');
+                    switchAdminTab('products');
+                } catch(err) { alert('خطأ في قراءة ملف الأكسيل'); }
+            };
+            reader.readAsDataURL(file);
+        }
+
         function saveSettings(e) {
             e.preventDefault();
             const title = document.getElementById('s-title').value;
@@ -1028,7 +1079,7 @@
                 settings.title = title;
                 settings.phone = phone;
                 if(logoUrl) settings.logo = logoUrl;
-                localStorage.setItem('zamla_settings_v15', JSON.stringify(settings));
+                localStorage.setItem('zamla_settings_v19', JSON.stringify(settings));
                 initApp();
                 alert('تم حفظ الإعدادات!');
             };
