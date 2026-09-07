@@ -21,22 +21,22 @@
     <div class="bg-[#334155] text-gray-300 text-xs py-2 px-4 border-b border-slate-700 no-print">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-5 flex-wrap">
-                <a href="#contact" onclick="navigateTo('contact')" class="hover:text-white transition" data-i18n="contact">اتصل بنا</a>
-                <a href="#quote" onclick="navigateTo('quote')" class="hover:text-white transition text-orange-400 font-bold" data-i18n="quote_link">طلب عرض سعر</a>
-                <a href="#survey" onclick="navigateTo('survey')" class="hover:text-white transition text-orange-400 font-bold" data-i18n="survey_link">طلب معاينة ميدانية</a>
-                <a href="#sketch" onclick="navigateTo('sketch')" class="hover:text-white transition text-cyan-400 font-bold" data-i18n="sketch_link">📐 تصميم كروكي ذكي</a>
-                <a href="#calculator" onclick="navigateTo('calculator')" class="hover:text-white transition text-cyan-400 font-bold" data-i18n="calc_link">حاسبة التخزين</a>
-                <a href="#compare" onclick="navigateTo('compare')" class="hover:text-white transition text-cyan-400 font-bold" data-i18n="compare_link">مقارنة المنتجات</a>
-                <a href="#affiliate" onclick="navigateTo('affiliate')" class="hover:text-white transition text-orange-400 font-bold" data-i18n="affiliate_link">برنامج البيع بالعمولة</a>
-                <a href="#about" onclick="navigateTo('about')" class="hover:text-white transition" data-i18n="about_link">حول المؤسسة والاعتمادات</a>
-                <a href="#payment" onclick="navigateTo('payment')" class="hover:text-white transition" data-i18n="payment_link">طرق السداد</a>
+                <a href="#contact" onclick="navigateTo('contact')" class="hover:text-white transition">اتصل بنا</a>
+                <a href="#quote" onclick="navigateTo('quote')" class="hover:text-white transition text-orange-400 font-bold">طلب عرض سعر</a>
+                <a href="#survey" onclick="navigateTo('survey')" class="hover:text-white transition text-orange-400 font-bold">طلب معاينة ميدانية</a>
+                <a href="#sketch" onclick="navigateTo('sketch')" class="hover:text-white transition text-cyan-400 font-bold">📐 تصميم كروكي ذكي</a>
+                <a href="#calculator" onclick="navigateTo('calculator')" class="hover:text-white transition text-cyan-400 font-bold">حاسبة التخزين</a>
+                <a href="#compare" onclick="navigateTo('compare')" class="hover:text-white transition text-cyan-400 font-bold">مقارنة المنتجات</a>
+                <a href="#affiliate" onclick="navigateTo('affiliate')" class="hover:text-white transition text-orange-400 font-bold">برنامج البيع بالعمولة</a>
+                <a href="#about" onclick="navigateTo('about')" class="hover:text-white transition">حول المؤسسة والاعتمادات</a>
+                <a href="#payment" onclick="navigateTo('payment')" class="hover:text-white transition">طرق السداد</a>
             </div>
             <div class="flex items-center gap-4">
                 <select id="lang-switcher" onchange="changeLanguage(this.value)" class="bg-slate-800 text-white rounded px-2 py-0.5 border border-slate-600 text-xs focus:outline-none">
                     <option value="ar">العربية (AR)</option>
                     <option value="en">English (EN)</option>
                 </select>
-                <button onclick="toggleAuthModal()" class="text-orange-400 font-bold hover:underline" id="auth-nav-btn" data-i18n="login_btn">تسجيل الدخول</button>
+                <button onclick="toggleAuthModal()" class="text-orange-400 font-bold hover:underline" id="auth-nav-btn">تسجيل الدخول</button>
             </div>
         </div>
     </div>
@@ -124,8 +124,8 @@
                 <ul class="space-y-2 text-gray-400">
                     <li><a href="#quote" onclick="navigateTo('quote')" class="hover:text-white transition" data-i18n="quote_link">طلب عرض سعر (PDF)</a></li>
                     <li><a href="#survey" onclick="navigateTo('survey')" class="hover:text-white transition" data-i18n="survey_link">طلب معاينة ميدانية</a></li>
-                    <li><a href="#calculator" onclick="navigateTo('calculator')" class="hover:text-white transition" data-i18n="calc_link">حاسبة مساحة التخزين</a></li>
-                    <li><a href="#sketch" onclick="navigateTo('sketch')" class="hover:text-white transition" data-i18n="sketch_link">تصميم كروكي ذكي</a></li>
+                    <li><a href="#calculator" onclick="navigateTo('calculator')" class="hover:text-white transition">حاسبة مساحة التخزين</a></li>
+                    <li><a href="#sketch" onclick="navigateTo('sketch')" class="hover:text-white transition">تصميم كروكي ذكي</a></li>
                 </ul>
             </div>
             <div class="space-y-3">
@@ -180,21 +180,33 @@
         </div>
     </div>
 
-    <!-- نافذة تسجيل الدخول -->
+    <!-- نافذة تسجيل الدخول (مع استمارة تسجيل الأعضاء الكاملة لتغذية قاعدة بيانات الداشبورد) -->
     <div id="auth-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4 no-print">
-        <div class="bg-white w-full max-w-md rounded-3xl shadow-2xl flex flex-col overflow-hidden text-xs p-6 space-y-4">
+        <div class="bg-white w-full max-w-md rounded-3xl shadow-2xl flex flex-col overflow-hidden text-xs p-6 space-y-4 max-h-[90vh] overflow-y-auto">
             <div class="flex justify-between items-center border-b pb-3">
-                <h3 class="font-bold text-sm text-slate-800" data-i18n="admin_login">تسجيل الدخول أو إنشاء حساب جديد</h3>
+                <h3 class="font-bold text-sm text-slate-800">تسجيل عضوية جديدة أو الدخول</h3>
                 <button onclick="toggleAuthModal()" class="text-gray-400 font-bold text-base">✕</button>
             </div>
             <button onclick="simulateGoogleLogin()" class="w-full bg-white border border-gray-300 hover:bg-gray-50 text-slate-700 font-bold py-3 rounded-xl flex items-center justify-center gap-2 shadow-sm">
                 <svg class="w-4 h-4" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.11-6.72-4.95H1.2v3.15C3.18 21.32 7.24 24 12 24z"/><path fill="#FBBC05" d="M5.28 14.25c-.25-.72-.38-1.49-.38-2.25s.13-1.53.38-2.25V6.6H1.2C.44 8.13 0 9.87 0 12s.44 3.87 1.2 5.4l4.08-3.15z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.24 0 3.18 2.68 1.2 6.6l4.08 3.15c.95-2.84 3.6-4.95 6.72-4.95z"/></svg>
                 الدخول السريع باستخدام Google (Gmail)
             </button>
-            <form onsubmit="handleEmailAuth(event)" class="space-y-3">
-                <div><label class="block font-bold mb-1">البريد الإلكتروني</label><input type="email" id="auth-email" required class="w-full bg-slate-50 border rounded-xl p-2.5"></div>
-                <div><label class="block font-bold mb-1">رقم الجوال</label><input type="tel" id="auth-phone" required class="w-full bg-slate-50 border rounded-xl p-2.5"></div>
-                <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-xl">متابعة وتسجيل الدخول</button>
+            <form onsubmit="handleMemberRegistration(event)" class="space-y-3">
+                <div><label class="block font-bold mb-1">الاسم الكامل</label><input type="text" id="m-name" required class="w-full bg-slate-50 border rounded-xl p-2.5" placeholder="أدخل اسمك الكامل"></div>
+                <div><label class="block font-bold mb-1">رقم الاتصال والجوال</label><input type="tel" id="m-phone" required class="w-full bg-slate-50 border rounded-xl p-2.5" placeholder="05xxxxxxxx"></div>
+                <div><label class="block font-bold mb-1">رقم الواتساب</label><input type="tel" id="m-whatsapp" required class="w-full bg-slate-50 border rounded-xl p-2.5" placeholder="009665xxxxxxxx"></div>
+                <div><label class="block font-bold mb-1">الموقع (المدينة / الحي)</label><input type="text" id="m-location" required class="w-full bg-slate-50 border rounded-xl p-2.5" placeholder="مثال: الرياض، حي الورود"></div>
+                <div><label class="block font-bold mb-1">الجنسية</label><input type="text" id="m-nationality" required class="w-full bg-slate-50 border rounded-xl p-2.5" placeholder="مثال: سعودي"></div>
+                <div><label class="block font-bold mb-1">اسم المؤسسة أو الشركة (إن وجدت)</label><input type="text" id="m-company" class="w-full bg-slate-50 border rounded-xl p-2.5" placeholder="مؤسسة زملة فالح / فردي"></div>
+                <div>
+                    <label class="block font-bold mb-1">نوع الحساب / التصنيف</label>
+                    <select id="m-type" class="w-full bg-slate-50 border rounded-xl p-2.5">
+                        <option value="فردي / عميل">عميل فردي</option>
+                        <option value="فني معتمد">فني تركيبات معتمد</option>
+                        <option value="مؤسسة / شركة">مؤسسة أو شركة مقاولات</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-xl shadow">إتمام التسجيل والاعتماد كعضو</button>
             </form>
         </div>
     </div>
@@ -214,9 +226,12 @@
             <button onclick="proceedToCheckout()" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-xl transition text-center shadow text-xs">
                 إتمام عملية الشراء
             </button>
-            <button onclick="navigateTo('quotation-preview')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-xl transition text-center shadow text-xs">
-                📄 طلب عرض سعر للمنتجات (تنسيق PDF الرسمي)
-            </button>
+            <!-- زر عرض السعر مقيد حصرياً للأعضاء المشتركين فقط -->
+            <div id="quotation-btn-wrapper">
+                <button onclick="checkMemberForQuotation()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-xl transition text-center shadow text-xs">
+                    📄 طلب عرض سعر رسمي (لأعضاء الموقع فقط 🔒)
+                </button>
+            </div>
         </div>
     </div>
 
@@ -224,19 +239,20 @@
     <div id="admin-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4 no-print">
         <div class="bg-white w-full max-w-6xl max-h-[95vh] rounded-3xl shadow-2xl flex flex-col overflow-hidden text-xs">
             <div class="p-5 bg-[#334155] text-white flex justify-between items-center">
-                <h3 class="font-bold text-sm">⚙️ لوحة التحكم الشاملة (Admin Dashboard & Inventory Analytics)</h3>
+                <h3 class="font-bold text-sm">⚙️ لوحة التحكم الشاملة (Admin Dashboard & Members Management)</h3>
                 <button onclick="toggleAdminModal()" class="text-gray-300 hover:text-white text-lg font-bold">✕</button>
             </div>
             <div class="flex border-b bg-slate-100 px-6 gap-4 overflow-x-auto">
                 <button onclick="switchAdminTab('analytics')" id="tab-btn-analytics" class="py-3 font-bold border-b-2 border-orange-500 text-orange-600 whitespace-nowrap">مؤشرات الأداء والمخزون</button>
                 <button onclick="switchAdminTab('products')" id="tab-btn-products" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">إدارة المنتجات</button>
                 <button onclick="switchAdminTab('categories')" id="tab-btn-categories" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">إدارة التصنيفات والبنر</button>
+                <button onclick="switchAdminTab('members')" id="tab-btn-members" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">قائمة الأعضاء والمشتركين</button>
                 <button onclick="switchAdminTab('affiliate-admin')" id="tab-btn-affiliate-admin" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">جدول المسوقين Affiliate</button>
                 <button onclick="switchAdminTab('import')" id="tab-btn-import" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">رفع ملف أكسيل</button>
                 <button onclick="switchAdminTab('settings')" id="tab-btn-settings" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">إعدادات الهوية واللوجو</button>
             </div>
             <div class="p-6 flex-1 overflow-y-auto space-y-6">
-                <!-- مؤشرات الأداء والمخزون -->
+                <!-- مؤشرات المخزون والأرباح -->
                 <div id="admin-tab-analytics" class="space-y-6">
                     <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
                         <div class="bg-blue-50 border p-4 rounded-2xl"><div class="text-gray-500 font-bold mb-1">إجمالي المنتجات بالمتجر</div><div class="text-2xl font-black text-blue-700" id="kpi-total-prods">0</div></div>
@@ -301,10 +317,16 @@
                     </div>
                     <div id="admin-categories-list" class="space-y-2"></div>
                 </div>
+                <!-- قائمة الأعضاء والمشتركين -->
+                <div id="admin-tab-members" class="hidden space-y-6">
+                    <div class="bg-slate-50 p-6 rounded-2xl border space-y-4">
+                        <h4 class="font-bold text-slate-800 text-sm">قائمة الأعضاء والمشتركين المسجلين في الموقع</h4>
+                        <div id="members-table-container" class="border rounded-xl bg-white overflow-hidden"></div>
+                    </div>
+                </div>
                 <!-- Affiliate -->
                 <div id="admin-tab-affiliate-admin" class="hidden space-y-6">
                     <div class="bg-slate-50 p-6 rounded-2xl border space-y-4">
-                        <h4 class="font-bold text-slate-800 text-sm">جدول المسوقين والعمولات النشطة والتوليد المباشر</h4>
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                             <input type="text" id="aff-marketer-name" placeholder="اسم المسوق" class="bg-white border rounded-xl px-3 py-2">
                             <input type="tel" id="aff-marketer-phone" placeholder="رقم الجوال (واتساب)" class="bg-white border rounded-xl px-3 py-2">
@@ -319,8 +341,7 @@
                     <div class="bg-slate-50 p-6 rounded-2xl border space-y-4 text-center">
                         <h4 class="font-bold text-slate-800 text-sm">استيراد المنتجات من ملف Excel</h4>
                         <input type="file" id="excel-file-input" accept=".xlsx, .xls" class="block mx-auto text-xs border p-2 rounded-xl bg-white">
-                        <span class="text-[10px] text-gray-400 block mt-1">الملف المطلوب: Excel (.xlsx) يحتوي على أعمدة Model, Product Name AR, Category, Saudi Price SAR</span>
-                        <button onclick="handleExcelUpload()" class="bg-emerald-600 text-white font-bold px-6 py-3 rounded-xl mt-2">سحب واستيراد الأصناف</button>
+                        <button onclick="handleExcelUpload()" class="bg-emerald-600 text-white font-bold px-6 py-3 rounded-xl">سحب واستيراد الأصناف</button>
                     </div>
                 </div>
                 <!-- إعدادات -->
@@ -331,7 +352,7 @@
                             <div>
                                 <label class="block font-bold mb-1">شعار المؤسسة الرسمي (Logo)</label>
                                 <input type="file" id="s-logo-file" accept="image/*" class="w-full bg-white border rounded-xl px-3 py-1.5 text-xs">
-                                <span class="text-[10px] text-gray-400 block mt-1">القياس الموصى به: 300×300 بكسل (صيغة JPEG أو PNG)</span>
+                                <span class="text-[10px] text-gray-400 block mt-1">القياس الموصى به: 300×300 بكسل</span>
                             </div>
                             <div><label class="block font-bold mb-1">رقم خدمة العملاء / اتصل بنا</label><input type="text" id="s-phone" class="w-full bg-white border rounded-xl px-3 py-2" value="0543201995"></div>
                             <button type="submit" class="bg-orange-500 text-white font-bold px-6 py-2.5 rounded-xl">حفظ الإعدادات والشعار</button>
@@ -412,8 +433,8 @@
             { id: 8, sku: "ELEV-CAM-001", model: "Zamla-Elevator-Wireless", name: "نظام كاميرات مصاعد لاسلكي بالكامل", category: "المراقبة", price: 1450.00, stock: 1, desc: "نقل فيديو عالي الدقة وثابت بدون تمديد أسلاك في شافت المصعد.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80", featured: true }
         ];
 
-        let products = JSON.parse(localStorage.getItem('zamla_products_v23')) || initialProducts;
-        let categories = JSON.parse(localStorage.getItem('zamla_categories_v23')) || [
+        let products = JSON.parse(localStorage.getItem('zamla_products_v24')) || initialProducts;
+        let categories = JSON.parse(localStorage.getItem('zamla_categories_v24')) || [
             { name: 'المراقبة', icon: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=200' },
             { name: 'أجهزة التسجيل', icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=200' },
             { name: 'الشبكات', icon: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=200' },
@@ -421,10 +442,13 @@
             { name: 'طابعات', icon: 'https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=200' },
             { name: 'الحاسب', icon: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=200' }
         ];
-        let affiliates = JSON.parse(localStorage.getItem('zamla_affiliates_v23')) || [
+        let affiliates = JSON.parse(localStorage.getItem('zamla_affiliates_v24')) || [
             { name: "أحمد محمد", phone: "0543201995", code: "ZF-AFF-7068", rate: 10 }
         ];
-        let settings = JSON.parse(localStorage.getItem('zamla_settings_v23')) || { 
+        let members = JSON.parse(localStorage.getItem('zamla_members_v24')) || [
+            { name: "عبدالله الشمري", phone: "0501234567", whatsapp: "00966501234567", location: "الرياض، الملز", nationality: "سعودي", company: "مؤسسة الاتصالات الذكية", type: "فني معتمد" }
+        ];
+        let settings = JSON.parse(localStorage.getItem('zamla_settings_v24')) || { 
             title: "ZAMLA BINT FALIH AMER", 
             logo: "logo.jpeg", 
             phone: "0543201995",
@@ -432,7 +456,7 @@
             heroDesc: "توريد وتركيب أجهزة الشبكات، كاميرات المصاعد اللاسلكية، السنترالات والحلول الأمنية المتكاملة.",
             heroImg: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&auto=format&fit=crop&q=80"
         };
-        let cart = JSON.parse(localStorage.getItem('zamla_cart_v23')) || [];
+        let cart = JSON.parse(localStorage.getItem('zamla_cart_v24')) || [];
         let currentUser = JSON.parse(localStorage.getItem('zamla_user')) || null;
         window.currentPage = 'home';
 
@@ -601,6 +625,7 @@
 
                         <div class="flex justify-between items-center border-t pt-6 no-print">
                             <button onclick="navigateTo('store')" class="bg-gray-600 text-white px-6 py-2.5 rounded-xl font-bold">← متابعة التسوق</button>
+                            <button onclick="sendQuotationToAdminWhatsApp(${subtotal.toFixed(2)}, ${grandTotal.toFixed(2)})" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-xl font-bold shadow">طلب موافقة الإدارة وإرسال الطلب للواتساب 📱</button>
                             <button onclick="window.print()" class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-xl font-bold shadow">طباعة العرض / حفظ PDF 🖨️</button>
                         </div>
                     </div>
@@ -637,7 +662,6 @@
                 `;
             }
             else if (page === 'sketch') {
-                // أداة تصميم كروكي ذكي وعرض سعر فوري مطابقة تماماً لردود جيمناي الاحترافية
                 main.innerHTML = `
                     <div class="max-w-3xl mx-auto px-4 py-16 no-print">
                         <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 space-y-6">
@@ -759,6 +783,48 @@
             updateLanguageUI();
         }
 
+        // إرسال طلب عرض السعر وطلب موافقة الإدارة مباشرة لرقم الواتساب 00966543201995
+        function sendQuotationToAdminWhatsApp(subtotal, grandTotal) {
+            let msg = `طلب موافقة على عرض سعر رسمي:%0A`;
+            cart.forEach(item => {
+                msg += `- ${item.model} (${item.qty || 1} قطعتين) : ${item.price} ر.س%0A`;
+            });
+            msg += `%0Aالمجموع بدون ضريبة: ${subtotal} ر.س%0Aالإجمالي شامل الضريبة (15%): ${grandTotal} ر.س%0A%0Aيرجى الموافقة أو الرفض.`;
+            window.open(`https://wa.me/00966543201995?text=${msg}`, '_blank');
+        }
+
+        // حصر عرض السعر للأعضاء فقط
+        function checkMemberForQuotation() {
+            if (!currentUser) {
+                alert('⚠️ عذراً، طلب عرض السعر متاح حصرياً للمشتركين والأعضاء المسجلين فقط. يرجى تسجيل الدخول أو إنشاء حساب.');
+                toggleAuthModal();
+                return;
+            }
+            navigateTo('quotation-preview');
+        }
+
+        function handleMemberRegistration(e) {
+            e.preventDefault();
+            const name = document.getElementById('m-name').value;
+            const phone = document.getElementById('m-phone').value;
+            const whatsapp = document.getElementById('m-whatsapp').value;
+            const location = document.getElementById('m-location').value;
+            const nationality = document.getElementById('m-nationality').value;
+            const company = document.getElementById('m-company').value || 'فردي';
+            const type = document.getElementById('m-type').value;
+
+            const newMember = { name, phone, whatsapp, location, nationality, company, type };
+            members.push(newMember);
+            localStorage.setItem('zamla_members_v24', JSON.stringify(members));
+
+            currentUser = { name, phone, email: phone + '@zamla.com' };
+            localStorage.setItem('zamla_user', JSON.stringify(currentUser));
+
+            toggleAuthModal();
+            alert('تم تسجيل عضويتك بنجاح وأصبح بإمكانك طلب وعروض الأسعار الرسمية!');
+            document.getElementById('auth-nav-btn').innerText = currentUser.name;
+        }
+
         // توليد تحليل هندسي وعرض سعر ذكي مطابق تماماً لردود جيمناي الاحترافية
         function generateGeminiAIQuotedSketch() {
             const type = document.getElementById('sk-proj-type').value;
@@ -852,7 +918,7 @@
             if(!name || !phone) { alert('أدخل الاسم ورقم الجوال'); return; }
             const code = 'ZF-AFF-' + Math.floor(1000 + Math.random() * 9000);
             affiliates.push({ name, phone, code, rate });
-            localStorage.setItem('zamla_affiliates_v23', JSON.stringify(affiliates));
+            localStorage.setItem('zamla_affiliates_v24', JSON.stringify(affiliates));
             renderAffiliateTable();
             const text = `السلام عليكم ${name},%0Aتم اعتمادك في برنامج البيع بالعمولة لمؤسسة زمله بنت فالح بربح نسبة ${rate}%.%0Aكود التسويق الخاص بك هو: *${code}*`;
             window.open(`https://wa.me/966${phone.replace(/^0/, '')}?text=${text}`, '_blank');
@@ -867,7 +933,44 @@
                         <tr><th class="p-2.5">اسم المسوق</th><th class="p-2.5">الجوال</th><th class="p-2.5">الكود</th><th class="p-2.5">النسبة</th><th class="p-2.5">إجراء</th></tr>
                     </thead>
                     <tbody>
-                        ${affiliates.map((a, i) => `<tr class="border-b"><td class="p-2.5 font-bold">${a.name}</td><td class="p-2.5">${a.phone}</td><td class="p-2.5 font-mono text-orange-600 font-bold">${a.code}</td><td class="p-2.5">${a.rate}%</td><td class="p-2.5"><button onclick="affiliates.splice(${i},1); localStorage.setItem('zamla_affiliates_v23', JSON.stringify(affiliates)); renderAffiliateTable();" class="text-red-500 font-bold">حذف</button></td></tr>`).join('')}
+                        ${affiliates.map((a, i) => `<tr class="border-b"><td class="p-2.5 font-bold">${a.name}</td><td class="p-2.5">${a.phone}</td><td class="p-2.5 font-mono text-orange-600 font-bold">${a.code}</td><td class="p-2.5">${a.rate}%</td><td class="p-2.5"><button onclick="affiliates.splice(${i},1); localStorage.setItem('zamla_affiliates_v24', JSON.stringify(affiliates)); renderAffiliateTable();" class="text-red-500 font-bold">حذف</button></td></tr>`).join('')}
+                    </tbody>
+                </table>
+            `;
+        }
+
+        function renderMembersTable() {
+            const container = document.getElementById('members-table-container');
+            if(!container) return;
+            if(members.length === 0) {
+                container.innerHTML = '<p class="p-4 text-center text-gray-500">لا يوجد أعضاء مسجلين حالياً.</p>';
+                return;
+            }
+            container.innerHTML = `
+                <table class="w-full text-right border-collapse text-xs">
+                    <thead class="bg-slate-100 border-b">
+                        <tr>
+                            <th class="p-2.5">الاسم</th>
+                            <th class="p-2.5">رقم الاتصال</th>
+                            <th class="p-2.5">رقم الواتساب</th>
+                            <th class="p-2.5">الموقع</th>
+                            <th class="p-2.5">الجنسية</th>
+                            <th class="p-2.5">المؤسسة / الشركة</th>
+                            <th class="p-2.5">نوع الحساب</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${members.map(m => `
+                            <tr class="border-b">
+                                <td class="p-2.5 font-bold">${m.name}</td>
+                                <td class="p-2.5" dir="ltr">${m.phone}</td>
+                                <td class="p-2.5" dir="ltr">${m.whatsapp}</td>
+                                <td class="p-2.5">${m.location}</td>
+                                <td class="p-2.5">${m.nationality}</td>
+                                <td class="p-2.5">${m.company}</td>
+                                <td class="p-2.5 text-orange-600 font-bold">${m.type}</td>
+                            </tr>
+                        `).join('')}
                     </tbody>
                 </table>
             `;
@@ -905,7 +1008,6 @@
             const list = feat.length > 0 ? feat : products.slice(0, 8);
             grid.innerHTML = list.map(p => productCardHTML(p)).join('');
             
-            // تحديث شريط التكرار المتحرك (Ticker)
             const ticker = document.getElementById('ticker-products');
             if(ticker) {
                 ticker.innerHTML = "🔥 عروض مؤسسة زملة بنت فالح: " + products.slice(0, 6).map(p => `${p.model} (${p.price} ر.س)`).join(' | ');
@@ -954,7 +1056,7 @@
             } else {
                 cart.push({ ...p, qty: 1 });
             }
-            localStorage.setItem('zamla_cart_v23', JSON.stringify(cart));
+            localStorage.setItem('zamla_cart_v24', JSON.stringify(cart));
             updateCartUI();
             toggleCart();
         }
@@ -965,13 +1067,13 @@
             if (cart[index].qty <= 0) {
                 cart.splice(index, 1);
             }
-            localStorage.setItem('zamla_cart_v23', JSON.stringify(cart));
+            localStorage.setItem('zamla_cart_v24', JSON.stringify(cart));
             updateCartUI();
         }
 
         function removeFromCart(i) {
             cart.splice(i, 1);
-            localStorage.setItem('zamla_cart_v23', JSON.stringify(cart));
+            localStorage.setItem('zamla_cart_v24', JSON.stringify(cart));
             updateCartUI();
         }
 
@@ -1004,20 +1106,24 @@
         }
 
         function toggleCart() { document.getElementById('cart-drawer').classList.toggle('-translate-x-full'); }
-        function proceedToCheckout() { alert('تم تأكيد الطلب بنجاح!'); cart = []; localStorage.removeItem('zamla_cart_v23'); updateCartUI(); toggleCart(); navigateTo('home'); }
+        function proceedToCheckout() { alert('تم تأكيد الطلب بنجاح!'); cart = []; localStorage.removeItem('zamla_cart_v24'); updateCartUI(); toggleCart(); navigateTo('home'); }
 
         function toggleAdminModal() {
             document.getElementById('admin-modal').classList.toggle('hidden');
-            renderAdminProducts(); renderAdminCategories(); renderAffiliateTable(); renderInventoryAnalytics(); populateCategoryDropdown();
+            renderAdminProducts(); renderAdminCategories(); renderAffiliateTable(); renderMembersTable(); renderInventoryAnalytics(); populateCategoryDropdown();
         }
 
         function switchAdminTab(tab) {
-            ['analytics', 'products', 'categories', 'affiliate-admin', 'import', 'settings'].forEach(t => {
-                document.getElementById(`admin-tab-${t}`).classList.add('hidden');
-                document.getElementById(`tab-btn-${t}`).className = "py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap";
+            ['analytics', 'products', 'categories', 'members', 'affiliate-admin', 'import', 'settings'].forEach(t => {
+                const el = document.getElementById(`admin-tab-${t}`);
+                const btn = document.getElementById(`tab-btn-${t}`);
+                if(el) el.classList.add('hidden');
+                if(btn) btn.className = "py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap";
             });
-            document.getElementById(`admin-tab-${tab}`).classList.remove('hidden');
-            document.getElementById(`tab-btn-${tab}`).className = "py-3 font-bold border-b-2 border-orange-500 text-orange-600 whitespace-nowrap";
+            const activeEl = document.getElementById(`admin-tab-${tab}`);
+            const activeBtn = document.getElementById(`tab-btn-${tab}`);
+            if(activeEl) activeEl.classList.remove('hidden');
+            if(activeBtn) activeBtn.className = "py-3 font-bold border-b-2 border-orange-500 text-orange-600 whitespace-nowrap";
         }
 
         function renderInventoryAnalytics() {
@@ -1051,7 +1157,7 @@
                 } else {
                     products.unshift({ id: Date.now(), model, name, category, price, stock, desc, featured, image: imgUrl || "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500" });
                 }
-                localStorage.setItem('zamla_products_v23', JSON.stringify(products));
+                localStorage.setItem('zamla_products_v24', JSON.stringify(products));
                 document.getElementById('product-form').reset();
                 renderAdminProducts();
                 renderInventoryAnalytics();
@@ -1081,7 +1187,7 @@
 
         function deleteProduct(id) {
             products = products.filter(p => p.id !== id);
-            localStorage.setItem('zamla_products_v23', JSON.stringify(products));
+            localStorage.setItem('zamla_products_v24', JSON.stringify(products));
             renderAdminProducts();
             renderInventoryAnalytics();
         }
@@ -1098,7 +1204,7 @@
                 } else {
                     categories.push({ name, icon: iconUrl || 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=200' });
                 }
-                localStorage.setItem('zamla_categories_v23', JSON.stringify(categories));
+                localStorage.setItem('zamla_categories_v24', JSON.stringify(categories));
                 document.getElementById('category-form').reset();
                 renderAdminCategories();
                 populateCategoryDropdown();
@@ -1120,7 +1226,7 @@
             
             const finishHero = (imgUrl) => {
                 if(imgUrl) settings.heroImg = imgUrl;
-                localStorage.setItem('zamla_settings_v23', JSON.stringify(settings));
+                localStorage.setItem('zamla_settings_v24', JSON.stringify(settings));
                 alert('تم تحديث بنر الواجهة بنجاح!');
                 navigateTo('home');
             };
@@ -1139,7 +1245,7 @@
 
         function deleteCategory(i) {
             categories.splice(i, 1);
-            localStorage.setItem('zamla_categories_v23', JSON.stringify(categories));
+            localStorage.setItem('zamla_categories_v24', JSON.stringify(categories));
             renderAdminCategories();
             populateCategoryDropdown();
         }
@@ -1178,14 +1284,14 @@
                         };
                         products.unshift(newP);
                     });
-                    localStorage.setItem('zamla_products_v23', JSON.stringify(products));
+                    localStorage.setItem('zamla_products_v24', JSON.stringify(products));
                     renderAdminProducts();
                     renderInventoryAnalytics();
                     alert('تم استيراد الأصناف والمخزون بنجاح!');
                     switchAdminTab('products');
                 } catch(err) { alert('خطأ في قراءة ملف الأكسيل'); }
             };
-            reader.readAsArrayBuffer(file);
+            reader.readAsDataURL(file);
         }
 
         function saveSettings(e) {
@@ -1197,7 +1303,7 @@
                 settings.title = title;
                 settings.phone = phone;
                 if(logoUrl) settings.logo = logoUrl;
-                localStorage.setItem('zamla_settings_v23', JSON.stringify(settings));
+                localStorage.setItem('zamla_settings_v24', JSON.stringify(settings));
                 initApp();
                 alert('تم حفظ الإعدادات!');
             };
