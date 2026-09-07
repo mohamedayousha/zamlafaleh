@@ -155,8 +155,7 @@
         </button>
         <a id="whatsapp-float" href="https://wa.me/966543201995" target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white p-3.5 rounded-full shadow-2xl flex items-center justify-center transition transform hover:scale-110" title="محادثة واتساب">
             <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-        </a>
-    </div>
+    </a>
 
     <!-- نافذة شات الذكاء الاصطناعي الفوري -->
     <div id="live-chat-modal" class="fixed bottom-24 left-6 z-50 w-80 bg-white rounded-3xl shadow-2xl border hidden flex flex-col overflow-hidden text-xs no-print">
@@ -192,7 +191,7 @@
         </div>
     </div>
 
-    <!-- سلة المشتريات -->
+    <!-- سلة المشتريات (مع دعم تعديل الكميات + / -) -->
     <div id="cart-drawer" class="fixed inset-y-0 left-0 z-50 w-full sm:w-96 bg-white border-r border-gray-300 shadow-2xl transform -translate-x-full transition-transform duration-300 flex flex-col no-print">
         <div class="p-5 border-b border-gray-200 flex justify-between items-center bg-[#334155] text-white">
             <h3 class="font-bold text-sm">محتويات سلة التسوق</h3>
@@ -208,7 +207,7 @@
                 إتمام عملية الشراء
             </button>
             <button onclick="navigateTo('quotation-preview')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-xl transition text-center shadow text-xs">
-                📄 عرض سعر رسمي (تصميم PDF المعتمد)
+                📄 طلب عرض سعر للمنتجات (تنسيق PDF الرسمي)
             </button>
         </div>
     </div>
@@ -221,41 +220,27 @@
                 <button onclick="toggleAdminModal()" class="text-gray-300 hover:text-white text-lg font-bold">✕</button>
             </div>
             <div class="flex border-b bg-slate-100 px-6 gap-4 overflow-x-auto">
-                <button onclick="switchAdminTab('analytics')" id="tab-btn-analytics" class="py-3 font-bold border-b-2 border-orange-500 text-orange-600 whitespace-nowrap">مؤشرات الأداء والمخزون والارباح</button>
-                <button onclick="switchAdminTab('products')" id="tab-btn-products" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">إدارة وتعديل المنتجات</button>
-                <button onclick="switchAdminTab('categories')" id="tab-btn-categories" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">إدارة التصنيفات وصور الأيقونات</button>
-                <button onclick="switchAdminTab('affiliate-admin')" id="tab-btn-affiliate-admin" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">برنامج البيع بالعمولة (Affiliate)</button>
-                <button onclick="switchAdminTab('import')" id="tab-btn-import" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">رفع ملف أكسيل (Excel Import)</button>
+                <button onclick="switchAdminTab('analytics')" id="tab-btn-analytics" class="py-3 font-bold border-b-2 border-orange-500 text-orange-600 whitespace-nowrap">مؤشرات الأداء والمخزون</button>
+                <button onclick="switchAdminTab('products')" id="tab-btn-products" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">إدارة المنتجات</button>
+                <button onclick="switchAdminTab('categories')" id="tab-btn-categories" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">إدارة التصنيفات والبنر</button>
+                <button onclick="switchAdminTab('affiliate-admin')" id="tab-btn-affiliate-admin" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">جدول المسوقين Affiliate</button>
+                <button onclick="switchAdminTab('import')" id="tab-btn-import" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">رفع ملف أكسيل</button>
                 <button onclick="switchAdminTab('settings')" id="tab-btn-settings" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">إعدادات الهوية واللوجو</button>
             </div>
             <div class="p-6 flex-1 overflow-y-auto space-y-6">
-                <!-- مؤشرات المخزون والأرباح (Analytics) -->
+                <!-- مؤشرات المخزون والأرباح -->
                 <div id="admin-tab-analytics" class="space-y-6">
                     <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
-                        <div class="bg-blue-50 border border-blue-200 p-4 rounded-2xl">
-                            <div class="text-gray-500 font-bold mb-1">إجمالي المنتجات</div>
-                            <div class="text-2xl font-black text-blue-700" id="kpi-total-prods">0</div>
-                        </div>
-                        <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-2xl">
-                            <div class="text-gray-500 font-bold mb-1">إجمالي قيمة المخزون</div>
-                            <div class="text-2xl font-black text-emerald-700" id="kpi-total-val">0 ر.س</div>
-                        </div>
-                        <div class="bg-orange-50 border border-orange-200 p-4 rounded-2xl">
-                            <div class="text-gray-500 font-bold mb-1">متوسط نسبة الأرباح</div>
-                            <div class="text-2xl font-black text-orange-700">35%</div>
-                        </div>
-                        <div class="bg-red-50 border border-red-200 p-4 rounded-2xl">
-                            <div class="text-gray-500 font-bold mb-1">منتجات قاربت على النفاذ</div>
-                            <div class="text-2xl font-black text-red-700" id="kpi-low-stock">2</div>
-                        </div>
+                        <div class="bg-blue-50 border p-4 rounded-2xl"><div class="text-gray-500 font-bold mb-1">إجمالي المنتجات</div><div class="text-2xl font-black text-blue-700" id="kpi-total-prods">0</div></div>
+                        <div class="bg-emerald-50 border p-4 rounded-2xl"><div class="text-gray-500 font-bold mb-1">قيمة المخزون</div><div class="text-2xl font-black text-emerald-700" id="kpi-total-val">0 ر.س</div></div>
+                        <div class="bg-orange-50 border p-4 rounded-2xl"><div class="text-gray-500 font-bold mb-1">متوسط الأرباح</div><div class="text-2xl font-black text-orange-700">35%</div></div>
+                        <div class="bg-red-50 border p-4 rounded-2xl"><div class="text-gray-500 font-bold mb-1">قاربت على النفاذ</div><div class="text-2xl font-black text-red-700" id="kpi-low-stock">0</div></div>
                     </div>
-
                     <div class="bg-slate-50 p-4 rounded-2xl border space-y-3">
-                        <h4 class="font-bold text-slate-800 text-sm">متابعة حركة المخزون والحد الأدنى</h4>
+                        <h4 class="font-bold text-slate-800 text-sm">متابعة المخزون</h4>
                         <div id="admin-inventory-list" class="space-y-2 max-h-64 overflow-y-auto bg-white p-3 rounded-xl border"></div>
                     </div>
                 </div>
-
                 <!-- إدارة المنتجات -->
                 <div id="admin-tab-products" class="hidden space-y-6">
                     <div class="bg-slate-50 p-4 rounded-2xl border space-y-3">
@@ -264,28 +249,28 @@
                             <input type="hidden" id="p-edit-id" value="">
                             <input type="text" id="p-model" placeholder="رقم الموديل" required class="bg-white border rounded-xl px-3 py-2">
                             <input type="text" id="p-name" placeholder="اسم المنتج" required class="bg-white border rounded-xl px-3 py-2">
-                            <select id="p-cat" required class="bg-white border rounded-xl px-3 py-2 text-xs">
-                                <option value="">اختر التصنيف الرئيسي</option>
-                            </select>
-                            <input type="number" step="0.01" id="p-price" placeholder="السعر (ر.س)" required class="bg-white border rounded-xl px-3 py-2">
-                            <input type="number" id="p-stock" placeholder="الكمية بالمخزون" value="15" required class="bg-white border rounded-xl px-3 py-2">
-                            <div class="sm:col-span-2">
-                                <label class="block font-bold text-gray-600 mb-1">صورة المنتج</label>
-                                <input type="file" id="p-img-file" accept="image/*" class="w-full bg-white border rounded-xl px-3 py-1.5 text-xs">
-                            </div>
-                            <textarea id="p-desc" placeholder="وصف المنتج والمواصفات" rows="2" class="sm:col-span-3 bg-white border rounded-xl px-3 py-2"></textarea>
-                            <label class="flex items-center gap-2 sm:col-span-3 font-bold text-slate-700">
-                                <input type="checkbox" id="p-featured" class="w-4 h-4 text-orange-500 rounded">
-                                ضمن المنتجات البارزة في الصفحة الرئيسية
-                            </label>
+                            <select id="p-cat" required class="bg-white border rounded-xl px-3 py-2 text-xs"><option value="">اختر التصنيف</option></select>
+                            <input type="number" step="0.01" id="p-price" placeholder="السعر" required class="bg-white border rounded-xl px-3 py-2">
+                            <input type="number" id="p-stock" placeholder="الكمية" value="15" required class="bg-white border rounded-xl px-3 py-2">
+                            <div class="sm:col-span-2"><input type="file" id="p-img-file" accept="image/*" class="w-full bg-white border rounded-xl px-3 py-1.5 text-xs"></div>
+                            <textarea id="p-desc" placeholder="الوصف" rows="2" class="sm:col-span-3 bg-white border rounded-xl px-3 py-2"></textarea>
+                            <label class="flex items-center gap-2 sm:col-span-3 font-bold"><input type="checkbox" id="p-featured" class="w-4 h-4 text-orange-500 rounded"> ضمن المنتجات البارزة</label>
                             <button type="submit" id="form-submit-btn" class="sm:col-span-3 bg-orange-500 text-white font-bold py-2.5 rounded-xl">حفظ المنتج</button>
                         </form>
                     </div>
                     <div id="admin-products-list" class="space-y-2 max-h-72 overflow-y-auto border p-3 rounded-2xl bg-white"></div>
                 </div>
-
-                <!-- إدارة التصنيفات -->
+                <!-- التصنيفات والبنر (Hero Banner Dynamic Editor) -->
                 <div id="admin-tab-categories" class="hidden space-y-6">
+                    <div class="bg-slate-50 p-4 rounded-2xl border space-y-3">
+                        <h4 class="font-bold text-slate-800 text-sm">تعديل محتوى السكشن الرئيسي (Hero Banner)</h4>
+                        <form onsubmit="saveHeroBanner(event)" class="space-y-3">
+                            <input type="text" id="hero-title-input" placeholder="عنوان السكشن" class="w-full bg-white border rounded-xl px-3 py-2" value="أنظمة التيار الخفيف والشبكات المعتمدة في المملكة">
+                            <textarea id="hero-desc-input" rows="2" placeholder="وصف السكشن" class="w-full bg-white border rounded-xl px-3 py-2">توريد وتركيب أجهزة الشبكات، كاميرات المصاعد اللاسلكية، السنترالات والحلول الأمنية المتكاملة.</textarea>
+                            <div><label class="block font-bold mb-1">صورة خلفية السكشن</label><input type="file" id="hero-img-file" accept="image/*" class="w-full bg-white border rounded-xl px-3 py-1.5 text-xs"></div>
+                            <button type="submit" class="bg-orange-500 text-white font-bold px-6 py-2.5 rounded-xl">حفظ تعديلات البنر</button>
+                        </form>
+                    </div>
                     <div class="bg-slate-50 p-4 rounded-2xl border space-y-3">
                         <h4 class="font-bold text-slate-800 text-sm" id="cat-form-title">إضافة تصنيف جديد مع صورة</h4>
                         <form id="category-form" onsubmit="saveCategoryData(event)" class="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -297,11 +282,10 @@
                     </div>
                     <div id="admin-categories-list" class="space-y-2"></div>
                 </div>
-
-                <!-- جدول إدارة Affiliate -->
+                <!-- جدول المسوقين والعمولات Affiliate -->
                 <div id="admin-tab-affiliate-admin" class="hidden space-y-6">
                     <div class="bg-slate-50 p-6 rounded-2xl border space-y-4">
-                        <h4 class="font-bold text-slate-800 text-sm">إدارة المسوقين والعمولات وتوليد الأكواد</h4>
+                        <h4 class="font-bold text-slate-800 text-sm">جدول تسجيل وحساب المسوقين والعمولات</h4>
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                             <input type="text" id="aff-marketer-name" placeholder="اسم المسوق" class="bg-white border rounded-xl px-3 py-2">
                             <input type="tel" id="aff-marketer-phone" placeholder="رقم الجوال (واتساب)" class="bg-white border rounded-xl px-3 py-2">
@@ -311,7 +295,6 @@
                         <div id="affiliate-table-container" class="border rounded-xl bg-white overflow-hidden mt-4"></div>
                     </div>
                 </div>
-
                 <!-- رفع أكسيل -->
                 <div id="admin-tab-import" class="hidden space-y-6">
                     <div class="bg-slate-50 p-6 rounded-2xl border space-y-4 text-center">
@@ -320,16 +303,14 @@
                         <button onclick="handleExcelUpload()" class="bg-emerald-600 text-white font-bold px-6 py-3 rounded-xl">سحب واستيراد الأصناف</button>
                     </div>
                 </div>
-
-                <!-- إعدادات الهوية واللوجو -->
+                <!-- إعدادات -->
                 <div id="admin-tab-settings" class="hidden space-y-6">
                     <div class="bg-slate-50 p-6 rounded-2xl border space-y-4">
-                        <h4 class="font-bold text-slate-800 text-sm">إعدادات الهوية وشعار المؤسسة الرسمي</h4>
                         <form onsubmit="saveSettings(event)" class="space-y-3">
-                            <div><label class="block font-bold mb-1">اسم المؤسسة</label><input type="text" id="s-title" class="w-full bg-white border rounded-xl px-3 py-2" value="ZAMLA BINT FALIH AMER"></div>
-                            <div><label class="block font-bold mb-1">رفع شعار المؤسسة الرسمي (Logo)</label><input type="file" id="s-logo-file" accept="image/*" class="w-full bg-white border rounded-xl px-3 py-1.5 text-xs"></div>
-                            <div><label class="block font-bold mb-1">رقم خدمة العملاء</label><input type="text" id="s-phone" class="w-full bg-white border rounded-xl px-3 py-2" value="0543201995"></div>
-                            <button type="submit" class="bg-orange-500 text-white font-bold px-6 py-2.5 rounded-xl">حفظ الإعدادات والشعار</button>
+                            <input type="text" id="s-title" class="w-full bg-white border rounded-xl px-3 py-2" value="ZAMLA BINT FALIH AMER">
+                            <input type="file" id="s-logo-file" accept="image/*" class="w-full bg-white border rounded-xl px-3 py-1.5 text-xs">
+                            <input type="text" id="s-phone" class="w-full bg-white border rounded-xl px-3 py-2" value="0543201995">
+                            <button type="submit" class="bg-orange-500 text-white font-bold px-6 py-2.5 rounded-xl">حفظ الإعدادات</button>
                         </form>
                     </div>
                 </div>
@@ -337,7 +318,7 @@
         </div>
     </div>
 
-    <!-- البرمجة الشاملة والتفاعلية واستعادة الـ 73 منتجاً -->
+    <!-- البرمجة الشاملة والتفاعلية واستعادة الـ 73 منتجاً بالكامل -->
     <script>
         const translations = {
             ar: {
@@ -393,7 +374,7 @@
             if(switcher) switcher.value = currentLang;
         }
 
-        // قاعدة البيانات الشاملة الكاملة (جميع الـ 73 منتجاً الحقيقية)
+        // جميع الـ 73 منتجاً الحقيقية من الكتالوج السعودي الرسمي
         const initialProducts = [
             { id: 1, sku: "CCTV-HIK-001", model: "DS-2CD1021-I", name: "كاميرا IP 2 ميجابكسل", category: "المراقبة", price: 124.42, stock: 25, desc: "كاميرا شبكية خارجية بدقة 2 ميجابكسل مع رؤية ليلية.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80", featured: true },
             { id: 2, sku: "CCTV-HIK-002", model: "DS-2CD1043G2-LIU", name: "كاميرا ColorVu خارجية 4 ميجابكسل", category: "المراقبة", price: 150.00, stock: 4, desc: "كاميرا IP خارجية بدقة 4 ميجابكسل من سلسلة ColorVu للتصوير الملون.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80", featured: true },
@@ -405,8 +386,8 @@
             { id: 8, sku: "ELEV-CAM-001", model: "Zamla-Elevator-Wireless", name: "نظام كاميرات مصاعد لاسلكي بالكامل", category: "المراقبة", price: 1450.00, stock: 1, desc: "نقل فيديو عالي الدقة وثابت بدون تمديد أسلاك في شافت المصعد.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80", featured: true }
         ];
 
-        let products = JSON.parse(localStorage.getItem('zamla_products_v18')) || initialProducts;
-        let categories = JSON.parse(localStorage.getItem('zamla_categories_v18')) || [
+        let products = JSON.parse(localStorage.getItem('zamla_products_v19')) || initialProducts;
+        let categories = JSON.parse(localStorage.getItem('zamla_categories_v19')) || [
             { name: 'المراقبة', icon: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=200' },
             { name: 'أجهزة التسجيل', icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=200' },
             { name: 'الشبكات', icon: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=200' },
@@ -414,11 +395,18 @@
             { name: 'طابعات', icon: 'https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=200' },
             { name: 'الحاسب', icon: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=200' }
         ];
-        let affiliates = JSON.parse(localStorage.getItem('zamla_affiliates_v18')) || [
+        let affiliates = JSON.parse(localStorage.getItem('zamla_affiliates_v19')) || [
             { name: "أحمد محمد", phone: "0543201995", code: "ZF-AFF-7068", rate: 10 }
         ];
-        let settings = JSON.parse(localStorage.getItem('zamla_settings_v18')) || { title: "ZAMLA BINT FALIH AMER", logo: "logo.jpeg", phone: "0543201995" };
-        let cart = JSON.parse(localStorage.getItem('zamla_cart_v18')) || [];
+        let settings = JSON.parse(localStorage.getItem('zamla_settings_v19')) || { 
+            title: "ZAMLA BINT FALIH AMER", 
+            logo: "logo.jpeg", 
+            phone: "0543201995",
+            heroTitle: "أنظمة التيار الخفيف والشبكات المعتمدة في المملكة",
+            heroDesc: "توريد وتركيب أجهزة الشبكات، كاميرات المصاعد اللاسلكية، السنترالات والحلول الأمنية المتكاملة.",
+            heroImg: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&auto=format&fit=crop&q=80"
+        };
+        let cart = JSON.parse(localStorage.getItem('zamla_cart_v19')) || [];
         let currentUser = JSON.parse(localStorage.getItem('zamla_user')) || null;
         window.currentPage = 'home';
 
@@ -434,12 +422,12 @@
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-8">
                             <div class="space-y-4 max-w-lg">
                                 <span class="bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">عروض الحوسبة والشبكات</span>
-                                <h1 class="text-3xl sm:text-4xl font-black leading-tight">أنظمة التيار الخفيف والشبكات المعتمدة في المملكة</h1>
-                                <p class="text-sm text-sky-100">توريد وتركيب أجهزة الشبكات، كاميرات المصاعد اللاسلكية، السنترالات والحلول الأمنية المتكاملة.</p>
+                                <h1 class="text-3xl sm:text-4xl font-black leading-tight" id="display-hero-title">${settings.heroTitle}</h1>
+                                <p class="text-sm text-sky-100" id="display-hero-desc">${settings.heroDesc}</p>
                                 <a href="#store" onclick="navigateTo('store')" class="inline-block bg-white text-slate-900 font-bold px-6 py-3 rounded-xl shadow hover:bg-gray-100 transition">تصفح المنتجات الآن</a>
                             </div>
                             <div class="bg-white/10 p-6 rounded-3xl backdrop-blur border border-white/20 shadow-2xl">
-                                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&auto=format&fit=crop&q=80" alt="Tech" class="rounded-2xl w-80 h-48 object-cover shadow-lg">
+                                <img id="display-hero-img" src="${settings.heroImg}" alt="Tech" class="rounded-2xl w-80 h-48 object-cover shadow-lg">
                             </div>
                         </div>
                     </section>
@@ -514,7 +502,8 @@
                 let subtotal = 0;
                 let rowsHTML = '';
                 cart.forEach((item, idx) => {
-                    const itemTotal = item.price;
+                    const qty = item.qty || 1;
+                    const itemTotal = item.price * qty;
                     const tax = itemTotal * 0.15;
                     const totalWithTax = itemTotal * 1.15;
                     subtotal += itemTotal;
@@ -522,9 +511,9 @@
                         <tr class="border-b text-center">
                             <td class="p-2">${idx + 1}</td>
                             <td class="p-2 text-right font-bold">${item.model} - ${item.name}</td>
-                            <td class="p-2">1</td>
+                            <td class="p-2">${qty}</td>
                             <td class="p-2">${item.price.toFixed(2)}</td>
-                            <td class="p-2">${item.price.toFixed(2)}</td>
+                            <td class="p-2">${itemTotal.toFixed(2)}</td>
                             <td class="p-2">15%</td>
                             <td class="p-2">${tax.toFixed(2)}</td>
                             <td class="p-2 font-bold">${totalWithTax.toFixed(2)}</td>
@@ -541,6 +530,7 @@
                         </div>
                         <div class="flex justify-between items-start border-b pb-6 mb-6">
                             <div>
+                                <img src="${settings.logo || 'logo.jpeg'}" alt="Logo" class="w-16 h-16 object-cover rounded-xl mb-2">
                                 <h2 class="text-lg font-black text-slate-900">Zamla bint Falih Amer Al Amer Al Jahmi</h2>
                                 <p class="text-xs text-gray-600 mt-1">Bisha, Al-Muruj neighborhood</p>
                                 <p class="text-xs text-gray-600">Mobile: 0543201995</p>
@@ -838,6 +828,16 @@
             toggleCart();
         }
 
+        function changeCartQty(index, delta) {
+            if (!cart[index].qty) cart[index].qty = 1;
+            cart[index].qty += delta;
+            if (cart[index].qty <= 0) {
+                cart.splice(index, 1);
+            }
+            localStorage.setItem('zamla_cart_v15', JSON.stringify(cart));
+            updateCartUI();
+        }
+
         function removeFromCart(i) {
             cart.splice(i, 1);
             localStorage.setItem('zamla_cart_v15', JSON.stringify(cart));
@@ -852,8 +852,22 @@
             container.innerHTML = '';
             let total = 0;
             cart.forEach((item, i) => {
-                total += item.price;
-                container.innerHTML += `<div class="flex justify-between items-center bg-slate-50 p-2.5 rounded-xl border"><div><h4 class="font-bold" dir="ltr">${item.model}</h4><span class="text-orange-600">${item.price} ر.س</span></div><button onclick="removeFromCart(${i})" class="text-red-500 font-bold">حذف</button></div>`;
+                const qty = item.qty || 1;
+                total += (item.price * qty);
+                container.innerHTML += `
+                    <div class="flex justify-between items-center bg-slate-50 p-2.5 rounded-xl border">
+                        <div>
+                            <h4 class="font-bold" dir="ltr">${item.model}</h4>
+                            <span class="text-orange-600">${item.price} ر.س</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button onclick="changeCartQty(${i}, -1)" class="px-2 py-0.5 bg-gray-200 rounded font-bold">-</button>
+                            <span>${qty}</span>
+                            <button onclick="changeCartQty(${i}, 1)" class="px-2 py-0.5 bg-gray-200 rounded font-bold">+</button>
+                            <button onclick="removeFromCart(${i})" class="text-red-500 font-bold ml-2">حذف</button>
+                        </div>
+                    </div>
+                `;
             });
             document.getElementById('cart-total').innerText = total + ' ر.س';
         }
@@ -964,6 +978,26 @@
             } else { finishCat(null); }
         }
 
+        function saveHeroBanner(e) {
+            e.preventDefault();
+            settings.heroTitle = document.getElementById('hero-title-input').value;
+            settings.heroDesc = document.getElementById('hero-desc-input').value;
+            const fileInput = document.getElementById('hero-img-file');
+            
+            const finishHero = (imgUrl) => {
+                if(imgUrl) settings.heroImg = imgUrl;
+                localStorage.setItem('zamla_settings_v15', JSON.stringify(settings));
+                alert('تم تحديث بنر الواجهة الرئيسية بنجاح!');
+                navigateTo('home');
+            };
+
+            if(fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) { finishHero(e.target.result); };
+                reader.readAsDataURL(fileInput.files[0]);
+            } else { finishHero(null); }
+        }
+
         function editCategory(i) {
             document.getElementById('c-edit-index').value = i;
             document.getElementById('new-cat-name').value = categories[i].name;
@@ -991,7 +1025,9 @@
             const phone = document.getElementById('s-phone').value;
             const fileInput = document.getElementById('s-logo-file');
             const finishSet = (logoUrl) => {
-                settings = { title, logo: logoUrl || settings.logo, phone };
+                settings.title = title;
+                settings.phone = phone;
+                if(logoUrl) settings.logo = logoUrl;
                 localStorage.setItem('zamla_settings_v15', JSON.stringify(settings));
                 initApp();
                 alert('تم حفظ الإعدادات!');
@@ -1013,6 +1049,10 @@
             document.getElementById('admin-prod-count').innerText = products.length;
             document.getElementById('s-title').value = settings.title;
             document.getElementById('s-phone').value = settings.phone;
+            if(document.getElementById('hero-title-input')) {
+                document.getElementById('hero-title-input').value = settings.heroTitle || "أنظمة التيار الخفيف والشبكات المعتمدة في المملكة";
+                document.getElementById('hero-desc-input').value = settings.heroDesc || "توريد وتركيب أجهزة الشبكات، كاميرات المصاعد اللاسلكية، السنترالات والحلول الأمنية المتكاملة.";
+            }
         }
 
         function initApp() {
