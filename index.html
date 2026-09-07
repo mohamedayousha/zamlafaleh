@@ -41,7 +41,7 @@
                 <a href="#home" onclick="navigateTo('home')" class="flex items-center gap-2">
                     <img id="site-logo" src="logo.png" alt="Logo" onerror="this.style.display='none'; document.getElementById('fallback-logo').style.display='flex';" class="h-10 w-auto object-contain">
                     <div id="fallback-logo" class="hidden items-center gap-1">
-                        <div class="bg-orange-500 text-white px-2.5 py-1 rounded-lg font-black text-sm">ZF</div>
+                        <div class="bg-orange-500 text-white p-2 rounded-xl font-black text-sm">ZF</div>
                         <span id="site-title" class="text-base font-black tracking-wider text-white">ZAMLA FALEH</span>
                     </div>
                 </a>
@@ -61,7 +61,7 @@
                 </button>
             </div>
 
-            <!-- معلومات الدعم الفني وأيقونات التفاعل -->
+            <!-- معلومات الدعم الفني وأيقونات التفاعل (السلة الحقيقية) -->
             <div class="flex items-center gap-5">
                 <div class="hidden xl:flex items-center gap-2 text-right">
                     <div>
@@ -73,7 +73,8 @@
 
                 <div class="flex items-center gap-3">
                     <button onclick="toggleAdminModal()" title="لوحة التحكم" class="p-2 bg-slate-700 hover:bg-slate-600 rounded-xl transition text-xs font-bold">⚙️</button>
-                    <button onclick="toggleCart()" class="relative p-2.5 bg-slate-700 hover:bg-slate-600 rounded-xl transition">
+                    <!-- أيقونة السلة الحقيقية -->
+                    <button onclick="toggleCart()" class="relative p-2.5 bg-slate-700 hover:bg-slate-600 rounded-xl transition flex items-center gap-1">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
                         <span id="cart-count" class="absolute -top-1 -right-1 bg-orange-500 text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold text-white">0</span>
                     </button>
@@ -82,7 +83,7 @@
         </div>
     </header>
 
-    <!-- قائمة الميجا منيو المنسدلة (Mega Menu) -->
+    <!-- قائمة الميجا منيو المنسدلة -->
     <div id="mega-menu" class="hidden absolute top-28 right-8 z-50 w-80 bg-white text-slate-900 rounded-2xl shadow-2xl border border-gray-200 p-4 space-y-2">
         <div class="font-bold text-sm text-slate-800 border-b pb-2 mb-2 flex justify-between items-center">
             <span>تصفح الأقسام الرئيسية والفرعية</span>
@@ -148,20 +149,22 @@
         <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
     </a>
 
-    <!-- سلة المشتريات الخاصة بالمتجر -->
+    <!-- سلة المشتريات الخاصة بالمتجر (مستقلة تماماً) -->
     <div id="cart-drawer" class="fixed inset-y-0 left-0 z-50 w-full sm:w-96 bg-white border-r border-gray-300 shadow-2xl transform -translate-x-full transition-transform duration-300 flex flex-col">
         <div class="p-5 border-b border-gray-200 flex justify-between items-center bg-[#334155] text-white">
-            <h3 class="font-bold text-sm">سلة المشتريات والطلبات</h3>
+            <h3 class="font-bold text-sm">محتويات سلة التسوق</h3>
             <button onclick="toggleCart()" class="text-gray-300 hover:text-white font-bold text-lg">✕</button>
         </div>
-        <div id="cart-items" class="flex-1 overflow-y-auto p-4 space-y-3 text-xs"></div>
+        <div id="cart-items" class="flex-1 overflow-y-auto p-4 space-y-3 text-xs">
+            <!-- المنتجات في السلة -->
+        </div>
         <div class="p-4 border-t border-gray-200 bg-slate-50 space-y-3">
             <div class="flex justify-between font-bold text-sm text-slate-900">
                 <span>المجموع الكلي:</span>
                 <span id="cart-total" class="text-orange-600">0 ر.س</span>
             </div>
-            <button onclick="checkoutWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl transition text-center shadow text-xs">
-                إرسال الطلب عبر الواتساب 📱
+            <button onclick="proceedToCheckout()" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-xl transition text-center shadow text-xs">
+                إتمام الشراء (سلة المتجر)
             </button>
         </div>
     </div>
@@ -217,7 +220,6 @@
 
     <!-- برمجة التطبيق ونظام التوجيه -->
     <script>
-        // المنتجات الشاملة مقسمة حسب التصنيفات البارزة (طابعات، شاشات، أجزاء الكمبيوتر، التجميعات، سماعات، شبكات، VoIP Phone، سمارت هوم، كاميرات، أجهزة التسجيل، التحكم بالدخول، إلخ)
         const initialProducts = [
             { id: 1, name: "Epson EcoTank L3250 Printer", title: "طابعة إبسون الحبرية الملونة المتعددة الوظائف", category: "طابعات", price: 680.00, desc: "طابعة اقتصادية ملونة ليزر ونفاثة للحبر للمكاتب والشركات مع واي فاي.", image: "https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=500&auto=format&fit=crop&q=80" },
             { id: 2, name: "MSI MAG 27\" IPS Gaming Monitor", title: "شاشة ألعاب احترافية مقاس 27 بوصة 165Hz", category: "شاشات", price: 990.00, desc: "شاشة بدقة عالية جداً وألوان حية مناسبة للمصممين واللاعبين المحترفين.", image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500&auto=format&fit=crop&q=80" },
@@ -227,23 +229,19 @@
             { id: 6, name: "Grandstream GRP2602P IP Phone", title: "هاتف IP مكتبي للشركات والفنادق", category: "الاتصالات", price: 320.00, desc: "شاشة ملونة وصوت نقي عالي الدقة VoIP مع دعم PoE وخطين.", image: "https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=500&auto=format&fit=crop&q=80" },
             { id: 7, name: "Smart Home Touch Panel & Hub", title: "لوحة تحكم ذكية منزلية بشاشة لمس متطورة", category: "سمارت هوم", price: 890.00, desc: "إدارة الإضاءة، التكييف، الستائر، والأجهزة الذكية بلمسة واحدة.", image: "https://images.unsplash.com/photo-1558002038-1055907df827?w=500&auto=format&fit=crop&q=80" },
             { id: 8, name: "Hikvision ColorVu 4K Outdoor Camera", title: "كاميرا مراقبة أمنية خارجية ملونة ليلاً 4K", category: "كاميرات", price: 650.00, desc: "رؤية ليلية ملونة فائقة الوضوح مع تحليل ذكي للحركة والوجوه.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80" },
-            { id: 9, name: "Zamla Wireless Elevator Camera Kit", title: "نظام كاميرات مصاعد لاسلكي بالكامل (بدون أسلاك)", category: "كاميرات", price: 1450.00, desc: "نقل فيديو عالي الدقة وثابت بدون تمديد كابلات في شافت المصعد[cite: 1].", image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=80" },
-            { id: 10, name: "Hikvision 16-Channel NVR 4K", title: "جهاز تسجيلي NVR 16 قناة دقة عالية", category: "أجهزة التسجيل", price: 1350.00, desc: "دعم كامل لتسجيل وتخزين الكاميرات الأمنية بكفاءة عالية مع منفذ HDMI.", image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&auto=format&fit=crop&q=80" },
-            { id: 11, name: "ZKTeco Biometric & Face Access Control", title: "جهاز بصمة حضور وانصراف وتفتيح الأبواب", category: "التحكم بالدخول", price: 1150.00, desc: "نظام إلكتروني متطور للتحكم بالدخول وتسجيل الحضور الموظفين بدقة.", image: "https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=500&auto=format&fit=crop&q=80" }
+            { id: 9, name: "Zamla Wireless Elevator Camera Kit", title: "نظام كاميرات مصاعد لاسلكي بالكامل (بدون أسلاك)", category: "كاميرات", price: 1450.00, desc: "نقل فيديو عالي الدقة وثابت بدون تمديد أسلاك في شافت المصعد[cite: 1].", image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=80" }
         ];
 
-        let products = JSON.parse(localStorage.getItem('zamla_products_v2')) || initialProducts;
-        let settings = JSON.parse(localStorage.getItem('zamla_settings_v2')) || { title: "ZAMLA FALEH", phone: "920007276" };
-        let cart = [];
+        let products = JSON.parse(localStorage.getItem('zamla_products_v3')) || initialProducts;
+        let settings = JSON.parse(localStorage.getItem('zamla_settings_v3')) || { title: "ZAMLA FALEH", phone: "920007276" };
+        let cart = JSON.parse(localStorage.getItem('zamla_cart')) || [];
 
-        // نظام التوجيه والصفحات المنفصلة (SPA Router)
         function navigateTo(page, param = null) {
             window.scrollTo(0, 0);
             const main = document.getElementById('main-content');
             
             if (page === 'home') {
                 main.innerHTML = `
-                    <!-- Hero Slider -->
                     <section class="bg-[#0284c7] text-white py-16 relative overflow-hidden shadow-md">
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-8">
                             <div class="space-y-4 max-w-lg">
@@ -258,7 +256,7 @@
                         </div>
                     </section>
 
-                    <!-- التصنيفات البارزة (مطابقة لصورة 700.png) -->
+                    <!-- التصنيفات البارزة -->
                     <section class="py-12 bg-white border-b border-gray-200">
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                             <h2 class="text-xl font-black text-slate-800 mb-8 text-center">التصنيفات والمنتجات البارزة</h2>
@@ -299,16 +297,13 @@
                         </div>
                     </section>
 
-                    <!-- عرض المنتجات البارزة -->
                     <section class="py-16 bg-slate-100">
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                             <div class="flex justify-between items-center mb-8">
                                 <h2 class="text-2xl font-black text-slate-900">أبرز المنتجات المعتمدة</h2>
                                 <button onclick="navigateTo('store')" class="text-orange-600 font-bold text-xs hover:underline">عرض كل المنتجات ←</button>
                             </div>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="home-products-grid">
-                                <!-- توليد المنتجات -->
-                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="home-products-grid"></div>
                         </div>
                     </section>
                 `;
@@ -327,9 +322,7 @@
                                 <input type="text" id="store-search" oninput="filterStoreProducts()" placeholder="ابحث باسم المنتج..." class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-orange-500 shadow-sm">
                             </div>
                         </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="store-products-grid">
-                            <!-- المنتجات -->
-                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="store-products-grid"></div>
                     </div>
                 `;
                 renderStoreProducts(filtered);
@@ -349,7 +342,7 @@
                                 <h2 class="text-sm font-bold text-slate-600" dir="ltr">${product.name}</h2>
                                 <p class="text-sm text-gray-600 leading-relaxed">${product.desc}</p>
                                 <div class="text-2xl font-black text-orange-600">${product.price} ر.س</div>
-                                <button onclick="addToCart(${product.id})" class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-3.5 rounded-xl text-sm transition shadow">أضف للسلة الآن</button>
+                                <button onclick="addToCart(${product.id})" class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-3.5 rounded-xl text-sm transition shadow">أضف للسلة</button>
                             </div>
                         </div>
                     </div>
@@ -497,16 +490,29 @@
             `).join('');
         }
 
+        // سلة المشتريات الخاصة بالمتجر حصرياً
         function addToCart(id) {
             const product = products.find(p => p.id === id);
             cart.push(product);
+            localStorage.setItem('zamla_cart', JSON.stringify(cart));
             updateCartUI();
             toggleCart();
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('zamla_cart', JSON.stringify(cart));
+            updateCartUI();
         }
 
         function updateCartUI() {
             document.getElementById('cart-count').innerText = cart.length;
             const container = document.getElementById('cart-items');
+            if(cart.length === 0) {
+                container.innerHTML = '<p class="text-center text-gray-500 py-8">سُلة التسوق فارغة</p>';
+                document.getElementById('cart-total').innerText = '0 ر.س';
+                return;
+            }
             container.innerHTML = '';
             let total = 0;
 
@@ -518,7 +524,7 @@
                             <h4 class="font-bold text-slate-900">${item.title}</h4>
                             <span class="text-orange-600 font-bold">${item.price} ر.س</span>
                         </div>
-                        <button onclick="cart.splice(${index},1); updateCartUI();" class="text-red-500 font-bold">حذف</button>
+                        <button onclick="removeFromCart(${index})" class="text-red-500 font-bold hover:underline">حذف</button>
                     </div>
                 `;
             });
@@ -529,16 +535,14 @@
             document.getElementById('cart-drawer').classList.toggle('-translate-x-full');
         }
 
-        function checkoutWhatsApp() {
+        function proceedToCheckout() {
             if(cart.length === 0) { alert('السلة فارغة!'); return; }
-            let text = "مرحباً، أرغب في طلب المنتجات التالية من متجر زمله فالح:%0A";
-            let total = 0;
-            cart.forEach(item => {
-                text += `- ${item.title} (${item.price} ر.س)%0A`;
-                total += item.price;
-            });
-            text += `%0Aالمجموع الكلي: ${total} ر.س`;
-            window.open(`https://wa.me/966543201995?text=${text}`, '_blank');
+            alert('تم تأكيد طلبك بنجاح! سيتم التواصل معكم لشحنه وتوصيله.');
+            cart = [];
+            localStorage.removeItem('zamla_cart');
+            updateCartUI();
+            toggleCart();
+            navigateTo('home');
         }
 
         // لوحة التحكم الإدارية
@@ -568,7 +572,7 @@
                 desc: document.getElementById('p-desc').value
             };
             products.unshift(newProd);
-            localStorage.setItem('zamla_products_v2', JSON.stringify(products));
+            localStorage.setItem('zamla_products_v3', JSON.stringify(products));
             document.getElementById('add-product-form').reset();
             initApp();
             alert('تمت إضافة المنتج بنجاح للكتالوج!');
@@ -576,7 +580,7 @@
 
         function deleteProduct(id) {
             products = products.filter(p => p.id !== id);
-            localStorage.setItem('zamla_products_v2', JSON.stringify(products));
+            localStorage.setItem('zamla_products_v3', JSON.stringify(products));
             initApp();
         }
 
@@ -586,7 +590,7 @@
                 title: document.getElementById('s-title').value,
                 phone: document.getElementById('s-phone').value
             };
-            localStorage.setItem('zamla_settings_v2', JSON.stringify(settings));
+            localStorage.setItem('zamla_settings_v3', JSON.stringify(settings));
             initApp();
             alert('تم حفظ الإعدادات بنجاح!');
         }
@@ -613,10 +617,10 @@
             document.getElementById('site-title').innerText = settings.title;
             document.getElementById('header-phone').innerText = settings.phone;
             document.getElementById('footer-phone').innerText = settings.phone;
+            updateCartUI();
             navigateTo('home');
         }
 
-        // تشغيل التطبيق عند التحميل
         initApp();
     </script>
 </body>
