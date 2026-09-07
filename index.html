@@ -13,7 +13,7 @@
 </head>
 <body class="antialiased flex flex-col min-h-screen">
 
-    <!-- الشريط العلوي الرفيع (بدون البيع بالعمولة) -->
+    <!-- الشريط العلوي الرفيع -->
     <div class="bg-[#334155] text-gray-300 text-xs py-2 px-4 border-b border-slate-700">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-5 flex-wrap">
@@ -98,7 +98,7 @@
     <!-- منطقة عرض الصفحات -->
     <main class="flex-1" id="main-content"></main>
 
-    <!-- الفوتر (يحتوي على رابط البيع بالعمولة بالأسفل) -->
+    <!-- الفوتر -->
     <footer class="bg-[#1e293b] text-gray-300 py-16 text-xs border-t border-slate-800 mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
             <div class="space-y-3">
@@ -149,7 +149,7 @@
         <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
     </a>
 
-    <!-- سلة المشتريات مع خيار الحصول على عرض سعر وإرساله بالإيميل -->
+    <!-- سلة المشتريات -->
     <div id="cart-drawer" class="fixed inset-y-0 left-0 z-50 w-full sm:w-96 bg-white border-r border-gray-300 shadow-2xl transform -translate-x-full transition-transform duration-300 flex flex-col">
         <div class="p-5 border-b border-gray-200 flex justify-between items-center bg-[#334155] text-white">
             <h3 class="font-bold text-sm" data-i18n="cart_title">محتويات سلة التسوق</h3>
@@ -170,21 +170,21 @@
         </div>
     </div>
 
-    <!-- لوحة التحكم الإدارية (مع رفع الصور محلياً، إدارة التصنيفات، والمنتجات البارزة) -->
+    <!-- لوحة التحكم الإدارية الشاملة (مع تعديل وحذف التصنيفات، ورفع شعار المتجر وصور المنتجات) -->
     <div id="admin-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
         <div class="bg-white w-full max-w-5xl max-h-[95vh] rounded-3xl shadow-2xl flex flex-col overflow-hidden text-xs">
             <div class="p-5 bg-[#334155] text-white flex justify-between items-center">
-                <h3 class="font-bold text-sm">⚙️ لوحة التحكم الإدارية (Admin Dashboard)</h3>
+                <h3 class="font-bold text-sm">⚙️ لوحة التحكم الإدارية الشاملة (Admin Dashboard)</h3>
                 <button onclick="toggleAdminModal()" class="text-gray-300 hover:text-white text-lg font-bold">✕</button>
             </div>
             <div class="flex border-b bg-slate-100 px-6 gap-4 overflow-x-auto">
                 <button onclick="switchAdminTab('products')" id="tab-btn-products" class="py-3 font-bold border-b-2 border-orange-500 text-orange-600 whitespace-nowrap">إدارة وتعديل المنتجات</button>
-                <button onclick="switchAdminTab('categories')" id="tab-btn-categories" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">إدارة التصنيفات الرئيسية والبارزة</button>
+                <button onclick="switchAdminTab('categories')" id="tab-btn-categories" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">إدارة التصنيفات (إضافة وتعديل وحذف)</button>
                 <button onclick="switchAdminTab('import')" id="tab-btn-import" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">رفع ملف أكسيل (Excel Import)</button>
-                <button onclick="switchAdminTab('settings')" id="tab-btn-settings" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">إعدادات الموقع والاتصال واللوجو</button>
+                <button onclick="switchAdminTab('settings')" id="tab-btn-settings" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">إعدادات الهوية والشعار</button>
             </div>
             <div class="p-6 flex-1 overflow-y-auto space-y-6">
-                <!-- إدارة المنتجات (رفع صورة حقيقية بدلاً من الرابط) -->
+                <!-- إدارة وتعديل المنتجات -->
                 <div id="admin-tab-products" class="space-y-6">
                     <div class="bg-slate-50 p-4 rounded-2xl border space-y-3">
                         <h4 class="font-bold text-slate-800 text-sm" id="form-title-heading">إضافة منتج جديد</h4>
@@ -214,17 +214,17 @@
                     </div>
                 </div>
 
-                <!-- إدارة التصنيفات البارزة والرئيسية -->
+                <!-- إدارة وتعديل وحذف التصنيفات -->
                 <div id="admin-tab-categories" class="hidden space-y-6">
                     <div class="bg-slate-50 p-4 rounded-2xl border space-y-3">
                         <h4 class="font-bold text-slate-800 text-sm">إضافة تصنيف رئيسي جديد</h4>
                         <form onsubmit="addNewCategory(event)" class="flex gap-3">
-                            <input type="text" id="new-cat-name" placeholder="اسم التصنيف (مثل: طابعات، شبكات...)" required class="flex-1 bg-white border rounded-xl px-3 py-2">
+                            <input type="text" id="new-cat-name" placeholder="اسم التصنيف الجديد" required class="flex-1 bg-white border rounded-xl px-3 py-2">
                             <button type="submit" class="bg-orange-500 text-white font-bold px-6 py-2 rounded-xl">إضافة التصنيف</button>
                         </form>
                     </div>
                     <div>
-                        <h4 class="font-bold text-slate-800 mb-3 text-sm">التصنيفات المعتمدة في المتجر والشجرة</h4>
+                        <h4 class="font-bold text-slate-800 mb-3 text-sm">التصنيفات الحالية (مع إمكانية التعديل أو الحذف)</h4>
                         <div id="admin-categories-list" class="space-y-2"></div>
                     </div>
                 </div>
@@ -238,15 +238,24 @@
                     </div>
                 </div>
 
-                <!-- إعدادات الموقع -->
+                <!-- إعدادات الهوية واللوجو -->
                 <div id="admin-tab-settings" class="hidden space-y-6">
                     <div class="bg-slate-50 p-6 rounded-2xl border space-y-4">
-                        <h4 class="font-bold text-slate-800 text-sm">إعدادات الهوية والشعار</h4>
+                        <h4 class="font-bold text-slate-800 text-sm">إعدادات الهوية وشعار المتجر (Logo)</h4>
                         <form onsubmit="saveSettings(event)" class="space-y-3">
-                            <input type="text" id="s-title" class="w-full bg-white border rounded-xl px-3 py-2" value="ZAMLA FALEH">
-                            <input type="text" id="s-logo" class="w-full bg-white border rounded-xl px-3 py-2" placeholder="logo.png">
-                            <input type="text" id="s-phone" class="w-full bg-white border rounded-xl px-3 py-2" value="920007276">
-                            <button type="submit" class="bg-orange-500 text-white font-bold px-6 py-2.5 rounded-xl">حفظ</button>
+                            <div>
+                                <label class="block font-bold mb-1">اسم المتجر / المؤسسة</label>
+                                <input type="text" id="s-title" class="w-full bg-white border rounded-xl px-3 py-2" value="ZAMLA FALEH">
+                            </div>
+                            <div>
+                                <label class="block font-bold mb-1">رفع شعار المتجر (Logo) من الجهاز</label>
+                                <input type="file" id="s-logo-file" accept="image/*" class="w-full bg-white border rounded-xl px-3 py-1.5 text-xs">
+                            </div>
+                            <div>
+                                <label class="block font-bold mb-1">رقم خدمة العملاء والاتصال</label>
+                                <input type="text" id="s-phone" class="w-full bg-white border rounded-xl px-3 py-2" value="920007276">
+                            </div>
+                            <button type="submit" class="bg-orange-500 text-white font-bold px-6 py-2.5 rounded-xl">حفظ التعديلات والشعار</button>
                         </form>
                     </div>
                 </div>
@@ -379,10 +388,10 @@
             { id: 8, model: "Zamla-Elevator-Wireless", name: "نظام كاميرات مصاعد لاسلكي بالكامل", category: "المراقبة", price: 1450.00, desc: "نقل فيديو عالي الدقة وثابت بدون تمديد أسلاك في شافت المصعد.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80", featured: true }
         ];
 
-        let products = JSON.parse(localStorage.getItem('zamla_products_v8')) || initialProducts;
-        let categories = JSON.parse(localStorage.getItem('zamla_categories_v8')) || ['المراقبة', 'أجهزة التسجيل', 'الشبكات', 'الاتصالات', 'طابعات', 'الحاسب', 'التحكم بالدخول', 'المنزل الذكي', 'الصوتيات', 'مكونات الحاسب'];
-        let settings = JSON.parse(localStorage.getItem('zamla_settings_v8')) || { title: "ZAMLA FALEH", logo: "logo.png", phone: "920007276" };
-        let cart = JSON.parse(localStorage.getItem('zamla_cart_v8')) || [];
+        let products = JSON.parse(localStorage.getItem('zamla_products_v9')) || initialProducts;
+        let categories = JSON.parse(localStorage.getItem('zamla_categories_v9')) || ['المراقبة', 'أجهزة التسجيل', 'الشبكات', 'الاتصالات', 'طابعات', 'الحاسب', 'التحكم بالدخول', 'المنزل الذكي', 'الصوتيات', 'مكونات الحاسب'];
+        let settings = JSON.parse(localStorage.getItem('zamla_settings_v9')) || { title: "ZAMLA FALEH", logo: "logo.png", phone: "920007276" };
+        let cart = JSON.parse(localStorage.getItem('zamla_cart_v9')) || [];
         window.currentPage = 'home';
 
         function navigateTo(page, param = null) {
@@ -426,7 +435,7 @@
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                             <div class="flex justify-between items-center mb-8">
                                 <h2 class="text-2xl font-black text-slate-900">أبرز المنتجات المعتمدة</h2>
-                                <button onclick="navigateTo('store')" class="text-orange-600 font-bold text-xs hover:underline">${t.view_all} ←</button>
+                                <button onclick="navigateTo('store')" class="text-orange-600 font-bold text-xs hover:underline">${t.view_all} (${products.length}) ←</button>
                             </div>
                             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="home-products-grid"></div>
                         </div>
@@ -701,14 +710,14 @@
         function addToCart(id) {
             const product = products.find(p => p.id === id);
             cart.push(product);
-            localStorage.setItem('zamla_cart_v8', JSON.stringify(cart));
+            localStorage.setItem('zamla_cart_v9', JSON.stringify(cart));
             updateCartUI();
             toggleCart();
         }
 
         function removeFromCart(index) {
             cart.splice(index, 1);
-            localStorage.setItem('zamla_cart_v8', JSON.stringify(cart));
+            localStorage.setItem('zamla_cart_v9', JSON.stringify(cart));
             updateCartUI();
         }
 
@@ -748,13 +757,13 @@
             if(cart.length === 0) { alert('السلة فارغة!'); return; }
             alert('تم تأكيد طلبك بنجاح! سيتم التواصل معكم لشحنه وتوصيله.');
             cart = [];
-            localStorage.removeItem('zamla_cart_v8');
+            localStorage.removeItem('zamla_cart_v9');
             updateCartUI();
             toggleCart();
             navigateTo('home');
         }
 
-        // لوحة التحكم الإدارية (رفع الصور محلياً، تعديل التصنيفات، والمنتجات البارزة)
+        // لوحة التحكم الإدارية
         function toggleAdminModal() {
             document.getElementById('admin-modal').classList.toggle('hidden');
             renderAdminProducts();
@@ -802,7 +811,7 @@
                     products.unshift(newProd);
                     alert('تمت إضافة المنتج بنجاح!');
                 }
-                localStorage.setItem('zamla_products_v8', JSON.stringify(products));
+                localStorage.setItem('zamla_products_v9', JSON.stringify(products));
                 document.getElementById('product-form').reset();
                 document.getElementById('p-edit-id').value = '';
                 document.getElementById('form-title-heading').innerText = 'إضافة منتج جديد';
@@ -838,7 +847,7 @@
 
         function deleteProduct(id) {
             products = products.filter(p => p.id !== id);
-            localStorage.setItem('zamla_products_v8', JSON.stringify(products));
+            localStorage.setItem('zamla_products_v9', JSON.stringify(products));
             renderAdminProducts();
         }
 
@@ -847,11 +856,37 @@
             const catName = document.getElementById('new-cat-name').value;
             if(catName && !categories.includes(catName)) {
                 categories.push(catName);
-                localStorage.setItem('zamla_categories_v8', JSON.stringify(categories));
+                localStorage.setItem('zamla_categories_v9', JSON.stringify(categories));
                 document.getElementById('new-cat-name').value = '';
                 renderAdminCategories();
                 populateCategoryDropdown();
                 alert('تمت إضافة التصنيف بنجاح!');
+            }
+        }
+
+        function editCategory(index) {
+            const oldName = categories[index];
+            const newName = prompt("أدخل الاسم الجديد للتصنيف:", oldName);
+            if(newName && newName.trim() !== "" && !categories.includes(newName)) {
+                categories[index] = newName.trim();
+                // تحديث تصنيف المنتجات التابعة له أيضاً
+                products.forEach(p => { if(p.category === oldName) p.category = newName.trim(); });
+                localStorage.setItem('zamla_categories_v9', JSON.stringify(categories));
+                localStorage.setItem('zamla_products_v9', JSON.stringify(products));
+                renderAdminCategories();
+                populateCategoryDropdown();
+                alert('تم تعديل التصنيف بنجاح!');
+            }
+        }
+
+        function deleteCategory(index) {
+            const catName = categories[index];
+            if(confirm(`هل أنت متأكد من حذف التصنيف "${catName}"؟`)) {
+                categories.splice(index, 1);
+                localStorage.setItem('zamla_categories_v9', JSON.stringify(categories));
+                renderAdminCategories();
+                populateCategoryDropdown();
+                alert('تم حذف التصنيف بنجاح!');
             }
         }
 
@@ -861,7 +896,10 @@
             container.innerHTML = categories.map((c, i) => `
                 <div class="flex justify-between items-center bg-white p-2.5 rounded-xl border text-xs">
                     <span class="font-bold">📂 ${c}</span>
-                    <button onclick="categories.splice(${i},1); localStorage.setItem('zamla_categories_v8', JSON.stringify(categories)); renderAdminCategories(); populateCategoryDropdown();" class="text-red-500 font-bold">حذف</button>
+                    <div class="flex gap-2">
+                        <button onclick="editCategory(${i})" class="bg-blue-600 text-white px-2 py-1 rounded font-bold">تعديل</button>
+                        <button onclick="deleteCategory(${i})" class="bg-red-600 text-white px-2 py-1 rounded font-bold">حذف</button>
+                    </div>
                 </div>
             `).join('');
         }
@@ -890,7 +928,7 @@
                         };
                         products.unshift(newP);
                     });
-                    localStorage.setItem('zamla_products_v8', JSON.stringify(products));
+                    localStorage.setItem('zamla_products_v9', JSON.stringify(products));
                     renderAdminProducts();
                     alert('تم سحب واستيراد أصناف الأكسيل بنجاح!');
                     switchAdminTab('products');
@@ -901,14 +939,30 @@
 
         function saveSettings(e) {
             e.preventDefault();
-            settings = {
-                title: document.getElementById('s-title').value,
-                logo: document.getElementById('s-logo').value,
-                phone: document.getElementById('s-phone').value
+            const title = document.getElementById('s-title').value;
+            const phone = document.getElementById('s-phone').value;
+            const fileInput = document.getElementById('s-logo-file');
+
+            const finishSettings = (logoUrl) => {
+                settings = {
+                    title,
+                    logo: logoUrl || settings.logo,
+                    phone
+                };
+                localStorage.setItem('zamla_settings_v9', JSON.stringify(settings));
+                initApp();
+                alert('تم حفظ إعدادات الهوية والشعار بنجاح!');
             };
-            localStorage.setItem('zamla_settings_v8', JSON.stringify(settings));
-            initApp();
-            alert('تم حفظ الإعدادات بنجاح!');
+
+            if (fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(upEvt) {
+                    finishSettings(upEvt.target.result);
+                };
+                reader.readAsDataURL(fileInput.files[0]);
+            } else {
+                finishSettings(null);
+            }
         }
 
         function renderAdminProducts() {
@@ -931,7 +985,6 @@
             `).join('');
             document.getElementById('admin-prod-count').innerText = products.length;
             document.getElementById('s-title').value = settings.title;
-            document.getElementById('s-logo').value = settings.logo || 'logo.png';
             document.getElementById('s-phone').value = settings.phone;
         }
 
