@@ -35,17 +35,17 @@
         </div>
     </div>
 
-    <!-- الشريط الرئيسي (Header مع الشعار الرسمي) -->
+    <!-- الشريط الرئيسي (Header) -->
     <header class="sticky top-0 z-50 bg-[#334155] shadow-lg border-b border-slate-700 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
             
-            <!-- الشعار الرسمي للمؤسسة -->
+            <!-- اللوجو الرسمي للمؤسسة -->
             <div class="flex items-center gap-3">
                 <a href="#home" onclick="navigateTo('home')" class="flex items-center gap-3 py-2">
-                    <div class="bg-black p-1.5 rounded-xl border border-orange-500/50 flex items-center gap-2">
-                        <div class="w-10 h-10 rounded-full bg-gradient-to-r from-orange-400 to-cyan-400 flex items-center justify-center font-black text-black text-xs">ZF</div>
+                    <div class="bg-black p-1 rounded-xl border border-orange-500/50 flex items-center gap-2">
+                        <img id="site-logo" src="logo.jpeg" alt="Logo" class="w-10 h-10 object-cover rounded-full" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=200'">
                         <div>
-                            <span class="block text-xs font-black tracking-wider text-orange-400 leading-none">ZAMLA BINT FALIH AMER</span>
+                            <span class="block text-[11px] font-black tracking-wider text-orange-400 leading-none">ZAMLA BINT FALIH AMER</span>
                             <span class="block text-[8px] text-cyan-300 font-mono tracking-tight mt-0.5">AL AMER AL JAHMI COMPANY</span>
                         </div>
                     </div>
@@ -152,10 +152,10 @@
         </button>
         <a id="whatsapp-float" href="https://wa.me/966543201995" target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white p-3.5 rounded-full shadow-2xl flex items-center justify-center transition transform hover:scale-110" title="محادثة واتساب">
             <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-        >
+        </a>
     </div>
 
-    <!-- نافذة شات الذكاء الاصطناعي الفوري (AI Chat Assistant Modal) -->
+    <!-- نافذة شات الذكاء الاصطناعي الفوري -->
     <div id="live-chat-modal" class="fixed bottom-24 left-6 z-50 w-80 bg-white rounded-3xl shadow-2xl border hidden flex flex-col overflow-hidden text-xs">
         <div class="bg-[#334155] text-white p-3 flex justify-between items-center font-bold">
             <span>🤖 مساعد الذكاء الاصطناعي (ZAMLA AI)</span>
@@ -170,7 +170,7 @@
         </div>
     </div>
 
-    <!-- نافذة تسجيل الدخول والتسجيل عبر الجيميل والجوال -->
+    <!-- نافذة تسجيل الدخول -->
     <div id="auth-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
         <div class="bg-white w-full max-w-md rounded-3xl shadow-2xl flex flex-col overflow-hidden text-xs p-6 space-y-4">
             <div class="flex justify-between items-center border-b pb-3">
@@ -215,14 +215,14 @@
     <div id="admin-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
         <div class="bg-white w-full max-w-5xl max-h-[95vh] rounded-3xl shadow-2xl flex flex-col overflow-hidden text-xs">
             <div class="p-5 bg-[#334155] text-white flex justify-between items-center">
-                <h3 class="font-bold text-sm">⚙️ لوحة التحكم الإدارية (Admin Dashboard)</h3>
+                <h3 class="font-bold text-sm">⚙️ لوحة التحكم الإدارية الشاملة (Admin Dashboard)</h3>
                 <button onclick="toggleAdminModal()" class="text-gray-300 hover:text-white text-lg font-bold">✕</button>
             </div>
             <div class="flex border-b bg-slate-100 px-6 gap-4 overflow-x-auto">
-                <button onclick="switchAdminTab('products')" id="tab-btn-products" class="py-3 font-bold border-b-2 border-orange-500 text-orange-600 whitespace-nowrap">إدارة المنتجات</button>
-                <button onclick="switchAdminTab('categories')" id="tab-btn-categories" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">إدارة التصنيفات وصور الأيقونات</button>
-                <button onclick="switchAdminTab('affiliate-admin')" id="tab-btn-affiliate-admin" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">إدارة نسب Affiliate وتوليد الأكواد</button>
-                <button onclick="switchAdminTab('settings')" id="tab-btn-settings" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">إعدادات الهوية واللوجو والداتا</button>
+                <button onclick="switchAdminTab('products')" id="tab-btn-products" class="py-3 font-bold border-b-2 border-orange-500 text-orange-600 whitespace-nowrap">إدارة وتعديل المنتجات</button>
+                <button onclick="switchAdminTab('categories')" id="tab-btn-categories" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">إدارة التصنيفات والأيقونات</button>
+                <button onclick="switchAdminTab('affiliate-admin')" id="tab-btn-affiliate-admin" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">إدارة Affiliate وتوليد الأكواد</button>
+                <button onclick="switchAdminTab('settings')" id="tab-btn-settings" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">إعدادات الهوية واللوجو</button>
             </div>
             <div class="p-6 flex-1 overflow-y-auto space-y-6">
                 <!-- إدارة المنتجات -->
@@ -241,7 +241,7 @@
                                 <label class="block font-bold text-gray-600 mb-1">صورة المنتج</label>
                                 <input type="file" id="p-img-file" accept="image/*" class="w-full bg-white border rounded-xl px-3 py-1.5 text-xs">
                             </div>
-                            <textarea id="p-desc" placeholder="وصف المنتج" rows="2" class="sm:col-span-3 bg-white border rounded-xl px-3 py-2"></textarea>
+                            <textarea id="p-desc" placeholder="وصف المنتج والمواصفات" rows="2" class="sm:col-span-3 bg-white border rounded-xl px-3 py-2"></textarea>
                             <label class="flex items-center gap-2 sm:col-span-3 font-bold text-slate-700">
                                 <input type="checkbox" id="p-featured" class="w-4 h-4 text-orange-500 rounded">
                                 ضمن المنتجات البارزة في الصفحة الرئيسية
@@ -252,10 +252,10 @@
                     <div id="admin-products-list" class="space-y-2 max-h-72 overflow-y-auto border p-3 rounded-2xl bg-white"></div>
                 </div>
 
-                <!-- إدارة التصنيفات والأيقونات -->
+                <!-- إدارة التصنيفات -->
                 <div id="admin-tab-categories" class="hidden space-y-6">
                     <div class="bg-slate-50 p-4 rounded-2xl border space-y-3">
-                        <h4 class="font-bold text-slate-800 text-sm" id="cat-form-title">إضافة تصنيف جديد مع صورة</h4>
+                        <h4 class="font-bold text-slate-800 text-sm" id="cat-form-title">إضافة تصنيف جديد مع أيقونة</h4>
                         <form id="category-form" onsubmit="saveCategoryData(event)" class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                             <input type="hidden" id="c-edit-index" value="">
                             <input type="text" id="new-cat-name" placeholder="اسم التصنيف" required class="bg-white border rounded-xl px-3 py-2 sm:col-span-2">
@@ -266,28 +266,22 @@
                     <div id="admin-categories-list" class="space-y-2"></div>
                 </div>
 
-                <!-- إداراة نسب Affiliate وتوليد الكود وإرساله للواتس اب -->
+                <!-- إداراة نسب Affiliate وتوليد الكود -->
                 <div id="admin-tab-affiliate-admin" class="hidden space-y-6">
                     <div class="bg-slate-50 p-6 rounded-2xl border space-y-4">
                         <h4 class="font-bold text-slate-800 text-sm">تحكم بنسب الأرباح وتوليد كود المسوق</h4>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div>
-                                <label class="block font-bold mb-1">نسبة العمولة الافتراضية للمسوق (%)</label>
-                                <input type="number" id="aff-rate" value="10" class="w-full bg-white border rounded-xl px-3 py-2">
-                            </div>
-                            <div>
-                                <label class="block font-bold mb-1">اسم أو جوال المسوق</label>
-                                <input type="text" id="aff-name" placeholder="مثال: أحمد محمد (05xxxxxxxx)" class="w-full bg-white border rounded-xl px-3 py-2">
-                            </div>
+                            <div><label class="block font-bold mb-1">نسبة العمولة (%)</label><input type="number" id="aff-rate" value="10" class="w-full bg-white border rounded-xl px-3 py-2"></div>
+                            <div><label class="block font-bold mb-1">اسم المسوق أو رقم جواله</label><input type="text" id="aff-name" placeholder="مثال: أحمد (05xxxxxxxx)" class="w-full bg-white border rounded-xl px-3 py-2"></div>
                         </div>
                         <button onclick="generateAndSendAffiliateCode()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-2.5 rounded-xl shadow">توليد الكود وإرساله مباشرة للواتساب 📱</button>
                     </div>
                 </div>
 
-                <!-- إعدادات الهوية واللوجو وداتا الصفحات -->
+                <!-- إعدادات الهوية واللوجو -->
                 <div id="admin-tab-settings" class="hidden space-y-6">
                     <div class="bg-slate-50 p-6 rounded-2xl border space-y-4">
-                        <h4 class="font-bold text-slate-800 text-sm">إعدادات الهوية وشعار المؤسسة (Logo) والداتا</h4>
+                        <h4 class="font-bold text-slate-800 text-sm">إعدادات الهوية وشعار المؤسسة الرسمي</h4>
                         <form onsubmit="saveSettings(event)" class="space-y-3">
                             <div><label class="block font-bold mb-1">اسم المؤسسة</label><input type="text" id="s-title" class="w-full bg-white border rounded-xl px-3 py-2" value="ZAMLA FALEH"></div>
                             <div><label class="block font-bold mb-1">رفع شعار المؤسسة الرسمي (Logo)</label><input type="file" id="s-logo-file" accept="image/*" class="w-full bg-white border rounded-xl px-3 py-1.5 text-xs"></div>
@@ -361,15 +355,15 @@
             { id: 2, model: "RG-RAP72PRO", name: "نقطة وصول Wi-Fi 7 للمؤسسات", category: "الشبكات", price: 850.00, desc: "أحدث تقنيات الواي فاي 7 لتغطية سريعة ومستقرة للشركات.", image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=80", featured: true }
         ];
 
-        let products = JSON.parse(localStorage.getItem('zamla_products_v12')) || initialProducts;
-        let categories = JSON.parse(localStorage.getItem('zamla_categories_v12')) || [
+        let products = JSON.parse(localStorage.getItem('zamla_products_v13')) || initialProducts;
+        let categories = JSON.parse(localStorage.getItem('zamla_categories_v13')) || [
             { name: 'المراقبة', icon: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=200' },
             { name: 'الشبكات', icon: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=200' },
             { name: 'الاتصالات', icon: 'https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=200' },
             { name: 'طابعات', icon: 'https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=200' }
         ];
-        let settings = JSON.parse(localStorage.getItem('zamla_settings_v12')) || { title: "ZAMLA FALEH", logo: "", phone: "920007276" };
-        let cart = JSON.parse(localStorage.getItem('zamla_cart_v12')) || [];
+        let settings = JSON.parse(localStorage.getItem('zamla_settings_v13')) || { title: "ZAMLA FALEH", logo: "", phone: "920007276" };
+        let cart = JSON.parse(localStorage.getItem('zamla_cart_v13')) || [];
         let currentUser = JSON.parse(localStorage.getItem('zamla_user')) || null;
         window.currentPage = 'home';
 
@@ -493,7 +487,6 @@
                 `;
             }
             else if (page === 'about') {
-                // صفحة حول المؤسسة والاعتمادات
                 main.innerHTML = `
                     <div class="max-w-4xl mx-auto px-4 py-16">
                         <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 space-y-6">
@@ -509,7 +502,6 @@
                 `;
             }
             else if (page === 'catalog') {
-                // صفحة الكتالوج التجاري 2026
                 main.innerHTML = `
                     <div class="max-w-4xl mx-auto px-4 py-16">
                         <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 space-y-6 text-center">
@@ -665,6 +657,20 @@
             window.open(`https://wa.me/966543201995?text=${text}`, '_blank');
         }
 
+        function sendCartQuoteEmail() {
+            if(cart.length === 0) { alert('السلة فارغة!'); return; }
+            let summary = "طلب عرض سعر للمنتجات التالية:\n";
+            let total = 0;
+            cart.forEach(item => {
+                summary += `- ${item.model} (${item.name}) : ${item.price} SAR\n`;
+                total += item.price;
+            });
+            summary += `\nالمجموع الكلي: ${total} SAR`;
+            const mail = document.createElement('a');
+            mail.href = `mailto:sales@zamlafaleh.com?subject=طلب عرض سعر رسمي&body=${encodeURIComponent(summary)}`;
+            mail.click();
+        }
+
         function renderHomeProducts() {
             const grid = document.getElementById('home-products-grid');
             if(!grid) return;
@@ -733,14 +739,14 @@
         function addToCart(id) {
             const product = products.find(p => p.id === id);
             cart.push(product);
-            localStorage.setItem('zamla_cart_v12', JSON.stringify(cart));
+            localStorage.setItem('zamla_cart_v13', JSON.stringify(cart));
             updateCartUI();
             toggleCart();
         }
 
         function removeFromCart(index) {
             cart.splice(index, 1);
-            localStorage.setItem('zamla_cart_v12', JSON.stringify(cart));
+            localStorage.setItem('zamla_cart_v13', JSON.stringify(cart));
             updateCartUI();
         }
 
@@ -779,7 +785,7 @@
             if(cart.length === 0) { alert('السلة فارغة!'); return; }
             alert('تم تأكيد طلبك بنجاح! سيتم التواصل معكم لشحنه وتوصيله.');
             cart = [];
-            localStorage.removeItem('zamla_cart_v12');
+            localStorage.removeItem('zamla_cart_v13');
             updateCartUI();
             toggleCart();
             navigateTo('home');
@@ -833,7 +839,7 @@
                     products.unshift(newProd);
                     alert('تمت إضافة المنتج بنجاح!');
                 }
-                localStorage.setItem('zamla_products_v12', JSON.stringify(products));
+                localStorage.setItem('zamla_products_v13', JSON.stringify(products));
                 document.getElementById('product-form').reset();
                 document.getElementById('p-edit-id').value = '';
                 document.getElementById('form-title-heading').innerText = 'إضافة منتج جديد';
@@ -867,7 +873,7 @@
 
         function deleteProduct(id) {
             products = products.filter(p => p.id !== id);
-            localStorage.setItem('zamla_products_v12', JSON.stringify(products));
+            localStorage.setItem('zamla_products_v13', JSON.stringify(products));
             renderAdminProducts();
         }
 
@@ -882,13 +888,13 @@
                     const oldName = categories[editIndex].name;
                     categories[editIndex] = { name, icon: iconUrl || categories[editIndex].icon };
                     products.forEach(p => { if(p.category === oldName) p.category = name; });
-                    localStorage.setItem('zamla_products_v12', JSON.stringify(products));
+                    localStorage.setItem('zamla_products_v13', JSON.stringify(products));
                     alert('تم تعديل التصنيف بنجاح!');
                 } else {
                     categories.push({ name, icon: iconUrl || 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=200' });
                     alert('تمت إضافة التصنيف بنجاح!');
                 }
-                localStorage.setItem('zamla_categories_v12', JSON.stringify(categories));
+                localStorage.setItem('zamla_categories_v13', JSON.stringify(categories));
                 document.getElementById('category-form').reset();
                 document.getElementById('c-edit-index').value = '';
                 renderAdminCategories();
@@ -913,7 +919,7 @@
         function deleteCategory(index) {
             if(confirm('هل أنت متأكد من حذف هذا التصنيف؟')) {
                 categories.splice(index, 1);
-                localStorage.setItem('zamla_categories_v12', JSON.stringify(categories));
+                localStorage.setItem('zamla_categories_v13', JSON.stringify(categories));
                 renderAdminCategories();
                 populateCategoryDropdown();
             }
@@ -944,9 +950,9 @@
 
             const finishSettings = (logoUrl) => {
                 settings = { title, logo: logoUrl || settings.logo, phone };
-                localStorage.setItem('zamla_settings_v12', JSON.stringify(settings));
+                localStorage.setItem('zamla_settings_v13', JSON.stringify(settings));
                 initApp();
-                alert('تم حفظ إعدادات الهوية والشعار بنجاح!');
+                alert('تم حفظ الإعدادات والشعار بنجاح!');
             };
 
             if (fileInput.files && fileInput.files[0]) {
@@ -984,11 +990,8 @@
         function initApp() {
             document.getElementById('site-title').innerText = settings.title;
             if(settings.logo) {
-                // إذا تم رفع الشعار الخاص بالمؤسسة (ZAMLA BINT FALIH AMER)
                 const logoImg = document.getElementById('site-logo');
                 logoImg.src = settings.logo;
-                logoImg.style.display = 'block';
-                document.getElementById('fallback-logo').style.display = 'none';
             }
             document.getElementById('header-phone').innerText = settings.phone;
             document.getElementById('footer-phone').innerText = settings.phone;
