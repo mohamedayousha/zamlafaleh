@@ -3,286 +3,325 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مؤسسة زمله فالح | أنظمة التيار الخفيف والشبكات - Zamla Faleh Est.</title>
+    <title>مؤسسة زمله فالح | المتجر الشامل للتقنية والشبكات - Zamla Faleh Est.</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Cairo', sans-serif; background-color: #f8fafc; color: #1e293b; }
+        body { font-family: 'Cairo', sans-serif; background-color: #f1f5f9; color: #1e293b; }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- شريط التنقل العلوي -->
-    <header class="sticky top-0 z-50 bg-[#0f172a] shadow-md border-b border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    <!-- الشريط العلوي الرفيع (Top Bar) -->
+    <div class="bg-[#334155] text-gray-300 text-xs py-2 px-4 border-b border-slate-700">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-6">
+                <a href="#contact" class="hover:text-white transition">اتصل بنا</a>
+                <a href="#store" class="hover:text-white transition">الحسابات البنكية</a>
+                <a href="#store" class="hover:text-white transition">تأكيد التحويل</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <select class="bg-slate-800 text-white rounded px-2 py-0.5 border border-slate-600 text-xs focus:outline-none">
+                    <option>العربية (AR)</option>
+                    <option>English (EN)</option>
+                </select>
+                <select class="bg-slate-800 text-white rounded px-2 py-0.5 border border-slate-600 text-xs focus:outline-none">
+                    <option>SAR - ريال</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- الشريط الرئيسي (Header مطابق لـ Electroon) -->
+    <header class="sticky top-0 z-50 bg-[#334155] shadow-lg border-b border-slate-700 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+            
+            <!-- اللوجو -->
             <div class="flex items-center gap-3">
-                <a href="#" class="flex items-center gap-3">
-                    <img id="site-logo" src="logo.png" alt="شعار مؤسسة زمله فالح" onerror="this.style.display='none'; document.getElementById('fallback-logo').style.display='flex';" class="h-12 w-auto object-contain">
-                    <div id="fallback-logo" class="hidden items-center gap-2">
-                        <div class="bg-orange-500 text-white p-2 rounded-xl font-black text-lg">ZF</div>
-                        <span id="site-title" class="text-lg font-black tracking-wider text-white">ZAMLA FALEH</span>
+                <a href="#" class="flex items-center gap-2">
+                    <img id="site-logo" src="logo.png" alt="Logo" onerror="this.style.display='none'; document.getElementById('fallback-logo').style.display='flex';" class="h-10 w-auto object-contain">
+                    <div id="fallback-logo" class="hidden items-center gap-1">
+                        <div class="bg-red-600 text-white px-2.5 py-1 rounded-lg font-black text-sm">ZF</div>
+                        <span id="site-title" class="text-base font-black tracking-wider text-white">ZAMLA FALEH</span>
                     </div>
                 </a>
             </div>
-            
-            <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-gray-200">
-                <a href="#" class="text-orange-400 hover:text-white transition">الرئيسية</a>
-                <a href="#store" class="hover:text-orange-400 transition">المتجر</a>
-                <a href="#solutions" class="hover:text-orange-400 transition">الحلول الهندسية</a>
-                <a href="#projects" class="hover:text-orange-400 transition">المشاريع</a>
-                <a href="#blog" class="hover:text-orange-400 transition">المدونة</a>
-                <a href="#contact" class="hover:text-orange-400 transition">اتصل بنا</a>
-            </nav>
 
-            <div class="flex items-center gap-3">
-                <button onclick="toggleAdminModal()" class="px-3 py-2 text-xs font-bold text-white bg-slate-700 hover:bg-slate-600 rounded-xl transition border border-slate-600">
-                    ⚙️ لوحة التحكم
+            <!-- زر الأقسام وشريط البحث العريض -->
+            <div class="flex-1 max-w-2xl flex items-center bg-white rounded-xl overflow-hidden shadow-inner border border-gray-300">
+                <div class="relative group">
+                    <button onclick="toggleMegaMenu()" class="bg-[#dc2626] hover:bg-[#b91c1c] text-white px-4 h-12 flex items-center gap-2 font-bold text-sm transition">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                        الأقسام ▾
+                    </button>
+                </div>
+                <input type="text" id="search-input" oninput="filterProducts()" placeholder="ابحث عن أجهزة، كاميرات، راوترات، لابتوبات..." class="w-full px-4 h-12 text-slate-900 text-sm focus:outline-none">
+                <button class="bg-gray-100 px-4 h-12 text-gray-600 hover:text-slate-900">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                 </button>
-                <button onclick="toggleCart()" class="relative p-2.5 text-white bg-slate-800 hover:bg-slate-700 rounded-xl transition border border-slate-700">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
-                    <span id="cart-count" class="absolute -top-1.5 -right-1.5 bg-orange-500 text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold text-white shadow">0</span>
-                </button>
-                <a href="#projects" class="hidden sm:inline-flex bg-orange-500 hover:bg-orange-600 text-white px-4 py-2.5 rounded-xl font-bold text-sm shadow transition">
-                    طلب عرض سعر
-                </a>
+            </div>
+
+            <!-- معلومات الدعم الفني وأيقونات التفاعل -->
+            <div class="flex items-center gap-5">
+                <div class="hidden xl:flex items-center gap-2 text-right">
+                    <div>
+                        <span class="block text-[10px] text-gray-400">خدمة العملاء</span>
+                        <a id="header-phone" href="tel:920007276" class="text-sm font-bold text-orange-400" dir="ltr">920007276</a>
+                    </div>
+                    <svg class="w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <button onclick="toggleAdminModal()" title="لوحة التحكم" class="p-2 bg-slate-700 hover:bg-slate-600 rounded-xl transition text-xs font-bold">⚙️</button>
+                    <button onclick="toggleCart()" class="relative p-2.5 bg-slate-700 hover:bg-slate-600 rounded-xl transition">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                        <span id="cart-count" class="absolute -top-1 -right-1 bg-red-600 text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold text-white">0</span>
+                    </button>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- الواجهة الرئيسية -->
-    <section class="relative py-20 lg:py-28 overflow-hidden bg-gradient-to-b from-[#0f172a] to-[#1e293b] text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6">
-                    <div class="inline-flex items-center gap-2 bg-slate-800/80 border border-slate-700 px-4 py-1.5 rounded-full text-orange-400 text-xs font-bold tracking-wider">
-                        <span class="w-2 h-2 rounded-full bg-orange-400 animate-pulse"></span>
-                        الموزع المعتمد لأنظمة التيار الخفيف والشبكات في المملكة
-                    </div>
-                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight uppercase">
-                        متجر الأجهزة الأمنية والشبكات والسنترالات المعتمدة
-                    </h1>
-                    <p class="text-base text-gray-300 leading-relaxed">
-                        نظام كاميرات مراقبة المصاعد اللاسلكي: <strong class="text-orange-400">بدون تمديد أسلاك</strong>[cite: 1]. توريد وتركيب أجهزة المراقبة Hikvision، Dahua، شبكات Ruijie و Ubiquiti، وسنترالات Grandstream[cite: 1].
-                    </p>
-                    <div class="flex flex-wrap gap-4 pt-4">
-                        <a href="#store" class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3.5 rounded-xl font-bold text-sm shadow-lg transition">
-                            تصفح المنتجات الآن
-                        </a>
-                        <a id="hero-phone-btn" href="tel:0543201995" class="border border-slate-600 bg-slate-800/50 hover:bg-slate-800 px-6 py-3.5 rounded-xl font-bold text-sm transition flex items-center gap-2 text-gray-200">
-                            اتصل بنا: <span id="display-phone">0543201995</span>
-                        </a>
-                    </div>
+    <!-- قائمة الميجا منيو المنسدلة (Mega Menu) -->
+    <div id="mega-menu" class="hidden absolute top-28 right-8 z-50 w-80 bg-white text-slate-900 rounded-2xl shadow-2xl border border-gray-200 p-4 space-y-2">
+        <div class="font-bold text-sm text-slate-800 border-b pb-2 mb-2 flex justify-between items-center">
+            <span>تصفح الأقسام الرئيسية</span>
+            <button onclick="toggleMegaMenu()" class="text-gray-400 hover:text-black">✕</button>
+        </div>
+        <div class="space-y-1 text-sm font-semibold">
+            <a href="#store" onclick="filterCategory('الكل'); toggleMegaMenu();" class="block p-2 hover:bg-gray-100 rounded-lg">🔥 جميع الأقسام والمنتجات</a>
+            <a href="#store" onclick="filterCategory('المراقبة'); toggleMegaMenu();" class="block p-2 hover:bg-gray-100 rounded-lg">📷 كاميرات المراقبة الأمنية و IP</a>
+            <a href="#store" onclick="filterCategory('أجهزة التسجيل'); toggleMegaMenu();" class="block p-2 hover:bg-gray-100 rounded-lg">🖥️ أجهزة التسجيل NVR / DVR</a>
+            <a href="#store" onclick="filterCategory('الشبكات'); toggleMegaMenu();" class="block p-2 hover:bg-gray-100 rounded-lg">🌐 الشبكات والراوترات (Wi-Fi & Routers)</a>
+            <a href="#store" onclick="filterCategory('الاتصالات'); toggleMegaMenu();" class="block p-2 hover:bg-gray-100 rounded-lg">📞 السنترالات وأجهزة VoIP</a>
+            <a href="#store" onclick="filterCategory('التحكم بالدخول'); toggleMegaMenu();" class="block p-2 hover:bg-gray-100 rounded-lg">🔐 أنظمة البصمة والإنتركوم والتحكم</a>
+        </div>
+    </div>
+
+    <!-- السلايدر الرئيسي (Hero Banner مشابه لـ Electroon) -->
+    <section class="bg-[#0284c7] text-white py-16 relative overflow-hidden shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="space-y-4 max-w-lg">
+                <span class="bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full">عروض الحوسبة الذكية</span>
+                <h1 class="text-3xl sm:text-4xl font-black leading-tight">إستكشف الإمكانيات قم بإنشاء أجهزتك الذكية</h1>
+                <p class="text-sm text-sky-100">أحدث أجهزة الشبكات، اللابتوبات، كاميرات المصاعد اللاسلكية، والحلول الأمنية المتكاملة.</p>
+                <a href="#store" class="inline-block bg-white text-slate-900 font-bold px-6 py-3 rounded-xl shadow hover:bg-gray-100 transition">تسوق الآن</a>
+            </div>
+            <div class="bg-white/10 p-6 rounded-3xl backdrop-blur border border-white/20 shadow-2xl">
+                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&auto=format&fit=crop&q=80" alt="Smart Tech" class="rounded-2xl w-80 h-48 object-cover shadow-lg">
+            </div>
+        </div>
+    </section>
+
+    <!-- شبكة الأقسام البصرية (مطابقة للصورة 500.png) -->
+    <section class="py-12 bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-xl font-black text-slate-800 mb-8 text-center">التصنيفات والمنتجات البارزة</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 text-center">
+                <div onclick="filterCategory('الكل')" class="bg-slate-50 border p-4 rounded-2xl hover:shadow-md cursor-pointer transition">
+                    <div class="text-2xl mb-2">🖨️</div>
+                    <span class="text-xs font-bold text-slate-700">طابعات</span>
                 </div>
-                
-                <div class="relative">
-                    <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-2xl space-y-4">
-                        <div class="flex justify-between items-center text-xs text-orange-400 border-b border-slate-700 pb-3 font-semibold">
-                            <span>ZAMLA FALEH - STORE MANAGEMENT</span>
-                            <span class="bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded">نظام نشط ومحدث</span>
-                        </div>
-                        <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&auto=format&fit=crop&q=80" alt="Tech Inventory" class="rounded-xl w-full h-56 object-cover shadow-md">
-                    </div>
+                <div onclick="filterCategory('الكل')" class="bg-slate-50 border p-4 rounded-2xl hover:shadow-md cursor-pointer transition">
+                    <div class="text-2xl mb-2">🖥️</div>
+                    <span class="text-xs font-bold text-slate-700">شاشات</span>
+                </div>
+                <div onclick="filterCategory('الشبكات')" class="bg-slate-50 border p-4 rounded-2xl hover:shadow-md cursor-pointer transition">
+                    <div class="text-2xl mb-2">🌐</div>
+                    <span class="text-xs font-bold text-slate-700">شبكات</span>
+                </div>
+                <div onclick="filterCategory('المراقبة')" class="bg-slate-50 border p-4 rounded-2xl hover:shadow-md cursor-pointer transition">
+                    <div class="text-2xl mb-2">📷</div>
+                    <span class="text-xs font-bold text-slate-700">كاميرات</span>
+                </div>
+                <div onclick="filterCategory('الاتصالات')" class="bg-slate-50 border p-4 rounded-2xl hover:shadow-md cursor-pointer transition">
+                    <div class="text-2xl mb-2">📞</div>
+                    <span class="text-xs font-bold text-slate-700">VoIP Phone</span>
+                </div>
+                <div onclick="filterCategory('التحكم بالدخول')" class="bg-slate-50 border p-4 rounded-2xl hover:shadow-md cursor-pointer transition">
+                    <div class="text-2xl mb-2">🏠</div>
+                    <span class="text-xs font-bold text-slate-700">سمارت هوم</span>
+                </div>
+                <div onclick="filterCategory('الكل')" class="bg-slate-50 border p-4 rounded-2xl hover:shadow-md cursor-pointer transition">
+                    <div class="text-2xl mb-2">🎧</div>
+                    <span class="text-xs font-bold text-slate-700">سماعات</span>
+                </div>
+                <div onclick="filterCategory('الكل')" class="bg-slate-50 border p-4 rounded-2xl hover:shadow-md cursor-pointer transition">
+                    <div class="text-2xl mb-2">⚡</div>
+                    <span class="text-xs font-bold text-slate-700">أجزاء الكمبيوتر</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- أقسام الحلول -->
-    <section id="solutions" class="py-16 bg-white border-b border-gray-200">
+    <!-- قسم المتجر وعرض المنتجات -->
+    <section id="store" class="py-16 bg-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl font-black text-center mb-10 text-[#0f172a] uppercase tracking-wider">قطاعات الأجهزة والمنتجات المعتمدة</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-slate-50 border border-gray-200 rounded-2xl p-6 text-center hover:shadow-md transition">
-                    <div class="text-orange-500 font-bold mb-2">المراقبة والكاميرات</div>
-                    <p class="text-xs text-gray-600">Hikvision, Dahua, وكاميرات المصاعد اللاسلكية[cite: 1]</p>
-                </div>
-                <div class="bg-slate-50 border border-gray-200 rounded-2xl p-6 text-center hover:shadow-md transition">
-                    <div class="text-orange-500 font-bold mb-2">الشبكات والراوترات</div>
-                    <p class="text-xs text-gray-600">Ruijie, Ubiquiti, سويتشات PoE وراوترات مركزية[cite: 1]</p>
-                </div>
-                <div class="bg-slate-50 border border-gray-200 rounded-2xl p-6 text-center hover:shadow-md transition">
-                    <div class="text-orange-500 font-bold mb-2">الاتصالات والسنترالات</div>
-                    <p class="text-xs text-gray-600">Grandstream IP PBX، هواتف مكتبية وبوابات هاتفية[cite: 1]</p>
-                </div>
-                <div class="bg-slate-50 border border-gray-200 rounded-2xl p-6 text-center hover:shadow-md transition">
-                    <div class="text-orange-500 font-bold mb-2">التحكم بالدخول والبصمة</div>
-                    <p class="text-xs text-gray-600">أنظمة البصمة ZKTeco، أجهزة الإنتركوم والأقفال الذكية[cite: 1]</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- المتجر الإلكتروني -->
-    <section id="store" class="py-20 bg-slate-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-10">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-8">
                 <div>
-                    <h2 class="text-3xl font-black text-[#0f172a]">متجر المنتجات الشامل</h2>
-                    <p class="text-sm text-gray-600 mt-1">تصفح كافة الأجهزة والمعدات بالأسعار والمواصفات الرسمية</p>
+                    <h2 class="text-2xl font-black text-slate-900">قائمة المنتجات والعروض</h2>
+                    <p class="text-xs text-gray-500">اختر القسم أو ابحث عن أي منتج لطلبه مباشرة</p>
                 </div>
-                <div class="w-full md:w-96">
-                    <input type="text" id="search-input" oninput="filterProducts()" placeholder="ابحث باسم المنتج أو الموديل..." class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-orange-500 shadow-sm">
+                <!-- أزرار التصنيفات التفاعلية -->
+                <div id="category-buttons" class="flex flex-wrap gap-2">
+                    <button onclick="filterCategory('الكل')" class="cat-btn bg-red-600 text-white px-3 py-1.5 rounded-xl text-xs font-bold transition shadow-sm">الكل</button>
                 </div>
-            </div>
-
-            <!-- أزرار التصنيفات -->
-            <div id="category-buttons" class="flex flex-wrap gap-2 mb-10">
-                <button onclick="filterCategory('all')" class="cat-btn bg-orange-500 text-white px-4 py-2 rounded-xl text-sm font-bold transition shadow-sm">الكل</button>
             </div>
 
             <!-- شبكة المنتجات -->
-            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- المنتجات تولد تلقائياً -->
             </div>
         </div>
     </section>
 
-    <!-- قسم المشاريع -->
-    <section id="projects" class="py-20 bg-white border-t border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-black text-[#0f172a]">مشاريعنا الإنشائية والهندسية</h2>
-                <p class="text-sm text-gray-600 mt-2">نماذج من أعمال مؤسسة زمله فالح في توريد وتركيب أنظمة التيار الخفيف والشبكات</p>
+    <!-- قسم النشرة البريدية (مطابق لـ 600.png) -->
+    <section class="py-12 bg-white border-t border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row justify-between items-center gap-8">
+            <div class="text-right space-y-2">
+                <h3 class="text-lg font-black text-slate-800">كن على اتصال</h3>
+                <p class="text-xs text-gray-500">اشترك في النشرة الإخبارية واحصل على آخر العروض الحصرية والتخفيضات!</p>
             </div>
-            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- المشاريع تولد تلقائياً -->
+            <div class="flex w-full lg:w-auto gap-2">
+                <input type="email" placeholder="البريد الإلكتروني..." class="bg-slate-100 border border-gray-300 rounded-xl px-4 py-2.5 text-xs w-full sm:w-80 focus:outline-none focus:border-red-600">
+                <button onclick="alert('تم اشتراكك بنجاح في النشرة البريدية!')" class="bg-red-600 hover:bg-red-700 text-white font-bold px-6 py-2.5 rounded-xl text-xs transition">الاشتراك</button>
             </div>
         </div>
     </section>
 
-    <!-- قسم المدونة -->
-    <section id="blog" class="py-20 bg-slate-50 border-t border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-black text-[#0f172a]">المدونة والمقالات التقنية</h2>
-                <p class="text-sm text-gray-600 mt-2">أحدث الشروحات والأخبار حول تقنيات التيار الخفيف وكاميرات المصاعد</p>
+    <!-- الفوتر الاحترافي الشامل (مطابق تماماً لتصميم 600.png) -->
+    <footer id="contact" class="bg-[#1e293b] text-gray-300 py-16 text-xs border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
+            <!-- اتصل بنا -->
+            <div class="space-y-3">
+                <h4 class="text-white font-bold text-sm border-b border-slate-700 pb-2">اتصل بنا</h4>
+                <p class="text-gray-400">Jeddah, Khalid Bin Al Waleed Street</p>
+                <p class="text-orange-400 font-bold" dir="ltr"><span id="footer-phone">920007276</span></p>
+                <p class="text-gray-400">سبت - خميس 8.00 - 22.00</p>
+                <p class="text-gray-400">sales@zamlafaleh.com</p>
             </div>
-            <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- المقالات تولد تلقائياً -->
+
+            <!-- خدمة العملاء -->
+            <div class="space-y-3">
+                <h4 class="text-white font-bold text-sm border-b border-slate-700 pb-2">خدمة العملاء</h4>
+                <ul class="space-y-2 text-gray-400">
+                    <li><a href="#store" class="hover:text-white transition">معلومات عن طلبك</a></li>
+                    <li><a href="#store" class="hover:text-white transition">تتبع شحنتك</a></li>
+                    <li><a href="#store" class="hover:text-white transition">نقاطي</a></li>
+                    <li><a href="#store" class="hover:text-white transition">قائمة الأمنيات</a></li>
+                </ul>
+            </div>
+
+            <!-- المؤسسة والروابط -->
+            <div class="space-y-3">
+                <h4 class="text-white font-bold text-sm border-b border-slate-700 pb-2">مؤسسة زمله فالح</h4>
+                <ul class="space-y-2 text-gray-400">
+                    <li><a href="#" class="hover:text-white transition">حول المؤسسة</a></li>
+                    <li><a href="#contact" class="hover:text-white transition">اتصل بنا</a></li>
+                    <li><a href="#store" class="hover:text-white transition">شركاتنا</a></li>
+                    <li><a href="#store" class="hover:text-white transition">سياسة الخصوصية</a></li>
+                </ul>
+            </div>
+
+            <!-- حسابي -->
+            <div class="space-y-3">
+                <h4 class="text-white font-bold text-sm border-b border-slate-700 pb-2">حسابي</h4>
+                <ul class="space-y-2 text-gray-400">
+                    <li><button onclick="toggleAdminModal()" class="hover:text-white transition">تسجيل دخول لوحة الإدارة</button></li>
+                    <li><a href="#store" class="hover:text-white transition">إنشاء حساب جديد</a></li>
+                    <li><a href="#store" class="hover:text-white transition">التسويق بالعمولة</a></li>
+                </ul>
             </div>
         </div>
-    </section>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-6 border-t border-slate-800 text-center text-gray-500 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p>كل الحقوق محفوظة لمؤسسة زمله فالح © 2009 - 2026</p>
+            <div class="flex gap-2 text-sm">
+                <span>🔒 Mada</span>
+                <span>💳 Visa</span>
+                <span>💳 Mastercard</span>
+                <span>📱 Apple Pay</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- زر واتساب عائم قابل للتعديل -->
+    <a id="whatsapp-float" href="https://wa.me/966543201995" target="_blank" class="fixed bottom-6 left-6 z-50 bg-emerald-500 hover:bg-emerald-600 text-white p-3.5 rounded-full shadow-2xl flex items-center justify-center transition transform hover:scale-110">
+        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    </a>
 
     <!-- نافذة سلة المشتريات -->
     <div id="cart-drawer" class="fixed inset-y-0 left-0 z-50 w-full sm:w-96 bg-white border-r border-gray-300 shadow-2xl transform -translate-x-full transition-transform duration-300 flex flex-col">
-        <div class="p-5 border-b border-gray-200 flex justify-between items-center bg-[#0f172a] text-white">
-            <h3 class="font-bold text-lg">سلة المشتريات والطلبات</h3>
-            <button onclick="toggleCart()" class="text-gray-300 hover:text-white font-bold text-xl">✕</button>
+        <div class="p-5 border-b border-gray-200 flex justify-between items-center bg-[#334155] text-white">
+            <h3 class="font-bold text-sm">سلة المشتريات والطلبات</h3>
+            <button onclick="toggleCart()" class="text-gray-300 hover:text-white font-bold text-lg">✕</button>
         </div>
-        <div id="cart-items" class="flex-1 overflow-y-auto p-5 space-y-4"></div>
-        <div class="p-5 border-t border-gray-200 bg-slate-50 space-y-3">
-            <div class="flex justify-between font-bold text-lg text-slate-900">
+        <div id="cart-items" class="flex-1 overflow-y-auto p-4 space-y-3 text-xs"></div>
+        <div class="p-4 border-t border-gray-200 bg-slate-50 space-y-3">
+            <div class="flex justify-between font-bold text-sm text-slate-900">
                 <span>المجموع الكلي:</span>
-                <span id="cart-total" class="text-orange-600">0 ر.س</span>
+                <span id="cart-total" class="text-red-600">0 ر.س</span>
             </div>
-            <button onclick="checkoutWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl transition text-center shadow">
-                إرسال الطلب عبر الواتساب 📱
+            <button onclick="checkoutWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl transition text-center shadow text-xs">
+                إتمام الطلب عبر الواتساب 📱
             </button>
         </div>
     </div>
 
-    <!-- نافذة لوحة التحكم (Admin Dashboard Modal) -->
+    <!-- لوحة التحكم الإدارية (Admin Dashboard Modal) -->
     <div id="admin-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
-        <div class="bg-white w-full max-w-4xl max-h-[90vh] rounded-3xl shadow-2xl flex flex-col overflow-hidden">
-            <div class="p-6 bg-[#0f172a] text-white flex justify-between items-center">
-                <h3 class="text-xl font-black">⚙️ لوحة التحكم لإدارة المتجر (بدون باكد إند)</h3>
-                <button onclick="toggleAdminModal()" class="text-gray-300 hover:text-white text-xl font-bold">✕</button>
+        <div class="bg-white w-full max-w-4xl max-h-[90vh] rounded-3xl shadow-2xl flex flex-col overflow-hidden text-xs">
+            <div class="p-5 bg-[#334155] text-white flex justify-between items-center">
+                <h3 class="font-bold text-sm">⚙️ لوحة التحكم لإدارة المتجر (Admin Dashboard)</h3>
+                <button onclick="toggleAdminModal()" class="text-gray-300 hover:text-white text-lg font-bold">✕</button>
             </div>
             <div class="flex border-b bg-slate-100 px-6 gap-4">
-                <button onclick="switchAdminTab('products')" id="tab-btn-products" class="py-3 font-bold text-sm border-b-2 border-orange-500 text-orange-600">إدارة المنتجات</button>
-                <button onclick="switchAdminTab('settings')" id="tab-btn-settings" class="py-3 font-bold text-sm text-gray-600 border-b-2 border-transparent">إعدادات المتجر واللوجو</button>
-                <button onclick="switchAdminTab('projects')" id="tab-btn-projects" class="py-3 font-bold text-sm text-gray-600 border-b-2 border-transparent">إدارة المشاريع</button>
-                <button onclick="switchAdminTab('blog')" id="tab-btn-blog" class="py-3 font-bold text-sm text-gray-600 border-b-2 border-transparent">إدارة المدونة</button>
+                <button onclick="switchAdminTab('products')" id="tab-btn-products" class="py-3 font-bold border-b-2 border-red-600 text-red-600">إدارة المنتجات</button>
+                <button onclick="switchAdminTab('settings')" id="tab-btn-settings" class="py-3 font-bold text-gray-600 border-b-2 border-transparent">إعدادات الموقع والاتصال</button>
             </div>
             <div class="p-6 flex-1 overflow-y-auto space-y-6">
-                <!-- قسم المنتجات -->
+                <!-- إدارة المنتجات -->
                 <div id="admin-tab-products" class="space-y-6">
-                    <div class="bg-slate-50 p-4 rounded-2xl border border-gray-200 space-y-4">
-                        <h4 class="font-bold text-slate-800">إضافة منتج جديد</h4>
-                        <form id="add-product-form" onsubmit="addNewProduct(event)" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <input type="text" id="p-name" placeholder="اسم المنتج والموديل" required class="bg-white border rounded-xl px-4 py-2.5 text-sm">
-                            <input type="text" id="p-cat" placeholder="التصنيف (المراقبة، الشبكات...)" required class="bg-white border rounded-xl px-4 py-2.5 text-sm">
-                            <input type="number" step="0.01" id="p-price" placeholder="السعر بالريال السعودي" required class="bg-white border rounded-xl px-4 py-2.5 text-sm">
-                            <input type="text" id="p-img" placeholder="رابط صورة المنتج (URL)" required class="bg-white border rounded-xl px-4 py-3 text-sm">
-                            <textarea id="p-desc" placeholder="وصف المنتج والمواصفات" rows="2" class="sm:col-span-2 bg-white border rounded-xl px-4 py-2.5 text-sm"></textarea>
-                            <button type="submit" class="sm:col-span-2 bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-xl text-sm transition">حفظ وإضافة المنتج للمتجر</button>
+                    <div class="bg-slate-50 p-4 rounded-2xl border border-gray-200 space-y-3">
+                        <h4 class="font-bold text-slate-800 text-sm">إضافة منتج جديد</h4>
+                        <form id="add-product-form" onsubmit="addNewProduct(event)" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <input type="text" id="p-name" placeholder="اسم المنتج والموديل" required class="bg-white border rounded-xl px-3 py-2">
+                            <input type="text" id="p-cat" placeholder="التصنيف (المراقبة، الشبكات...)" required class="bg-white border rounded-xl px-3 py-2">
+                            <input type="number" step="0.01" id="p-price" placeholder="السعر بالريال السعودي" required class="bg-white border rounded-xl px-3 py-2">
+                            <input type="text" id="p-img" placeholder="رابط صورة المنتج (URL)" required class="bg-white border rounded-xl px-3 py-2">
+                            <textarea id="p-desc" placeholder="وصف المنتج والمواصفات" rows="2" class="sm:col-span-2 bg-white border rounded-xl px-3 py-2"></textarea>
+                            <button type="submit" class="sm:col-span-2 bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 rounded-xl transition">إضافة المنتج للمتجر</button>
                         </form>
                     </div>
                     <div>
-                        <h4 class="font-bold text-slate-800 mb-3">المنتجات الحالية</h4>
+                        <h4 class="font-bold text-slate-800 mb-3 text-sm">المنتجات الحالية</h4>
                         <div id="admin-products-list" class="space-y-2"></div>
                     </div>
                 </div>
 
-                <!-- قسم الإعدادات -->
+                <!-- إعدادات الموقع -->
                 <div id="admin-tab-settings" class="hidden space-y-6">
                     <div class="bg-slate-50 p-6 rounded-2xl border border-gray-200 space-y-4">
-                        <h4 class="font-bold text-slate-800">إعدادات الهوية والتواصل</h4>
-                        <form onsubmit="saveSettings(event)" class="space-y-4">
+                        <h4 class="font-bold text-slate-800 text-sm">تعديل بيانات التواصل ورقم الواتساب</h4>
+                        <form onsubmit="saveSettings(event)" class="space-y-3">
                             <div>
-                                <label class="block text-xs font-bold text-gray-600 mb-1">عنوان المؤسسة / اسم المتجر</label>
-                                <input type="text" id="s-title" class="w-full bg-white border rounded-xl px-4 py-2.5 text-sm" value="ZAMLA FALEH">
+                                <label class="block font-bold text-gray-600 mb-1">اسم المؤسسة / المتجر</label>
+                                <input type="text" id="s-title" class="w-full bg-white border rounded-xl px-3 py-2" value="ZAMLA FALEH">
                             </div>
                             <div>
-                                <label class="block text-xs font-bold text-gray-600 mb-1">رابط صورة اللوجو (Logo URL أو اسم الملف logo.png)</label>
-                                <input type="text" id="s-logo" class="w-full bg-white border rounded-xl px-4 py-2.5 text-sm" placeholder="logo.png">
+                                <label class="block font-bold text-gray-600 mb-1">رقم خدمة العملاء والواتساب (مثال: 920007276 أو 0543201995)</label>
+                                <input type="text" id="s-phone" class="w-full bg-white border rounded-xl px-3 py-2" value="920007276">
                             </div>
-                            <div>
-                                <label class="block text-xs font-bold text-gray-600 mb-1">رقم الواتساب والاتصال (مثال: 966543201995)</label>
-                                <input type="text" id="s-phone" class="w-full bg-white border rounded-xl px-4 py-2.5 text-sm" value="0543201995">
-                            </div>
-                            <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-xl text-sm transition">حفظ الإعدادات</button>
+                            <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-bold px-6 py-2.5 rounded-xl transition">حفظ الإعدادات</button>
                         </form>
-                    </div>
-                </div>
-
-                <!-- قسم المشاريع -->
-                <div id="admin-tab-projects" class="hidden space-y-6">
-                    <div class="bg-slate-50 p-4 rounded-2xl border border-gray-200 space-y-4">
-                        <h4 class="font-bold text-slate-800">إضافة مشروع جديد</h4>
-                        <form onsubmit="addNewProject(event)" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <input type="text" id="proj-title" placeholder="عنوان المشروع" required class="bg-white border rounded-xl px-4 py-2.5 text-sm">
-                            <input type="text" id="proj-img" placeholder="رابط صورة المشروع" required class="bg-white border rounded-xl px-4 py-2.5 text-sm">
-                            <textarea id="proj-desc" placeholder="تفاصيل المشروع" rows="2" class="sm:col-span-2 bg-white border rounded-xl px-4 py-2.5 text-sm"></textarea>
-                            <button type="submit" class="sm:col-span-2 bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-xl text-sm transition">إضافة المشروع</button>
-                        </form>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-slate-800 mb-3">المشاريع الحالية</h4>
-                        <div id="admin-projects-list" class="space-y-2"></div>
-                    </div>
-                </div>
-
-                <!-- قسم المدونة -->
-                <div id="admin-tab-blog" class="hidden space-y-6">
-                    <div class="bg-slate-50 p-4 rounded-2xl border border-gray-200 space-y-4">
-                        <h4 class="font-bold text-slate-800">إضافة مقال جديد</h4>
-                        <form onsubmit="addNewArticle(event)" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <input type="text" id="art-title" placeholder="عنوان المقال" required class="bg-white border rounded-xl px-4 py-2.5 text-sm">
-                            <input type="text" id="art-img" placeholder="رابط صورة المقال" required class="bg-white border rounded-xl px-4 py-3 text-sm">
-                            <textarea id="art-desc" placeholder="محتوى المقال" rows="2" class="sm:col-span-2 bg-white border rounded-xl px-4 py-2.5 text-sm"></textarea>
-                            <button type="submit" class="sm:col-span-2 bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-xl text-sm transition">نشر المقال</button>
-                        </form>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-slate-800 mb-3">المقالات الحالية</h4>
-                        <div id="admin-articles-list" class="space-y-2"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- الفوتر -->
-    <footer id="contact" class="bg-[#0f172a] text-white py-12 text-sm text-center border-t border-slate-800">
-        <h3 class="font-bold text-lg mb-2">مؤسسة زمله فالح (zamlafaleh.com)</h3>
-        <p class="mb-2 text-gray-300">للاتصال والواتساب المباشر: <a id="footer-phone" href="tel:0543201995" class="text-orange-400 font-bold" dir="ltr">0543201995</a></p>
-        <p class="text-xs text-gray-400 mt-4">جميع الحقوق محفوظة © مؤسسة زمله فالح 2026</p>
-    </footer>
-
-    <!-- قاعدة البيانات ومنطق التشغيل ولوحة التحكم -->
+    <!-- برمجة المتجر ومنطق التشغيل -->
     <script>
-        // البيانات الافتراضية الأولية
+        // المنتجات الأساسية الافتراضية
         const defaultProducts = [
             { id: 1, name: "DS-2CD1021-I", title: "كاميرا IP شبكية خارجية 2 ميجابكسل", category: "المراقبة", price: 124.42, desc: "كاميرا شبكية خارجية بدقة 2 ميجابكسل مع رؤية ليلية متطورة.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80" },
             { id: 2, name: "DS-2CD1043G2-LIU", title: "كاميرا ColorVu خارجية 4 ميجابكسل", category: "المراقبة", price: 150.00, desc: "كاميرا IP خارجية بدقة 4 ميجابكسل من سلسلة ColorVu للتصوير الملون.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80" },
@@ -293,98 +332,51 @@
             { id: 7, name: "Zamla Elevator Cam System", title: "نظام كاميرات مصاعد لاسلكي بالكامل", category: "المراقبة", price: 1450.00, desc: "نقل فيديو عالي الدقة وثابت بدون تمديد أسلاك في شافت المصعد[cite: 1].", image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=80" }
         ];
 
-        const defaultProjects = [
-            { id: 1, title: "مشروع توريد وتركيب شبكات فندق المروة", desc: "تجهيز كاميرات مراقبة IP وشبكات الواي فاي المركزية لعدد 150 غرفة.", image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=80" },
-            { id: 2, title: "تحديث نظام كاميرات مصاعد برج الراجحي", desc: "تركيب أنظمة كاميرات المصاعد اللاسلكية بدون تمديد أسلاك معلقة.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80" },
-            { id: 3, title: "تجهيز سنترال وشبكات شركة الرياض التقنية", desc: "ربط فروع الشركة بسنترال IP PBX وتجهيز البنية التحتية بالكامل.", image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&auto=format&fit=crop&q=80" }
-        ];
-
-        const defaultArticles = [
-            { id: 1, title: "كيف تختار كاميرات المصاعد اللاسلكية لمشروعك؟", desc: "دليل شامل حول تقنيات نقل الفيديو بدون كابلات تعليق في شافت المصعد.", image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=80" },
-            { id: 2, title: "أهمية شبكات Wi-Fi 7 في الفنادق والمنشآت الحديثة", desc: "لماذا يجب الترقية إلى المعيار الجديد للشبكات لتغطية أسرع وأكثر استقراراً.", image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&auto=format&fit=crop&q=80" },
-            { id: 3, title: "مقارنة بين أنظمة البصمة التقليدية وأنظمة التعرف على الوجه", desc: "تعرف على أحدث أجهزة ZKTeco وأثرها في رفع مستوى الأمان والانصراف.", image: "https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=500&auto=format&fit=crop&q=80" }
-        ];
-
-        // تهيئة التخزين المحلي
-        let products = JSON.parse(localStorage.getItem('zamla_products')) || defaultProducts;
-        let projects = JSON.parse(localStorage.getItem('zamla_projects')) || defaultProjects;
-        let articles = JSON.parse(localStorage.getItem('zamla_articles')) || defaultArticles;
-        let settings = JSON.parse(localStorage.getItem('zamla_settings')) || { title: "ZAMLA FALEH", logo: "logo.png", phone: "0543201995" };
-
+        let products = JSON.parse(localStorage.getItem('electroon_products')) || defaultProducts;
+        let settings = JSON.parse(localStorage.getItem('electroon_settings')) || { title: "ZAMLA FALEH", phone: "920007276" };
         let cart = [];
 
         function initApp() {
-            // تطبيق الإعدادات
             document.getElementById('site-title').innerText = settings.title;
-            document.getElementById('site-logo').src = settings.logo;
-            document.getElementById('display-phone').innerText = settings.phone;
-            document.getElementById('hero-phone-btn').href = `tel:${settings.phone}`;
+            document.getElementById('header-phone').innerText = settings.phone;
             document.getElementById('footer-phone').innerText = settings.phone;
-            document.getElementById('footer-phone').href = `tel:${settings.phone}`;
-
+            document.getElementById('whatsapp-float').href = `https://wa.me/966${settings.phone.replace(/^0/, '')}`;
+            
             renderCategories();
             renderProducts(products);
-            renderProjects();
-            renderArticles();
-            renderAdminLists();
+            renderAdminProducts();
         }
 
         function renderCategories() {
             const container = document.getElementById('category-buttons');
             const cats = ['الكل', ...new Set(products.map(p => p.category))];
             container.innerHTML = cats.map((c, i) => `
-                <button onclick="filterCategory('${c}')" class="cat-btn ${i === 0 ? 'bg-orange-500 text-white' : 'bg-white text-gray-700 border border-gray-300'} px-4 py-2 rounded-xl text-sm font-bold transition shadow-sm">${c}</button>
+                <button onclick="filterCategory('${c}')" class="cat-btn ${i === 0 ? 'bg-red-600 text-white' : 'bg-white text-gray-700 border border-gray-300'} px-3 py-1.5 rounded-xl text-xs font-bold transition shadow-sm">${c}</button>
             `).join('');
         }
 
         function renderProducts(list) {
             const grid = document.getElementById('product-grid');
             if(list.length === 0) {
-                grid.innerHTML = '<p class="col-span-3 text-center text-gray-500 py-10">لا توجد منتجات مطابقة للبحث.</p>';
+                grid.innerHTML = '<p class="col-span-4 text-center text-gray-500 py-10 text-xs">لا توجد منتجات مطابقة.</p>';
                 return;
             }
             grid.innerHTML = list.map(p => `
                 <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden flex flex-col justify-between hover:shadow-lg transition">
                     <div>
-                        <div class="h-48 overflow-hidden bg-slate-100">
+                        <div class="h-44 overflow-hidden bg-slate-100">
                             <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.src='https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500'">
                         </div>
-                        <div class="p-5">
-                            <span class="text-xs text-orange-600 bg-orange-50 px-2.5 py-1 rounded-md font-bold">${p.category}</span>
-                            <h3 class="text-sm font-black text-slate-900 mt-2" dir="ltr">${p.name}</h3>
-                            <h4 class="text-xs font-bold text-gray-800 mt-1">${p.title || ''}</h4>
-                            <p class="text-xs text-gray-500 mt-2 leading-relaxed">${p.desc}</p>
+                        <div class="p-4">
+                            <span class="text-[10px] text-red-600 bg-red-50 px-2 py-0.5 rounded-md font-bold">${p.category}</span>
+                            <h3 class="text-xs font-black text-slate-900 mt-2" dir="ltr">${p.name}</h3>
+                            <h4 class="text-[11px] font-bold text-gray-800 mt-1">${p.title || ''}</h4>
+                            <p class="text-[11px] text-gray-500 mt-1 leading-relaxed line-clamp-2">${p.desc}</p>
                         </div>
                     </div>
-                    <div class="p-5 pt-0 flex items-center justify-between border-t border-gray-100 mt-4">
-                        <span class="text-lg font-black text-slate-900">${p.price} ر.س</span>
-                        <button onclick="addToCart(${p.id})" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-xl text-xs font-bold transition shadow-sm">أضف للسلة</button>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function renderProjects() {
-            const grid = document.getElementById('projects-grid');
-            grid.innerHTML = projects.map(proj => `
-                <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition">
-                    <img src="${proj.image}" alt="${proj.title}" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="font-black text-base text-[#0f172a] mb-2">${proj.title}</h3>
-                        <p class="text-xs text-gray-600 leading-relaxed">${proj.desc}</p>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function renderArticles() {
-            const grid = document.getElementById('blog-grid');
-            grid.innerHTML = articles.map(art => `
-                <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition">
-                    <img src="${art.image}" alt="${art.title}" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="font-black text-base text-[#0f172a] mb-2">${art.title}</h3>
-                        <p class="text-xs text-gray-600 leading-relaxed">${art.desc}</p>
+                    <div class="p-4 pt-0 flex items-center justify-between border-t border-gray-100 mt-3">
+                        <span class="text-base font-black text-slate-900">${p.price} ر.س</span>
+                        <button onclick="addToCart(${p.id})" class="bg-red-600 hover:bg-red-700 text-white px-3 py-1.5 rounded-xl text-xs font-bold transition shadow-sm">أضف للسلة</button>
                     </div>
                 </div>
             `).join('');
@@ -392,9 +384,9 @@
 
         function filterCategory(cat) {
             document.querySelectorAll('.cat-btn').forEach(btn => {
-                btn.className = "cat-btn bg-white hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-xl text-sm font-bold transition border border-gray-300";
+                btn.className = "cat-btn bg-white hover:bg-gray-50 text-gray-700 px-3 py-1.5 rounded-xl text-xs font-bold transition border border-gray-300";
             });
-            event.target.className = "cat-btn bg-orange-500 text-white px-4 py-2 rounded-xl text-sm font-bold transition shadow-sm";
+            event.target.className = "cat-btn bg-red-600 text-white px-3 py-1.5 rounded-xl text-xs font-bold transition shadow-sm";
             
             if(cat === 'الكل') renderProducts(products);
             else renderProducts(products.filter(p => p.category === cat));
@@ -403,6 +395,10 @@
         function filterProducts() {
             const query = document.getElementById('search-input').value.toLowerCase();
             renderProducts(products.filter(p => p.name.toLowerCase().includes(query) || (p.title && p.title.toLowerCase().includes(query)) || p.desc.toLowerCase().includes(query) || p.category.toLowerCase().includes(query)));
+        }
+
+        function toggleMegaMenu() {
+            document.getElementById('mega-menu').classList.toggle('hidden');
         }
 
         function addToCart(id) {
@@ -421,12 +417,12 @@
             cart.forEach((item, index) => {
                 total += item.price;
                 container.innerHTML += `
-                    <div class="flex justify-between items-center bg-slate-50 p-3 rounded-xl border border-gray-200">
+                    <div class="flex justify-between items-center bg-slate-50 p-2.5 rounded-xl border border-gray-200">
                         <div>
-                            <h4 class="font-bold text-xs text-slate-900" dir="ltr">${item.name}</h4>
-                            <span class="text-orange-600 text-xs font-bold">${item.price} ر.س</span>
+                            <h4 class="font-bold text-slate-900" dir="ltr">${item.name}</h4>
+                            <span class="text-red-600 font-bold">${item.price} ر.س</span>
                         </div>
-                        <button onclick="cart.splice(${index},1); updateCartUI();" class="text-red-500 hover:text-red-700 text-xs font-bold">حذف</button>
+                        <button onclick="cart.splice(${index},1); updateCartUI();" class="text-red-500 font-bold">حذف</button>
                     </div>
                 `;
             });
@@ -439,7 +435,7 @@
 
         function checkoutWhatsApp() {
             if(cart.length === 0) { alert('السلة فارغة!'); return; }
-            let text = "مرحباً، أرغب في طلب المنتجات التالية من مؤسسة زمله فالح:%0A";
+            let text = "مرحباً، أرغب في طلب المنتجات التالية:%0A";
             let total = 0;
             cart.forEach(item => {
                 text += `- ${item.name} - ${item.price} ر.س%0A`;
@@ -449,19 +445,19 @@
             window.open(`https://wa.me/966${settings.phone.replace(/^0/, '')}?text=${text}`, '_blank');
         }
 
-        // منطق لوحة التحكم (Admin Panel)
+        // لوحة التحكم
         function toggleAdminModal() {
             document.getElementById('admin-modal').classList.toggle('hidden');
-            renderAdminLists();
+            renderAdminProducts();
         }
 
         function switchAdminTab(tab) {
-            ['products', 'settings', 'projects', 'blog'].forEach(t => {
+            ['products', 'settings'].forEach(t => {
                 document.getElementById(`admin-tab-${t}`).classList.add('hidden');
-                document.getElementById(`tab-btn-${t}`).className = "py-3 font-bold text-sm text-gray-600 border-b-2 border-transparent";
+                document.getElementById(`tab-btn-${t}`).className = "py-3 font-bold text-gray-600 border-b-2 border-transparent";
             });
             document.getElementById(`admin-tab-${tab}`).classList.remove('hidden');
-            document.getElementById(`tab-btn-${tab}`).className = "py-3 font-bold text-sm border-b-2 border-orange-500 text-orange-600";
+            document.getElementById(`tab-btn-${tab}`).className = "py-3 font-bold border-b-2 border-red-600 text-red-600";
         }
 
         function addNewProduct(e) {
@@ -476,7 +472,7 @@
                 desc: document.getElementById('p-desc').value
             };
             products.unshift(newProd);
-            localStorage.setItem('zamla_products', JSON.stringify(products));
+            localStorage.setItem('electroon_products', JSON.stringify(products));
             document.getElementById('add-product-form').reset();
             initApp();
             alert('تمت إضافة المنتج بنجاح!');
@@ -484,49 +480,7 @@
 
         function deleteProduct(id) {
             products = products.filter(p => p.id !== id);
-            localStorage.setItem('zamla_products', JSON.stringify(products));
-            initApp();
-        }
-
-        function addNewProject(e) {
-            e.preventDefault();
-            const newProj = {
-                id: Date.now(),
-                title: document.getElementById('proj-title').value,
-                image: document.getElementById('proj-img').value,
-                desc: document.getElementById('proj-desc').value
-            };
-            projects.unshift(newProj);
-            localStorage.setItem('zamla_projects', JSON.stringify(projects));
-            e.target.reset();
-            initApp();
-            alert('تمت إضافة المشروع بنجاح!');
-        }
-
-        function deleteProject(id) {
-            projects = projects.filter(p => p.id !== id);
-            localStorage.setItem('zamla_projects', JSON.stringify(projects));
-            initApp();
-        }
-
-        function addNewArticle(e) {
-            e.preventDefault();
-            const newArt = {
-                id: Date.now(),
-                title: document.getElementById('art-title').value,
-                image: document.getElementById('art-img').value,
-                desc: document.getElementById('art-desc').value
-            };
-            articles.unshift(newArt);
-            localStorage.setItem('zamla_articles', JSON.stringify(articles));
-            e.target.reset();
-            initApp();
-            alert('تم نشر المقال بنجاح!');
-        }
-
-        function deleteArticle(id) {
-            articles = articles.filter(a => a.id !== id);
-            localStorage.setItem('zamla_articles', JSON.stringify(articles));
+            localStorage.setItem('electroon_products', JSON.stringify(products));
             initApp();
         }
 
@@ -534,58 +488,31 @@
             e.preventDefault();
             settings = {
                 title: document.getElementById('s-title').value,
-                logo: document.getElementById('s-logo').value,
                 phone: document.getElementById('s-phone').value
             };
-            localStorage.setItem('zamla_settings', JSON.stringify(settings));
+            localStorage.setItem('electroon_settings', JSON.stringify(settings));
             initApp();
             alert('تم حفظ الإعدادات بنجاح!');
         }
 
-        function renderAdminLists() {
-            // قائمة المنتجات
+        function renderAdminProducts() {
             document.getElementById('admin-products-list').innerHTML = products.map(p => `
-                <div class="flex justify-between items-center bg-white p-3 rounded-xl border">
-                    <div class="flex items-center gap-3">
-                        <img src="${p.image}" class="w-10 h-10 object-cover rounded-lg">
+                <div class="flex justify-between items-center bg-white p-2.5 rounded-xl border text-xs">
+                    <div class="flex items-center gap-2">
+                        <img src="${p.image}" class="w-8 h-8 object-cover rounded-lg">
                         <div>
-                            <h5 class="font-bold text-xs" dir="ltr">${p.name}</h5>
-                            <span class="text-[10px] text-orange-600">${p.price} ر.س (${p.category})</span>
+                            <h5 class="font-bold" dir="ltr">${p.name}</h5>
+                            <span class="text-red-600">${p.price} ر.س (${p.category})</span>
                         </div>
                     </div>
-                    <button onclick="deleteProduct(${p.id})" class="text-red-500 hover:text-red-700 text-xs font-bold">حذف</button>
+                    <button onclick="deleteProduct(${p.id})" class="text-red-500 font-bold">حذف</button>
                 </div>
             `).join('');
 
-            // قائمة المشاريع
-            document.getElementById('admin-projects-list').innerHTML = projects.map(proj => `
-                <div class="flex justify-between items-center bg-white p-3 rounded-xl border">
-                    <div class="flex items-center gap-3">
-                        <img src="${proj.image}" class="w-10 h-10 object-cover rounded-lg">
-                        <h5 class="font-bold text-xs">${proj.title}</h5>
-                    </div>
-                    <button onclick="deleteProject(${proj.id})" class="text-red-500 hover:text-red-700 text-xs font-bold">حذف</button>
-                </div>
-            `).join('');
-
-            // قائمة المقالات
-            document.getElementById('admin-articles-list').innerHTML = articles.map(art => `
-                <div class="flex justify-between items-center bg-white p-3 rounded-xl border">
-                    <div class="flex items-center gap-3">
-                        <img src="${art.image}" class="w-10 h-10 object-cover rounded-lg">
-                        <h5 class="font-bold text-xs">${art.title}</h5>
-                    </div>
-                    <button onclick="deleteArticle(${art.id})" class="text-red-500 hover:text-red-700 text-xs font-bold">حذف</button>
-                </div>
-            `).join('');
-
-            // تعبئة إعدادات المتجر
             document.getElementById('s-title').value = settings.title;
-            document.getElementById('s-logo').value = settings.logo;
             document.getElementById('s-phone').value = settings.phone;
         }
 
-        // تشغيل التطبيق عند التحميل
         initApp();
     </script>
 </body>
