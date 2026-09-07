@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مؤسسة زمله فالح | متجر الحاسب الآلي والشبكات والكاميرات - Zamla Faleh Est.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Cairo', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 antialiased">
+
+    <!-- شريط التنقل العلوي -->
+    <header class="sticky top-0 z-50 bg-gray-900/95 backdrop-blur border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="bg-gradient-to-r from-blue-600 to-amber-500 p-0.5 rounded-xl">
+                    <div class="bg-gray-900 px-3 py-1.5 rounded-[10px]">
+                        <span class="text-lg font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-amber-400">ZAMLA FALEH</span>
+                    </div>
+                </div>
+            </div>
+            
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#" class="text-blue-400 hover:text-blue-300 transition">الرئيسية</a>
+                <a href="#store" class="hover:text-blue-400 transition">المتجر والأجهزة</a>
+                <a href="#projects" class="hover:text-blue-400 transition">مشاريع الفنادق</a>
+                <a href="#contact" class="hover:text-blue-400 transition">اتصل بنا</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <button onclick="toggleCart()" class="relative p-2 text-gray-300 hover:text-white bg-gray-800 rounded-xl">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                    <span id="cart-count" class="absolute -top-1 -right-1 bg-blue-600 text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold text-white">0</span>
+                </button>
+                <a href="#projects" class="hidden sm:inline-flex bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-lg shadow-blue-600/25 transition">
+                    طلب عرض سعر لمشروع
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- قسم الواجهة الرئيسية -->
+    <section class="relative py-16 lg:py-24 overflow-hidden bg-gradient-to-b from-gray-900 via-blue-950/20 to-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="inline-flex items-center gap-2 bg-blue-900/40 border border-blue-500/30 px-4 py-1.5 rounded-full text-blue-400 text-sm font-semibold mb-6">
+                <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+                المورد المعتمد لأجهزة الحاسب الآلي، اللابتوبات، والأنظمة الأمنية
+            </div>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight mb-6">
+                نظام كاميرات مراقبة المصاعد اللاسلكي: <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-amber-400">بدون تمديد أسلاك</span>
+            </h1>
+            <p class="text-lg text-gray-300 max-w-3xl mx-auto mb-8">
+                تصفح أقسام الحاسب الآلي، اللابتوبات، شبكات الواي فاي المتقدمة، والكاميرات الأمنية بأفضل الأسعار وبدون رسوم اشتراك.
+            </p>
+        </div>
+    </section>
+
+    <!-- قسم المتجر الإلكتروني مع البحث والتصفية -->
+    <section id="store" class="py-16 bg-gray-950 border-t border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-10">
+                <h2 class="text-3xl font-black">متجر الأجهزة والحاسب الآلي والشبكات</h2>
+                <!-- شريط البحث -->
+                <div class="w-full md:w-96">
+                    <input type="text" id="search-input" oninput="filterProducts()" placeholder="ابحث عن لابتوب، راوتر، كاميرا..." class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500">
+                </div>
+            </div>
+
+            <!-- أزرار التصنيفات -->
+            <div class="flex flex-wrap gap-2 mb-10">
+                <button onclick="filterCategory('all')" class="cat-btn bg-blue-600 text-white px-4 py-2 rounded-xl text-sm font-bold transition">الكل</button>
+                <button onclick="filterCategory('laptops')" class="cat-btn bg-gray-900 hover:bg-gray-800 text-gray-300 px-4 py-2 rounded-xl text-sm font-bold transition">اللابتوبات والحواسيب</button>
+                <button onclick="filterCategory('networking')" class="cat-btn bg-gray-900 hover:bg-gray-800 text-gray-300 px-4 py-2 rounded-xl text-sm font-bold transition">الشبكات والراوترات</button>
+                <button onclick="filterCategory('cctv')" class="cat-btn bg-gray-900 hover:bg-gray-800 text-gray-300 px-4 py-2 rounded-xl text-sm font-bold transition">كاميرات المراقبة الأمنية</button>
+                <button onclick="filterCategory('elevators')" class="cat-btn bg-gray-900 hover:bg-gray-800 text-gray-300 px-4 py-2 rounded-xl text-sm font-bold transition">كاميرات المصاعد اللاسلكية</button>
+                <button onclick="filterCategory('accessories')" class="cat-btn bg-gray-900 hover:bg-gray-800 text-gray-300 px-4 py-2 rounded-xl text-sm font-bold transition">ملحقات الحاسب والملحقات</button>
+            </div>
+
+            <!-- شبكة المنتجات -->
+            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- المنتجات تتولد برمجياً هنا -->
+            </div>
+        </div>
+    </section>
+
+    <!-- نافذة سلة المشتريات الجانبية -->
+    <div id="cart-drawer" class="fixed inset-y-0 left-0 z-50 w-full sm:w-96 bg-gray-900 border-r border-gray-800 shadow-2xl transform -translate-x-full transition-transform duration-300 flex flex-col">
+        <div class="p-5 border-b border-gray-800 flex justify-between items-center">
+            <h3 class="font-bold text-lg">سلة المشتريات والطلبات</h3>
+            <button onclick="toggleCart()" class="text-gray-400 hover:text-white font-bold text-xl">✕</button>
+        </div>
+        <div id="cart-items" class="flex-1 overflow-y-auto p-5 space-y-4"></div>
+        <div class="p-5 border-t border-gray-800 space-y-3">
+            <div class="flex justify-between font-bold text-lg">
+                <span>المجموع الكلي:</span>
+                <span id="cart-total" class="text-amber-400">0 ر.س</span>
+            </div>
+            <button onclick="checkoutWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl transition text-center shadow-lg">
+                إرسال الطلب عبر الواتساب 📱
+            </button>
+        </div>
+    </div>
+
+    <!-- قسم مشاريع الفنادق -->
+    <section id="projects" class="py-20 bg-gray-900 border-t border-gray-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gray-950 border border-blue-500/30 rounded-3xl p-8 sm:p-12 shadow-2xl">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-black mb-3">طلب عرض سعر للمشاريع والفنادق</h2>
+                    <p class="text-gray-300 text-sm">أدخل تفاصيل مشروعك وسيقوم الفريق الهندسي بدراسته فوراً.</p>
+                </div>
+                <form class="space-y-6" onsubmit="event.preventDefault(); alert('تم إرسال طلب المشروع بنجاح!');">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <input type="text" required placeholder="اسم المؤسسة أو الفندق" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white">
+                        <input type="tel" required placeholder="رقم الجوال (05xxxxxxxx)" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white">
+                    </div>
+                    <textarea rows="4" placeholder="تفاصيل الطلب (أجهزة حاسب، شبكات، مصاعد...)" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white"></textarea>
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-xl shadow-xl transition">إرسال طلب المشروع</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer id="contact" class="bg-gray-950 border-t border-gray-900 py-12 text-gray-400 text-sm text-center">
+        <h3 class="text-white font-bold text-lg mb-2">مؤسسة زمله فالح (zamlafaleh.com)</h3>
+        <p class="mb-2">للاتصال والواتساب المباشر: <a href="tel:0543201995" class="text-blue-400 font-bold" dir="ltr">0543201995</a></p>
+        <p class="text-xs text-gray-500 mt-4">جميع الحقوق محفوظة © مؤسسة زمله فالح 2026</p>
+    </footer>
+
+    <!-- قاعدة بيانات منتجات الحاسب والشبكات والكاميرات -->
+    <script>
+        const products = [
+            { id: 1, name: "لابتوب ألعاب احترافي ASUS ROG Strix بمعالج قوي وشاشة 144Hz", category: "laptops", price: 4890, desc: "أداء فائق للألعاب وبرامج الهندسة والتصميم الثقيلة." },
+            { id: 2, name: "لابتوب أعمال خفيف الوزن HP Victus مع ذاكرة 16GB RAM", category: "laptops", price: 3250, desc: "مثالي لأعمال المكاتب، الإدارة، والتنقل اليومي." },
+            { id: 3, name: "راوتر واي فاي منزلي ومكتبي متطور Wi-Fi 6 (TP-Link)", category: "networking", price: 450, desc: "سرعة تغطية عالية وثبات تام لعدد كبير من الأجهزة المتصلة." },
+            { id: 4, name: "جسر لاسلكي Ubiquiti LiteBeam 5AC Gen2 للربط والمسافات", category: "networking", price: 650, desc: "مثالي للربط اللاسلكي بين المباني ونقاط البوينت تو بوينت." },
+            { id: 5, name: "نظام كاميرات مصاعد لاسلكي متكامل (بدون أسلاك)", category: "elevators", price: 1450, desc: "نقل فيديو عالي الدقة وثابت بدون تمديد كابلات في شافت المصعد." },
+            { id: 6, name: "كاميرا مراقبة أمنية خارجية IP بدقة 4K (Hikvision)", category: "cctv", price: 650, desc: "رؤية ليلية ملونة واضحة مع كشف الحركة الذكي." },
+            { id: 7, name: "جهاز تسجيل كاميرات ذكي NVR (8 قناة دعم دقة عالية)", category: "cctv", price: 950, desc: "تسجيل موثوق وسعة تخزين عالية للكاميرات الأمنية." },
+            { id: 8, name: "شاشة كمبيوتر للألعاب واحترافية مقاس 27 بوصة IPS", category: "accessories", price: 990, desc: "دقة عرض رائعة وألوان حية تناسب المصممين والمحترفين." },
+            { id: 9, name: "هاردسك تخزين خارجي SSD فائق السرعة سعة 1 تيرابايت", category: "accessories", price: 350, desc: "نقل بيانات سريع جداً وحماية فائقة للملفات." },
+            { id: 10, name: "طابعة لاسلكية متعددة الوظائف للمكاتب والشركات", category: "accessories", price: 680, desc: "طباعة، مسح ضوئي، وتصوير بوضوح وسرعة عالية." },
+            { id: 11, name: "محول منافذ متعدد USB-C Hub 7 في 1 للابتوبات", category: "accessories", price: 140, desc: "توصيل شاشات، فلاشات، وشبكات بكل سهولة." },
+            { id: 12, name: "سويتش شبكات مراجع ذكي 24 منفذ Gigabit Switch", category: "networking", price: 820, desc: "توزيع شبكة مستقر ومثالي للشركات والفنادق." }
+        ];
+
+        let cart = [];
+
+        function renderProducts(filteredProducts) {
+            const grid = document.getElementById('product-grid');
+            grid.innerHTML = '';
+            
+            filteredProducts.forEach(p => {
+                grid.innerHTML += `
+                    <div class="bg-gray-900 border border-gray-800 rounded-2xl p-5 flex flex-col justify-between hover:border-blue-500/50 transition">
+                        <div>
+                            <span class="text-xs text-blue-400 bg-blue-950 px-2.5 py-1 rounded-md font-semibold">${getCategoryName(p.category)}</span>
+                            <h3 class="text-lg font-bold mt-3">${p.name}</h3>
+                            <p class="text-sm text-gray-400 mt-2">${p.desc}</p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-gray-800 flex items-center justify-between">
+                            <span class="text-xl font-black text-amber-400">${p.price} ر.س</span>
+                            <button onclick="addToCart(${p.id})" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-xl text-sm font-bold transition">أضف للسلة</button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function getCategoryName(cat) {
+            const names = { laptops: 'اللابتوبات والحواسيب', networking: 'شبكات وراوترات', cctv: 'كاميرات مراقبة', elevators: 'كاميرات المصاعد', accessories: 'ملحقات الحاسب' };
+            return names[cat] || 'أجهزة التيار الخفيف';
+        }
+
+        function filterCategory(cat) {
+            document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.replace('bg-blue-600', 'bg-gray-900'));
+            event.target.classList.replace('bg-gray-900', 'bg-blue-600');
+            
+            if(cat === 'all') renderProducts(products);
+            else renderProducts(products.filter(p => p.category === cat));
+        }
+
+        function filterProducts() {
+            const query = document.getElementById('search-input').value.toLowerCase();
+            renderProducts(products.filter(p => p.name.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query)));
+        }
+
+        function addToCart(id) {
+            const product = products.find(p => p.id === id);
+            cart.push(product);
+            updateCartUI();
+            toggleCart();
+        }
+
+        function updateCartUI() {
+            document.getElementById('cart-count').innerText = cart.length;
+            const container = document.getElementById('cart-items');
+            container.innerHTML = '';
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                total += item.price;
+                container.innerHTML += `
+                    <div class="flex justify-between items-center bg-gray-950 p-3 rounded-xl border border-gray-800">
+                        <div>
+                            <h4 class="font-bold text-sm">${item.name}</h4>
+                            <span class="text-amber-400 text-xs">${item.price} ر.س</span>
+                        </div>
+                        <button onclick="cart.splice(${index},1); updateCartUI();" class="text-red-400 hover:text-red-300 text-sm font-bold">حذف</button>
+                    </div>
+                `;
+            });
+            document.getElementById('cart-total').innerText = total + ' ر.س';
+        }
+
+        function toggleCart() {
+            const drawer = document.getElementById('cart-drawer');
+            drawer.classList.toggle('-translate-x-full');
+        }
+
+        function checkoutWhatsApp() {
+            if(cart.length === 0) { alert('السلة فارغة!'); return; }
+            let text = "مرحباً، أرغب في طلب المنتجات التالية من مؤسسة زمله فالح:%0A";
+            let total = 0;
+            cart.forEach(item => {
+                text += `- ${item.name} (${item.price} ر.س)%0A`;
+                total += item.price;
+            });
+            text += `%0Aالمجموع الكلي: ${total} ر.س`;
+            window.open(`https://wa.me/966543201995?text=${text}`, '_blank');
+        }
+
+        // تشغيل عرض المنتجات عند فتح الصفحة
+        renderProducts(products);
+    </script>
+</body>
+</html>
