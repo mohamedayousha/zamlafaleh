@@ -3,210 +3,283 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مؤسسة زمله فالح | أنظمة التيار الخفيف والشبكات وحلول الحاسب - Zamla Faleh Est.</title>
+    <title>مؤسسة زمله فالح | أنظمة التيار الخفيف والشبكات وحلول الحاسب الآلي - Zamla Faleh Est.</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Cairo', sans-serif; background-color: #070b14; color: #f3f4f6; }
-        .tech-glow { box-shadow: 0 0 25px rgba(56, 189, 248, 0.15); }
+        body { font-family: 'Cairo', sans-serif; background-color: #f8fafc; color: #1e293b; }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- شريط التنقل العلوي الفاخر -->
-    <header class="sticky top-0 z-50 bg-[#070b14]/90 backdrop-blur-md border-b border-blue-500/20">
+    <!-- شريط التنقل العلوي (كحلي مع أبيض وبرتقالي) -->
+    <header class="sticky top-0 z-50 bg-[#0f172a] shadow-md border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <div class="bg-gradient-to-r from-blue-600 to-amber-500 p-0.5 rounded-xl">
-                    <div class="bg-[#070b14] px-3 py-1.5 rounded-[10px]">
-                        <span class="text-lg font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-amber-400">ZAMLA FALEH</span>
+                <div class="bg-gradient-to-r from-orange-500 to-blue-600 p-0.5 rounded-xl">
+                    <div class="bg-[#0f172a] px-3 py-1.5 rounded-[10px]">
+                        <span class="text-lg font-black tracking-wider text-white">ZAMLA FALEH</span>
                     </div>
                 </div>
             </div>
             
-            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
-                <a href="#" class="text-cyan-400 hover:text-white transition">الرئيسية</a>
-                <a href="#store" class="hover:text-cyan-400 transition">متجر الأجهزة والشبكات</a>
-                <a href="#solutions" class="hover:text-cyan-400 transition">حلول التيار الخفيف</a>
-                <a href="#projects" class="hover:text-cyan-400 transition">مشاريع الفنادق</a>
-                <a href="#contact" class="hover:text-cyan-400 transition">اتصل بنا</a>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-200">
+                <a href="#" class="text-orange-400 hover:text-white transition">الرئيسية</a>
+                <a href="#store" class="hover:text-orange-400 transition">متجر الأجهزة</a>
+                <a href="#solutions" class="hover:text-orange-400 transition">الحلول والخدمات</a>
+                <a href="#projects" class="hover:text-orange-400 transition">مشاريع الفنادق</a>
+                <a href="#contact" class="hover:text-orange-400 transition">اتصل بنا</a>
             </nav>
 
             <div class="flex items-center gap-4">
-                <button onclick="toggleCart()" class="relative p-2.5 text-gray-200 bg-blue-950/60 border border-blue-500/30 hover:bg-blue-900 rounded-xl transition">
+                <button onclick="toggleCart()" class="relative p-2.5 text-white bg-slate-800 hover:bg-slate-700 rounded-xl transition border border-slate-700">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
-                    <span id="cart-count" class="absolute -top-1.5 -right-1.5 bg-blue-600 text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold text-white shadow-md">0</span>
+                    <span id="cart-count" class="absolute -top-1.5 -right-1.5 bg-orange-500 text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold text-white shadow">0</span>
                 </button>
-                <a href="#projects" class="hidden sm:inline-flex bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-lg shadow-blue-600/30 transition border border-blue-400/30">
-                    طلب عرض سعر لمشروع
+                <a href="#projects" class="hidden sm:inline-flex bg-orange-500 hover:bg-orange-600 text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow transition">
+                    طلب عرض سعر
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- قسم الواجهة الرئيسية بتصميم غرفة التحكم الفاخر -->
-    <section class="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-b from-[#070b14] via-[#0b1329] to-[#070b14] border-b border-blue-500/20">
-        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:16px_16px]"></div>
+    <!-- الواجهة الرئيسية (تدرج كحلي هادئ) -->
+    <section class="relative py-20 lg:py-28 overflow-hidden bg-gradient-to-b from-[#0f172a] to-[#1e293b] text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="space-y-6">
-                    <div class="inline-flex items-center gap-2 bg-blue-950/80 border border-cyan-500/40 px-4 py-1.5 rounded-full text-cyan-400 text-xs font-bold tracking-wider">
-                        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-                        مؤسسة زمله فالح — الموزع المعتمد للشبكات والتقنية المتقدمة
+                    <div class="inline-flex items-center gap-2 bg-slate-800/80 border border-slate-700 px-4 py-1.5 rounded-full text-orange-400 text-xs font-bold tracking-wider">
+                        <span class="w-2 h-2 rounded-full bg-orange-400 animate-pulse"></span>
+                        الموزع المعتمد لأنظمة التيار الخفيف والشبكات
                     </div>
-                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight uppercase text-white">
-                        أنظمة التيار الخفيف المتكاملة | شبكات، كاميرات وحلول ذكية
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight uppercase">
+                        أنظمة التيار الخفيف المتكاملة | شبكات وحلول ذكية
                     </h1>
                     <p class="text-base text-gray-300 leading-relaxed">
-                        نظام كاميرات مراقبة المصاعد اللاسلكي: <strong class="text-amber-400">بدون تمديد أسلاك</strong>. توريد أحدث أجهزة الشبكات، السنترالات، وسيرفرات التخزين للمشاريع والفنادق الكبرى في المملكة.
+                        نظام كاميرات مراقبة المصاعد اللاسلكي: <strong class="text-orange-400">بدون تمديد أسلاك</strong>. توريد وتركيب أحدث أجهزة الشبكات، السنترالات، وسيرفرات التخزين للمشاريع والفنادق في المملكة.
                     </p>
                     <div class="flex flex-wrap gap-4 pt-4">
-                        <a href="#store" class="bg-cyan-600 hover:bg-cyan-500 text-white px-8 py-3.5 rounded-xl font-bold text-sm shadow-lg shadow-cyan-600/30 transition">
-                            تصفح المنتجات والأسعار
+                        <a href="#store" class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3.5 rounded-xl font-bold text-sm shadow-lg transition">
+                            تصفح المتجر والمنتجات
                         </a>
-                        <a href="tel:0543201995" class="border border-blue-500/40 bg-blue-950/40 hover:bg-blue-900/60 px-6 py-3.5 rounded-xl font-bold text-sm transition flex items-center gap-2 text-cyan-300">
+                        <a href="tel:0543201995" class="border border-slate-600 bg-slate-800/50 hover:bg-slate-800 px-6 py-3.5 rounded-xl font-bold text-sm transition flex items-center gap-2 text-gray-200">
                             اتصل بنا: 0543201995
                         </a>
                     </div>
                 </div>
                 
-                <!-- عرض بصري لغرفة التحكم والتقنية -->
                 <div class="relative">
-                    <div class="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-2xl blur-xl opacity-30"></div>
-                    <div class="relative bg-[#0c1427] border border-blue-500/30 rounded-2xl p-5 shadow-2xl tech-glow space-y-4">
-                        <div class="flex justify-between items-center text-xs text-cyan-400 border-b border-blue-950 pb-3">
-                            <span class="font-bold">CONTROL ROOM / IT SYSTEMS</span>
-                            <span class="bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded font-mono">ONLINE & SECURE</span>
+                    <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-2xl space-y-4">
+                        <div class="flex justify-between items-center text-xs text-orange-400 border-b border-slate-700 pb-3 font-semibold">
+                            <span>ZAMLA FALEH - CONTROL CENTER</span>
+                            <span class="bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded">موافق عليه ومفعل</span>
                         </div>
-                        <div class="bg-gradient-to-br from-[#070b14] to-[#111c38] rounded-xl p-6 border border-blue-500/20 text-center space-y-3">
-                            <div class="w-12 h-12 bg-blue-600/20 border border-blue-400 rounded-full flex items-center justify-center mx-auto text-cyan-400">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                            </div>
-                            <h3 class="font-bold text-lg text-white">منتجات أصلية بمخزون فوري</h3>
-                            <p class="text-xs text-gray-400">MikroTik, Ubiquiti, Hikvision, AT&T, Synology</p>
-                        </div>
+                        <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&auto=format&fit=crop&q=80" alt="Tech Solutions" class="rounded-xl w-full h-56 object-cover shadow-md">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- أقسام الحلول والخدمات -->
-    <section id="solutions" class="py-16 bg-[#070b14] border-b border-blue-500/20">
+    <!-- أقسام الحلول -->
+    <section id="solutions" class="py-16 bg-white border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl font-black text-center mb-10 text-cyan-400 tracking-wider uppercase">أبرز حلول وقطاعات المؤسسة</h2>
+            <h2 class="text-2xl font-black text-center mb-10 text-[#0f172a] uppercase tracking-wider">قطاعات وحلول المؤسسة</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-[#0b1329] border border-blue-500/30 rounded-2xl p-6 text-center hover:border-cyan-400 transition">
-                    <div class="text-cyan-400 font-bold mb-2">الشبكات والراوترات</div>
-                    <p class="text-xs text-gray-400">راوترات MikroTik، نقاط وصول Ubiquiti، وسويتشات سريعة</p>
+                <div class="bg-slate-50 border border-gray-200 rounded-2xl p-6 text-center hover:shadow-md transition">
+                    <div class="text-orange-500 font-bold mb-2">الشبكات والراوترات</div>
+                    <p class="text-xs text-gray-600">راوترات MikroTik، نقاط وصول Ubiquiti، وسويتشات سريعة</p>
                 </div>
-                <div class="bg-[#0b1329] border border-blue-500/30 rounded-2xl p-6 text-center hover:border-cyan-400 transition">
-                    <div class="text-cyan-400 font-bold mb-2">كاميرات المصاعد والكاميرات</div>
-                    <p class="text-xs text-gray-400">كاميرات مصاعد لاسلكية بالكامل، وأجهزة تسجيل NVR Hikvision</p>
+                <div class="bg-slate-50 border border-gray-200 rounded-2xl p-6 text-center hover:shadow-md transition">
+                    <div class="text-orange-500 font-bold mb-2">كاميرات المصاعد والكاميرات</div>
+                    <p class="text-xs text-gray-600">كاميرات مصاعد لاسلكية بالكامل، وأجهزة تسجيل NVR Hikvision</p>
                 </div>
-                <div class="bg-[#0b1329] border border-blue-500/30 rounded-2xl p-6 text-center hover:border-cyan-400 transition">
-                    <div class="text-cyan-400 font-bold mb-2">السيرفرات ووحدات التخزين</div>
-                    <p class="text-xs text-gray-400">سيرفرات مركزية Synology NAS ووحدات تخزين آمنة</p>
+                <div class="bg-slate-50 border border-gray-200 rounded-2xl p-6 text-center hover:shadow-md transition">
+                    <div class="text-orange-500 font-bold mb-2">السيرفرات ووحدات التخزين</div>
+                    <p class="text-xs text-gray-600">سيرفرات مركزية Synology NAS ووحدات تخزين آمنة للشركات</p>
                 </div>
-                <div class="bg-[#0b1329] border border-blue-500/30 rounded-2xl p-6 text-center hover:border-cyan-400 transition">
-                    <div class="text-cyan-400 font-bold mb-2">الكابلات والوصولات الأصلية</div>
-                    <p class="text-xs text-gray-400">بكرات كات 6 وكات 6A، كيابل AT&T، وBelden الأصلية</p>
+                <div class="bg-slate-50 border border-gray-200 rounded-2xl p-6 text-center hover:shadow-md transition">
+                    <div class="text-orange-500 font-bold mb-2">الكابلات والوصولات الأصلية</div>
+                    <p class="text-xs text-gray-600">بكرات كات 6 وكات 6A، كيابل AT&T، وBelden الأصلية</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- قسم المتجر الإلكتروني وقاعدة البيانات الشاملة للمنتجات -->
-    <section id="store" class="py-20 bg-[#090e1a]">
+    <!-- متجر المنتجات الكامل بالصور والمعلومات -->
+    <section id="store" class="py-20 bg-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-10">
                 <div>
-                    <h2 class="text-3xl font-black text-white">متجر الأجهزة والشبكات والأنظمة الأمنية</h2>
-                    <p class="text-sm text-gray-400 mt-1">تصفح المنتجات الشاملة وأضفها للسلة للطلب الفوري عبر الواتساب</p>
+                    <h2 class="text-3xl font-black text-[#0f172a]">متجر الأجهزة والشبكات والأنظمة</h2>
+                    <p class="text-sm text-gray-600 mt-1">تصفح المنتجات الشاملة مع الصور والمعلومات وأضفها للسلة</p>
                 </div>
-                <!-- شريط البحث الفوري -->
                 <div class="w-full md:w-96">
-                    <input type="text" id="search-input" oninput="filterProducts()" placeholder="ابحث عن راوتر، كاميرا، كابل، سيرفر..." class="w-full bg-[#0b1329] border border-blue-500/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 text-sm">
+                    <input type="text" id="search-input" oninput="filterProducts()" placeholder="ابحث عن راوتر، كاميرا، كابل، سيرفر..." class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-orange-500 shadow-sm">
                 </div>
             </div>
 
             <!-- أزرار التصنيفات -->
             <div class="flex flex-wrap gap-2 mb-10">
-                <button onclick="filterCategory('all')" class="cat-btn bg-cyan-600 text-white px-4 py-2 rounded-xl text-sm font-bold transition">الكل</button>
-                <button onclick="filterCategory('networking')" class="cat-btn bg-[#0b1329] hover:bg-blue-900 text-gray-300 px-4 py-2 rounded-xl text-sm font-bold transition border border-blue-500/20">الشبكات والراوترات</button>
-                <button onclick="filterCategory('elevators')" class="cat-btn bg-[#0b1329] hover:bg-blue-900 text-gray-300 px-4 py-2 rounded-xl text-sm font-bold transition border border-blue-500/20">كاميرات المصاعد (لاسلكي)</button>
-                <button onclick="filterCategory('cctv')" class="cat-btn bg-[#0b1329] hover:bg-blue-900 text-gray-300 px-4 py-2 rounded-xl text-sm font-bold transition border border-blue-500/20">كاميرات المراقبة الأمنية</button>
-                <button onclick="filterCategory('servers')" class="cat-btn bg-[#0b1329] hover:bg-blue-900 text-gray-300 px-4 py-2 rounded-xl text-sm font-bold transition border border-blue-500/20">السيرفرات والتخزين</button>
-                <button onclick="filterCategory('cables')" class="cat-btn bg-[#0b1329] hover:bg-blue-900 text-gray-300 px-4 py-2 rounded-xl text-sm font-bold transition border border-blue-500/20">الكابلات والملحقات</button>
+                <button onclick="filterCategory('all')" class="cat-btn bg-orange-500 text-white px-4 py-2 rounded-xl text-sm font-bold transition shadow-sm">الكل</button>
+                <button onclick="filterCategory('networking')" class="cat-btn bg-white hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-xl text-sm font-bold transition border border-gray-300">الشبكات والراوترات</button>
+                <button onclick="filterCategory('elevators')" class="cat-btn bg-white hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-xl text-sm font-bold transition border border-gray-300">كاميرات المصاعد (لاسلكي)</button>
+                <button onclick="filterCategory('cctv')" class="cat-btn bg-white hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-xl text-sm font-bold transition border border-gray-300">كاميرات المراقبة الأمنية</button>
+                <button onclick="filterCategory('servers')" class="cat-btn bg-white hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-xl text-sm font-bold transition border border-gray-300">السيرفرات والتخزين</button>
+                <button onclick="filterCategory('cables')" class="cat-btn bg-white hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-xl text-sm font-bold transition border border-gray-300">الكابلات والملحقات</button>
             </div>
 
             <!-- شبكة المنتجات -->
-            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- المنتجات تولد هنا برمجياً -->
+            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- المنتجات تولد هنا تلقائياً بالصور -->
             </div>
         </div>
     </section>
 
-    <!-- نافذة سلة المشتريات الجانبية -->
-    <div id="cart-drawer" class="fixed inset-y-0 left-0 z-50 w-full sm:w-96 bg-[#090e1a] border-r border-blue-500/30 shadow-2xl transform -translate-x-full transition-transform duration-300 flex flex-col">
-        <div class="p-5 border-b border-blue-500/20 flex justify-between items-center bg-[#070b14]">
-            <h3 class="font-bold text-lg text-white">سلة المشتريات والطلبات</h3>
-            <button onclick="toggleCart()" class="text-gray-400 hover:text-white font-bold text-xl">✕</button>
+    <!-- نافذة سلة المشتريات -->
+    <div id="cart-drawer" class="fixed inset-y-0 left-0 z-50 w-full sm:w-96 bg-white border-r border-gray-300 shadow-2xl transform -translate-x-full transition-transform duration-300 flex flex-col">
+        <div class="p-5 border-b border-gray-200 flex justify-between items-center bg-[#0f172a] text-white">
+            <h3 class="font-bold text-lg">سلة المشتريات والطلبات</h3>
+            <button onclick="toggleCart()" class="text-gray-300 hover:text-white font-bold text-xl">✕</button>
         </div>
         <div id="cart-items" class="flex-1 overflow-y-auto p-5 space-y-4"></div>
-        <div class="p-5 border-t border-blue-500/20 bg-[#070b14] space-y-3">
-            <div class="flex justify-between font-bold text-lg">
-                <span class="text-gray-300">المجموع الكلي:</span>
-                <span id="cart-total" class="text-amber-400">0 ر.س</span>
+        <div class="p-5 border-t border-gray-200 bg-slate-50 space-y-3">
+            <div class="flex justify-between font-bold text-lg text-slate-900">
+                <span>المجموع الكلي:</span>
+                <span id="cart-total" class="text-orange-600">0 ر.س</span>
             </div>
-            <button onclick="checkoutWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 rounded-xl transition text-center shadow-lg">
+            <button onclick="checkoutWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl transition text-center shadow">
                 إرسال الطلب عبر الواتساب 📱
             </button>
         </div>
     </div>
 
-    <!-- قسم مشاريع الفنادق والشركات -->
-    <section id="projects" class="py-20 bg-[#070b14] border-t border-blue-500/20">
+    <!-- قسم مشاريع الفنادق -->
+    <section id="projects" class="py-20 bg-white border-t border-gray-200">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-[#0b1329] border border-cyan-500/30 rounded-3xl p-8 sm:p-12 shadow-2xl">
+            <div class="bg-slate-50 border border-gray-200 rounded-3xl p-8 sm:p-12 shadow-md">
                 <div class="text-center mb-10">
-                    <h2 class="text-3xl font-black mb-3 text-white">طلب عرض سعر للمشاريع والفنادق</h2>
-                    <p class="text-gray-300 text-sm">أدخل تفاصيل مشروعك وسيقوم الفريق الهندسي بدراسته فوراً.</p>
+                    <h2 class="text-3xl font-black mb-3 text-[#0f172a]">طلب عرض سعر للمشاريع والفنادق</h2>
+                    <p class="text-gray-600 text-sm">أدخل تفاصيل مشروعك وسيقوم الفريق الهندسي بدراسته فوراً.</p>
                 </div>
                 <form class="space-y-6" onsubmit="event.preventDefault(); alert('تم إرسال طلب المشروع بنجاح!');">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <input type="text" required placeholder="اسم المؤسسة أو الفندق" class="w-full bg-[#070b14] border border-blue-500/30 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-cyan-400">
-                        <input type="tel" required placeholder="رقم الجوال (05xxxxxxxx)" class="w-full bg-[#070b14] border border-blue-500/30 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-cyan-400">
+                        <input type="text" required placeholder="اسم المؤسسة أو الفندق" class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-orange-500">
+                        <input type="tel" required placeholder="رقم الجوال (05xxxxxxxx)" class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-orange-500">
                     </div>
-                    <textarea rows="4" placeholder="تفاصيل الطلب (أجهزة شبكات، كاميرات، سيرفرات...)" class="w-full bg-[#070b14] border border-blue-500/30 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-cyan-400"></textarea>
-                    <button type="submit" class="w-full bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-4 rounded-xl shadow-xl transition">إرسال طلب المشروع الهندسي</button>
+                    <textarea rows="4" placeholder="تفاصيل الطلب (أجهزة شبكات، كاميرات، سيرفرات...)" class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-orange-500"></textarea>
+                    <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 rounded-xl shadow transition">إرسال طلب المشروع الهندسي</button>
                 </form>
             </div>
         </div>
     </section>
 
     <!-- الفوتر -->
-    <footer id="contact" class="bg-[#05070f] border-t border-blue-500/20 py-12 text-gray-400 text-sm text-center">
-        <h3 class="text-white font-bold text-lg mb-2">مؤسسة زمله فالح (zamlafaleh.com)</h3>
-        <p class="mb-2">للاتصال والواتساب المباشر: <a href="tel:0543201995" class="text-cyan-400 font-bold" dir="ltr">0543201995</a></p>
-        <p class="text-xs text-gray-500 mt-4">جميع الحقوق محفوظة © مؤسسة زمله فالح 2026</p>
+    <footer id="contact" class="bg-[#0f172a] text-white py-12 text-sm text-center border-t border-slate-800">
+        <h3 class="font-bold text-lg mb-2">مؤسسة زمله فالح (zamlafaleh.com)</h3>
+        <p class="mb-2 text-gray-300">للاتصال والواتساب المباشر: <a href="tel:0543201995" class="text-orange-400 font-bold" dir="ltr">0543201995</a></p>
+        <p class="text-xs text-gray-400 mt-4">جميع الحقوق محفوظة © مؤسسة زمله فالح 2026</p>
     </footer>
 
-    <!-- قاعدة البيانات الشاملة لمنتجات الشبكات والتقنية (مستوحاة من الكترون) -->
+    <!-- قاعدة البيانات بالصور والمعلومات الكاملة -->
     <script>
         const products = [
-            { id: 1, name: "راوتر MikroTik CCR2004-1G-12S+2XS للشبكات المركزية الكبرى", category: "networking", price: 2150, desc: "أداء فائق للشركات وتوزيع الإنترنت عالي السرعة." },
-            { id: 2, name: "راوتر MikroTik RB450Gx4 سداسي النواة للشركات", category: "networking", price: 680, desc: "معالج قوي لإدارة وإدارات الشبكات المتقدمة." },
-            { id: 3, name: "نظام كاميرات مصاعد لاسلكي متكامل (LBE + IP Camera)", category: "elevators", price: 1450, desc: "نقل فيديو عالي الدقة وثابت بدون تمديد أسلاك في المصاعد." },
-            { id: 4, name: "جسور لاسلكية Ubiquiti LiteBeam 5AC Gen2 (زوج أجهزة)", category: "networking", price: 1250, desc: "ربط لاسلكي فائق الثبات بين المباني والمواقع البعيدة." },
-            { id: 5, name: "كاميرا مراقبة خارجية Hikvision IP 4K بوضوح تام", category: "cctv", price: 650, desc: "رؤية ليلية ملونة وتحليل ذكي للحركة والوجوه." },
-            { id: 6, name: "جهاز تسجيل كاميرات ذكي Hikvision NVR (16 قناة 4K)", category: "cctv", price: 1350, desc: "تسجيل مركزي عالي الدقة وسعة تخزين هائلة." },
-            { id: 7, name: "وحدة تخزين سيرفر Synology DiskStation NAS DS923+", category: "servers", price: 2890, desc: "تخزين سحابي وحماية فائقة لبيانات الشركات والأنظمة." },
-            { id: 8, name: "بكرة كابلات شبكات AT&T Cat6 U/UTP (305 متر أصلية)", category: "cables", price: 580, desc: "نحاس نقي 100% لنقل بيانات مستقر وسريع." },
-            { id: 9, name: "بكرة كابلات شبكات Belden Cat6 UTP لون أزرق (305 متر)", category: "cables", price: 375, desc: "معتمدة للمشاريع والجهات الحكومية والشركات." },
-            { id: 10, name: "سويتش شبكات سيسكو Cisco Business 250 Series 24-Port", category: "networking", price: 1650, desc: "توزيع شبكة مؤسسي ذكي وعالي الاعتمادية." },
-            { id: 11, name: "كيابل توصيل فايبر أوبتيك جاهزة (Patch Cord LC-LC 3m)", category: "cables", price: 45, desc: "توصيلات ألياف ضوئية فائقة السرعة." },
-            { id: 12, name: "هاردسك تخزين داخلي لسيرفرات Western Digital Red Pro 8TB", category: "servers", price: 1150, desc: "مخصص للعمل المستمر 24/7 في السيرفرات وأنظمة الكاميرات." }
+            { 
+                id: 1, 
+                name: "راوتر MikroTik CCR2004-1G-12S+2XS للشبكات المركزية", 
+                category: "networking", 
+                price: 2150, 
+                desc: "أداء فائق للشركات وتوزيع الإنترنت عالي السرعة وبصيغة معالجة متطورة.",
+                image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=80" 
+            },
+            { 
+                id: 2, 
+                name: "راوتر MikroTik RB450Gx4 سداسي النواة للشركات", 
+                category: "networking", 
+                price: 680, 
+                desc: "معالج قوي لإدارة وإدارات الشبكات المتقدمة بكفاءة وثبات.",
+                image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&auto=format&fit=crop&q=80" 
+            },
+            { 
+                id: 3, 
+                name: "نظام كاميرات مصاعد لاسلكي متكامل (LBE + IP Camera)", 
+                category: "elevators", 
+                price: 1450, 
+                desc: "نقل فيديو عالي الدقة وثابت بدون تمديد أسلاك في المصاعد لمسافات طويلة.",
+                image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80" 
+            },
+            { 
+                id: 4, 
+                name: "جسور لاسلكية Ubiquiti LiteBeam 5AC Gen2 (زوج أجهزة)", 
+                category: "networking", 
+                price: 1250, 
+                desc: "ربط لاسلكي فائق الثبات بين المباني والمواقع البعيدة بكفاءة عالية.",
+                image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=80" 
+            },
+            { 
+                id: 5, 
+                name: "كاميرا مراقبة خارجية Hikvision IP 4K بوضوح تام", 
+                category: "cctv", 
+                price: 650, 
+                desc: "رؤية ليلية ملونة وتحليل ذكي للحركة والوجوه بدقة 4K.",
+                image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80" 
+            },
+            { 
+                id: 6, 
+                name: "جهاز تسجيل كاميرات ذكي Hikvision NVR (16 قناة 4K)", 
+                category: "cctv", 
+                price: 1350, 
+                desc: "تسجيل مركزي عالي الدقة وسعة تخزين هائلة تدعم حتى 16 كاميرا.",
+                image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&auto=format&fit=crop&q=80" 
+            },
+            { 
+                id: 7, 
+                name: "وحدة تخزين سيرفر Synology DiskStation NAS DS923+", 
+                category: "servers", 
+                price: 2890, 
+                desc: "تخزين سحابي وحماية فائقة لبيانات الشركات والأنظمة الحساسة.",
+                image: "https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=500&auto=format&fit=crop&q=80" 
+            },
+            { 
+                id: 8, 
+                name: "بكرة كابلات شبكات AT&T Cat6 U/UTP (305 متر أصلية)", 
+                category: "cables", 
+                price: 580, 
+                desc: "نحاس نقي 100% لنقل بيانات مستقر وسريع للمدد الطويلة.",
+                image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=80" 
+            },
+            { 
+                id: 9, 
+                name: "بكرة كابلات شبكات Belden Cat6 لون أزرق (305 متر)", 
+                category: "cables", 
+                price: 375, 
+                desc: "معتمدة للمشاريع والجهات الحكومية والشركات الكبرى.",
+                image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=80" 
+            },
+            { 
+                id: 10, 
+                name: "سويتش شبكات سيسكو Cisco Business 250 Series 24-Port", 
+                category: "networking", 
+                price: 1650, 
+                desc: "توزيع شبكة مؤسسي ذكي وعالي الاعتمادية للشركات والفنادق.",
+                image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&auto=format&fit=crop&q=80" 
+            },
+            { 
+                id: 11, 
+                name: "كيابل توصيل فايبر أوبتيك جاهزة (Patch Cord LC-LC 3m)", 
+                category: "cables", 
+                price: 45, 
+                desc: "توصيلات ألياف ضوئية فائقة السرعة معتمدة.",
+                image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=80" 
+            },
+            { 
+                id: 12, 
+                name: "هاردسك تخزين داخلي لسيرفرات Western Digital Red Pro 8TB", 
+                category: "servers", 
+                price: 1150, 
+                desc: "مخصص للعمل المستمر 24/7 في السيرفرات وأنظمة الكاميرات الأمنية.",
+                image: "https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=500&auto=format&fit=crop&q=80" 
+            }
         ];
 
         let cart = [];
@@ -217,15 +290,20 @@
             
             filteredProducts.forEach(p => {
                 grid.innerHTML += `
-                    <div class="bg-[#0b1329] border border-blue-500/20 rounded-2xl p-5 flex flex-col justify-between hover:border-cyan-400 transition shadow-lg">
+                    <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden flex flex-col justify-between hover:shadow-lg transition">
                         <div>
-                            <span class="text-xs text-cyan-400 bg-blue-950/80 px-2.5 py-1 rounded-md font-semibold border border-blue-500/30">${getCategoryName(p.category)}</span>
-                            <h3 class="text-lg font-bold mt-3 text-white">${p.name}</h3>
-                            <p class="text-sm text-gray-400 mt-2">${p.desc}</p>
+                            <div class="h-48 overflow-hidden bg-slate-100">
+                                <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                            </div>
+                            <div class="p-5">
+                                <span class="text-xs text-orange-600 bg-orange-50 px-2.5 py-1 rounded-md font-bold">${getCategoryName(p.category)}</span>
+                                <h3 class="text-base font-bold mt-2 text-slate-900">${p.name}</h3>
+                                <p class="text-xs text-gray-500 mt-1 leading-relaxed">${p.desc}</p>
+                            </div>
                         </div>
-                        <div class="mt-6 pt-4 border-t border-blue-500/20 flex items-center justify-between">
-                            <span class="text-xl font-black text-amber-400">${p.price} ر.س</span>
-                            <button onclick="addToCart(${p.id})" class="bg-cyan-600 hover:bg-cyan-500 text-white px-4 py-2 rounded-xl text-sm font-bold transition shadow-md">أضف للسلة</button>
+                        <div class="p-5 pt-0 flex items-center justify-between border-t border-gray-100 mt-4">
+                            <span class="text-lg font-black text-slate-900">${p.price} ر.س</span>
+                            <button onclick="addToCart(${p.id})" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-xl text-xs font-bold transition shadow-sm">أضف للسلة</button>
                         </div>
                     </div>
                 `;
@@ -238,8 +316,11 @@
         }
 
         function filterCategory(cat) {
-            document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.replace('bg-cyan-600', 'bg-[#0b1329]'));
-            event.target.classList.replace('bg-[#0b1329]', 'bg-cyan-600');
+            document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.replace('bg-orange-500', 'bg-white'));
+            document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.add('text-gray-700', 'border', 'border-gray-300'));
+            event.target.classList.replace('bg-white', 'bg-orange-500');
+            event.target.classList.remove('text-gray-700', 'border', 'border-gray-300');
+            event.target.classList.add('text-white');
             
             if(cat === 'all') renderProducts(products);
             else renderProducts(products.filter(p => p.category === cat));
@@ -266,12 +347,12 @@
             cart.forEach((item, index) => {
                 total += item.price;
                 container.innerHTML += `
-                    <div class="flex justify-between items-center bg-[#070b14] p-3 rounded-xl border border-blue-500/20">
+                    <div class="flex justify-between items-center bg-slate-50 p-3 rounded-xl border border-gray-200">
                         <div>
-                            <h4 class="font-bold text-sm text-white">${item.name}</h4>
-                            <span class="text-amber-400 text-xs">${item.price} ر.س</span>
+                            <h4 class="font-bold text-xs text-slate-900">${item.name}</h4>
+                            <span class="text-orange-600 text-xs font-bold">${item.price} ر.س</span>
                         </div>
-                        <button onclick="cart.splice(${index},1); updateCartUI();" class="text-red-400 hover:text-red-300 text-sm font-bold">حذف</button>
+                        <button onclick="cart.splice(${index},1); updateCartUI();" class="text-red-500 hover:text-red-700 text-xs font-bold">حذف</button>
                     </div>
                 `;
             });
