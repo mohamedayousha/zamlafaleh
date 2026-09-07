@@ -13,7 +13,7 @@
 </head>
 <body class="antialiased flex flex-col min-h-screen">
 
-    <!-- الشريط العلوي الرفيع -->
+    <!-- الشريط العلوي الرفيع (بدون البيع بالعمولة) -->
     <div class="bg-[#334155] text-gray-300 text-xs py-2 px-4 border-b border-slate-700">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-5 flex-wrap">
@@ -21,7 +21,6 @@
                 <a href="#quote" onclick="navigateTo('quote')" class="hover:text-white transition text-orange-400 font-bold" data-i18n="quote_link">طلب عرض سعر</a>
                 <a href="#survey" onclick="navigateTo('survey')" class="hover:text-white transition text-orange-400 font-bold" data-i18n="survey_link">طلب معاينة ميدانية</a>
                 <a href="#tracking" onclick="navigateTo('tracking')" class="hover:text-white transition" data-i18n="tracking_link">تتبع الشحنة</a>
-                <a href="#affiliate" onclick="navigateTo('affiliate')" class="hover:text-white transition" data-i18n="affiliate_link">البيع بالعمولة</a>
                 <a href="#payment" onclick="navigateTo('payment')" class="hover:text-white transition" data-i18n="payment_link">طرق السداد</a>
                 <a href="#bank" onclick="navigateTo('bank')" class="hover:text-white transition" data-i18n="bank">الحسابات البنكية</a>
             </div>
@@ -99,7 +98,7 @@
     <!-- منطقة عرض الصفحات -->
     <main class="flex-1" id="main-content"></main>
 
-    <!-- الفوتر -->
+    <!-- الفوتر (يحتوي على رابط البيع بالعمولة بالأسفل) -->
     <footer class="bg-[#1e293b] text-gray-300 py-16 text-xs border-t border-slate-800 mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
             <div class="space-y-3">
@@ -122,7 +121,7 @@
                 <h4 class="text-white font-bold text-sm border-b border-slate-700 pb-2" data-i18n="about_us">مؤسسة زمله فالح</h4>
                 <ul class="space-y-2 text-gray-400">
                     <li><a href="#home" onclick="navigateTo('home')" class="hover:text-white transition" data-i18n="about_est">حول المؤسسة والاعتمادات</a></li>
-                    <li><a href="#affiliate" onclick="navigateTo('affiliate')" class="hover:text-white transition" data-i18n="affiliate_link">برنامج البيع بالعمولة</a></li>
+                    <li><a href="#affiliate" onclick="navigateTo('affiliate')" class="hover:text-white transition text-orange-400 font-bold" data-i18n="affiliate_link">برنامج البيع بالعمولة (Affiliate)</a></li>
                     <li><a href="#store" onclick="navigateTo('store')" class="hover:text-white transition" data-i18n="commercial_catalog">الكتالوج التجاري 2026</a></li>
                 </ul>
             </div>
@@ -150,7 +149,7 @@
         <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
     </a>
 
-    <!-- سلة المشتريات -->
+    <!-- سلة المشتريات مع خيار الحصول على عرض سعر وإرساله بالإيميل -->
     <div id="cart-drawer" class="fixed inset-y-0 left-0 z-50 w-full sm:w-96 bg-white border-r border-gray-300 shadow-2xl transform -translate-x-full transition-transform duration-300 flex flex-col">
         <div class="p-5 border-b border-gray-200 flex justify-between items-center bg-[#334155] text-white">
             <h3 class="font-bold text-sm" data-i18n="cart_title">محتويات سلة التسوق</h3>
@@ -162,26 +161,30 @@
                 <span data-i18n="total">المجموع الكلي:</span>
                 <span id="cart-total" class="text-orange-600">0 ر.س</span>
             </div>
-            <button onclick="proceedToCheckout()" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-xl transition text-center shadow text-xs" data-i18n="checkout_btn">
-                إتمام الشراء (سلة المتجر)
+            <button onclick="proceedToCheckout()" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-xl transition text-center shadow text-xs">
+                إتمام عملية الشراء
+            </button>
+            <button onclick="sendCartQuoteEmail()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-xl transition text-center shadow text-xs">
+                📄 طلب عرض سعر للمنتجات (إرسال بالإيميل)
             </button>
         </div>
     </div>
 
-    <!-- لوحة التحكم الإدارية الشاملة (مع إمكانية التعديل ورفع الأكسيل) -->
+    <!-- لوحة التحكم الإدارية (مع رفع الصور محلياً، إدارة التصنيفات، والمنتجات البارزة) -->
     <div id="admin-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
         <div class="bg-white w-full max-w-5xl max-h-[95vh] rounded-3xl shadow-2xl flex flex-col overflow-hidden text-xs">
             <div class="p-5 bg-[#334155] text-white flex justify-between items-center">
-                <h3 class="font-bold text-sm">⚙️ لوحة التحكم الإدارية الشاملة (Admin Dashboard)</h3>
+                <h3 class="font-bold text-sm">⚙️ لوحة التحكم الإدارية (Admin Dashboard)</h3>
                 <button onclick="toggleAdminModal()" class="text-gray-300 hover:text-white text-lg font-bold">✕</button>
             </div>
             <div class="flex border-b bg-slate-100 px-6 gap-4 overflow-x-auto">
                 <button onclick="switchAdminTab('products')" id="tab-btn-products" class="py-3 font-bold border-b-2 border-orange-500 text-orange-600 whitespace-nowrap">إدارة وتعديل المنتجات</button>
+                <button onclick="switchAdminTab('categories')" id="tab-btn-categories" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">إدارة التصنيفات الرئيسية والبارزة</button>
                 <button onclick="switchAdminTab('import')" id="tab-btn-import" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">رفع ملف أكسيل (Excel Import)</button>
-                <button onclick="switchAdminTab('settings')" id="tab-btn-settings" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">إعدادات الموقع والاتصال</button>
+                <button onclick="switchAdminTab('settings')" id="tab-btn-settings" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">إعدادات الموقع والاتصال واللوجو</button>
             </div>
             <div class="p-6 flex-1 overflow-y-auto space-y-6">
-                <!-- إدارة وتعديل المنتجات -->
+                <!-- إدارة المنتجات (رفع صورة حقيقية بدلاً من الرابط) -->
                 <div id="admin-tab-products" class="space-y-6">
                     <div class="bg-slate-50 p-4 rounded-2xl border space-y-3">
                         <h4 class="font-bold text-slate-800 text-sm" id="form-title-heading">إضافة منتج جديد</h4>
@@ -189,10 +192,19 @@
                             <input type="hidden" id="p-edit-id" value="">
                             <input type="text" id="p-model" placeholder="رقم الموديل" required class="bg-white border rounded-xl px-3 py-2">
                             <input type="text" id="p-name" placeholder="اسم المنتج" required class="bg-white border rounded-xl px-3 py-2">
-                            <input type="text" id="p-cat" placeholder="التصنيف الرئيسي" required class="bg-white border rounded-xl px-3 py-2">
+                            <select id="p-cat" required class="bg-white border rounded-xl px-3 py-2 text-xs">
+                                <option value="">اختر التصنيف الرئيسي</option>
+                            </select>
                             <input type="number" step="0.01" id="p-price" placeholder="السعر (ر.س)" required class="bg-white border rounded-xl px-3 py-2">
-                            <input type="text" id="p-img" placeholder="رابط الصورة (URL)" required class="bg-white border rounded-xl px-3 py-2 sm:col-span-2">
+                            <div class="sm:col-span-2">
+                                <label class="block font-bold text-gray-600 mb-1">صورة المنتج (رفع صورة من الجهاز)</label>
+                                <input type="file" id="p-img-file" accept="image/*" class="w-full bg-white border rounded-xl px-3 py-1.5 text-xs">
+                            </div>
                             <textarea id="p-desc" placeholder="وصف المنتج والمواصفات" rows="2" class="sm:col-span-3 bg-white border rounded-xl px-3 py-2"></textarea>
+                            <label class="flex items-center gap-2 sm:col-span-3 font-bold text-slate-700">
+                                <input type="checkbox" id="p-featured" class="w-4 h-4 text-orange-500 rounded">
+                                اجعل هذا المنتج ضمن (المنتجات البارزة في الصفحة الرئيسية)
+                            </label>
                             <button type="submit" id="form-submit-btn" class="sm:col-span-3 bg-orange-500 text-white font-bold py-2.5 rounded-xl">حفظ وإضافة المنتج</button>
                         </form>
                     </div>
@@ -202,25 +214,39 @@
                     </div>
                 </div>
 
-                <!-- رفع ملف الأكسيل بضغطة زر -->
+                <!-- إدارة التصنيفات البارزة والرئيسية -->
+                <div id="admin-tab-categories" class="hidden space-y-6">
+                    <div class="bg-slate-50 p-4 rounded-2xl border space-y-3">
+                        <h4 class="font-bold text-slate-800 text-sm">إضافة تصنيف رئيسي جديد</h4>
+                        <form onsubmit="addNewCategory(event)" class="flex gap-3">
+                            <input type="text" id="new-cat-name" placeholder="اسم التصنيف (مثل: طابعات، شبكات...)" required class="flex-1 bg-white border rounded-xl px-3 py-2">
+                            <button type="submit" class="bg-orange-500 text-white font-bold px-6 py-2 rounded-xl">إضافة التصنيف</button>
+                        </form>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-3 text-sm">التصنيفات المعتمدة في المتجر والشجرة</h4>
+                        <div id="admin-categories-list" class="space-y-2"></div>
+                    </div>
+                </div>
+
+                <!-- رفع أكسيل -->
                 <div id="admin-tab-import" class="hidden space-y-6">
                     <div class="bg-slate-50 p-6 rounded-2xl border space-y-4 text-center">
-                        <h4 class="font-bold text-slate-800 text-sm">استيراد المنتجات من ملف Excel (سحب الكتالوج بضغطة واحدة)</h4>
-                        <p class="text-xs text-gray-500">قم بتحديد ملف الأكسيل الخاص بالكتالوج (xlsx) وسيقوم النظام بقراءة جميع الأصناف فوراً.</p>
+                        <h4 class="font-bold text-slate-800 text-sm">استيراد المنتجات من ملف Excel</h4>
                         <input type="file" id="excel-file-input" accept=".xlsx, .xls" class="block mx-auto text-xs border p-2 rounded-xl bg-white">
-                        <button onclick="handleExcelUpload()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3 rounded-xl">بدء سحب واستيراد المنتجات</button>
+                        <button onclick="handleExcelUpload()" class="bg-emerald-600 text-white font-bold px-6 py-3 rounded-xl">سحب واستيراد الأصناف</button>
                     </div>
                 </div>
 
                 <!-- إعدادات الموقع -->
                 <div id="admin-tab-settings" class="hidden space-y-6">
                     <div class="bg-slate-50 p-6 rounded-2xl border space-y-4">
-                        <h4 class="font-bold text-slate-800 text-sm">إعدادات الهوية والاتصال</h4>
+                        <h4 class="font-bold text-slate-800 text-sm">إعدادات الهوية والشعار</h4>
                         <form onsubmit="saveSettings(event)" class="space-y-3">
                             <input type="text" id="s-title" class="w-full bg-white border rounded-xl px-3 py-2" value="ZAMLA FALEH">
                             <input type="text" id="s-logo" class="w-full bg-white border rounded-xl px-3 py-2" placeholder="logo.png">
                             <input type="text" id="s-phone" class="w-full bg-white border rounded-xl px-3 py-2" value="920007276">
-                            <button type="submit" class="bg-orange-500 text-white font-bold px-6 py-2.5 rounded-xl">حفظ التعديلات</button>
+                            <button type="submit" class="bg-orange-500 text-white font-bold px-6 py-2.5 rounded-xl">حفظ</button>
                         </form>
                     </div>
                 </div>
@@ -228,7 +254,7 @@
         </div>
     </div>
 
-    <!-- برمجة التطبيق وقاموس اللغات والأنظمة -->
+    <!-- البرمجة الشاملة والتفاعلية -->
     <script>
         const translations = {
             ar: {
@@ -238,7 +264,7 @@
                 quote_link: "طلب عرض سعر",
                 survey_link: "طلب معاينة ميدانية",
                 tracking_link: "تتبع الشحنة",
-                affiliate_link: "البيع بالعمولة",
+                affiliate_link: "برنامج البيع بالعمولة (Affiliate)",
                 payment_link: "طرق السداد",
                 categories: "الأقسام",
                 search_placeholder: "ابحث عن أجهزة، كاميرات، راوترات، سنترالات...",
@@ -257,7 +283,7 @@
                 copyright: "كل الحقوق محفوظة لمؤسسة زمله فالح © 2009 - 2026",
                 cart_title: "محتويات سلة التسوق",
                 total: "المجموع الكلي:",
-                checkout_btn: "إتمام الشراء (سلة المتجر)",
+                checkout_btn: "إتمام عملية الشراء",
                 add_to_cart: "أضف للسلة",
                 view_all: "عرض كل المنتجات",
                 featured_title: "التصنيفات والمنتجات البارزة",
@@ -343,19 +369,20 @@
         }
 
         const initialProducts = [
-            { id: 1, sku: "CCTV-HIK-001", model: "DS-2CD1021-I", name: "كاميرا IP 2 ميجابكسل", category: "المراقبة", price: 124.42, desc: "كاميرا شبكية خارجية بدقة 2 ميجابكسل مع رؤية ليلية.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80" },
-            { id: 2, sku: "CCTV-HIK-002", model: "DS-2CD1043G2-LIU", name: "كاميرا ColorVu خارجية 4 ميجابكسل", category: "المراقبة", price: 150.00, desc: "كاميرا IP خارجية بدقة 4 ميجابكسل من سلسلة ColorVu للتصوير الملون.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80" },
-            { id: 3, sku: "REC-HIK-001", model: "DS-7608NI-M2/8P", name: "جهاز تسجيل NVR 8 قنوات PoE", category: "أجهزة التسجيل", price: 650.00, desc: "مسجل شبكي احترافي يدعم حتى 8 كاميرات مع توزيع طاقة PoE مدمج.", image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&auto=format&fit=crop&q=80" },
-            { id: 4, sku: "NET-RJ-001", model: "RG-RAP72PRO", name: "نقطة وصول Wi-Fi 7 للمؤسسات", category: "الشبكات", price: 850.00, desc: "أحدث تقنيات الواي فاي 7 لتغطية سريعة ومستقرة للشركات.", image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=80" },
-            { id: 5, sku: "VOIP-GS-001", model: "GRP2602P", name: "هاتف IP مكتبي خطين مع PoE", category: "الاتصالات", price: 119.00, desc: "هاتف IP أساسي عالي الدقة للشركات ومراكز الاتصال.", image: "https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=500&auto=format&fit=crop&q=80" },
-            { id: 6, sku: "PRN-001", model: "Epson-L3250", name: "طابعة إبسون الحبرية الملونة المتعددة", category: "طابعات", price: 680.00, desc: "طابعة اقتصادية ملونة ليزر ونفاثة للحبر للمكاتب والشركات مع واي فاي.", image: "https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=500&auto=format&fit=crop&q=80" },
-            { id: 7, sku: "MON-001", model: "MSI-MAG-27", name: "شاشة ألعاب احترافية 27 بوصة 165Hz", category: "الحاسب", price: 990.00, desc: "شاشة بدقة عالية جداً وألوان حية مناسبة للمصممين واللاعبين.", image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500&auto=format&fit=crop&q=80" },
-            { id: 8, sku: "ELEV-CAM-001", model: "Zamla-Elevator-Wireless", name: "نظام كاميرات مصاعد لاسلكي بالكامل", category: "المراقبة", price: 1450.00, desc: "نقل فيديو عالي الدقة وثابت بدون تمديد أسلاك في شافت المصعد.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80" }
+            { id: 1, model: "DS-2CD1021-I", name: "كاميرا IP 2 ميجابكسل", category: "المراقبة", price: 124.42, desc: "كاميرا شبكية خارجية بدقة 2 ميجابكسل مع رؤية ليلية.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80", featured: true },
+            { id: 2, model: "DS-2CD1043G2-LIU", name: "كاميرا ColorVu خارجية 4 ميجابكسل", category: "المراقبة", price: 150.00, desc: "كاميرا IP خارجية بدقة 4 ميجابكسل من سلسلة ColorVu للتصوير الملون.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80", featured: true },
+            { id: 3, model: "DS-7608NI-M2/8P", name: "جهاز تسجيل NVR 8 قنوات PoE", category: "أجهزة التسجيل", price: 650.00, desc: "مسجل شبكي احترافي يدعم حتى 8 كاميرات مع توزيع طاقة PoE مدمج.", image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&auto=format&fit=crop&q=80", featured: true },
+            { id: 4, model: "RG-RAP72PRO", name: "نقطة وصول Wi-Fi 7 للمؤسسات", category: "الشبكات", price: 850.00, desc: "أحدث تقنيات الواي فاي 7 لتغطية سريعة ومستقرة للشركات.", image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=80", featured: true },
+            { id: 5, model: "GRP2602P", name: "هاتف IP مكتبي خطين مع PoE", category: "الاتصالات", price: 119.00, desc: "هاتف IP أساسي عالي الدقة للشركات ومراكز الاتصال.", image: "https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=500&auto=format&fit=crop&q=80", featured: false },
+            { id: 6, model: "Epson-L3250", name: "طابعة إبسون الحبرية الملونة المتعددة", category: "طابعات", price: 680.00, desc: "طابعة اقتصادية ملونة ليزر ونفاثة للحبر للمكاتب والشركات مع واي فاي.", image: "https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=500&auto=format&fit=crop&q=80", featured: true },
+            { id: 7, model: "MSI-MAG-27", name: "شاشة ألعاب احترافية 27 بوصة 165Hz", category: "الحاسب", price: 990.00, desc: "شاشة بدقة عالية جداً وألوان حية مناسبة للمصممين واللاعبين.", image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500&auto=format&fit=crop&q=80", featured: true },
+            { id: 8, model: "Zamla-Elevator-Wireless", name: "نظام كاميرات مصاعد لاسلكي بالكامل", category: "المراقبة", price: 1450.00, desc: "نقل فيديو عالي الدقة وثابت بدون تمديد أسلاك في شافت المصعد.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80", featured: true }
         ];
 
-        let products = JSON.parse(localStorage.getItem('zamla_products_v7')) || initialProducts;
-        let settings = JSON.parse(localStorage.getItem('zamla_settings_v7')) || { title: "ZAMLA FALEH", logo: "logo.png", phone: "920007276" };
-        let cart = JSON.parse(localStorage.getItem('zamla_cart_v7')) || [];
+        let products = JSON.parse(localStorage.getItem('zamla_products_v8')) || initialProducts;
+        let categories = JSON.parse(localStorage.getItem('zamla_categories_v8')) || ['المراقبة', 'أجهزة التسجيل', 'الشبكات', 'الاتصالات', 'طابعات', 'الحاسب', 'التحكم بالدخول', 'المنزل الذكي', 'الصوتيات', 'مكونات الحاسب'];
+        let settings = JSON.parse(localStorage.getItem('zamla_settings_v8')) || { title: "ZAMLA FALEH", logo: "logo.png", phone: "920007276" };
+        let cart = JSON.parse(localStorage.getItem('zamla_cart_v8')) || [];
         window.currentPage = 'home';
 
         function navigateTo(page, param = null) {
@@ -383,40 +410,14 @@
                     <!-- التصنيفات البارزة -->
                     <section class="py-12 bg-white border-b border-gray-200">
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                            <h2 class="text-xl font-black text-slate-800 mb-8 text-center" data-i18n="featured_title">${t.featured_title}</h2>
+                            <h2 class="text-xl font-black text-slate-800 mb-8 text-center">${t.featured_title}</h2>
                             <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 text-center">
-                                <div onclick="navigateTo('category', 'طابعات')" class="bg-slate-50 border p-4 rounded-2xl hover:shadow-md cursor-pointer transition">
-                                    <div class="text-2xl mb-2">🖨️</div>
-                                    <span class="text-xs font-bold text-slate-700">${t.printers}</span>
-                                </div>
-                                <div onclick="navigateTo('category', 'الحاسب')" class="bg-slate-50 border p-4 rounded-2xl hover:shadow-md cursor-pointer transition">
-                                    <div class="text-2xl mb-2">🖥️</div>
-                                    <span class="text-xs font-bold text-slate-700">${t.monitors}</span>
-                                </div>
-                                <div onclick="navigateTo('category', 'الشبكات')" class="bg-slate-50 border p-4 rounded-2xl hover:shadow-md cursor-pointer transition">
-                                    <div class="text-2xl mb-2">🌐</div>
-                                    <span class="text-xs font-bold text-slate-700">${t.networks}</span>
-                                </div>
-                                <div onclick="navigateTo('category', 'المراقبة')" class="bg-slate-50 border p-4 rounded-2xl hover:shadow-md cursor-pointer transition">
-                                    <div class="text-2xl mb-2">📷</div>
-                                    <span class="text-xs font-bold text-slate-700">${t.cameras}</span>
-                                </div>
-                                <div onclick="navigateTo('category', 'الاتصالات')" class="bg-slate-50 border p-4 rounded-2xl hover:shadow-md cursor-pointer transition">
-                                    <div class="text-2xl mb-2">📞</div>
-                                    <span class="text-xs font-bold text-slate-700">${t.voip}</span>
-                                </div>
-                                <div onclick="navigateTo('category', 'المنزل الذكي')" class="bg-slate-50 border p-4 rounded-2xl hover:shadow-md cursor-pointer transition">
-                                    <div class="text-2xl mb-2">🏠</div>
-                                    <span class="text-xs font-bold text-slate-700">${t.smarthome}</span>
-                                </div>
-                                <div onclick="navigateTo('category', 'الصوتيات')" class="bg-slate-50 border p-4 rounded-2xl hover:shadow-md cursor-pointer transition">
-                                    <div class="text-2xl mb-2">🎧</div>
-                                    <span class="text-xs font-bold text-slate-700">${t.audio}</span>
-                                </div>
-                                <div onclick="navigateTo('category', 'مكونات الحاسب')" class="bg-slate-50 border p-4 rounded-2xl hover:shadow-md cursor-pointer transition">
-                                    <div class="text-2xl mb-2">⚡</div>
-                                    <span class="text-xs font-bold text-slate-700">${t.pcparts}</span>
-                                </div>
+                                ${categories.slice(0, 8).map(c => `
+                                    <div onclick="navigateTo('category', '${c}')" class="bg-slate-50 border p-4 rounded-2xl hover:shadow-md cursor-pointer transition">
+                                        <div class="text-2xl mb-2">📂</div>
+                                        <span class="text-xs font-bold text-slate-700">${c}</span>
+                                    </div>
+                                `).join('')}
                             </div>
                         </div>
                     </section>
@@ -425,7 +426,7 @@
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                             <div class="flex justify-between items-center mb-8">
                                 <h2 class="text-2xl font-black text-slate-900">أبرز المنتجات المعتمدة</h2>
-                                <button onclick="navigateTo('store')" class="text-orange-600 font-bold text-xs hover:underline">${t.view_all} (${products.length}) ←</button>
+                                <button onclick="navigateTo('store')" class="text-orange-600 font-bold text-xs hover:underline">${t.view_all} ←</button>
                             </div>
                             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="home-products-grid"></div>
                         </div>
@@ -473,12 +474,10 @@
                 `;
             }
             else if (page === 'quote') {
-                // صفحة طلب عرض سعر مع توليد رسالة مخصصة للواتساب بصيغة احترافية
                 main.innerHTML = `
                     <div class="max-w-2xl mx-auto px-4 py-16">
                         <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 space-y-6">
                             <h1 class="text-2xl font-black text-slate-900 border-b pb-4">📄 طلب الحصول على عرض سعر (PDF / WhatsApp)</h1>
-                            <p class="text-xs text-gray-600">املأ البيانات أدناه لتوليد عرض سعر رسمي وإرساله مباشرة لفريق المبيعات عبر الواتساب:</p>
                             <form onsubmit="submitQuoteForm(event)" class="space-y-4 text-xs">
                                 <div><label class="block font-bold mb-1">اسم العميل / الشركة / الفندق</label><input type="text" id="q-name" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
                                 <div><label class="block font-bold mb-1">رقم الجوال</label><input type="tel" id="q-phone" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
@@ -490,17 +489,15 @@
                 `;
             }
             else if (page === 'survey') {
-                // صفحة طلب معاينة ميدانية
                 main.innerHTML = `
                     <div class="max-w-2xl mx-auto px-4 py-16">
                         <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 space-y-6">
                             <h1 class="text-2xl font-black text-slate-900 border-b pb-4">🛠️ طلب معاينة ميدانية لمشاريع التركيبات</h1>
-                            <p class="text-xs text-gray-600">سيقوم المهندس المختص بزيارة موقعكم في جدة أو المناطق المجاورة لعمل الرفع المساحي ودراسة البنية التحتية:</p>
-                            <form onsubmit="event.preventDefault(); alert('تم تسجيل طلب المعاينة الميدانية بنجاح! سيتواصل معك المهندس المختص خلال ساعتين لتأكيد الموعد.'); navigateTo('home');" class="space-y-4 text-xs">
+                            <form onsubmit="event.preventDefault(); alert('تم تسجيل طلب المعاينة الميدانية بنجاح! سيتواصل معك المهندس المختص خلال ساعتين.'); navigateTo('home');" class="space-y-4 text-xs">
                                 <div><label class="block font-bold mb-1">اسم المسؤول</label><input type="text" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
                                 <div><label class="block font-bold mb-1">رقم الجوال للتواصل</label><input type="tel" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
                                 <div><label class="block font-bold mb-1">موقع المشروع (المدينة / الحي)</label><input type="text" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
-                                <div><label class="block font-bold mb-1">نوع المشروع (فندق، برج مصاعد، مصنع، مكتب)</label><input type="text" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
+                                <div><label class="block font-bold mb-1">نوع المشروع</label><input type="text" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
                                 <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3.5 rounded-xl text-sm shadow">تأكيد حجز المعاينة الهندسية</button>
                             </form>
                         </div>
@@ -508,13 +505,12 @@
                 `;
             }
             else if (page === 'tracking') {
-                // صفحة تتبع الشحنة
                 main.innerHTML = `
                     <div class="max-w-2xl mx-auto px-4 py-16">
                         <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 space-y-6 text-center">
                             <h1 class="text-2xl font-black text-slate-900 border-b pb-4">📦 نظام تتبع الشحنات والطلبات</h1>
                             <div class="flex gap-2">
-                                <input type="text" id="track-id" placeholder="أدخل رقم الشحنة أو الطلب (مثال: ZF-2026)..." class="flex-1 bg-slate-50 border rounded-xl p-3 text-sm">
+                                <input type="text" id="track-id" placeholder="أدخل رقم الشحنة أو الطلب..." class="flex-1 bg-slate-50 border rounded-xl p-3 text-sm">
                                 <button onclick="trackOrder()" class="bg-orange-500 text-white font-bold px-6 py-3 rounded-xl text-xs">بحث</button>
                             </div>
                             <div id="track-result" class="pt-4 text-right"></div>
@@ -523,13 +519,13 @@
                 `;
             }
             else if (page === 'affiliate') {
-                // صفحة البيع بالعمولة
                 main.innerHTML = `
                     <div class="max-w-3xl mx-auto px-4 py-16">
                         <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 space-y-6">
-                            نطمح دائماً لشراكات ناجحة! انضم إلى برنامج **البيع بالعمولة (Affiliate Program)** الخاص بمؤسسة زمله فالح واربح نسب أرباح مجزية عند تسويق مشاريع التيار الخفيف والشبكات وكاميرات المصاعد.
+                            <h1 class="text-2xl font-black text-slate-900 border-b pb-4">🤝 برنامج البيع بالعمولة (Affiliate Program)</h1>
+                            <p class="text-xs text-gray-600 leading-relaxed">انضم إلى برنامج التسويق بالعمولة الخاص بمؤسسة زمله فالح واربح نسب أرباح مجزية عند تسويق مشاريع التيار الخفيف والشبكات وكاميرات المصاعد.</p>
                             <div class="bg-slate-50 p-6 rounded-2xl border space-y-3">
-                                <h3 class="font-bold text-slate-800">سجل اهتمامك كمسوق معتمد</h3>
+                                <h3 class="font-bold text-slate-800 text-xs">سجل اهتمامك كمسوق معتمد</h3>
                                 <form onsubmit="event.preventDefault(); alert('تم استلام طلب الانضمام لبرنامج التسويق بالعمولة بنجاح!'); navigateTo('home');" class="space-y-3 text-xs">
                                     <input type="text" placeholder="الاسم الكامل" required class="w-full bg-white border rounded-xl p-3">
                                     <input type="email" placeholder="البريد الإلكتروني" required class="w-full bg-white border rounded-xl p-3">
@@ -542,27 +538,14 @@
                 `;
             }
             else if (page === 'payment') {
-                // صفحة طرق السداد
                 main.innerHTML = `
                     <div class="max-w-4xl mx-auto px-4 py-16">
                         <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 space-y-6">
                             <h1 class="text-2xl font-black text-slate-900 border-b pb-4">💳 طرق السداد المعتمدة</h1>
                             <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
-                                <div class="bg-slate-50 p-6 rounded-2xl border space-y-2">
-                                    <div class="text-3xl">💳</div>
-                                    <div class="font-bold text-sm">بطاقات مدى / فيزا / ماستركارد</div>
-                                    <p class="text-xs text-gray-500">دفع إلكتروني آمن ومباشر عبر البوابات المعتمدة.</p>
-                                </div>
-                                <div class="bg-slate-50 p-6 rounded-2xl border space-y-2">
-                                    <div class="text-3xl">📱</div>
-                                    <div class="font-bold text-sm">أبل باي (Apple Pay)</div>
-                                    <p class="text-xs text-gray-500">سداد سريع وآمن بضغطة زر واحدة.</p>
-                                </div>
-                                <div class="bg-slate-50 p-6 rounded-2xl border space-y-2">
-                                    <div class="text-3xl">🏦</div>
-                                    <div class="font-bold text-sm">التحويل البنكي المباشر</div>
-                                    <p class="text-xs text-gray-500">التحويل لحسابات المؤسسة في الراجحي والأهلي.</p>
-                                </div>
+                                <div class="bg-slate-50 p-6 rounded-2xl border space-y-2"><div class="text-3xl">💳</div><div class="font-bold text-sm">مدى / فيزا / ماستركارد</div></div>
+                                <div class="bg-slate-50 p-6 rounded-2xl border space-y-2"><div class="text-3xl">📱</div><div class="font-bold text-sm">أبل باي (Apple Pay)</div></div>
+                                <div class="bg-slate-50 p-6 rounded-2xl border space-y-2"><div class="text-3xl">🏦</div><div class="font-bold text-sm">التحويل البنكي المباشر</div></div>
                             </div>
                         </div>
                     </div>
@@ -574,18 +557,10 @@
                         <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 space-y-6">
                             <h1 class="text-2xl font-black text-slate-900 border-b pb-4">🏦 الحسابات البنكية المعتمدة</h1>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                <div class="bg-slate-50 p-6 rounded-2xl border space-y-2">
-                                    <div class="font-bold text-slate-800 text-sm">مصرف الراجحي</div>
-                                    <div class="text-xs text-gray-600">مؤسسة زمله فالح التجارية</div>
-                                    <div class="text-xs font-mono font-bold text-slate-900">SA20 8000 0123 6080 1000 3333</div>
-                                </div>
-                                <div class="bg-slate-50 p-6 rounded-2xl border space-y-2">
-                                    <div class="font-bold text-slate-800 text-sm">البنك الأهلي السعودي (SNB)</div>
-                                    <div class="text-xs text-gray-600">مؤسسة زمله فالح التجارية</div>
-                                    <div class="text-xs font-mono font-bold text-slate-900">SA44 1000 0001 6080 2000 4444</div>
-                                </div>
+                                <div class="bg-slate-50 p-6 rounded-2xl border space-y-2"><div class="font-bold text-slate-800 text-sm">مصرف الراجحي</div><div class="text-xs font-mono font-bold">SA20 8000 0123 6080 1000 3333</div></div>
+                                <div class="bg-slate-50 p-6 rounded-2xl border space-y-2"><div class="font-bold text-slate-800 text-sm">البنك الأهلي السعودي (SNB)</div><div class="text-xs font-mono font-bold">SA44 1000 0001 6080 2000 4444</div></div>
                             </div>
-                            <button onclick="navigateTo('verify')" class="bg-orange-500 text-white font-bold px-6 py-3 rounded-xl text-xs">تأكيد التحويل البنكي ←</button>
+                            <button onclick="navigateTo('verify')" class="bg-orange-500 text-white font-bold px-6 py-3 rounded-xl text-xs">تأكيد التحويل ←</button>
                         </div>
                     </div>
                 `;
@@ -595,11 +570,10 @@
                     <div class="max-w-2xl mx-auto px-4 py-16">
                         <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 space-y-6">
                             <h1 class="text-2xl font-black text-slate-900 border-b pb-4">✅ تأكيد التحويل البنكي</h1>
-                            <form onsubmit="event.preventDefault(); alert('تم إرسال إشعار التحويل بنجاح، سيتم تأكيد طلبكم خلال ساعة!'); navigateTo('home');" class="space-y-4 text-xs">
-                                <div><label class="block font-bold mb-1">اسم المحول الثلاثي</label><input type="text" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
-                                <div><label class="block font-bold mb-1">رقم الطلب أو الجوال</label><input type="text" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
-                                <div><label class="block font-bold mb-1">المبلغ المحول (ر.س)</label><input type="number" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
-                                <button type="submit" class="w-full bg-orange-500 text-white font-bold py-3.5 rounded-xl text-sm">إرسال تفاصيل التحويل</button>
+                            <form onsubmit="event.preventDefault(); alert('تم إرسال الإشعار بنجاح!'); navigateTo('home');" class="space-y-4 text-xs">
+                                <div><label class="block font-bold mb-1">اسم المحول</label><input type="text" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
+                                <div><label class="block font-bold mb-1">المبلغ (ر.س)</label><input type="number" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
+                                <button type="submit" class="w-full bg-orange-500 text-white font-bold py-3.5 rounded-xl text-sm">إرسال التأكيد</button>
                             </form>
                         </div>
                     </div>
@@ -615,7 +589,7 @@
                                 <p class="text-xs text-gray-600">هاتف: 920007276 | واتساب: 0543201995</p>
                             </div>
                             <div class="bg-slate-50 p-6 rounded-2xl border">
-                                <form onsubmit="event.preventDefault(); alert('تم إرسال رسالتك بنجاح!'); navigateTo('home');" class="space-y-3 text-xs">
+                                <form onsubmit="event.preventDefault(); alert('تم إرسال رسالتك!'); navigateTo('home');" class="space-y-3 text-xs">
                                     <input type="text" placeholder="الاسم" required class="w-full bg-white border rounded-xl p-3">
                                     <input type="tel" placeholder="الجوال" required class="w-full bg-white border rounded-xl p-3">
                                     <textarea placeholder="الرسالة..." rows="3" required class="w-full bg-white border rounded-xl p-3"></textarea>
@@ -633,19 +607,7 @@
             const id = document.getElementById('track-id').value;
             const res = document.getElementById('track-result');
             if(!id) return;
-            res.innerHTML = `
-                <div class="bg-slate-50 p-6 rounded-2xl border space-y-4 text-xs">
-                    <div class="flex justify-between font-bold text-slate-800">
-                        <span>رقم الطلب: ${id}</span>
-                        <span class="text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">قيد الشحن والتوصيل</span>
-                    </div>
-                    <div class="space-y-2 border-t pt-3">
-                        <p>✓ تم استلام الطلب وتأكيد السداد</p>
-                        <p>✓ جاري تجهيز الأجهزة وفحصها في مستودع جدة</p>
-                        <p class="text-orange-600 font-bold">➔ الشحنة مع مندوب التوصيل في طريقها إليك</p>
-                    </div>
-                </div>
-            `;
+            res.innerHTML = `<div class="bg-slate-50 p-6 rounded-2xl border space-y-2 text-xs"><div class="font-bold">رقم الطلب: ${id}</div><div class="text-emerald-600 font-bold">الحالة: قيد الشحن والتوصيل الفوري</div></div>`;
         }
 
         function submitQuoteForm(e) {
@@ -657,10 +619,27 @@
             window.open(`https://wa.me/966543201995?text=${text}`, '_blank');
         }
 
+        function sendCartQuoteEmail() {
+            if(cart.length === 0) { alert('السلة فارغة!'); return; }
+            let summary = "طلب عرض سعر للمنتجات التالية:\n";
+            let total = 0;
+            cart.forEach(item => {
+                summary += `- ${item.model} (${item.name}) : ${item.price} SAR\n`;
+                total += item.price;
+            });
+            summary += `\nالمجموع الكلي: ${total} SAR`;
+            
+            const emailWindow = document.createElement('a');
+            emailWindow.href = `mailto:sales@zamlafaleh.com?subject=طلب عرض سعر رسمي من المتجر&body=${encodeURIComponent(summary)}`;
+            emailWindow.click();
+        }
+
         function renderHomeProducts() {
             const grid = document.getElementById('home-products-grid');
             if(!grid) return;
-            grid.innerHTML = products.slice(0, 8).map(p => productCardHTML(p)).join('');
+            const feat = products.filter(p => p.featured);
+            const list = feat.length > 0 ? feat : products.slice(0, 8);
+            grid.innerHTML = list.map(p => productCardHTML(p)).join('');
         }
 
         function renderStoreProducts(list) {
@@ -689,7 +668,7 @@
                         </div>
                     </div>
                     <div class="p-4 pt-0 flex items-center justify-between border-t border-gray-100 mt-3">
-                        <span class="text-base font-black text-slate-900">${p.price} ${currentLang==='ar'?'ر.س':'SAR'}</span>
+                        <span class="text-base font-black text-slate-900">${p.price} ر.س</span>
                         <button onclick="addToCart(${p.id})" class="bg-orange-500 hover:bg-orange-600 text-white px-3 py-1.5 rounded-xl text-xs font-bold transition shadow-sm">${t.add_to_cart}</button>
                     </div>
                 </div>
@@ -712,10 +691,9 @@
         function toggleMegaMenu() {
             const menu = document.getElementById('mega-menu');
             menu.classList.toggle('hidden');
-            const cats = [...new Set(products.map(p => p.category))];
             document.getElementById('mega-menu-list').innerHTML = `
                 <a href="#store" onclick="navigateTo('store'); toggleMegaMenu();" class="block p-2 hover:bg-gray-100 rounded-lg">🔥 جميع الأقسام (${products.length})</a>
-                ` + cats.map(c => `
+                ` + categories.map(c => `
                 <a href="#store" onclick="navigateTo('category', '${c}'); toggleMegaMenu();" class="block p-2 hover:bg-gray-100 rounded-lg">📂 ${c}</a>
             `).join('');
         }
@@ -723,14 +701,14 @@
         function addToCart(id) {
             const product = products.find(p => p.id === id);
             cart.push(product);
-            localStorage.setItem('zamla_cart_v7', JSON.stringify(cart));
+            localStorage.setItem('zamla_cart_v8', JSON.stringify(cart));
             updateCartUI();
             toggleCart();
         }
 
         function removeFromCart(index) {
             cart.splice(index, 1);
-            localStorage.setItem('zamla_cart_v7', JSON.stringify(cart));
+            localStorage.setItem('zamla_cart_v8', JSON.stringify(cart));
             updateCartUI();
         }
 
@@ -755,7 +733,7 @@
                             <h4 class="font-bold text-slate-900" dir="ltr">${item.model}</h4>
                             <span class="text-orange-600 font-bold">${item.price} ${currentLang==='ar'?'ر.س':'SAR'}</span>
                         </div>
-                        <button onclick="removeFromCart(${index})" class="text-red-500 font-bold hover:underline">${currentLang==='ar'?'حذف':'Remove'}</button>
+                        <button onclick="removeFromCart(${index})" class="text-red-500 font-bold hover:underline">حذف</button>
                     </div>
                 `;
             });
@@ -767,28 +745,36 @@
         }
 
         function proceedToCheckout() {
-            if(cart.length === 0) { alert('Cart is empty!'); return; }
-            alert(currentLang==='ar'?'تم تأكيد طلبك بنجاح! سيتم التواصل معكم لشحنه وتوصيله.':'Order placed successfully!');
+            if(cart.length === 0) { alert('السلة فارغة!'); return; }
+            alert('تم تأكيد طلبك بنجاح! سيتم التواصل معكم لشحنه وتوصيله.');
             cart = [];
-            localStorage.removeItem('zamla_cart_v7');
+            localStorage.removeItem('zamla_cart_v8');
             updateCartUI();
             toggleCart();
             navigateTo('home');
         }
 
-        // لوحة التحكم الإدارية (تعديل كامل + رفع أكسيل)
+        // لوحة التحكم الإدارية (رفع الصور محلياً، تعديل التصنيفات، والمنتجات البارزة)
         function toggleAdminModal() {
             document.getElementById('admin-modal').classList.toggle('hidden');
             renderAdminProducts();
+            renderAdminCategories();
+            populateCategoryDropdown();
         }
 
         function switchAdminTab(tab) {
-            ['products', 'import', 'settings'].forEach(t => {
+            ['products', 'categories', 'import', 'settings'].forEach(t => {
                 document.getElementById(`admin-tab-${t}`).classList.add('hidden');
                 document.getElementById(`tab-btn-${t}`).className = "py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap";
             });
             document.getElementById(`admin-tab-${tab}`).classList.remove('hidden');
             document.getElementById(`tab-btn-${tab}`).className = "py-3 font-bold border-b-2 border-orange-500 text-orange-600 whitespace-nowrap";
+        }
+
+        function populateCategoryDropdown() {
+            const select = document.getElementById('p-cat');
+            if(!select) return;
+            select.innerHTML = '<option value="">اختر التصنيف الرئيسي</option>' + categories.map(c => `<option value="${c}">${c}</option>`).join('');
         }
 
         function saveProductData(e) {
@@ -798,30 +784,41 @@
             const name = document.getElementById('p-name').value;
             const category = document.getElementById('p-cat').value;
             const price = parseFloat(document.getElementById('p-price').value);
-            const image = document.getElementById('p-img').value;
             const desc = document.getElementById('p-desc').value;
+            const featured = document.getElementById('p-featured').checked;
+            const fileInput = document.getElementById('p-img-file');
 
-            if (editId) {
-                // تعديل منتج موجود
-                products = products.map(p => p.id == editId ? { ...p, model, name, title: name, category, price, image, desc } : p);
-                alert('تم تحديث المنتج بنجاح!');
-            } else {
-                // إضافة منتج جديد
-                const newProd = {
-                    id: Date.now(),
-                    sku: "CUST-" + Math.floor(Math.random()*1000),
-                    model, name, title: name, category, price, image, desc
+            const finishSave = (imgUrl) => {
+                if (editId) {
+                    products = products.map(p => p.id == editId ? { ...p, model, name, title: name, category, price, desc, featured, image: imgUrl || p.image } : p);
+                    alert('تم تحديث المنتج بنجاح!');
+                } else {
+                    const newProd = {
+                        id: Date.now(),
+                        sku: "CUST-" + Math.floor(Math.random()*1000),
+                        model, name, title: name, category, price, desc, featured,
+                        image: imgUrl || "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500"
+                    };
+                    products.unshift(newProd);
+                    alert('تمت إضافة المنتج بنجاح!');
+                }
+                localStorage.setItem('zamla_products_v8', JSON.stringify(products));
+                document.getElementById('product-form').reset();
+                document.getElementById('p-edit-id').value = '';
+                document.getElementById('form-title-heading').innerText = 'إضافة منتج جديد';
+                document.getElementById('form-submit-btn').innerText = 'حفظ وإضافة المنتج';
+                renderAdminProducts();
+            };
+
+            if (fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(uploadEvent) {
+                    finishSave(uploadEvent.target.result);
                 };
-                products.unshift(newProd);
-                alert('تمت إضافة المنتج بنجاح للكتالوج!');
+                reader.readAsDataURL(fileInput.files[0]);
+            } else {
+                finishSave(null);
             }
-
-            localStorage.setItem('zamla_products_v7', JSON.stringify(products));
-            document.getElementById('product-form').reset();
-            document.getElementById('p-edit-id').value = '';
-            document.getElementById('form-title-heading').innerText = 'إضافة منتج جديد';
-            document.getElementById('form-submit-btn').innerText = 'حفظ وإضافة المنتج';
-            renderAdminProducts();
         }
 
         function editProduct(id) {
@@ -832,8 +829,8 @@
             document.getElementById('p-name').value = p.name || '';
             document.getElementById('p-cat').value = p.category || '';
             document.getElementById('p-price').value = p.price || 0;
-            document.getElementById('p-img').value = p.image || '';
             document.getElementById('p-desc').value = p.desc || '';
+            document.getElementById('p-featured').checked = !!p.featured;
             document.getElementById('form-title-heading').innerText = 'تعديل المنتج المحدد';
             document.getElementById('form-submit-btn').innerText = 'حفظ التعديلات';
             switchAdminTab('products');
@@ -841,58 +838,63 @@
 
         function deleteProduct(id) {
             products = products.filter(p => p.id !== id);
-            localStorage.setItem('zamla_products_v7', JSON.stringify(products));
+            localStorage.setItem('zamla_products_v8', JSON.stringify(products));
             renderAdminProducts();
         }
 
-        // سحب واستيراد ملف الأكسيل بضغطة زر
+        function addNewCategory(e) {
+            e.preventDefault();
+            const catName = document.getElementById('new-cat-name').value;
+            if(catName && !categories.includes(catName)) {
+                categories.push(catName);
+                localStorage.setItem('zamla_categories_v8', JSON.stringify(categories));
+                document.getElementById('new-cat-name').value = '';
+                renderAdminCategories();
+                populateCategoryDropdown();
+                alert('تمت إضافة التصنيف بنجاح!');
+            }
+        }
+
+        function renderAdminCategories() {
+            const container = document.getElementById('admin-categories-list');
+            if(!container) return;
+            container.innerHTML = categories.map((c, i) => `
+                <div class="flex justify-between items-center bg-white p-2.5 rounded-xl border text-xs">
+                    <span class="font-bold">📂 ${c}</span>
+                    <button onclick="categories.splice(${i},1); localStorage.setItem('zamla_categories_v8', JSON.stringify(categories)); renderAdminCategories(); populateCategoryDropdown();" class="text-red-500 font-bold">حذف</button>
+                </div>
+            `).join('');
+        }
+
         function handleExcelUpload() {
             const fileInput = document.getElementById('excel-file-input');
             const file = fileInput.files[0];
-            if (!file) {
-                alert('الرجاء اختيار ملف أكسيل أولاً!');
-                return;
-            }
+            if (!file) { alert('اختر ملف أكسيل أولاً!'); return; }
             const reader = new FileReader();
             reader.onload = function(e) {
                 try {
                     const data = new Uint8Array(e.target.result);
                     const workbook = XLSX.read(data, { type: 'array' });
-                    const firstSheetName = workbook.SheetNames[0];
-                    const worksheet = workbook.Sheets[firstSheetName];
-                    const jsonRows = XLSX.utils.sheet_to_json(worksheet);
-
-                    let addedCount = 0;
-                    jsonRows.forEach((row, idx) => {
-                        const model = row['Model'] || row['موديل'] || `ITEM-${idx}`;
-                        const name = row['Product Name AR'] || row['اسم المنتج'] || 'منتج معتمد';
-                        const category = row['Category'] || row['القسم'] || 'المراقبة';
-                        let price = parseFloat(row['Saudi Price SAR'] || row['السعر'] || 150.0);
-                        if(isNaN(price) || price <= 0) price = 150.0;
-
+                    const sheet = workbook.Sheets[workbook.SheetNames[0]];
+                    const rows = XLSX.utils.sheet_to_json(sheet);
+                    rows.forEach((row, idx) => {
                         const newP = {
                             id: Date.now() + idx,
-                            sku: row['SKU'] || `SKU-${idx}`,
-                            model: String(model),
-                            name: String(name),
-                            title: String(name),
-                            category: String(category),
-                            price: price,
-                            desc: String(row['Description AR'] || 'منتج عالي الجودة للتيار الخفيف والشبكات.'),
-                            image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=80"
+                            model: String(row['Model'] || `ITEM-${idx}`),
+                            name: String(row['Product Name AR'] || 'منتج معتمد'),
+                            category: String(row['Category'] || 'المراقبة'),
+                            price: parseFloat(row['Saudi Price SAR'] || 150.0),
+                            desc: String(row['Description AR'] || 'منتج عالي الجودة.'),
+                            image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500",
+                            featured: false
                         };
                         products.unshift(newP);
-                        addedCount++;
                     });
-
-                    localStorage.setItem('zamla_products_v7', JSON.stringify(products));
+                    localStorage.setItem('zamla_products_v8', JSON.stringify(products));
                     renderAdminProducts();
-                    alert(`تم استيراد ${addedCount} صنفاً بنجاح من ملف الأكسيل!`);
+                    alert('تم سحب واستيراد أصناف الأكسيل بنجاح!');
                     switchAdminTab('products');
-                } catch (err) {
-                    console.error(err);
-                    alert('حدث خطأ أثناء قراءة ملف الأكسيل. تأكد من صحة تنسيق الملف.');
-                }
+                } catch(err) { alert('خطأ في قراءة ملف الأكسيل'); }
             };
             reader.readAsArrayBuffer(file);
         }
@@ -904,9 +906,9 @@
                 logo: document.getElementById('s-logo').value,
                 phone: document.getElementById('s-phone').value
             };
-            localStorage.setItem('zamla_settings_v7', JSON.stringify(settings));
+            localStorage.setItem('zamla_settings_v8', JSON.stringify(settings));
             initApp();
-            alert('Settings saved successfully!');
+            alert('تم حفظ الإعدادات بنجاح!');
         }
 
         function renderAdminProducts() {
@@ -918,7 +920,7 @@
                         <img src="${p.image}" class="w-8 h-8 object-cover rounded-lg">
                         <div>
                             <h5 class="font-bold" dir="ltr">${p.model} - ${p.name}</h5>
-                            <span class="text-orange-600">${p.price} SAR (${p.category})</span>
+                            <span class="text-orange-600">${p.price} SAR (${p.category}) ${p.featured ? '⭐ [بارز]' : ''}</span>
                         </div>
                     </div>
                     <div class="flex gap-2">
