@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مؤسسة زمله فالح | الكتالوج الشامل لأنظمة التيار الخفيف والشبكات - Zamla Faleh Est.</title>
+    <title>مؤسسة زمله فالح | أنظمة التيار الخفيف والشبكات - Zamla Faleh Est.</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <style>
@@ -13,32 +13,36 @@
 <body class="antialiased">
 
     <!-- شريط التنقل العلوي -->
-    <header class="sticky top-0 z-50 bg-[#0f172a] shadow-md border-b border-gray-200">
+    <header class="sticky top-0 z-50 bg-[#0f172a] shadow-md border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3">
                 <a href="#" class="flex items-center gap-3">
-                    <img src="logo.png" alt="شعار مؤسسة زمله فالح" onerror="this.style.display='none'; document.getElementById('fallback-logo').style.display='flex';" class="h-12 w-auto object-contain">
+                    <img id="site-logo" src="logo.png" alt="شعار مؤسسة زمله فالح" onerror="this.style.display='none'; document.getElementById('fallback-logo').style.display='flex';" class="h-12 w-auto object-contain">
                     <div id="fallback-logo" class="hidden items-center gap-2">
                         <div class="bg-orange-500 text-white p-2 rounded-xl font-black text-lg">ZF</div>
-                        <span class="text-lg font-black tracking-wider text-white">ZAMLA FALEH</span>
+                        <span id="site-title" class="text-lg font-black tracking-wider text-white">ZAMLA FALEH</span>
                     </div>
                 </a>
             </div>
             
-            <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-200">
+            <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-gray-200">
                 <a href="#" class="text-orange-400 hover:text-white transition">الرئيسية</a>
-                <a href="#store" class="hover:text-orange-400 transition">الكتالوج والمنتجات</a>
+                <a href="#store" class="hover:text-orange-400 transition">المتجر</a>
                 <a href="#solutions" class="hover:text-orange-400 transition">الحلول الهندسية</a>
-                <a href="#projects" class="hover:text-orange-400 transition">مشاريع الفنادق</a>
+                <a href="#projects" class="hover:text-orange-400 transition">المشاريع</a>
+                <a href="#blog" class="hover:text-orange-400 transition">المدونة</a>
                 <a href="#contact" class="hover:text-orange-400 transition">اتصل بنا</a>
             </nav>
 
-            <div class="flex items-center gap-4">
+            <div class="flex items-center gap-3">
+                <button onclick="toggleAdminModal()" class="px-3 py-2 text-xs font-bold text-white bg-slate-700 hover:bg-slate-600 rounded-xl transition border border-slate-600">
+                    ⚙️ لوحة التحكم
+                </button>
                 <button onclick="toggleCart()" class="relative p-2.5 text-white bg-slate-800 hover:bg-slate-700 rounded-xl transition border border-slate-700">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
                     <span id="cart-count" class="absolute -top-1.5 -right-1.5 bg-orange-500 text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold text-white shadow">0</span>
                 </button>
-                <a href="#projects" class="hidden sm:inline-flex bg-orange-500 hover:bg-orange-600 text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow transition">
+                <a href="#projects" class="hidden sm:inline-flex bg-orange-500 hover:bg-orange-600 text-white px-4 py-2.5 rounded-xl font-bold text-sm shadow transition">
                     طلب عرض سعر
                 </a>
             </div>
@@ -52,20 +56,20 @@
                 <div class="space-y-6">
                     <div class="inline-flex items-center gap-2 bg-slate-800/80 border border-slate-700 px-4 py-1.5 rounded-full text-orange-400 text-xs font-bold tracking-wider">
                         <span class="w-2 h-2 rounded-full bg-orange-400 animate-pulse"></span>
-                        الكتالوج المعتمد لأنظمة التيار الخفيف والشبكات (السوق السعودي)[cite: 1]
+                        الموزع المعتمد لأنظمة التيار الخفيف والشبكات في المملكة
                     </div>
                     <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight uppercase">
-                        متجر الأجهزة الأمنية والشبكات والسنترالات
+                        متجر الأجهزة الأمنية والشبكات والسنترالات المعتمدة
                     </h1>
                     <p class="text-base text-gray-300 leading-relaxed">
-                        نظام كاميرات مراقبة المصاعد اللاسلكي: <strong class="text-orange-400">بدون تمديد أسلاك</strong>[cite: 1]. تصفح كافة منتجات الكتالوج الرسمي المعتمد (كاميرات، NVR، شبكات Ubiquiti و Ruijie، سنترالات Grandstream)[cite: 1].
+                        نظام كاميرات مراقبة المصاعد اللاسلكي: <strong class="text-orange-400">بدون تمديد أسلاك</strong>[cite: 1]. توريد وتركيب أجهزة المراقبة Hikvision، Dahua، شبكات Ruijie و Ubiquiti، وسنترالات Grandstream[cite: 1].
                     </p>
                     <div class="flex flex-wrap gap-4 pt-4">
                         <a href="#store" class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3.5 rounded-xl font-bold text-sm shadow-lg transition">
-                            استعرض كافة المنتجات
+                            تصفح المنتجات الآن
                         </a>
-                        <a href="tel:0543201995" class="border border-slate-600 bg-slate-800/50 hover:bg-slate-800 px-6 py-3.5 rounded-xl font-bold text-sm transition flex items-center gap-2 text-gray-200">
-                            اتصل بنا: 0543201995
+                        <a id="hero-phone-btn" href="tel:0543201995" class="border border-slate-600 bg-slate-800/50 hover:bg-slate-800 px-6 py-3.5 rounded-xl font-bold text-sm transition flex items-center gap-2 text-gray-200">
+                            اتصل بنا: <span id="display-phone">0543201995</span>
                         </a>
                     </div>
                 </div>
@@ -73,8 +77,8 @@
                 <div class="relative">
                     <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-2xl space-y-4">
                         <div class="flex justify-between items-center text-xs text-orange-400 border-b border-slate-700 pb-3 font-semibold">
-                            <span>ZAMLA FALEH - MASTER CATALOG 2026</span>
-                            <span class="bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded">محدث ومرخص</span>
+                            <span>ZAMLA FALEH - STORE MANAGEMENT</span>
+                            <span class="bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded">نظام نشط ومحدث</span>
                         </div>
                         <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&auto=format&fit=crop&q=80" alt="Tech Inventory" class="rounded-xl w-full h-56 object-cover shadow-md">
                     </div>
@@ -108,34 +112,53 @@
         </div>
     </section>
 
-    <!-- متجر المنتجات الشامل من الكتالوج المعتمد -->
+    <!-- المتجر الإلكتروني -->
     <section id="store" class="py-20 bg-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-10">
                 <div>
-                    <h2 class="text-3xl font-black text-[#0f172a]">متجر المنتجات الشامل (الكتالوج الرئيسي)</h2>
-                    <p class="text-sm text-gray-600 mt-1">تصفح كافة أجهزة الكاميرات، الشبكات، السنترالات، والبنية التحتية بالأسعار والمواصفات</p>
+                    <h2 class="text-3xl font-black text-[#0f172a]">متجر المنتجات الشامل</h2>
+                    <p class="text-sm text-gray-600 mt-1">تصفح كافة الأجهزة والمعدات بالأسعار والمواصفات الرسمية</p>
                 </div>
                 <div class="w-full md:w-96">
-                    <input type="text" id="search-input" oninput="filterProducts()" placeholder="ابحث باسم الموديل أو العلامة (مثل DS-2CD أو Ruijie)..." class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-orange-500 shadow-sm">
+                    <input type="text" id="search-input" oninput="filterProducts()" placeholder="ابحث باسم المنتج أو الموديل..." class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-orange-500 shadow-sm">
                 </div>
             </div>
 
             <!-- أزرار التصنيفات -->
-            <div class="flex flex-wrap gap-2 mb-10">
+            <div id="category-buttons" class="flex flex-wrap gap-2 mb-10">
                 <button onclick="filterCategory('all')" class="cat-btn bg-orange-500 text-white px-4 py-2 rounded-xl text-sm font-bold transition shadow-sm">الكل</button>
-                <button onclick="filterCategory('المراقبة')" class="cat-btn bg-white hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-xl text-sm font-bold transition border border-gray-300">المراقبة</button>
-                <button onclick="filterCategory('أجهزة التسجيل')" class="cat-btn bg-white hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-xl text-sm font-bold transition border border-gray-300">أجهزة التسجيل</button>
-                <button onclick="filterCategory('الشبكات')" class="cat-btn bg-white hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-xl text-sm font-bold transition border border-gray-300">الشبكات</button>
-                <button onclick="filterCategory('الاتصالات')" class="cat-btn bg-white hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-xl text-sm font-bold transition border border-gray-300">الاتصالات</button>
-                <button onclick="filterCategory('التحكم بالدخول')" class="cat-btn bg-white hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-xl text-sm font-bold transition border border-gray-300">التحكم بالدخول</button>
-                <button onclick="filterCategory('البنية التحتية')" class="cat-btn bg-white hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-xl text-sm font-bold transition border border-gray-300">البنية التحتية</button>
-                <button onclick="filterCategory('الحاسب')" class="cat-btn bg-white hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-xl text-sm font-bold transition border border-gray-300">الحاسب والتخزين</button>
             </div>
 
             <!-- شبكة المنتجات -->
             <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- المنتجات تولد هنا تلقائياً -->
+                <!-- المنتجات تولد تلقائياً -->
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المشاريع -->
+    <section id="projects" class="py-20 bg-white border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-black text-[#0f172a]">مشاريعنا الإنشائية والهندسية</h2>
+                <p class="text-sm text-gray-600 mt-2">نماذج من أعمال مؤسسة زمله فالح في توريد وتركيب أنظمة التيار الخفيف والشبكات</p>
+            </div>
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- المشاريع تولد تلقائياً -->
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المدونة -->
+    <section id="blog" class="py-20 bg-slate-50 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-black text-[#0f172a]">المدونة والمقالات التقنية</h2>
+                <p class="text-sm text-gray-600 mt-2">أحدث الشروحات والأخبار حول تقنيات التيار الخفيف وكاميرات المصاعد</p>
+            </div>
+            <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- المقالات تولد تلقائياً -->
             </div>
         </div>
     </section>
@@ -158,108 +181,228 @@
         </div>
     </div>
 
-    <!-- قسم مشاريع الفنادق -->
-    <section id="projects" class="py-20 bg-white border-t border-gray-200">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-slate-50 border border-gray-200 rounded-3xl p-8 sm:p-12 shadow-md">
-                <div class="text-center mb-10">
-                    <h2 class="text-3xl font-black mb-3 text-[#0f172a]">طلب عرض سعر للمشاريع والفنادق</h2>
-                    <p class="text-gray-600 text-sm">أدخل تفاصيل مشروعك وسيقوم الفريق الهندسي بدراسته فوراً.</p>
-                </div>
-                <form class="space-y-6" onsubmit="event.preventDefault(); alert('تم إرسال طلب المشروع بنجاح!');">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <input type="text" required placeholder="اسم المؤسسة أو الفندق" class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-orange-500">
-                        <input type="tel" required placeholder="رقم الجوال (05xxxxxxxx)" class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-orange-500">
+    <!-- نافذة لوحة التحكم (Admin Dashboard Modal) -->
+    <div id="admin-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-4xl max-h-[90vh] rounded-3xl shadow-2xl flex flex-col overflow-hidden">
+            <div class="p-6 bg-[#0f172a] text-white flex justify-between items-center">
+                <h3 class="text-xl font-black">⚙️ لوحة التحكم لإدارة المتجر (بدون باكد إند)</h3>
+                <button onclick="toggleAdminModal()" class="text-gray-300 hover:text-white text-xl font-bold">✕</button>
+            </div>
+            <div class="flex border-b bg-slate-100 px-6 gap-4">
+                <button onclick="switchAdminTab('products')" id="tab-btn-products" class="py-3 font-bold text-sm border-b-2 border-orange-500 text-orange-600">إدارة المنتجات</button>
+                <button onclick="switchAdminTab('settings')" id="tab-btn-settings" class="py-3 font-bold text-sm text-gray-600 border-b-2 border-transparent">إعدادات المتجر واللوجو</button>
+                <button onclick="switchAdminTab('projects')" id="tab-btn-projects" class="py-3 font-bold text-sm text-gray-600 border-b-2 border-transparent">إدارة المشاريع</button>
+                <button onclick="switchAdminTab('blog')" id="tab-btn-blog" class="py-3 font-bold text-sm text-gray-600 border-b-2 border-transparent">إدارة المدونة</button>
+            </div>
+            <div class="p-6 flex-1 overflow-y-auto space-y-6">
+                <!-- قسم المنتجات -->
+                <div id="admin-tab-products" class="space-y-6">
+                    <div class="bg-slate-50 p-4 rounded-2xl border border-gray-200 space-y-4">
+                        <h4 class="font-bold text-slate-800">إضافة منتج جديد</h4>
+                        <form id="add-product-form" onsubmit="addNewProduct(event)" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <input type="text" id="p-name" placeholder="اسم المنتج والموديل" required class="bg-white border rounded-xl px-4 py-2.5 text-sm">
+                            <input type="text" id="p-cat" placeholder="التصنيف (المراقبة، الشبكات...)" required class="bg-white border rounded-xl px-4 py-2.5 text-sm">
+                            <input type="number" step="0.01" id="p-price" placeholder="السعر بالريال السعودي" required class="bg-white border rounded-xl px-4 py-2.5 text-sm">
+                            <input type="text" id="p-img" placeholder="رابط صورة المنتج (URL)" required class="bg-white border rounded-xl px-4 py-3 text-sm">
+                            <textarea id="p-desc" placeholder="وصف المنتج والمواصفات" rows="2" class="sm:col-span-2 bg-white border rounded-xl px-4 py-2.5 text-sm"></textarea>
+                            <button type="submit" class="sm:col-span-2 bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-xl text-sm transition">حفظ وإضافة المنتج للمتجر</button>
+                        </form>
                     </div>
-                    <textarea rows="4" placeholder="تفاصيل الطلب (كاميرات، شبكات، سنترالات، مصاعد...)" class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-orange-500"></textarea>
-                    <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 rounded-xl shadow transition">إرسال طلب المشروع الهندسي</button>
-                </form>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-3">المنتجات الحالية</h4>
+                        <div id="admin-products-list" class="space-y-2"></div>
+                    </div>
+                </div>
+
+                <!-- قسم الإعدادات -->
+                <div id="admin-tab-settings" class="hidden space-y-6">
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-gray-200 space-y-4">
+                        <h4 class="font-bold text-slate-800">إعدادات الهوية والتواصل</h4>
+                        <form onsubmit="saveSettings(event)" class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-600 mb-1">عنوان المؤسسة / اسم المتجر</label>
+                                <input type="text" id="s-title" class="w-full bg-white border rounded-xl px-4 py-2.5 text-sm" value="ZAMLA FALEH">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-600 mb-1">رابط صورة اللوجو (Logo URL أو اسم الملف logo.png)</label>
+                                <input type="text" id="s-logo" class="w-full bg-white border rounded-xl px-4 py-2.5 text-sm" placeholder="logo.png">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-600 mb-1">رقم الواتساب والاتصال (مثال: 966543201995)</label>
+                                <input type="text" id="s-phone" class="w-full bg-white border rounded-xl px-4 py-2.5 text-sm" value="0543201995">
+                            </div>
+                            <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-xl text-sm transition">حفظ الإعدادات</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- قسم المشاريع -->
+                <div id="admin-tab-projects" class="hidden space-y-6">
+                    <div class="bg-slate-50 p-4 rounded-2xl border border-gray-200 space-y-4">
+                        <h4 class="font-bold text-slate-800">إضافة مشروع جديد</h4>
+                        <form onsubmit="addNewProject(event)" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <input type="text" id="proj-title" placeholder="عنوان المشروع" required class="bg-white border rounded-xl px-4 py-2.5 text-sm">
+                            <input type="text" id="proj-img" placeholder="رابط صورة المشروع" required class="bg-white border rounded-xl px-4 py-2.5 text-sm">
+                            <textarea id="proj-desc" placeholder="تفاصيل المشروع" rows="2" class="sm:col-span-2 bg-white border rounded-xl px-4 py-2.5 text-sm"></textarea>
+                            <button type="submit" class="sm:col-span-2 bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-xl text-sm transition">إضافة المشروع</button>
+                        </form>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-3">المشاريع الحالية</h4>
+                        <div id="admin-projects-list" class="space-y-2"></div>
+                    </div>
+                </div>
+
+                <!-- قسم المدونة -->
+                <div id="admin-tab-blog" class="hidden space-y-6">
+                    <div class="bg-slate-50 p-4 rounded-2xl border border-gray-200 space-y-4">
+                        <h4 class="font-bold text-slate-800">إضافة مقال جديد</h4>
+                        <form onsubmit="addNewArticle(event)" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <input type="text" id="art-title" placeholder="عنوان المقال" required class="bg-white border rounded-xl px-4 py-2.5 text-sm">
+                            <input type="text" id="art-img" placeholder="رابط صورة المقال" required class="bg-white border rounded-xl px-4 py-3 text-sm">
+                            <textarea id="art-desc" placeholder="محتوى المقال" rows="2" class="sm:col-span-2 bg-white border rounded-xl px-4 py-2.5 text-sm"></textarea>
+                            <button type="submit" class="sm:col-span-2 bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-xl text-sm transition">نشر المقال</button>
+                        </form>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-3">المقالات الحالية</h4>
+                        <div id="admin-articles-list" class="space-y-2"></div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- الفوتر -->
     <footer id="contact" class="bg-[#0f172a] text-white py-12 text-sm text-center border-t border-slate-800">
         <h3 class="font-bold text-lg mb-2">مؤسسة زمله فالح (zamlafaleh.com)</h3>
-        <p class="mb-2 text-gray-300">للاتصال والواتساب المباشر: <a href="tel:0543201995" class="text-orange-400 font-bold" dir="ltr">0543201995</a></p>
+        <p class="mb-2 text-gray-300">للاتصال والواتساب المباشر: <a id="footer-phone" href="tel:0543201995" class="text-orange-400 font-bold" dir="ltr">0543201995</a></p>
         <p class="text-xs text-gray-400 mt-4">جميع الحقوق محفوظة © مؤسسة زمله فالح 2026</p>
     </footer>
 
-    <!-- قاعدة البيانات المستخرجة من ملف الكتالوج المعتمد -->
+    <!-- قاعدة البيانات ومنطق التشغيل ولوحة التحكم -->
     <script>
-        const products = [
-            { id: 1, sku: "CCTV-HIK-001", name: "DS-2CD1021-I", brand: "Hikvision", title: "كاميرا IP شبكية خارجية 2 ميجابكسل", category: "المراقبة", price: 124.42, desc: "كاميرا شبكية خارجية بدقة 2 ميجابكسل مع رؤية ليلية متطورة.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80" },
-            { id: 2, sku: "CCTV-HIK-002", name: "DS-2CD1043G2-LIU", brand: "Hikvision", title: "كاميرا ColorVu خارجية 4 ميجابكسل", category: "المراقبة", price: 150.00, desc: "كاميرا IP خارجية بدقة 4 ميجابكسل من سلسلة ColorVu للتصوير الملون.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80" },
-            { id: 3, sku: "CCTV-HIK-003", name: "DS-2CD1183G2-LIU-B28", brand: "Hikvision", title: "كاميرا قبة داخلية 8 ميجابكسل 4K", category: "المراقبة", price: 150.00, desc: "كاميرا IP داخلية Dome بدقة 8 ميجابكسل ووضوح عالي.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80" },
-            { id: 4, sku: "CCTV-HIK-004", name: "DS-2CD2143G2-I", brand: "Hikvision", title: "كاميرا AcuSense دوماً 4 ميجابكسل", category: "المراقبة", price: 150.00, desc: "كاميرا AcuSense للتمييز الذكي بين الأشخاص والمركبات.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80" },
-            { id: 5, sku: "CCTV-HIK-005", name: "DS-2CD2087G2-L(U)", brand: "Hikvision", title: "كاميرا ColorVu 8 ميجابكسل", category: "المراقبة", price: 150.00, desc: "كاميرا ColorVu بدقة 8 ميجابكسل للتصوير الملون ليلاً ونهاراً.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80" },
-            { id: 6, sku: "CCTV-HIK-006", name: "DS-2CD2955G0-IS(U)", brand: "Hikvision", title: "كاميرا عين السمكة 360 درجة Fisheye", category: "المراقبة", price: 150.00, desc: "كاميرا بانورامية لتغطية شاملة 360 درجة من نقطة واحدة.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80" },
-            { id: 7, sku: "CCTV-HIK-007", name: "DS-2DF7C425IXG1-ELW", brand: "Hikvision", title: "كاميرا PTZ DarkFighter المتحركة", category: "المراقبة", price: 150.00, desc: "كاميرا PTZ احترافية بإضاءة منخفضة وزوم بصري للمشاريع الكبرى.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80" },
-            { id: 8, sku: "CCTV-HIK-008", name: "DS-2CD1063G2-LIU", brand: "Hikvision", title: "كاميرا IP خارجية 6 ميجابكسل", category: "المراقبة", price: 150.00, desc: "كاميرا شبكية خارجية بدقة 6 ميجابكسل.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80" },
-            { id: 9, sku: "CCTV-HIK-009", name: "DS-2CD2T63G2-2I", brand: "Hikvision", title: "كاميرا Bullet خارجية 6 ميجابكسل", category: "المراقبة", price: 150.00, desc: "كاميرا Bullet خارجية بدقة 6 ميجابكسل.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80" },
-            { id: 10, sku: "CCTV-HIK-010", name: "DS-2CD2663G2-IZS", brand: "Hikvision", title: "كاميرا Varifocal 6 ميجابكسل", category: "المراقبة", price: 150.00, desc: "كاميرا Bullet بعدسة متغيرة البعد البؤري.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80" },
-            { id: 11, sku: "CCTV-DAH-001", name: "IPC-HFW2541T-ZAS", brand: "Dahua", title: "كاميرا IP موتورايز 5 ميجابكسل", category: "المراقبة", price: 150.00, desc: "كاميرا شبكية خارجية داهوا بدقة 5 ميجابكسل.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80" },
-            { id: 12, sku: "CCTV-DAH-005", name: "Picoo 5MP", brand: "Dahua", title: "كاميرا واي فاي متحركة 5 ميجابكسل", category: "المراقبة", price: 199.00, desc: "كاميرا لاسلكية بانورامية متحركة للاستخدام المكتبي والمنزلي.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80" },
-            { id: 13, sku: "REC-HIK-001", name: "DS-7608NI-M2/8P", brand: "Hikvision", title: "جهاز تسجيل NVR 8 قنوات PoE", category: "أجهزة التسجيل", price: 150.00, desc: "مسجل شبكي احترافي 8 قنوات مع منافذ PoE مدمجة.", image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&auto=format&fit=crop&q=80" },
-            { id: 14, sku: "REC-HIK-002", name: "DS-7716NI-M4", brand: "Hikvision", title: "جهاز تسجيل NVR 16 قناة مؤسسي", category: "أجهزة التسجيل", price: 150.00, desc: "مسجل شبكي احترافي 16 قناة.", image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&auto=format&fit=crop&q=80" },
-            { id: 15, sku: "NET-RJ-001", name: "RG-RAP72PRO", brand: "Ruijie/Reyee", title: "نقطة وصول Wi-Fi 7", category: "الشبكات", price: 150.00, desc: "نقطة وصول Wi-Fi 7 ثنائية النطاق للمؤسسات الكبرى.", image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=80" },
-            { id: 16, sku: "NET-RJ-002", name: "RG-ES210GS-P", brand: "Ruijie/Reyee", title: "سويتش PoE ذكي 10 منافذ", category: "الشبكات", price: 385.00, desc: "سويتش مع 8 منافذ PoE وإدارة سحابية.", image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=80" },
-            { id: 17, name: "NET-RJ-004", name: "RG-EW300N", brand: "Ruijie/Reyee", title: "راوتر لاسلكي 300Mbps", category: "الشبكات", price: 80.00, desc: "راوتر اقتصادي للاستخدام المنزلي والمكاتب.", image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=80" },
-            { id: 18, name: "VOIP-GS-001", name: "GRP2602P", brand: "Grandstream", title: "هاتف IP مكتبي خطين مع PoE", category: "الاتصالات", price: 119.00, desc: "هاتف IP أساسي عالي الدقة للشركات.", image: "https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=500&auto=format&fit=crop&q=80" },
-            { id: 19, name: "VOIP-GS-002", name: "GRP2603", brand: "Grandstream", title: "هاتف IP ثلاثي الخطوط", category: "الاتصالات", price: 195.00, desc: "هاتف IP مخصص للمكاتب التنفيذية.", image: "https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=500&auto=format&fit=crop&q=80" },
-            { id: 20, name: "NET-UB-001", name: "LBE-5AC-LR", brand: "Ubiquiti", title: "جسر لاسلكي بعيد المدى 5GHz", category: "الشبكات", price: 618.28, desc: "وحدة لاسلكية خارجية للربط بين المباني لمسافات طويلة.", image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=80" },
-            { id: 21, name: "NET-UB-002", name: "U7 Pro", brand: "Ubiquiti", title: "نقطة وصول UniFi Wi-Fi 7 Pro", category: "الشبكات", price: 925.95, desc: "أداء فائق وسرعات هائلة لشبكات الواي فاي المؤسسية.", image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=80" },
-            { id: 22, name: "ACC-ZK-001", name: "SpeedFace-M4", brand: "ZKTeco", title: "جهاز حضور وانصراف بالوجه والبصمة", category: "التحكم بالدخول", price: 150.00, desc: "نظام متطور للتحكم بالوصول وتسجيل الحضور بالتعرف على الوجه.", image: "https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=500&auto=format&fit=crop&q=80" },
-            { id: 23, name: "ELEV-WIFI-001", name: "Zamla Elevator Cam System", brand: "Zamla Faleh", title: "نظام كاميرات مصاعد لاسلكي بالكامل", category: "المراقبة", price: 1450.00, desc: "نقل فيديو عالي الدقة وثابت بدون تمديد أسلاك في شافت المصعد[cite: 1].", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80" }
+        // البيانات الافتراضية الأولية
+        const defaultProducts = [
+            { id: 1, name: "DS-2CD1021-I", title: "كاميرا IP شبكية خارجية 2 ميجابكسل", category: "المراقبة", price: 124.42, desc: "كاميرا شبكية خارجية بدقة 2 ميجابكسل مع رؤية ليلية متطورة.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80" },
+            { id: 2, name: "DS-2CD1043G2-LIU", title: "كاميرا ColorVu خارجية 4 ميجابكسل", category: "المراقبة", price: 150.00, desc: "كاميرا IP خارجية بدقة 4 ميجابكسل من سلسلة ColorVu للتصوير الملون.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80" },
+            { id: 3, name: "DS-7608NI-M2/8P", title: "جهاز تسجيل NVR 8 قنوات PoE", category: "أجهزة التسجيل", price: 650.00, desc: "مسجل شبكي احترافي يدعم حتى 8 كاميرات مع توزيع طاقة PoE مدمج.", image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&auto=format&fit=crop&q=80" },
+            { id: 4, name: "RG-RAP72PRO", title: "نقطة وصول Wi-Fi 7 للمؤسسات", category: "الشبكات", price: 850.00, desc: "أحدث تقنيات الواي فاي 7 لتغطية سريعة ومستقرة للشركات.", image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=80" },
+            { id: 5, name: "GRP2602P", title: "هاتف IP مكتبي خطين مع PoE", category: "الاتصالات", price: 119.00, desc: "هاتف IP أساسي عالي الدقة للشركات ومراكز الاتصال.", image: "https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=500&auto=format&fit=crop&q=80" },
+            { id: 6, name: "SpeedFace-M4", title: "جهاز حضور وانصراف بالوجه والبصمة", category: "التحكم بالدخول", price: 1250.00, desc: "نظام متطور للتحكم بالوصول وتسجيل الحضور بالتعرف على الوجه.", image: "https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=500&auto=format&fit=crop&q=80" },
+            { id: 7, name: "Zamla Elevator Cam System", title: "نظام كاميرات مصاعد لاسلكي بالكامل", category: "المراقبة", price: 1450.00, desc: "نقل فيديو عالي الدقة وثابت بدون تمديد أسلاك في شافت المصعد[cite: 1].", image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=80" }
         ];
+
+        const defaultProjects = [
+            { id: 1, title: "مشروع توريد وتركيب شبكات فندق المروة", desc: "تجهيز كاميرات مراقبة IP وشبكات الواي فاي المركزية لعدد 150 غرفة.", image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=80" },
+            { id: 2, title: "تحديث نظام كاميرات مصاعد برج الراجحي", desc: "تركيب أنظمة كاميرات المصاعد اللاسلكية بدون تمديد أسلاك معلقة.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80" },
+            { id: 3, title: "تجهيز سنترال وشبكات شركة الرياض التقنية", desc: "ربط فروع الشركة بسنترال IP PBX وتجهيز البنية التحتية بالكامل.", image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&auto=format&fit=crop&q=80" }
+        ];
+
+        const defaultArticles = [
+            { id: 1, title: "كيف تختار كاميرات المصاعد اللاسلكية لمشروعك؟", desc: "دليل شامل حول تقنيات نقل الفيديو بدون كابلات تعليق في شافت المصعد.", image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=80" },
+            { id: 2, title: "أهمية شبكات Wi-Fi 7 في الفنادق والمنشآت الحديثة", desc: "لماذا يجب الترقية إلى المعيار الجديد للشبكات لتغطية أسرع وأكثر استقراراً.", image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&auto=format&fit=crop&q=80" },
+            { id: 3, title: "مقارنة بين أنظمة البصمة التقليدية وأنظمة التعرف على الوجه", desc: "تعرف على أحدث أجهزة ZKTeco وأثرها في رفع مستوى الأمان والانصراف.", image: "https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=500&auto=format&fit=crop&q=80" }
+        ];
+
+        // تهيئة التخزين المحلي
+        let products = JSON.parse(localStorage.getItem('zamla_products')) || defaultProducts;
+        let projects = JSON.parse(localStorage.getItem('zamla_projects')) || defaultProjects;
+        let articles = JSON.parse(localStorage.getItem('zamla_articles')) || defaultArticles;
+        let settings = JSON.parse(localStorage.getItem('zamla_settings')) || { title: "ZAMLA FALEH", logo: "logo.png", phone: "0543201995" };
 
         let cart = [];
 
-        function renderProducts(filteredProducts) {
+        function initApp() {
+            // تطبيق الإعدادات
+            document.getElementById('site-title').innerText = settings.title;
+            document.getElementById('site-logo').src = settings.logo;
+            document.getElementById('display-phone').innerText = settings.phone;
+            document.getElementById('hero-phone-btn').href = `tel:${settings.phone}`;
+            document.getElementById('footer-phone').innerText = settings.phone;
+            document.getElementById('footer-phone').href = `tel:${settings.phone}`;
+
+            renderCategories();
+            renderProducts(products);
+            renderProjects();
+            renderArticles();
+            renderAdminLists();
+        }
+
+        function renderCategories() {
+            const container = document.getElementById('category-buttons');
+            const cats = ['الكل', ...new Set(products.map(p => p.category))];
+            container.innerHTML = cats.map((c, i) => `
+                <button onclick="filterCategory('${c}')" class="cat-btn ${i === 0 ? 'bg-orange-500 text-white' : 'bg-white text-gray-700 border border-gray-300'} px-4 py-2 rounded-xl text-sm font-bold transition shadow-sm">${c}</button>
+            `).join('');
+        }
+
+        function renderProducts(list) {
             const grid = document.getElementById('product-grid');
-            grid.innerHTML = '';
-            
-            filteredProducts.forEach(p => {
-                grid.innerHTML += `
-                    <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden flex flex-col justify-between hover:shadow-lg transition">
-                        <div>
-                            <div class="h-48 overflow-hidden bg-slate-100">
-                                <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover hover:scale-105 transition duration-300">
-                            </div>
-                            <div class="p-5">
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-xs text-orange-600 bg-orange-50 px-2.5 py-1 rounded-md font-bold">${p.category}</span>
-                                    <span class="text-xs font-bold text-gray-500 bg-gray-100 px-2 py-0.5 rounded">${p.brand}</span>
-                                </div>
-                                <h3 class="text-sm font-black text-slate-900" dir="ltr">${p.name}</h3>
-                                <h4 class="text-xs font-bold text-gray-800 mt-1">${p.title}</h4>
-                                <p class="text-xs text-gray-500 mt-2 leading-relaxed">${p.desc}</p>
-                                <span class="text-[10px] text-gray-400 mt-2 block font-mono">SKU: ${p.sku}</span>
-                            </div>
+            if(list.length === 0) {
+                grid.innerHTML = '<p class="col-span-3 text-center text-gray-500 py-10">لا توجد منتجات مطابقة للبحث.</p>';
+                return;
+            }
+            grid.innerHTML = list.map(p => `
+                <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden flex flex-col justify-between hover:shadow-lg transition">
+                    <div>
+                        <div class="h-48 overflow-hidden bg-slate-100">
+                            <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.src='https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500'">
                         </div>
-                        <div class="p-5 pt-0 flex items-center justify-between border-t border-gray-100 mt-4">
-                            <span class="text-lg font-black text-slate-900">${p.price} ر.س</span>
-                            <button onclick="addToCart(${p.id})" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-xl text-xs font-bold transition shadow-sm">أضف للسلة</button>
+                        <div class="p-5">
+                            <span class="text-xs text-orange-600 bg-orange-50 px-2.5 py-1 rounded-md font-bold">${p.category}</span>
+                            <h3 class="text-sm font-black text-slate-900 mt-2" dir="ltr">${p.name}</h3>
+                            <h4 class="text-xs font-bold text-gray-800 mt-1">${p.title || ''}</h4>
+                            <p class="text-xs text-gray-500 mt-2 leading-relaxed">${p.desc}</p>
                         </div>
                     </div>
-                `;
-            });
+                    <div class="p-5 pt-0 flex items-center justify-between border-t border-gray-100 mt-4">
+                        <span class="text-lg font-black text-slate-900">${p.price} ر.س</span>
+                        <button onclick="addToCart(${p.id})" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-xl text-xs font-bold transition shadow-sm">أضف للسلة</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderProjects() {
+            const grid = document.getElementById('projects-grid');
+            grid.innerHTML = projects.map(proj => `
+                <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition">
+                    <img src="${proj.image}" alt="${proj.title}" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-black text-base text-[#0f172a] mb-2">${proj.title}</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">${proj.desc}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderArticles() {
+            const grid = document.getElementById('blog-grid');
+            grid.innerHTML = articles.map(art => `
+                <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition">
+                    <img src="${art.image}" alt="${art.title}" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-black text-base text-[#0f172a] mb-2">${art.title}</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">${art.desc}</p>
+                    </div>
+                </div>
+            `).join('');
         }
 
         function filterCategory(cat) {
-            document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.replace('bg-orange-500', 'bg-white'));
-            document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.add('text-gray-700', 'border', 'border-gray-300'));
-            event.target.classList.replace('bg-white', 'bg-orange-500');
-            event.target.classList.remove('text-gray-700', 'border', 'border-gray-300');
-            event.target.classList.add('text-white');
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                btn.className = "cat-btn bg-white hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-xl text-sm font-bold transition border border-gray-300";
+            });
+            event.target.className = "cat-btn bg-orange-500 text-white px-4 py-2 rounded-xl text-sm font-bold transition shadow-sm";
             
-            if(cat === 'all') renderProducts(products);
+            if(cat === 'الكل') renderProducts(products);
             else renderProducts(products.filter(p => p.category === cat));
         }
 
         function filterProducts() {
             const query = document.getElementById('search-input').value.toLowerCase();
-            renderProducts(products.filter(p => p.name.toLowerCase().includes(query) || p.title.toLowerCase().includes(query) || p.brand.toLowerCase().includes(query) || p.sku.toLowerCase().includes(query)));
+            renderProducts(products.filter(p => p.name.toLowerCase().includes(query) || (p.title && p.title.toLowerCase().includes(query)) || p.desc.toLowerCase().includes(query) || p.category.toLowerCase().includes(query)));
         }
 
         function addToCart(id) {
@@ -291,8 +434,7 @@
         }
 
         function toggleCart() {
-            const drawer = document.getElementById('cart-drawer');
-            drawer.classList.toggle('-translate-x-full');
+            document.getElementById('cart-drawer').classList.toggle('-translate-x-full');
         }
 
         function checkoutWhatsApp() {
@@ -300,14 +442,151 @@
             let text = "مرحباً، أرغب في طلب المنتجات التالية من مؤسسة زمله فالح:%0A";
             let total = 0;
             cart.forEach(item => {
-                text += `- ${item.name} (${item.title}) - ${item.price} ر.س%0A`;
+                text += `- ${item.name} - ${item.price} ر.س%0A`;
                 total += item.price;
             });
             text += `%0Aالمجموع الكلي: ${total} ر.س`;
-            window.open(`https://wa.me/966543201995?text=${text}`, '_blank');
+            window.open(`https://wa.me/966${settings.phone.replace(/^0/, '')}?text=${text}`, '_blank');
         }
 
-        renderProducts(products);
+        // منطق لوحة التحكم (Admin Panel)
+        function toggleAdminModal() {
+            document.getElementById('admin-modal').classList.toggle('hidden');
+            renderAdminLists();
+        }
+
+        function switchAdminTab(tab) {
+            ['products', 'settings', 'projects', 'blog'].forEach(t => {
+                document.getElementById(`admin-tab-${t}`).classList.add('hidden');
+                document.getElementById(`tab-btn-${t}`).className = "py-3 font-bold text-sm text-gray-600 border-b-2 border-transparent";
+            });
+            document.getElementById(`admin-tab-${tab}`).classList.remove('hidden');
+            document.getElementById(`tab-btn-${tab}`).className = "py-3 font-bold text-sm border-b-2 border-orange-500 text-orange-600";
+        }
+
+        function addNewProduct(e) {
+            e.preventDefault();
+            const newProd = {
+                id: Date.now(),
+                name: document.getElementById('p-name').value,
+                title: document.getElementById('p-name').value,
+                category: document.getElementById('p-cat').value,
+                price: parseFloat(document.getElementById('p-price').value),
+                image: document.getElementById('p-img').value,
+                desc: document.getElementById('p-desc').value
+            };
+            products.unshift(newProd);
+            localStorage.setItem('zamla_products', JSON.stringify(products));
+            document.getElementById('add-product-form').reset();
+            initApp();
+            alert('تمت إضافة المنتج بنجاح!');
+        }
+
+        function deleteProduct(id) {
+            products = products.filter(p => p.id !== id);
+            localStorage.setItem('zamla_products', JSON.stringify(products));
+            initApp();
+        }
+
+        function addNewProject(e) {
+            e.preventDefault();
+            const newProj = {
+                id: Date.now(),
+                title: document.getElementById('proj-title').value,
+                image: document.getElementById('proj-img').value,
+                desc: document.getElementById('proj-desc').value
+            };
+            projects.unshift(newProj);
+            localStorage.setItem('zamla_projects', JSON.stringify(projects));
+            e.target.reset();
+            initApp();
+            alert('تمت إضافة المشروع بنجاح!');
+        }
+
+        function deleteProject(id) {
+            projects = projects.filter(p => p.id !== id);
+            localStorage.setItem('zamla_projects', JSON.stringify(projects));
+            initApp();
+        }
+
+        function addNewArticle(e) {
+            e.preventDefault();
+            const newArt = {
+                id: Date.now(),
+                title: document.getElementById('art-title').value,
+                image: document.getElementById('art-img').value,
+                desc: document.getElementById('art-desc').value
+            };
+            articles.unshift(newArt);
+            localStorage.setItem('zamla_articles', JSON.stringify(articles));
+            e.target.reset();
+            initApp();
+            alert('تم نشر المقال بنجاح!');
+        }
+
+        function deleteArticle(id) {
+            articles = articles.filter(a => a.id !== id);
+            localStorage.setItem('zamla_articles', JSON.stringify(articles));
+            initApp();
+        }
+
+        function saveSettings(e) {
+            e.preventDefault();
+            settings = {
+                title: document.getElementById('s-title').value,
+                logo: document.getElementById('s-logo').value,
+                phone: document.getElementById('s-phone').value
+            };
+            localStorage.setItem('zamla_settings', JSON.stringify(settings));
+            initApp();
+            alert('تم حفظ الإعدادات بنجاح!');
+        }
+
+        function renderAdminLists() {
+            // قائمة المنتجات
+            document.getElementById('admin-products-list').innerHTML = products.map(p => `
+                <div class="flex justify-between items-center bg-white p-3 rounded-xl border">
+                    <div class="flex items-center gap-3">
+                        <img src="${p.image}" class="w-10 h-10 object-cover rounded-lg">
+                        <div>
+                            <h5 class="font-bold text-xs" dir="ltr">${p.name}</h5>
+                            <span class="text-[10px] text-orange-600">${p.price} ر.س (${p.category})</span>
+                        </div>
+                    </div>
+                    <button onclick="deleteProduct(${p.id})" class="text-red-500 hover:text-red-700 text-xs font-bold">حذف</button>
+                </div>
+            `).join('');
+
+            // قائمة المشاريع
+            document.getElementById('admin-projects-list').innerHTML = projects.map(proj => `
+                <div class="flex justify-between items-center bg-white p-3 rounded-xl border">
+                    <div class="flex items-center gap-3">
+                        <img src="${proj.image}" class="w-10 h-10 object-cover rounded-lg">
+                        <h5 class="font-bold text-xs">${proj.title}</h5>
+                    </div>
+                    <button onclick="deleteProject(${proj.id})" class="text-red-500 hover:text-red-700 text-xs font-bold">حذف</button>
+                </div>
+            `).join('');
+
+            // قائمة المقالات
+            document.getElementById('admin-articles-list').innerHTML = articles.map(art => `
+                <div class="flex justify-between items-center bg-white p-3 rounded-xl border">
+                    <div class="flex items-center gap-3">
+                        <img src="${art.image}" class="w-10 h-10 object-cover rounded-lg">
+                        <h5 class="font-bold text-xs">${art.title}</h5>
+                    </div>
+                    <button onclick="deleteArticle(${art.id})" class="text-red-500 hover:text-red-700 text-xs font-bold">حذف</button>
+                </div>
+            `).join('');
+
+            // تعبئة إعدادات المتجر
+            document.getElementById('s-title').value = settings.title;
+            document.getElementById('s-logo').value = settings.logo;
+            document.getElementById('s-phone').value = settings.phone;
+        }
+
+        // تشغيل التطبيق عند التحميل
+        initApp();
     </script>
 </body>
 </html>
