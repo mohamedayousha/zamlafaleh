@@ -12,15 +12,18 @@
 </head>
 <body class="antialiased">
 
-    <!-- شريط التنقل العلوي -->
+    <!-- شريط التنقل العلوي مع مكان اللوجو -->
     <header class="sticky top-0 z-50 bg-[#0f172a] shadow-md border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <div class="bg-gradient-to-r from-orange-500 to-blue-600 p-0.5 rounded-xl">
-                    <div class="bg-[#0f172a] px-3 py-1.5 rounded-[10px]">
+                <!-- مكان اللوجو (إذا رفعت صورة باسم logo.png ستظهر هنا تلقائياً، وإلا سيظهر الشعار النصي) -->
+                <a href="#" class="flex items-center gap-3">
+                    <img src="logo.png" alt="شعار مؤسسة زمله فالح" onerror="this.style.display='none'; document.getElementById('fallback-logo').style.display='flex';" class="h-12 w-auto object-contain">
+                    <div id="fallback-logo" class="hidden items-center gap-2">
+                        <div class="bg-orange-500 text-white p-2 rounded-xl font-black text-lg">ZF</div>
                         <span class="text-lg font-black tracking-wider text-white">ZAMLA FALEH</span>
                     </div>
-                </div>
+                </a>
             </div>
             
             <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-200">
@@ -53,7 +56,7 @@
                         الوكيل المعتمد لمنتجات هيكفيجن (Hikvision Authorized)
                     </div>
                     <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight uppercase">
-                        متجر كاميرات هيكفيجن وأنظمة التيار الخفيف المعتمدة
+                        مؤسسة زمله فالح لأنظمة التيار الخفيف والشبكات
                     </h1>
                     <p class="text-base text-gray-300 leading-relaxed">
                         نظام كاميرات مراقبة المصاعد اللاسلكي: <strong class="text-orange-400">بدون تمديد أسلاك</strong>[cite: 1]. تصفح أحدث كاميرات المراقبة الأمنية وأجهزة التسجيل NVR/DVR بأسعار الوكيل الرسمية والمحدثة[cite: 1].
@@ -106,7 +109,7 @@
         </div>
     </section>
 
-    <!-- متجر المنتجات (قائمة الأسعار المحدثة لهيكفيجن) -->
+    <!-- متجر المنتجات -->
     <section id="store" class="py-20 bg-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-10">
@@ -180,7 +183,7 @@
         <p class="text-xs text-gray-400 mt-4">جميع الحقوق محفوظة © مؤسسة زمله فالح 2026</p>
     </footer>
 
-    <!-- قاعدة البيانات المحدثة بناءً على أسعار هيكفيجن الرسمية الصادرة في 19 أبريل 2026 -->
+    <!-- قاعدة البيانات -->
     <script>
         const products = [
             { id: 1, name: "DS-2CD1023G2-LIU(2.8mm)(O-STD)", category: "ip", price: 89.70, desc: "كاميرا مراقبة IP خارجية جديدة بدقة متطورة وسعر معتمد[cite: 1].", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80" },
@@ -191,7 +194,7 @@
             { id: 6, name: "DS-2CD2083G2-LI(2.8mm)(T)(O-STD)", category: "ip", price: 371.00, desc: "كاميرا هيكفيجن بدقة 4K فائقة الوضوح للمشاريع الأمنية[cite: 1].", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80" },
             { id: 7, name: "DS-2CD2163G2-1(2.8mm) (O-STD)", category: "ip", price: 246.00, desc: "كاميرا دوماً متميزة للتسجيل المكتبي والمؤسسي[cite: 1].", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80" },
             { id: 8, name: "DS-7104NI-Q1(STD)(D)", category: "nvr", price: 139.00, desc: "جهاز تسجيل NVR اقتصادي يدعم حتى 4 كاميرات بوضوح عالي[cite: 1].", image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&auto=format&fit=crop&q=80" },
-            { id: 9, name: "DS-7604NXI-K1(STD)(B)", category: "nvr", name_ar: "جهاز تسجيل NXI متطور 4 قناة", price: 247.00, desc: "جهاز تسجيل ذكي مع تقنية AcuSense لتصنيف الأهداف بدقة[cite: 1].", image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&auto=format&fit=crop&q=80" },
+            { id: 9, name: "DS-7604NXI-K1(STD)(B)", category: "nvr", price: 247.00, desc: "جهاز تسجيل ذكي مع تقنية AcuSense لتصنيف الأهداف بدقة[cite: 1].", image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&auto=format&fit=crop&q=80" },
             { id: 10, name: "DS-K1T320MFWX(O-STD)", category: "access", price: 190.00, desc: "جهاز بصمة حضور وانصراف وتحكم بالأبواب مع دعم الكارت والوجه[cite: 1].", image: "https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=500&auto=format&fit=crop&q=80" },
             { id: 11, name: "DS-KD8003-IME1(B) (O-STD)/Surface", category: "access", price: 357.00, desc: "وحدة إنتركوم رئيسية خارجية عالية الجودة للمباني والفنادق[cite: 1].", image: "https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=500&auto=format&fit=crop&q=80" },
             { id: 12, name: "DS-KH6320-WTE1 (O-STD)", category: "access", price: 307.00, desc: "شاشة إنتركوم داخلية ملونة تعمل باللمس للتحكم بفتح الأبواب[cite: 1].", image: "https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=500&auto=format&fit=crop&q=80" },
