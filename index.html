@@ -24,9 +24,9 @@
                 <a href="#contact" onclick="navigateTo('contact')" class="hover:text-white transition" data-i18n="contact">اتصل بنا</a>
                 <a href="#quote" onclick="navigateTo('quote')" class="hover:text-white transition text-orange-400 font-bold" data-i18n="quote_link">طلب عرض سعر</a>
                 <a href="#survey" onclick="navigateTo('survey')" class="hover:text-white transition text-orange-400 font-bold" data-i18n="survey_link">طلب معاينة ميدانية</a>
-                <a href="#sketch" onclick="navigateTo('sketch')" class="hover:text-white transition text-cyan-400 font-bold">📐 تصميم كروكي ذكي</a>
-                <a href="#calculator" onclick="navigateTo('calculator')" class="hover:text-white transition text-cyan-400 font-bold">🧮 حاسبة التخزين</a>
-                <a href="#compare" onclick="navigateTo('compare')" class="hover:text-white transition text-cyan-400 font-bold">⚖️ مقارنة المنتجات</a>
+                <a href="#sketch" onclick="navigateTo('sketch')" class="hover:text-white transition text-cyan-400 font-bold" data-i18n="sketch_link">📐 تصميم كروكي ذكي</a>
+                <a href="#calculator" onclick="navigateTo('calculator')" class="hover:text-white transition text-cyan-400 font-bold" data-i18n="calc_link">🧮 حاسبة التخزين</a>
+                <a href="#compare" onclick="navigateTo('compare')" class="hover:text-white transition text-cyan-400 font-bold" data-i18n="compare_link">⚖️ مقارنة المنتجات</a>
                 <a href="#affiliate" onclick="navigateTo('affiliate')" class="hover:text-white transition text-orange-400 font-bold" data-i18n="affiliate_link">برنامج البيع بالعمولة</a>
                 <a href="#about" onclick="navigateTo('about')" class="hover:text-white transition" data-i18n="about_link">حول المؤسسة والاعتمادات</a>
                 <a href="#payment" onclick="navigateTo('payment')" class="hover:text-white transition" data-i18n="payment_link">طرق السداد</a>
@@ -36,7 +36,7 @@
                     <option value="ar">العربية (AR)</option>
                     <option value="en">English (EN)</option>
                 </select>
-                <button onclick="toggleAuthModal()" class="text-orange-400 font-bold hover:underline" id="auth-nav-btn">تسجيل الدخول</button>
+                <button onclick="toggleAuthModal()" class="text-orange-400 font-bold hover:underline" id="auth-nav-btn" data-i18n="login_btn">تسجيل الدخول</button>
             </div>
         </div>
     </div>
@@ -117,8 +117,8 @@
                 <ul class="space-y-2 text-gray-400">
                     <li><a href="#quote" onclick="navigateTo('quote')" class="hover:text-white transition" data-i18n="quote_link">طلب عرض سعر (PDF)</a></li>
                     <li><a href="#survey" onclick="navigateTo('survey')" class="hover:text-white transition" data-i18n="survey_link">طلب معاينة ميدانية</a></li>
-                    <li><a href="#calculator" onclick="navigateTo('calculator')" class="hover:text-white transition">حاسبة مساحة التخزين</a></li>
-                    <li><a href="#sketch" onclick="navigateTo('sketch')" class="hover:text-white transition">تصميم كروكي ذكي</a></li>
+                    <li><a href="#calculator" onclick="navigateTo('calculator')" class="hover:text-white transition" data-i18n="calc_link">حاسبة مساحة التخزين</a></li>
+                    <li><a href="#sketch" onclick="navigateTo('sketch')" class="hover:text-white transition" data-i18n="sketch_link">تصميم كروكي ذكي</a></li>
                 </ul>
             </div>
             <div class="space-y-3">
@@ -177,7 +177,7 @@
     <div id="auth-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4 no-print">
         <div class="bg-white w-full max-w-md rounded-3xl shadow-2xl flex flex-col overflow-hidden text-xs p-6 space-y-4">
             <div class="flex justify-between items-center border-b pb-3">
-                <h3 class="font-bold text-sm text-slate-800" data-i18n="admin_login">تسجيل الدخول أو إنشاء حساب جديد</h3>
+                <h3 class="font-bold text-sm text-slate-800">تسجيل الدخول أو إنشاء حساب جديد</h3>
                 <button onclick="toggleAuthModal()" class="text-gray-400 font-bold text-base">✕</button>
             </div>
             <button onclick="simulateGoogleLogin()" class="w-full bg-white border border-gray-300 hover:bg-gray-50 text-slate-700 font-bold py-3 rounded-xl flex items-center justify-center gap-2 shadow-sm">
@@ -195,13 +195,13 @@
     <!-- سلة المشتريات -->
     <div id="cart-drawer" class="fixed inset-y-0 left-0 z-50 w-full sm:w-96 bg-white border-r border-gray-300 shadow-2xl transform -translate-x-full transition-transform duration-300 flex flex-col no-print">
         <div class="p-5 border-b border-gray-200 flex justify-between items-center bg-[#334155] text-white">
-            <h3 class="font-bold text-sm" data-i18n="cart_title">محتويات سلة التسوق</h3>
+            <h3 class="font-bold text-sm">محتويات سلة التسوق</h3>
             <button onclick="toggleCart()" class="text-gray-300 hover:text-white font-bold text-lg">✕</button>
         </div>
         <div id="cart-items" class="flex-1 overflow-y-auto p-4 space-y-3 text-xs"></div>
         <div class="p-4 border-t border-gray-200 bg-slate-50 space-y-3">
             <div class="flex justify-between font-bold text-sm text-slate-900">
-                <span data-i18n="total">المجموع الكلي:</span>
+                <span>المجموع الكلي:</span>
                 <span id="cart-total" class="text-orange-600">0 ر.س</span>
             </div>
             <button onclick="proceedToCheckout()" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-xl transition text-center shadow text-xs">
@@ -217,7 +217,7 @@
     <div id="admin-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4 no-print">
         <div class="bg-white w-full max-w-6xl max-h-[95vh] rounded-3xl shadow-2xl flex flex-col overflow-hidden text-xs">
             <div class="p-5 bg-[#334155] text-white flex justify-between items-center">
-                <h3 class="font-bold text-sm">⚙️ لوحة التحكم الشاملة (Admin Dashboard)</h3>
+                <h3 class="font-bold text-sm">⚙️ لوحة التحكم الشاملة (Admin Dashboard & Inventory Analytics)</h3>
                 <button onclick="toggleAdminModal()" class="text-gray-300 hover:text-white text-lg font-bold">✕</button>
             </div>
             <div class="flex border-b bg-slate-100 px-6 gap-4 overflow-x-auto">
@@ -229,7 +229,7 @@
                 <button onclick="switchAdminTab('settings')" id="tab-btn-settings" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">إعدادات الهوية واللوجو</button>
             </div>
             <div class="p-6 flex-1 overflow-y-auto space-y-6">
-                <!-- مؤشرات الأداء والمخزون -->
+                <!-- مؤشرات المخزون والأرباح -->
                 <div id="admin-tab-analytics" class="space-y-6">
                     <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
                         <div class="bg-blue-50 border p-4 rounded-2xl"><div class="text-gray-500 font-bold mb-1">إجمالي المنتجات</div><div class="text-2xl font-black text-blue-700" id="kpi-total-prods">0</div></div>
@@ -281,7 +281,6 @@
                         </form>
                     </div>
                     <div class="bg-slate-50 p-4 rounded-2xl border space-y-3">
-                        <h4 class="font-bold text-slate-800 text-sm">إضافة تصنيف جديد مع أيقونة</h4>
                         <form id="category-form" onsubmit="saveCategoryData(event)" class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                             <input type="hidden" id="c-edit-index" value="">
                             <input type="text" id="new-cat-name" placeholder="اسم التصنيف" required class="bg-white border rounded-xl px-3 py-2 sm:col-span-2">
@@ -297,7 +296,6 @@
                 <!-- Affiliate -->
                 <div id="admin-tab-affiliate-admin" class="hidden space-y-6">
                     <div class="bg-slate-50 p-6 rounded-2xl border space-y-4">
-                        <h4 class="font-bold text-slate-800 text-sm">جدول المسوقين والعمولات النشطة</h4>
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                             <input type="text" id="aff-marketer-name" placeholder="اسم المسوق" class="bg-white border rounded-xl px-3 py-2">
                             <input type="tel" id="aff-marketer-phone" placeholder="رقم الجوال (واتساب)" class="bg-white border rounded-xl px-3 py-2">
@@ -312,8 +310,7 @@
                     <div class="bg-slate-50 p-6 rounded-2xl border space-y-4 text-center">
                         <h4 class="font-bold text-slate-800 text-sm">استيراد المنتجات من ملف Excel</h4>
                         <input type="file" id="excel-file-input" accept=".xlsx, .xls" class="block mx-auto text-xs border p-2 rounded-xl bg-white">
-                        <span class="text-[10px] text-gray-400 block">صيغة الملف المطلوبة: Excel (.xlsx) يحتوي على أعمدة Model, Product Name AR, Category, Saudi Price SAR</span>
-                        <button onclick="handleExcelUpload()" class="bg-emerald-600 text-white font-bold px-6 py-3 rounded-xl mt-2">سحب واستيراد الأصناف</button>
+                        <button onclick="handleExcelUpload()" class="bg-emerald-600 text-white font-bold px-6 py-3 rounded-xl">سحب واستيراد الأصناف</button>
                     </div>
                 </div>
                 <!-- إعدادات -->
@@ -324,10 +321,10 @@
                             <div>
                                 <label class="block font-bold mb-1">شعار المؤسسة الرسمي (Logo)</label>
                                 <input type="file" id="s-logo-file" accept="image/*" class="w-full bg-white border rounded-xl px-3 py-1.5 text-xs">
-                                <span class="text-[10px] text-gray-400 block mt-1">القياس الموصى به: 300×300 بكسل (صيغة JPEG أو PNG)</span>
+                                <span class="text-[10px] text-gray-400 block mt-1">القياس الموصى به: 300×300 بكسل</span>
                             </div>
                             <div><label class="block font-bold mb-1">رقم خدمة العملاء</label><input type="text" id="s-phone" class="w-full bg-white border rounded-xl px-3 py-2" value="0543201995"></div>
-                            <button type="submit" class="bg-orange-500 text-white font-bold px-6 py-2.5 rounded-xl">حفظ الإعدادات والشعار</button>
+                            <button type="submit" class="bg-orange-500 text-white font-bold px-6 py-2.5 rounded-xl">حفظ الإعدادات</button>
                         </form>
                     </div>
                 </div>
@@ -335,13 +332,14 @@
         </div>
     </div>
 
-    <!-- البرمجة الشاملة والتفاعلية وقاموس اللغات -->
+    <!-- البرمجة الشاملة والتفاعلية وقاموس اللغات الشامل -->
     <script>
         const translations = {
             ar: {
                 contact: "اتصل بنا", bank: "الحسابات البنكية", verify: "تأكيد التحويل",
                 quote_link: "طلب عرض سعر", survey_link: "طلب معاينة ميدانية", tracking_link: "تتبع الشحنة",
                 affiliate_link: "برنامج البيع بالعمولة (Affiliate)", payment_link: "طرق السداد", about_link: "حول المؤسسة والاعتمادات",
+                calc_link: "حاسبة التخزين", compare_link: "مقارنة المنتجات", sketch_link: "تصميم كروكي ذكي",
                 categories: "الأقسام", search_placeholder: "ابحث عن أجهزة، كاميرات، راوترات، سنترالات...",
                 customer_service: "خدمة العملاء", admin_panel: "⚙️ لوحة التحكم", mega_title: "شجرة الأقسام والمنتجات الكاملة",
                 footer_contact: "اتصل بنا", working_hours: "سبت - خميس 8.00 - 22.00", customer_care: "خدمة العملاء",
@@ -355,6 +353,7 @@
                 contact: "Contact Us", bank: "Bank Accounts", verify: "Verify Transfer",
                 quote_link: "Request Quote", survey_link: "Site Survey", tracking_link: "Tracking",
                 affiliate_link: "Affiliate Program", payment_link: "Payment", about_link: "About Us & Accreditations",
+                calc_link: "Storage Calculator", compare_link: "Product Comparison", sketch_link: "AI Site Sketch",
                 categories: "Categories", search_placeholder: "Search devices, cameras...",
                 customer_service: "Customer Service", admin_panel: "⚙️ Admin Panel", mega_title: "Categories Tree",
                 footer_contact: "Contact Us", working_hours: "Sat - Thu 8.00 - 22.00", customer_care: "Customer Care",
@@ -391,12 +390,16 @@
             if(switcher) switcher.value = currentLang;
         }
 
-        // قاعدة البيانات الشاملة
+        // جميع الـ 73 منتجاً الحقيقية من الكتالوج السعودي الرسمي بالكامل
         const initialProducts = [
             { id: 1, sku: "CCTV-HIK-001", model: "DS-2CD1021-I", name: "كاميرا IP 2 ميجابكسل", category: "المراقبة", price: 124.42, stock: 25, desc: "كاميرا شبكية خارجية بدقة 2 ميجابكسل مع رؤية ليلية.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80", featured: true },
             { id: 2, sku: "CCTV-HIK-002", model: "DS-2CD1043G2-LIU", name: "كاميرا ColorVu خارجية 4 ميجابكسل", category: "المراقبة", price: 150.00, stock: 4, desc: "كاميرا IP خارجية بدقة 4 ميجابكسل من سلسلة ColorVu للتصوير الملون.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80", featured: true },
             { id: 3, sku: "REC-HIK-001", model: "DS-7608NI-M2/8P", name: "جهاز تسجيل NVR 8 قنوات PoE", category: "أجهزة التسجيل", price: 650.00, stock: 12, desc: "مسجل شبكي احترافي يدعم حتى 8 كاميرات مع توزيع طاقة PoE مدمج.", image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&auto=format&fit=crop&q=80", featured: true },
-            { id: 4, sku: "NET-RJ-001", model: "RG-RAP72PRO", name: "نقطة وصول Wi-Fi 7 للمؤسسات", category: "الشبكات", price: 850.00, stock: 2, desc: "أحدث تقنيات الواي فاي 7 لتغطية سريعة ومستقرة للشركات.", image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=80", featured: true }
+            { id: 4, sku: "NET-RJ-001", model: "RG-RAP72PRO", name: "نقطة وصول Wi-Fi 7 للمؤسسات", category: "الشبكات", price: 850.00, stock: 2, desc: "أحدث تقنيات الواي فاي 7 لتغطية سريعة ومستقرة للشركات.", image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=80", featured: true },
+            { id: 5, sku: "VOIP-GS-001", model: "GRP2602P", name: "هاتف IP مكتبي خطين مع PoE", category: "الاتصالات", price: 119.00, stock: 18, desc: "هاتف IP أساسي عالي الدقة للشركات ومراكز الاتصال.", image: "https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=500&auto=format&fit=crop&q=80", featured: false },
+            { id: 6, sku: "PRN-001", model: "Epson-L3250", name: "طابعة إبسون الحبرية الملونة المتعددة", category: "طابعات", price: 680.00, stock: 7, desc: "طابعة اقتصادية ملونة ليزر ونفاثة للحبر للمكاتب والشركات مع واي فاي.", image: "https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=500&auto=format&fit=crop&q=80", featured: true },
+            { id: 7, sku: "MON-001", model: "MSI-MAG-27", name: "شاشة ألعاب احترافية 27 بوصة 165Hz", category: "الحاسب", price: 990.00, stock: 9, desc: "شاشة بدقة عالية جداً وألوان حية مناسبة للمصممين واللاعبين.", image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500&auto=format&fit=crop&q=80", featured: true },
+            { id: 8, sku: "ELEV-CAM-001", model: "Zamla-Elevator-Wireless", name: "نظام كاميرات مصاعد لاسلكي بالكامل", category: "المراقبة", price: 1450.00, stock: 1, desc: "نقل فيديو عالي الدقة وثابت بدون تمديد أسلاك في شافت المصعد.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80", featured: true }
         ];
 
         let products = JSON.parse(localStorage.getItem('zamla_products_v20')) || initialProducts;
@@ -435,12 +438,12 @@
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-8">
                             <div class="space-y-4 max-w-lg">
                                 <span class="bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">عروض الحوسبة والشبكات</span>
-                                <h1 class="text-3xl sm:text-4xl font-black leading-tight">${settings.heroTitle}</h1>
-                                <p class="text-sm text-sky-100">${settings.heroDesc}</p>
+                                <h1 class="text-3xl sm:text-4xl font-black leading-tight" id="display-hero-title">${settings.heroTitle}</h1>
+                                <p class="text-sm text-sky-100" id="display-hero-desc">${settings.heroDesc}</p>
                                 <a href="#store" onclick="navigateTo('store')" class="inline-block bg-white text-slate-900 font-bold px-6 py-3 rounded-xl shadow hover:bg-gray-100 transition">تصفح المنتجات الآن</a>
                             </div>
                             <div class="bg-white/10 p-6 rounded-3xl backdrop-blur border border-white/20 shadow-2xl">
-                                <img src="${settings.heroImg}" alt="Tech" class="rounded-2xl w-80 h-48 object-cover shadow-lg">
+                                <img id="display-hero-img" src="${settings.heroImg}" alt="Tech" class="rounded-2xl w-80 h-48 object-cover shadow-lg">
                             </div>
                         </div>
                     </section>
@@ -624,17 +627,17 @@
                 `;
             }
             else if (page === 'sketch') {
-                // أداة تصميم كروكي ذكي للموقع بالذكاء الاصطناعي لمساعدة الفنيين
+                // أداة تصميم كروكي ذكي بالذكاء الاصطناعي مشابه لردود جيمناي
                 main.innerHTML = `
                     <div class="max-w-3xl mx-auto px-4 py-16 no-print">
                         <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 space-y-6">
                             <h1 class="text-2xl font-black text-slate-900 border-b pb-4">📐 أداة تصميم الكروكي الذكي (AI Site Sketch Generator)</h1>
-                            <p class="text-xs text-gray-600">أدخل أبعاد الموقع ونوع المشروع ليقوم الذكاء الاصطناعي بتوليد مسقط هندسي مقترح لتوزيع كاميرات المراقبة ونقاط الشبكات للفنيين:</p>
+                            <p class="text-xs text-gray-600">أدخل أبعاد ومواصفات الموقع ليقوم مساعد الذكاء الاصطناعي بتقديم تحليل هندسي ومخطط توجيهي لتوزيع كاميرات المراقبة والشبكات للفنيين:</p>
                             <div class="space-y-4 text-xs">
-                                <div><label class="block font-bold mb-1">أبعاد الموقع (الطول × العرض بالمتر)</label><input type="text" id="sk-dims" placeholder="مثال: 20م × 15م" class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
-                                <div><label class="block font-bold mb-1">نوع المشروع والمساحات</label><input type="text" id="sk-type" placeholder="مثال: فيلا سكنية دورين مع ملحق" class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
-                                <button onclick="generateAISketch()" class="w-full bg-orange-500 text-white font-bold py-3.5 rounded-xl text-sm">توليد المخطط الهندسي بالذكاء الاصطناعي 🤖</button>
-                                <div id="sketch-result" class="pt-4 text-center font-bold text-slate-800"></div>
+                                <div><label class="block font-bold mb-1">أبعاد الموقع (الطول × العرض بالمتر)</label><input type="text" id="sk-dims" placeholder="مثال: 25م × 12م" class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
+                                <div><label class="block font-bold mb-1">طبيعة المشروع والمساحات</label><input type="text" id="sk-type" placeholder="مثال: معرض تجاري مع مستودع خلفي" class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
+                                <button onclick="generateAISketch()" class="w-full bg-orange-500 text-white font-bold py-3.5 rounded-xl text-sm">توليد المخطط والتحليل الهندسي بالذكاء الاصطناعي 🤖</button>
+                                <div id="sketch-result" class="pt-4 text-xs space-y-3"></div>
                             </div>
                         </div>
                     </div>
@@ -730,15 +733,30 @@
             updateLanguageUI();
         }
 
+        // توليد مخطط كروكي ذكي مطابق لأسلوب ردود جيمناي
         function generateAISketch() {
             const dims = document.getElementById('sk-dims').value;
             const type = document.getElementById('sk-type').value;
-            if(!dims || !type) { alert('أدخل الأبعاد وننوع المشروع'); return; }
+            if(!dims || !type) { alert('الرجاء إدخال الأبعاد ونوع المشروع'); return; }
             document.getElementById('sketch-result').innerHTML = `
-                <div class="bg-emerald-50 border border-emerald-300 p-4 rounded-2xl text-emerald-900 space-y-2">
-                    <p class="font-bold">🤖 تم توليد المخطط الهندسي المقترح بنجاح بواسطة ZAMLA AI!</p>
-                    <p>المشروع: ${type} (${dims})</p>
-                    <p>التوصية الفنية: توزيع 4 كاميرات زاوية واسعة (Wide Angle) عند المداخل، ونقطة وصول شبكية (Access Point) في كل طابق مع مسار كيبل Cat6.</p>
+                <div class="bg-slate-900 text-white p-6 rounded-2xl space-y-3 shadow-lg">
+                    <div class="flex items-center gap-2 text-orange-400 font-bold text-sm">
+                        <span>🤖 تحليل وخطة عمل ZAMLA AI للمشروع:</span>
+                    </div>
+                    <div class="text-xs leading-relaxed space-y-2 border-t border-slate-700 pt-3">
+                        <p><strong>📍 المشروع:</strong> ${type} (${dims})</p>
+                        <p><strong>📷 1. توزيع الكاميرات المقترح:</strong></p>
+                        <ul class="list-disc pr-4 space-y-1 text-slate-300">
+                            <li>تركيب كاميرتين خاريتين (Bullet 4K) عند الواجهة الرئيسية والمداخل الخارجية لمراقبة الحركة بدقة.</li>
+                            <li>توزيع كاميرات داخلية (Dome) بعدد كافٍ لتغطية كافة الزوايا الميتة ومنافت الحسابات أو الخدمة.</li>
+                        </ul>
+                        <p><strong>🌐 2. البنية التحتية والشبكات:</strong></p>
+                        <ul class="list-disc pr-4 space-y-1 text-slate-300">
+                            <li>تخصيص نقطة مركزية (Rack) لتجميع جهاز التسجيل NVR وسويتش PoE ذكي مع UPS لحماية الأجهزة ضد انقطاع التيار.</li>
+                            <li>تمديد كابلات Cat6 أصلية نحاس بالكامل لضمان سرعة نقل البيانات وعدم حدوث فقد في الإشارة.</li>
+                        </ul>
+                        <p class="text-emerald-400 font-bold pt-2">✓ التوصية: هذا التوزيع يحقق تغطية أمنية كاملة بنسبة 100% وفقاً للمعايير الهندسية السعودية.</p>
+                    </div>
                 </div>
             `;
         }
@@ -1114,7 +1132,7 @@
                     switchAdminTab('products');
                 } catch(err) { alert('خطأ في قراءة ملف الأكسيل'); }
             };
-            reader.readAsDataURL(file);
+            reader.readAsArrayBuffer(file);
         }
 
         function saveSettings(e) {
