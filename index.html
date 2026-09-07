@@ -3,135 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مؤسسة زمله فالح | متجر الحاسب الآلي والشبكات والكاميرات - Zamla Faleh Est.</title>
+    <title>مؤسسة زمله فالح | أنظمة التيار الخفيف والحلول الذكية - Zamla Faleh Est.</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Cairo', sans-serif; }
+        body { font-family: 'Cairo', sans-serif; background-color: #070b14; color: #f3f4f6; }
+        .tech-glow { box-shadow: 0 0 25px rgba(56, 189, 248, 0.15); }
     </style>
 </head>
-<body class="bg-gray-900 text-gray-100 antialiased">
+<body class="antialiased">
 
-    <!-- شريط التنقل العلوي -->
-    <header class="sticky top-0 z-50 bg-gray-900/95 backdrop-blur border-b border-gray-800">
+    <!-- شريط التنقل العلوي الفاخر -->
+    <header class="sticky top-0 z-50 bg-[#070b14]/90 backdrop-blur-md border-b border-blue-500/20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3">
                 <div class="bg-gradient-to-r from-blue-600 to-amber-500 p-0.5 rounded-xl">
-                    <div class="bg-gray-900 px-3 py-1.5 rounded-[10px]">
+                    <div class="bg-[#070b14] px-3 py-1.5 rounded-[10px]">
                         <span class="text-lg font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-amber-400">ZAMLA FALEH</span>
                     </div>
                 </div>
             </div>
             
-            <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
-                <a href="#" class="text-blue-400 hover:text-blue-300 transition">الرئيسية</a>
-                <a href="#store" class="hover:text-blue-400 transition">المتجر والأجهزة</a>
-                <a href="#projects" class="hover:text-blue-400 transition">مشاريع الفنادق</a>
-                <a href="#contact" class="hover:text-blue-400 transition">اتصل بنا</a>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+                <a href="#" class="text-cyan-400 hover:text-white transition">HOME</a>
+                <a href="#store" class="hover:text-cyan-400 transition">STORE & PRODUCTS</a>
+                <a href="#solutions" class="hover:text-cyan-400 transition">SOLUTIONS</a>
+                <a href="#projects" class="hover:text-cyan-400 transition">PROJECTS</a>
+                <a href="#contact" class="hover:text-cyan-400 transition">CONTACT</a>
             </nav>
 
             <div class="flex items-center gap-4">
-                <button onclick="toggleCart()" class="relative p-2 text-gray-300 hover:text-white bg-gray-800 rounded-xl">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
-                    <span id="cart-count" class="absolute -top-1 -right-1 bg-blue-600 text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold text-white">0</span>
+                <button onclick="toggleCart()" class="relative p-2.5 text-gray-200 bg-blue-950/60 border border-blue-500/30 hover:bg-blue-900 rounded-xl transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                    <span id="cart-count" class="absolute -top-1.5 -right-1.5 bg-blue-600 text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold text-white shadow-md">0</span>
                 </button>
-                <a href="#projects" class="hidden sm:inline-flex bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-lg shadow-blue-600/25 transition">
-                    طلب عرض سعر لمشروع
+                <a href="#projects" class="hidden sm:inline-flex bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-lg shadow-blue-600/30 transition border border-blue-400/30">
+                    REQUEST QUOTE
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- قسم الواجهة الرئيسية -->
-    <section class="relative py-16 lg:py-24 overflow-hidden bg-gradient-to-b from-gray-900 via-blue-950/20 to-gray-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <div class="inline-flex items-center gap-2 bg-blue-900/40 border border-blue-500/30 px-4 py-1.5 rounded-full text-blue-400 text-sm font-semibold mb-6">
-                <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
-                المورد المعتمد لأجهزة الحاسب الآلي، اللابتوبات، والأنظمة الأمنية
+    <!-- قسم الواجهة الرئيسية بتصميم غرفة التحكم الفاخر -->
+    <section class="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-b from-[#070b14] via-[#0b1329] to-[#070b14] border-b border-blue-500/20">
+        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <div class="inline-flex items-center gap-2 bg-blue-950/80 border border-cyan-500/40 px-4 py-1.5 rounded-full text-cyan-400 text-xs font-bold tracking-wider">
+                        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                        ZAMLA FALEH EST. — LOW CURRENT SYSTEMS EXPERTS
+                    </div>
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight uppercase text-white">
+                        Mastering Low Current Systems | Smart Solutions for a Connected World
+                    </h1>
+                    <p class="text-base text-gray-300 leading-relaxed">
+                        نظام كاميرات مراقبة المصاعد اللاسلكي: <strong class="text-amber-400">بدون تمديد أسلاك</strong>. توريد وتركيب أجهزة الحاسب الآلي، شبكات الواي فاي، السنترالات، والكوالين الذكية للفنادق والمشاريع الكبرى.
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <a href="#store" class="bg-cyan-600 hover:bg-cyan-500 text-white px-8 py-3.5 rounded-xl font-bold text-sm shadow-lg shadow-cyan-600/30 transition">
+                            تصفح متجر الأجهزة
+                        </a>
+                        <a href="tel:0543201995" class="border border-blue-500/40 bg-blue-950/40 hover:bg-blue-900/60 px-6 py-3.5 rounded-xl font-bold text-sm transition flex items-center gap-2 text-cyan-300">
+                            اتصل بنا: 0543201995
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- عرض بصري لغرفة التحكم والتقنية -->
+                <div class="relative">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-2xl blur-xl opacity-30"></div>
+                    <div class="relative bg-[#0c1427] border border-blue-500/30 rounded-2xl p-5 shadow-2xl tech-glow space-y-4">
+                        <div class="flex justify-between items-center text-xs text-cyan-400 border-b border-blue-950 pb-3">
+                            <span class="font-bold">CONTROL ROOM / SMART SYSTEMS</span>
+                            <span class="bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded font-mono">ONLINE & SECURE</span>
+                        </div>
+                        <div class="bg-gradient-to-br from-[#070b14] to-[#111c38] rounded-xl p-6 border border-blue-500/20 text-center space-y-3">
+                            <div class="w-12 h-12 bg-blue-600/20 border border-blue-400 rounded-full flex items-center justify-center mx-auto text-cyan-400">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            </div>
+                            <h3 class="font-bold text-lg text-white">حلول التيار الخفيف المتكاملة</h3>
+                            <p class="text-xs text-gray-400">شبكات، كاميرات مصاعد لاسلكية، وسنترالات رقمية</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight mb-6">
-                نظام كاميرات مراقبة المصاعد اللاسلكي: <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-amber-400">بدون تمديد أسلاك</span>
-            </h1>
-            <p class="text-lg text-gray-300 max-w-3xl mx-auto mb-8">
-                تصفح أقسام الحاسب الآلي، اللابتوبات، شبكات الواي فاي المتقدمة، والكاميرات الأمنية بأفضل الأسعار وبدون رسوم اشتراك.
-            </p>
         </div>
     </section>
 
-    <!-- قسم المتجر الإلكتروني مع البحث والتصفية -->
-    <section id="store" class="py-16 bg-gray-950 border-t border-gray-900">
+    <!-- بطاقات الحلول الأساسية -->
+    <section id="solutions" class="py-16 bg-[#070b14] border-b border-blue-500/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-black text-center mb-10 text-cyan-400 tracking-wider">SOLUTIONS WE OFFER</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-[#0b1329] border border-blue-500/30 rounded-2xl p-6 text-center hover:border-cyan-400 transition">
+                    <div class="text-cyan-400 font-bold mb-2">SECURITY CAMERAS</div>
+                    <p class="text-xs text-gray-400">كاميرات مراقبة عالية الدقة، مصاعد لاسلكية، وأجهزة NVR</p>
+                </div>
+                <div class="bg-[#0b1329] border border-blue-500/30 rounded-2xl p-6 text-center hover:border-cyan-400 transition">
+                    <div class="text-cyan-400 font-bold mb-2">WI-FI & NETWORKING</div>
+                    <p class="text-xs text-gray-400">شبكات لاسلكية متقدمة، راوترات Ruijie و Ubiquiti</p>
+                </div>
+                <div class="bg-[#0b1329] border border-blue-500/30 rounded-2xl p-6 text-center hover:border-cyan-400 transition">
+                    <div class="text-cyan-400 font-bold mb-2">CENTRAL SATELLITE TV</div>
+                    <p class="text-xs text-gray-400">أنظمة الدش المركزي وتوزيع القنوات الفضائية للغرف</p>
+                </div>
+                <div class="bg-[#0b1329] border border-blue-500/30 rounded-2xl p-6 text-center hover:border-cyan-400 transition">
+                    <div class="text-cyan-400 font-bold mb-2">STRUCTURED CABLING</div>
+                    <p class="text-xs text-gray-400">تأسيس وتمديد كابلات التيار الخفيف والبنية التحتية</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المتجر الإلكتروني والمنتجات -->
+    <section id="store" class="py-20 bg-[#090e1a]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-10">
-                <h2 class="text-3xl font-black">متجر الأجهزة والحاسب الآلي والشبكات</h2>
-                <!-- شريط البحث -->
+                <div>
+                    <h2 class="text-3xl font-black text-white">متجر الأجهزة والحاسب الآلي والشبكات</h2>
+                    <p class="text-sm text-gray-400 mt-1">تصفح المنتجات وأضفها للسلة للطلب الفوري عبر الواتساب</p>
+                </div>
+                <!-- شريط البحث الفوري -->
                 <div class="w-full md:w-96">
-                    <input type="text" id="search-input" oninput="filterProducts()" placeholder="ابحث عن لابتوب، راوتر، كاميرا..." class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500">
+                    <input type="text" id="search-input" oninput="filterProducts()" placeholder="ابحث عن لابتوب، كاميرا مصاعد، راوتر..." class="w-full bg-[#0b1329] border border-blue-500/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 text-sm">
                 </div>
             </div>
 
             <!-- أزرار التصنيفات -->
             <div class="flex flex-wrap gap-2 mb-10">
-                <button onclick="filterCategory('all')" class="cat-btn bg-blue-600 text-white px-4 py-2 rounded-xl text-sm font-bold transition">الكل</button>
-                <button onclick="filterCategory('laptops')" class="cat-btn bg-gray-900 hover:bg-gray-800 text-gray-300 px-4 py-2 rounded-xl text-sm font-bold transition">اللابتوبات والحواسيب</button>
-                <button onclick="filterCategory('networking')" class="cat-btn bg-gray-900 hover:bg-gray-800 text-gray-300 px-4 py-2 rounded-xl text-sm font-bold transition">الشبكات والراوترات</button>
-                <button onclick="filterCategory('cctv')" class="cat-btn bg-gray-900 hover:bg-gray-800 text-gray-300 px-4 py-2 rounded-xl text-sm font-bold transition">كاميرات المراقبة الأمنية</button>
-                <button onclick="filterCategory('elevators')" class="cat-btn bg-gray-900 hover:bg-gray-800 text-gray-300 px-4 py-2 rounded-xl text-sm font-bold transition">كاميرات المصاعد اللاسلكية</button>
-                <button onclick="filterCategory('accessories')" class="cat-btn bg-gray-900 hover:bg-gray-800 text-gray-300 px-4 py-2 rounded-xl text-sm font-bold transition">ملحقات الحاسب والملحقات</button>
+                <button onclick="filterCategory('all')" class="cat-btn bg-cyan-600 text-white px-4 py-2 rounded-xl text-sm font-bold transition">الكل</button>
+                <button onclick="filterCategory('laptops')" class="cat-btn bg-[#0b1329] hover:bg-blue-900 text-gray-300 px-4 py-2 rounded-xl text-sm font-bold transition border border-blue-500/20">اللابتوبات والحواسيب</button>
+                <button onclick="filterCategory('networking')" class="cat-btn bg-[#0b1329] hover:bg-blue-900 text-gray-300 px-4 py-2 rounded-xl text-sm font-bold transition border border-blue-500/20">الشبكات والراوترات</button>
+                <button onclick="filterCategory('elevators')" class="cat-btn bg-[#0b1329] hover:bg-blue-900 text-gray-300 px-4 py-2 rounded-xl text-sm font-bold transition border border-blue-500/20">كاميرات المصاعد (بدون أسلاك)</button>
+                <button onclick="filterCategory('cctv')" class="cat-btn bg-[#0b1329] hover:bg-blue-900 text-gray-300 px-4 py-2 rounded-xl text-sm font-bold transition border border-blue-500/20">كاميرات المراقبة الأمنية</button>
+                <button onclick="filterCategory('accessories')" class="cat-btn bg-[#0b1329] hover:bg-blue-900 text-gray-300 px-4 py-2 rounded-xl text-sm font-bold transition border border-blue-500/20">ملحقات الحاسب</button>
             </div>
 
             <!-- شبكة المنتجات -->
             <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- المنتجات تتولد برمجياً هنا -->
+                <!-- المنتجات تولد هنا برمجياً -->
             </div>
         </div>
     </section>
 
     <!-- نافذة سلة المشتريات الجانبية -->
-    <div id="cart-drawer" class="fixed inset-y-0 left-0 z-50 w-full sm:w-96 bg-gray-900 border-r border-gray-800 shadow-2xl transform -translate-x-full transition-transform duration-300 flex flex-col">
-        <div class="p-5 border-b border-gray-800 flex justify-between items-center">
-            <h3 class="font-bold text-lg">سلة المشتريات والطلبات</h3>
+    <div id="cart-drawer" class="fixed inset-y-0 left-0 z-50 w-full sm:w-96 bg-[#090e1a] border-r border-blue-500/30 shadow-2xl transform -translate-x-full transition-transform duration-300 flex flex-col">
+        <div class="p-5 border-b border-blue-500/20 flex justify-between items-center bg-[#070b14]">
+            <h3 class="font-bold text-lg text-white">سلة المشتريات والطلبات</h3>
             <button onclick="toggleCart()" class="text-gray-400 hover:text-white font-bold text-xl">✕</button>
         </div>
         <div id="cart-items" class="flex-1 overflow-y-auto p-5 space-y-4"></div>
-        <div class="p-5 border-t border-gray-800 space-y-3">
+        <div class="p-5 border-t border-blue-500/20 bg-[#070b14] space-y-3">
             <div class="flex justify-between font-bold text-lg">
-                <span>المجموع الكلي:</span>
+                <span class="text-gray-300">المجموع الكلي:</span>
                 <span id="cart-total" class="text-amber-400">0 ر.س</span>
             </div>
-            <button onclick="checkoutWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl transition text-center shadow-lg">
+            <button onclick="checkoutWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 rounded-xl transition text-center shadow-lg">
                 إرسال الطلب عبر الواتساب 📱
             </button>
         </div>
     </div>
 
     <!-- قسم مشاريع الفنادق -->
-    <section id="projects" class="py-20 bg-gray-900 border-t border-gray-800">
+    <section id="projects" class="py-20 bg-[#070b14] border-t border-blue-500/20">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-gray-950 border border-blue-500/30 rounded-3xl p-8 sm:p-12 shadow-2xl">
+            <div class="bg-[#0b1329] border border-cyan-500/30 rounded-3xl p-8 sm:p-12 shadow-2xl">
                 <div class="text-center mb-10">
-                    <h2 class="text-3xl font-black mb-3">طلب عرض سعر للمشاريع والفنادق</h2>
+                    <h2 class="text-3xl font-black mb-3 text-white">طلب عرض سعر للمشاريع والفنادق</h2>
                     <p class="text-gray-300 text-sm">أدخل تفاصيل مشروعك وسيقوم الفريق الهندسي بدراسته فوراً.</p>
                 </div>
                 <form class="space-y-6" onsubmit="event.preventDefault(); alert('تم إرسال طلب المشروع بنجاح!');">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <input type="text" required placeholder="اسم المؤسسة أو الفندق" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white">
-                        <input type="tel" required placeholder="رقم الجوال (05xxxxxxxx)" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white">
+                        <input type="text" required placeholder="اسم المؤسسة أو الفندق" class="w-full bg-[#070b14] border border-blue-500/30 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-cyan-400">
+                        <input type="tel" required placeholder="رقم الجوال (05xxxxxxxx)" class="w-full bg-[#070b14] border border-blue-500/30 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-cyan-400">
                     </div>
-                    <textarea rows="4" placeholder="تفاصيل الطلب (أجهزة حاسب، شبكات، مصاعد...)" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white"></textarea>
-                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-xl shadow-xl transition">إرسال طلب المشروع</button>
+                    <textarea rows="4" placeholder="تفاصيل الطلب (أجهزة حاسب، شبكات، مصاعد...)" class="w-full bg-[#070b14] border border-blue-500/30 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-cyan-400"></textarea>
+                    <button type="submit" class="w-full bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-4 rounded-xl shadow-xl transition">إرسال طلب المشروع الهندسي</button>
                 </form>
             </div>
         </div>
     </section>
 
     <!-- الفوتر -->
-    <footer id="contact" class="bg-gray-950 border-t border-gray-900 py-12 text-gray-400 text-sm text-center">
+    <footer id="contact" class="bg-[#05070f] border-t border-blue-500/20 py-12 text-gray-400 text-sm text-center">
         <h3 class="text-white font-bold text-lg mb-2">مؤسسة زمله فالح (zamlafaleh.com)</h3>
-        <p class="mb-2">للاتصال والواتساب المباشر: <a href="tel:0543201995" class="text-blue-400 font-bold" dir="ltr">0543201995</a></p>
+        <p class="mb-2">للاتصال والواتساب المباشر: <a href="tel:0543201995" class="text-cyan-400 font-bold" dir="ltr">0543201995</a></p>
         <p class="text-xs text-gray-500 mt-4">جميع الحقوق محفوظة © مؤسسة زمله فالح 2026</p>
     </footer>
 
-    <!-- قاعدة بيانات منتجات الحاسب والشبكات والكاميرات -->
+    <!-- قاعدة بيانات المنتجات -->
     <script>
         const products = [
             { id: 1, name: "لابتوب ألعاب احترافي ASUS ROG Strix بمعالج قوي وشاشة 144Hz", category: "laptops", price: 4890, desc: "أداء فائق للألعاب وبرامج الهندسة والتصميم الثقيلة." },
@@ -156,15 +217,15 @@
             
             filteredProducts.forEach(p => {
                 grid.innerHTML += `
-                    <div class="bg-gray-900 border border-gray-800 rounded-2xl p-5 flex flex-col justify-between hover:border-blue-500/50 transition">
+                    <div class="bg-[#0b1329] border border-blue-500/20 rounded-2xl p-5 flex flex-col justify-between hover:border-cyan-400 transition shadow-lg">
                         <div>
-                            <span class="text-xs text-blue-400 bg-blue-950 px-2.5 py-1 rounded-md font-semibold">${getCategoryName(p.category)}</span>
-                            <h3 class="text-lg font-bold mt-3">${p.name}</h3>
+                            <span class="text-xs text-cyan-400 bg-blue-950/80 px-2.5 py-1 rounded-md font-semibold border border-blue-500/30">${getCategoryName(p.category)}</span>
+                            <h3 class="text-lg font-bold mt-3 text-white">${p.name}</h3>
                             <p class="text-sm text-gray-400 mt-2">${p.desc}</p>
                         </div>
-                        <div class="mt-6 pt-4 border-t border-gray-800 flex items-center justify-between">
+                        <div class="mt-6 pt-4 border-t border-blue-500/20 flex items-center justify-between">
                             <span class="text-xl font-black text-amber-400">${p.price} ر.س</span>
-                            <button onclick="addToCart(${p.id})" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-xl text-sm font-bold transition">أضف للسلة</button>
+                            <button onclick="addToCart(${p.id})" class="bg-cyan-600 hover:bg-cyan-500 text-white px-4 py-2 rounded-xl text-sm font-bold transition shadow-md">أضف للسلة</button>
                         </div>
                     </div>
                 `;
@@ -177,8 +238,8 @@
         }
 
         function filterCategory(cat) {
-            document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.replace('bg-blue-600', 'bg-gray-900'));
-            event.target.classList.replace('bg-gray-900', 'bg-blue-600');
+            document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.replace('bg-cyan-600', 'bg-[#0b1329]'));
+            event.target.classList.replace('bg-[#0b1329]', 'bg-cyan-600');
             
             if(cat === 'all') renderProducts(products);
             else renderProducts(products.filter(p => p.category === cat));
@@ -205,9 +266,9 @@
             cart.forEach((item, index) => {
                 total += item.price;
                 container.innerHTML += `
-                    <div class="flex justify-between items-center bg-gray-950 p-3 rounded-xl border border-gray-800">
+                    <div class="flex justify-between items-center bg-[#070b14] p-3 rounded-xl border border-blue-500/20">
                         <div>
-                            <h4 class="font-bold text-sm">${item.name}</h4>
+                            <h4 class="font-bold text-sm text-white">${item.name}</h4>
                             <span class="text-amber-400 text-xs">${item.price} ر.س</span>
                         </div>
                         <button onclick="cart.splice(${index},1); updateCartUI();" class="text-red-400 hover:text-red-300 text-sm font-bold">حذف</button>
@@ -224,17 +285,16 @@
 
         function checkoutWhatsApp() {
             if(cart.length === 0) { alert('السلة فارغة!'); return; }
-            let text = "مرحباً، أرغب في طلب المنتجات التالية من مؤسسة زمله فالح:%0A";
+            let `text` = "مرحباً، أرغب في طلب المنتجات التالية من مؤسسة زمله فالح:%0A";
             let total = 0;
             cart.forEach(item => {
-                text += `- ${item.name} (${item.price} ر.س)%0A`;
+                `text` += `- ${item.name} (${item.price} ر.س)%0A`;
                 total += item.price;
             });
-            text += `%0Aالمجموع الكلي: ${total} ر.س`;
+            `text` += `%0Aالمجموع الكلي: ${total} ر.س`;
             window.open(`https://wa.me/966543201995?text=${text}`, '_blank');
         }
 
-        // تشغيل عرض المنتجات عند فتح الصفحة
         renderProducts(products);
     </script>
 </body>
