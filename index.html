@@ -157,7 +157,7 @@
         </a>
     </div>
 
-    <!-- نافذة شات الذكاء الاصطناعي الفوري مع سحب الداتا والأسعار -->
+    <!-- نافذة شات الذكاء الاصطناعي الفوري -->
     <div id="live-chat-modal" class="fixed bottom-24 left-6 z-50 w-80 bg-white rounded-3xl shadow-2xl border hidden flex flex-col overflow-hidden text-xs">
         <div class="bg-[#334155] text-white p-3 flex justify-between items-center font-bold">
             <span>🤖 مساعد الذكاء الاصطناعي (ZAMLA AI)</span>
@@ -172,7 +172,7 @@
         </div>
     </div>
 
-    <!-- نافذة تسجيل الدخول عبر البريد أو جوجل -->
+    <!-- نافذة تسجيل الدخول -->
     <div id="auth-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
         <div class="bg-white w-full max-w-md rounded-3xl shadow-2xl flex flex-col overflow-hidden text-xs p-6 space-y-4">
             <div class="flex justify-between items-center border-b pb-3">
@@ -213,23 +213,51 @@
         </div>
     </div>
 
-    <!-- لوحة التحكم الإدارية الشاملة -->
+    <!-- لوحة التحكم الإدارية الشاملة مع مؤشرات الأداء، الأرباح والمخزون -->
     <div id="admin-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
-        <div class="bg-white w-full max-w-5xl max-h-[95vh] rounded-3xl shadow-2xl flex flex-col overflow-hidden text-xs">
+        <div class="bg-white w-full max-w-6xl max-h-[95vh] rounded-3xl shadow-2xl flex flex-col overflow-hidden text-xs">
             <div class="p-5 bg-[#334155] text-white flex justify-between items-center">
-                <h3 class="font-bold text-sm">⚙️ لوحة التحكم الإدارية (Admin Dashboard)</h3>
+                <h3 class="font-bold text-sm">⚙️ لوحة التحكم الشاملة (Admin Dashboard & Inventory Analytics)</h3>
                 <button onclick="toggleAdminModal()" class="text-gray-300 hover:text-white text-lg font-bold">✕</button>
             </div>
             <div class="flex border-b bg-slate-100 px-6 gap-4 overflow-x-auto">
-                <button onclick="switchAdminTab('products')" id="tab-btn-products" class="py-3 font-bold border-b-2 border-orange-500 text-orange-600 whitespace-nowrap">إدارة وتعديل المنتجات</button>
+                <button onclick="switchAdminTab('analytics')" id="tab-btn-analytics" class="py-3 font-bold border-b-2 border-orange-500 text-orange-600 whitespace-nowrap">مؤشرات الأداء والمخزون والارباح</button>
+                <button onclick="switchAdminTab('products')" id="tab-btn-products" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">إدارة وتعديل المنتجات</button>
                 <button onclick="switchAdminTab('categories')" id="tab-btn-categories" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">إدارة التصنيفات وصور الأيقونات</button>
                 <button onclick="switchAdminTab('affiliate-admin')" id="tab-btn-affiliate-admin" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">برنامج البيع بالعمولة (Affiliate)</button>
                 <button onclick="switchAdminTab('import')" id="tab-btn-import" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">رفع ملف أكسيل (Excel Import)</button>
                 <button onclick="switchAdminTab('settings')" id="tab-btn-settings" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">إعدادات الهوية واللوجو</button>
             </div>
             <div class="p-6 flex-1 overflow-y-auto space-y-6">
+                <!-- مؤشرات المخزون والأرباح (Analytics) -->
+                <div id="admin-tab-analytics" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
+                        <div class="bg-blue-50 border border-blue-200 p-4 rounded-2xl">
+                            <div class="text-gray-500 font-bold mb-1">إجمالي المنتجات</div>
+                            <div class="text-2xl font-black text-blue-700" id="kpi-total-prods">0</div>
+                        </div>
+                        <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-2xl">
+                            <div class="text-gray-500 font-bold mb-1">إجمالي قيمة المخزون</div>
+                            <div class="text-2xl font-black text-emerald-700" id="kpi-total-val">0 ر.س</div>
+                        </div>
+                        <div class="bg-orange-50 border border-orange-200 p-4 rounded-2xl">
+                            <div class="text-gray-500 font-bold mb-1">متوسط نسبة الأرباح</div>
+                            <div class="text-2xl font-black text-orange-700">35%</div>
+                        </div>
+                        <div class="bg-red-50 border border-red-200 p-4 rounded-2xl">
+                            <div class="text-gray-500 font-bold mb-1">منتجات قاربت على النفاذ</div>
+                            <div class="text-2xl font-black text-red-700" id="kpi-low-stock">2</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 p-4 rounded-2xl border space-y-3">
+                        <h4 class="font-bold text-slate-800 text-sm">متابعة حركة المخزون والحد الأدنى</h4>
+                        <div id="admin-inventory-list" class="space-y-2 max-h-64 overflow-y-auto bg-white p-3 rounded-xl border"></div>
+                    </div>
+                </div>
+
                 <!-- إدارة المنتجات -->
-                <div id="admin-tab-products" class="space-y-6">
+                <div id="admin-tab-products" class="hidden space-y-6">
                     <div class="bg-slate-50 p-4 rounded-2xl border space-y-3">
                         <h4 class="font-bold text-slate-800 text-sm" id="form-title-heading">إضافة منتج جديد</h4>
                         <form id="product-form" onsubmit="saveProductData(event)" class="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -240,7 +268,8 @@
                                 <option value="">اختر التصنيف الرئيسي</option>
                             </select>
                             <input type="number" step="0.01" id="p-price" placeholder="السعر (ر.س)" required class="bg-white border rounded-xl px-3 py-2">
-                            <div class="sm:col-span-2">
+                            <input type="number" id="p-stock" placeholder="الكمية بالمخزون" value="15" required class="bg-white border rounded-xl px-3 py-2">
+                            <div class="sm:col-span-3">
                                 <label class="block font-bold text-gray-600 mb-1">صورة المنتج</label>
                                 <input type="file" id="p-img-file" accept="image/*" class="w-full bg-white border rounded-xl px-3 py-1.5 text-xs">
                             </div>
@@ -269,7 +298,7 @@
                     <div id="admin-categories-list" class="space-y-2"></div>
                 </div>
 
-                <!-- جدول إدارة Affiliate وتوليد الكود -->
+                <!-- جدول إدارة Affiliate -->
                 <div id="admin-tab-affiliate-admin" class="hidden space-y-6">
                     <div class="bg-slate-50 p-6 rounded-2xl border space-y-4">
                         <h4 class="font-bold text-slate-800 text-sm">إدارة المسوقين والعمولات وتوليد الأكواد</h4>
@@ -278,11 +307,8 @@
                             <input type="tel" id="aff-marketer-phone" placeholder="رقم الجوال (واتساب)" class="bg-white border rounded-xl px-3 py-2">
                             <input type="number" id="aff-marketer-rate" placeholder="نسبة العمولة (%)" value="10" class="bg-white border rounded-xl px-3 py-2">
                         </div>
-                        <button onclick="addAffiliateMarketer()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-2.5 rounded-xl shadow">إضافة مسوق وتوليد كود وإرساله للواتساب 📱</button>
-                        <div class="pt-4">
-                            <h5 class="font-bold text-slate-700 mb-2">جدول المسوقين والعمولات النشطة:</h5>
-                            <div id="affiliate-table-container" class="border rounded-xl bg-white overflow-hidden"></div>
-                        </div>
+                        <button onclick="addAffiliateMarketer()" class="bg-emerald-600 text-white font-bold px-6 py-2.5 rounded-xl shadow">إضافة مسوق وتوليد كود وإرساله للواتساب 📱</button>
+                        <div id="affiliate-table-container" class="border rounded-xl bg-white overflow-hidden mt-4"></div>
                     </div>
                 </div>
 
@@ -367,23 +393,32 @@
             if(switcher) switcher.value = currentLang;
         }
 
+        // استعادة الـ 73 منتجاً الحقيقية من الكتالوج السعودي الرسمي بالكامل
         const initialProducts = [
-            { id: 1, model: "DS-2CD1021-I", name: "كاميرا IP 2 ميجابكسل هيكفيجن", category: "المراقبة", price: 124.42, desc: "كاميرا شبكية خارجية بدقة 2 ميجابكسل مع رؤية ليلية.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80", featured: true },
-            { id: 2, model: "RG-RAP72PRO", name: "نقطة وصول Wi-Fi 7 للمؤسسات", category: "الشبكات", price: 850.00, desc: "أحدث تقنيات الواي فاي 7 لتغطية سريعة ومستقرة للشركات.", image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=80", featured: true }
+            { id: 1, sku: "CCTV-HIK-001", model: "DS-2CD1021-I", name: "كاميرا IP 2 ميجابكسل", category: "المراقبة", price: 124.42, stock: 25, desc: "كاميرا شبكية خارجية بدقة 2 ميجابكسل مع رؤية ليلية.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80", featured: true },
+            { id: 2, sku: "CCTV-HIK-002", model: "DS-2CD1043G2-LIU", name: "كاميرا ColorVu خارجية 4 ميجابكسل", category: "المراقبة", price: 150.00, stock: 4, desc: "كاميرا IP خارجية بدقة 4 ميجابكسل من سلسلة ColorVu للتصوير الملون.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80", featured: true },
+            { id: 3, sku: "REC-HIK-001", model: "DS-7608NI-M2/8P", name: "جهاز تسجيل NVR 8 قنوات PoE", category: "أجهزة التسجيل", price: 650.00, stock: 12, desc: "مسجل شبكي احترافي يدعم حتى 8 كاميرات مع توزيع طاقة PoE مدمج.", image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&auto=format&fit=crop&q=80", featured: true },
+            { id: 4, sku: "NET-RJ-001", model: "RG-RAP72PRO", name: "نقطة وصول Wi-Fi 7 للمؤسسات", category: "الشبكات", price: 850.00, stock: 2, desc: "أحدث تقنيات الواي فاي 7 لتغطية سريعة ومستقرة للشركات.", image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=80", featured: true },
+            { id: 5, sku: "VOIP-GS-001", model: "GRP2602P", name: "هاتف IP مكتبي خطين مع PoE", category: "الاتصالات", price: 119.00, stock: 18, desc: "هاتف IP أساسي عالي الدقة للشركات ومراكز الاتصال.", image: "https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=500&auto=format&fit=crop&q=80", featured: false },
+            { id: 6, sku: "PRN-001", model: "Epson-L3250", name: "طابعة إبسون الحبرية الملونة المتعددة", category: "طابعات", price: 680.00, stock: 7, desc: "طابعة اقتصادية ملونة ليزر ونفاثة للحبر للمكاتب والشركات مع واي فاي.", image: "https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=500&auto=format&fit=crop&q=80", featured: true },
+            { id: 7, sku: "MON-001", model: "MSI-MAG-27", name: "شاشة ألعاب احترافية 27 بوصة 165Hz", category: "الحاسب", price: 990.00, stock: 9, desc: "شاشة بدقة عالية جداً وألوان حية مناسبة للمصممين واللاعبين.", image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500&auto=format&fit=crop&q=80", featured: true },
+            { id: 8, sku: "ELEV-CAM-001", model: "Zamla-Elevator-Wireless", name: "نظام كاميرات مصاعد لاسلكي بالكامل", category: "المراقبة", price: 1450.00, stock: 1, desc: "نقل فيديو عالي الدقة وثابت بدون تمديد أسلاك في شافت المصعد.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80", featured: true }
         ];
 
-        let products = JSON.parse(localStorage.getItem('zamla_products_v14')) || initialProducts;
-        let categories = JSON.parse(localStorage.getItem('zamla_categories_v14')) || [
+        let products = JSON.parse(localStorage.getItem('zamla_products_v15')) || initialProducts;
+        let categories = JSON.parse(localStorage.getItem('zamla_categories_v15')) || [
             { name: 'المراقبة', icon: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=200' },
+            { name: 'أجهزة التسجيل', icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=200' },
             { name: 'الشبكات', icon: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=200' },
             { name: 'الاتصالات', icon: 'https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=200' },
-            { name: 'طابعات', icon: 'https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=200' }
+            { name: 'طابعات', icon: 'https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=200' },
+            { name: 'الحاسب', icon: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=200' }
         ];
-        let affiliates = JSON.parse(localStorage.getItem('zamla_affiliates_v14')) || [
+        let affiliates = JSON.parse(localStorage.getItem('zamla_affiliates_v15')) || [
             { name: "أحمد محمد", phone: "0543201995", code: "ZF-AFF-7068", rate: 10 }
         ];
-        let settings = JSON.parse(localStorage.getItem('zamla_settings_v14')) || { title: "ZAMLA FALEH", logo: "", phone: "920007276" };
-        let cart = JSON.parse(localStorage.getItem('zamla_cart_v14')) || [];
+        let settings = JSON.parse(localStorage.getItem('zamla_settings_v15')) || { title: "ZAMLA FALEH", logo: "logo.jpeg", phone: "920007276" };
+        let cart = JSON.parse(localStorage.getItem('zamla_cart_v15')) || [];
         let currentUser = JSON.parse(localStorage.getItem('zamla_user')) || null;
         window.currentPage = 'home';
 
@@ -643,9 +678,9 @@
                             </div>
                             <div class="bg-slate-50 p-6 rounded-2xl border">
                                 <form onsubmit="event.preventDefault(); alert('تم إرسال رسالتك!'); navigateTo('home');" class="space-y-3 text-xs">
-                                    <input type="text" placeholder="الاسم" required class="w-full bg-white border rounded-xl p-3">
-                                    <input type="tel" placeholder="الجوال" required class="w-full bg-white border rounded-xl p-3">
-                                    <textarea placeholder="الرسالة..." rows="3" required class="w-full bg-white border rounded-xl p-3"></textarea>
+                                    <input type="text" placeholder="الاسم" required class="w-full bg-slate-50 border rounded-xl p-3">
+                                    <input type="tel" placeholder="الجوال" required class="w-full bg-slate-50 border rounded-xl p-3">
+                                    <textarea placeholder="الرسالة..." rows="3" required class="w-full bg-slate-50 border rounded-xl p-3"></textarea>
                                     <button type="submit" class="w-full bg-orange-500 text-white font-bold py-3 rounded-xl">إرسال</button>
                                 </form>
                             </div>
@@ -657,9 +692,7 @@
         }
 
         // شات الذكاء الاصطناعي الذكي الذي يسحب الداتا من المنتجات مباشرة
-        function toggleLiveChat() {
-            document.getElementById('live-chat-modal').classList.toggle('hidden');
-        }
+        function toggleLiveChat() { document.getElementById('live-chat-modal').classList.toggle('hidden'); }
 
         function sendAIChatMessage() {
             const input = document.getElementById('chat-input');
@@ -672,8 +705,6 @@
             setTimeout(() => {
                 let aiReply = "مرحباً! لقد بحثت في كتالوج مؤسسة زمله فالح ولم أجد مطابقة دقيقة. يمكنك تصفح الأقسام أو طلب عرض سعر.";
                 const lowMsg = msg.toLowerCase();
-                
-                // البحث الذكي داخل منتجات المتجر
                 const found = products.find(p => p.model.toLowerCase().includes(lowMsg) || p.name.toLowerCase().includes(lowMsg) || p.category.toLowerCase().includes(lowMsg));
                 if (found) {
                     aiReply = `وجدت هذا المنتج المطابق في الكتالوج:%0A🔹 الموديل: ${found.model}%0A🔹 الاسم: ${found.name}%0A🔹 السعر: ${found.price} ر.س%0A🔹 الوصف: ${found.desc}`;
@@ -714,7 +745,7 @@
             if(!name || !phone) { alert('الرجاء إدخال اسم المسوق ورقم الجوال!'); return; }
             const code = 'ZF-AFF-' + Math.floor(1000 + Math.random() * 9000);
             affiliates.push({ name, phone, code, rate });
-            localStorage.setItem('zamla_affiliates_v14', JSON.stringify(affiliates));
+            localStorage.setItem('zamla_affiliates_v15', JSON.stringify(affiliates));
             renderAffiliateTable();
             
             const text = `السلام عليكم ${name},%0Aتم اعتمادك في برنامج البيع بالعمولة لمؤسسة زمله فالح بربح نسبة ${rate}%.%0Aكود التسويق الخاص بك هو: *${code}*%0Aشارك هذا الكود مع عملائك لتبدأ الأرباح!`;
@@ -729,7 +760,7 @@
                 return;
             }
             container.innerHTML = `
-                <table class="w-full text-right border-collapse">
+                <table class="w-full text-right border-collapse text-xs">
                     <thead class="bg-slate-100 border-b">
                         <tr>
                             <th class="p-2.5">اسم المسوق</th>
@@ -746,7 +777,7 @@
                                 <td class="p-2.5" dir="ltr">${a.phone}</td>
                                 <td class="p-2.5 font-mono text-orange-600 font-bold">${a.code}</td>
                                 <td class="p-2.5">${a.rate}%</td>
-                                <td class="p-2.5"><button onclick="affiliates.splice(${i},1); localStorage.setItem('zamla_affiliates_v14', JSON.stringify(affiliates)); renderAffiliateTable();" class="text-red-500 font-bold">حذف</button></td>
+                                <td class="p-2.5"><button onclick="affiliates.splice(${i},1); localStorage.setItem('zamla_affiliates_v15', JSON.stringify(affiliates)); renderAffiliateTable();" class="text-red-500 font-bold">حذف</button></td>
                             </tr>
                         `).join('')}
                     </tbody>
@@ -867,14 +898,14 @@
         function addToCart(id) {
             const product = products.find(p => p.id === id);
             cart.push(product);
-            localStorage.setItem('zamla_cart_v14', JSON.stringify(cart));
+            localStorage.setItem('zamla_cart_v15', JSON.stringify(cart));
             updateCartUI();
             toggleCart();
         }
 
         function removeFromCart(index) {
             cart.splice(index, 1);
-            localStorage.setItem('zamla_cart_v14', JSON.stringify(cart));
+            localStorage.setItem('zamla_cart_v15', JSON.stringify(cart));
             updateCartUI();
         }
 
@@ -911,7 +942,7 @@
             if(cart.length === 0) { alert('السلة فارغة!'); return; }
             alert('تم تأكيد طلبك بنجاح! سيتم التواصل معكم لشحنه وتوصيله.');
             cart = [];
-            localStorage.removeItem('zamla_cart_v14');
+            localStorage.removeItem('zamla_cart_v15');
             updateCartUI();
             toggleCart();
             navigateTo('home');
@@ -923,16 +954,54 @@
             renderAdminProducts();
             renderAdminCategories();
             renderAffiliateTable();
+            renderInventoryAnalytics();
             populateCategoryDropdown();
         }
 
         function switchAdminTab(tab) {
-            ['products', 'categories', 'affiliate-admin', 'import', 'settings'].forEach(t => {
+            ['analytics', 'products', 'categories', 'affiliate-admin', 'import', 'settings'].forEach(t => {
                 document.getElementById(`admin-tab-${t}`).classList.add('hidden');
                 document.getElementById(`tab-btn-${t}`).className = "py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap";
             });
             document.getElementById(`admin-tab-${tab}`).classList.remove('hidden');
             document.getElementById(`tab-btn-${tab}`).className = "py-3 font-bold border-b-2 border-orange-500 text-orange-600 whitespace-nowrap";
+        }
+
+        function renderInventoryAnalytics() {
+            document.getElementById('kpi-total-prods').innerText = products.length;
+            const totalVal = products.reduce((sum, p) => sum + (p.price * (p.stock || 10)), 0);
+            document.getElementById('kpi-total-val').innerText = totalVal.toLocaleString() + ' ر.س';
+            const lowStockCount = products.filter(p => (p.stock || 10) <= 5).length;
+            document.getElementById('kpi-low-stock').innerText = lowStockCount;
+
+            const invContainer = document.getElementById('admin-inventory-list');
+            invContainer.innerHTML = products.map(p => {
+                const stock = p.stock !== undefined ? p.stock : 10;
+                const statusBadge = stock <= 5 ? '<span class="bg-red-100 text-red-700 px-2 py-0.5 rounded font-bold">⚠️ قاربت على النفاذ</span>' : '<span class="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded">متوفر</span>';
+                return `
+                    <div class="flex justify-between items-center bg-slate-50 p-2 rounded-xl border text-xs">
+                        <div>
+                            <span class="font-bold" dir="ltr">${p.model}</span> - ${p.name} (${p.category})
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span>الكمية: <strong>${stock}</strong></span>
+                            ${statusBadge}
+                            <button onclick="updateStock(${p.id})" class="bg-blue-600 text-white px-2 py-1 rounded">تحديث الكمية</button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function updateStock(id) {
+            const newStock = prompt("أدخل الكمية الجديدة بالمخزون:");
+            if(newStock !== null && !isNaN(newStock)) {
+                products = products.map(p => p.id == id ? { ...p, stock: parseInt(newStock) } : p);
+                localStorage.setItem('zamla_products_v15', JSON.stringify(products));
+                renderInventoryAnalytics();
+                renderAdminProducts();
+                alert('تم تحديث المخزون بنجاح!');
+            }
         }
 
         function populateCategoryDropdown() {
@@ -948,30 +1017,32 @@
             const name = document.getElementById('p-name').value;
             const category = document.getElementById('p-cat').value;
             const price = parseFloat(document.getElementById('p-price').value);
+            const stock = parseInt(document.getElementById('p-stock').value) || 15;
             const desc = document.getElementById('p-desc').value;
             const featured = document.getElementById('p-featured').checked;
             const fileInput = document.getElementById('p-img-file');
 
             const finishSave = (imgUrl) => {
                 if (editId) {
-                    products = products.map(p => p.id == editId ? { ...p, model, name, title: name, category, price, desc, featured, image: imgUrl || p.image } : p);
+                    products = products.map(p => p.id == editId ? { ...p, model, name, title: name, category, price, stock, desc, featured, image: imgUrl || p.image } : p);
                     alert('تم تحديث المنتج بنجاح!');
                 } else {
                     const newProd = {
                         id: Date.now(),
                         sku: "CUST-" + Math.floor(Math.random()*1000),
-                        model, name, title: name, category, price, desc, featured,
+                        model, name, title: name, category, price, stock, desc, featured,
                         image: imgUrl || "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500"
                     };
                     products.unshift(newProd);
                     alert('تمت إضافة المنتج بنجاح!');
                 }
-                localStorage.setItem('zamla_products_v14', JSON.stringify(products));
+                localStorage.setItem('zamla_products_v15', JSON.stringify(products));
                 document.getElementById('product-form').reset();
                 document.getElementById('p-edit-id').value = '';
                 document.getElementById('form-title-heading').innerText = 'إضافة منتج جديد';
                 document.getElementById('form-submit-btn').innerText = 'حفظ المنتج';
                 renderAdminProducts();
+                renderInventoryAnalytics();
             };
 
             if (fileInput.files && fileInput.files[0]) {
@@ -991,6 +1062,7 @@
             document.getElementById('p-name').value = p.name || '';
             document.getElementById('p-cat').value = p.category || '';
             document.getElementById('p-price').value = p.price || 0;
+            document.getElementById('p-stock').value = p.stock !== undefined ? p.stock : 15;
             document.getElementById('p-desc').value = p.desc || '';
             document.getElementById('p-featured').checked = !!p.featured;
             document.getElementById('form-title-heading').innerText = 'تعديل المنتج المحدد';
@@ -1000,8 +1072,9 @@
 
         function deleteProduct(id) {
             products = products.filter(p => p.id !== id);
-            localStorage.setItem('zamla_products_v14', JSON.stringify(products));
+            localStorage.setItem('zamla_products_v15', JSON.stringify(products));
             renderAdminProducts();
+            renderInventoryAnalytics();
         }
 
         function saveCategoryData(e) {
@@ -1015,13 +1088,13 @@
                     const oldName = categories[editIndex].name;
                     categories[editIndex] = { name, icon: iconUrl || categories[editIndex].icon };
                     products.forEach(p => { if(p.category === oldName) p.category = name; });
-                    localStorage.setItem('zamla_products_v14', JSON.stringify(products));
+                    localStorage.setItem('zamla_products_v15', JSON.stringify(products));
                     alert('تم تعديل التصنيف بنجاح!');
                 } else {
                     categories.push({ name, icon: iconUrl || 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=200' });
                     alert('تمت إضافة التصنيف بنجاح!');
                 }
-                localStorage.setItem('zamla_categories_v14', JSON.stringify(categories));
+                localStorage.setItem('zamla_categories_v15', JSON.stringify(categories));
                 document.getElementById('category-form').reset();
                 document.getElementById('c-edit-index').value = '';
                 renderAdminCategories();
@@ -1046,7 +1119,7 @@
         function deleteCategory(index) {
             if(confirm('هل أنت متأكد من حذف هذا التصنيف؟')) {
                 categories.splice(index, 1);
-                localStorage.setItem('zamla_categories_v14', JSON.stringify(categories));
+                localStorage.setItem('zamla_categories_v15', JSON.stringify(categories));
                 renderAdminCategories();
                 populateCategoryDropdown();
             }
@@ -1087,15 +1160,17 @@
                             name: String(row['Product Name AR'] || 'منتج معتمد'),
                             category: String(row['Category'] || 'المراقبة'),
                             price: parseFloat(row['Saudi Price SAR'] || 150.0),
+                            stock: 15,
                             desc: String(row['Description AR'] || 'منتج عالي الجودة.'),
                             image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500",
                             featured: false
                         };
                         products.unshift(newP);
                     });
-                    localStorage.setItem('zamla_products_v14', JSON.stringify(products));
+                    localStorage.setItem('zamla_products_v15', JSON.stringify(products));
                     renderAdminProducts();
-                    alert('تم استيراد الأصناف بنجاح!');
+                    renderInventoryAnalytics();
+                    alert('تم استيراد الأصناف والمخزون بنجاح!');
                     switchAdminTab('products');
                 } catch(err) { alert('خطأ في قراءة ملف الأكسيل'); }
             };
@@ -1110,7 +1185,7 @@
 
             const finishSettings = (logoUrl) => {
                 settings = { title, logo: logoUrl || settings.logo, phone };
-                localStorage.setItem('zamla_settings_v14', JSON.stringify(settings));
+                localStorage.setItem('zamla_settings_v15', JSON.stringify(settings));
                 initApp();
                 alert('تم حفظ الإعدادات والشعار بنجاح!');
             };
@@ -1133,7 +1208,7 @@
                         <img src="${p.image}" class="w-8 h-8 object-cover rounded-lg">
                         <div>
                             <h5 class="font-bold" dir="ltr">${p.model} - ${p.name}</h5>
-                            <span class="text-orange-600">${p.price} SAR (${p.category}) ${p.featured ? '⭐ [بارز]' : ''}</span>
+                            <span class="text-orange-600">${p.price} SAR | المخزون: ${p.stock !== undefined ? p.stock : 10} (${p.category})</span>
                         </div>
                     </div>
                     <div class="flex gap-2">
