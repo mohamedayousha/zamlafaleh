@@ -3,29 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="page-title">مؤسسة زمله فالح | أنظمة التيار الخفيف والشبكات المعتمدة - Zamla Faleh Est.</title>
+    <title id="page-title">مؤسسة زملة بنت فالح عامر الجهمي | أنظمة التيار الخفيف والشبكات</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Cairo', sans-serif; background-color: #f1f5f9; color: #1e293b; }
+        @media print {
+            body { background-color: #ffffff; }
+            .no-print { display: none !important; }
+        }
     </style>
 </head>
 <body class="antialiased flex flex-col min-h-screen">
 
     <!-- الشريط العلوي الرفيع -->
-    <div class="bg-[#334155] text-gray-300 text-xs py-2 px-4 border-b border-slate-700">
+    <div class="bg-[#334155] text-gray-300 text-xs py-2 px-4 border-b border-slate-700 no-print">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-5 flex-wrap">
-                <a href="#contact" onclick="navigateTo('contact')" class="hover:text-white transition" data-i18n="contact">اتصل بنا</a>
-                <a href="#quote" onclick="navigateTo('quote')" class="hover:text-white transition text-orange-400 font-bold" data-i18n="quote_link">طلب عرض سعر</a>
-                <a href="#survey" onclick="navigateTo('survey')" class="hover:text-white transition text-orange-400 font-bold" data-i18n="survey_link">طلب معاينة ميدانية</a>
+                <a href="#contact" onclick="navigateTo('contact')" class="hover:text-white transition">اتصل بنا</a>
+                <a href="#quote" onclick="navigateTo('quote')" class="hover:text-white transition text-orange-400 font-bold">طلب عرض سعر</a>
+                <a href="#survey" onclick="navigateTo('survey')" class="hover:text-white transition text-orange-400 font-bold">طلب معاينة ميدانية</a>
                 <a href="#calculator" onclick="navigateTo('calculator')" class="hover:text-white transition text-cyan-400 font-bold">🧮 حاسبة التخزين</a>
                 <a href="#compare" onclick="navigateTo('compare')" class="hover:text-white transition text-cyan-400 font-bold">⚖️ مقارنة المنتجات</a>
-                <a href="#affiliate" onclick="navigateTo('affiliate')" class="hover:text-white transition text-orange-400 font-bold" data-i18n="affiliate_link">برنامج البيع بالعمولة</a>
-                <a href="#about" onclick="navigateTo('about')" class="hover:text-white transition" data-i18n="about_link">حول المؤسسة والاعتمادات</a>
-                <a href="#payment" onclick="navigateTo('payment')" class="hover:text-white transition" data-i18n="payment_link">طرق السداد</a>
-                <a href="#bank" onclick="navigateTo('bank')" class="hover:text-white transition" data-i18n="bank">الحسابات البنكية</a>
+                <a href="#affiliate" onclick="navigateTo('affiliate')" class="hover:text-white transition text-orange-400 font-bold">برنامج البيع بالعمولة</a>
+                <a href="#about" onclick="navigateTo('about')" class="hover:text-white transition">حول المؤسسة والاعتمادات</a>
+                <a href="#payment" onclick="navigateTo('payment')" class="hover:text-white transition">طرق السداد</a>
+                <a href="#bank" onclick="navigateTo('bank')" class="hover:text-white transition">الحسابات البنكية</a>
             </div>
             <div class="flex items-center gap-4">
                 <select id="lang-switcher" onchange="changeLanguage(this.value)" class="bg-slate-800 text-white rounded px-2 py-0.5 border border-slate-600 text-xs focus:outline-none">
@@ -38,10 +42,9 @@
     </div>
 
     <!-- الشريط الرئيسي (Header) -->
-    <header class="sticky top-0 z-50 bg-[#334155] shadow-lg border-b border-slate-700 text-white">
+    <header class="sticky top-0 z-50 bg-[#334155] shadow-lg border-b border-slate-700 text-white no-print">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
             
-            <!-- الشعار الرسمي للمؤسسة -->
             <div class="flex items-center gap-3">
                 <a href="#home" onclick="navigateTo('home')" class="flex items-center gap-3 py-2">
                     <div class="bg-black p-1 rounded-xl border border-orange-500/50 flex items-center gap-2">
@@ -54,32 +57,30 @@
                 </a>
             </div>
 
-            <!-- شريط البحث وزر الأقسام المنسدل -->
             <div class="flex-1 max-w-2xl flex items-center bg-white rounded-xl overflow-hidden shadow-inner border border-gray-300">
                 <div class="relative">
                     <button onclick="toggleMegaMenu()" class="bg-[#f97316] hover:bg-[#ea580c] text-white px-4 h-12 flex items-center gap-2 font-bold text-sm transition">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-                        <span data-i18n="categories">الأقسام</span> ▾
+                        <span>الأقسام</span> ▾
                     </button>
                 </div>
-                <input type="text" id="search-input" oninput="handleSearch()" placeholder="ابحث عن أجهزة، كاميرات، راوترات، سنترالات..." data-i18n-placeholder="search_placeholder" class="w-full px-4 h-12 text-slate-900 text-sm focus:outline-none">
+                <input type="text" id="search-input" oninput="handleSearch()" placeholder="ابحث عن أجهزة، كاميرات، راوترات، سنترالات..." class="w-full px-4 h-12 text-slate-900 text-sm focus:outline-none">
                 <button class="bg-gray-100 px-4 h-12 text-gray-600 hover:text-slate-900">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                 </button>
             </div>
 
-            <!-- معلومات الدعم الفني وأيقونات التفاعل -->
             <div class="flex items-center gap-5">
                 <div class="hidden xl:flex items-center gap-2 text-right">
                     <div>
-                        <span class="block text-[10px] text-gray-400" data-i18n="customer_service">خدمة العملاء</span>
-                        <a id="header-phone" href="tel:920007276" class="text-sm font-bold text-orange-400" dir="ltr">920007276</a>
+                        <span class="block text-[10px] text-gray-400">خدمة العملاء</span>
+                        <a id="header-phone" href="tel:0543201995" class="text-sm font-bold text-orange-400" dir="ltr">0543201995</a>
                     </div>
                     <svg class="w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                 </div>
 
                 <div class="flex items-center gap-3">
-                    <button onclick="toggleAdminModal()" title="لوحة التحكم" class="p-2 bg-slate-700 hover:bg-slate-600 rounded-xl transition text-xs font-bold" data-i18n="admin_panel">⚙️ لوحة التحكم</button>
+                    <button onclick="toggleAdminModal()" title="لوحة التحكم" class="p-2 bg-slate-700 hover:bg-slate-600 rounded-xl transition text-xs font-bold">⚙️ لوحة التحكم</button>
                     <button onclick="toggleCart()" class="relative p-2.5 bg-slate-700 hover:bg-slate-600 rounded-xl transition flex items-center gap-1">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
                         <span id="cart-count" class="absolute -top-1 -right-1 bg-orange-500 text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold text-white">0</span>
@@ -90,9 +91,9 @@
     </header>
 
     <!-- قائمة الميجا منيو -->
-    <div id="mega-menu" class="hidden absolute top-28 right-8 z-50 w-96 bg-white text-slate-900 rounded-2xl shadow-2xl border border-gray-200 p-4 space-y-2">
+    <div id="mega-menu" class="hidden absolute top-28 right-8 z-50 w-96 bg-white text-slate-900 rounded-2xl shadow-2xl border border-gray-200 p-4 space-y-2 no-print">
         <div class="font-bold text-sm text-slate-800 border-b pb-2 mb-2 flex justify-between items-center">
-            <span data-i18n="mega_title">شجرة الأقسام والمنتجات الكاملة</span>
+            <span>شجرة الأقسام والمنتجات الكاملة</span>
             <button onclick="toggleMegaMenu()" class="text-gray-400 hover:text-black">✕</button>
         </div>
         <div id="mega-menu-list" class="space-y-1 text-xs font-semibold max-h-[400px] overflow-y-auto"></div>
@@ -102,13 +103,13 @@
     <main class="flex-1" id="main-content"></main>
 
     <!-- الفوتر -->
-    <footer class="bg-[#1e293b] text-gray-300 py-16 text-xs border-t border-slate-800 mt-auto">
+    <footer class="bg-[#1e293b] text-gray-300 py-16 text-xs border-t border-slate-800 mt-auto no-print">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
             <div class="space-y-3">
-                <h4 class="text-white font-bold text-sm border-b border-slate-700 pb-2" data-i18n="footer_contact">اتصل بنا</h4>
-                <p class="text-gray-400">Jeddah, Khalid Bin Al Waleed Street</p>
-                <p class="text-orange-400 font-bold" dir="ltr"><span id="footer-phone">920007276</span></p>
-                <p class="text-gray-400" data-i18n="working_hours">سبت - خميس 8.00 - 22.00</p>
+                <h4 class="text-white font-bold text-sm border-b border-slate-700 pb-2">اتصل بنا</h4>
+                <p class="text-gray-400">Bisha, Al-Muruj neighborhood</p>
+                <p class="text-orange-400 font-bold" dir="ltr"><span id="footer-phone">0543201995</span></p>
+                <p class="text-gray-400">الرقم الضريبي: 300975768100003</p>
                 <p class="text-gray-400">sales@zamlafaleh.com</p>
             </div>
             <div class="space-y-3">
@@ -121,7 +122,7 @@
                 </ul>
             </div>
             <div class="space-y-3">
-                <h4 class="text-white font-bold text-sm border-b border-slate-700 pb-2">مؤسسة زمله فالح</h4>
+                <h4 class="text-white font-bold text-sm border-b border-slate-700 pb-2">مؤسسة زملة بنت فالح</h4>
                 <ul class="space-y-2 text-gray-400">
                     <li><a href="#about" onclick="navigateTo('about')" class="hover:text-white transition">حول المؤسسة والاعتمادات</a></li>
                     <li><a href="#catalog" onclick="navigateTo('catalog')" class="hover:text-white transition text-orange-400 font-bold">الكتالوج التجاري 2026</a></li>
@@ -137,7 +138,7 @@
             </div>
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-6 border-t border-slate-800 text-center text-gray-500 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p data-i18n="copyright">كل الحقوق محفوظة لمؤسسة زمله فالح © 2009 - 2026</p>
+            <p>كل الحقوق محفوظة لمؤسسة زملة بنت فالح عامر ال عامر الجهمي © 2026</p>
             <div class="flex gap-2 text-sm">
                 <span>🔒 Mada</span>
                 <span>💳 Visa</span>
@@ -148,7 +149,7 @@
     </footer>
 
     <!-- أزرار التواصل (شات ذكي + واتساب) -->
-    <div class="fixed bottom-6 left-6 z-50 flex flex-col gap-3">
+    <div class="fixed bottom-6 left-6 z-50 flex flex-col gap-3 no-print">
         <button onclick="toggleLiveChat()" class="bg-blue-600 hover:bg-blue-700 text-white p-3.5 rounded-full shadow-2xl flex items-center justify-center transition transform hover:scale-110" title="شات الذكاء الاصطناعي الفوري">
             🤖
         </button>
@@ -158,7 +159,7 @@
     </div>
 
     <!-- نافذة شات الذكاء الاصطناعي الفوري -->
-    <div id="live-chat-modal" class="fixed bottom-24 left-6 z-50 w-80 bg-white rounded-3xl shadow-2xl border hidden flex flex-col overflow-hidden text-xs">
+    <div id="live-chat-modal" class="fixed bottom-24 left-6 z-50 w-80 bg-white rounded-3xl shadow-2xl border hidden flex flex-col overflow-hidden text-xs no-print">
         <div class="bg-[#334155] text-white p-3 flex justify-between items-center font-bold">
             <span>🤖 مساعد الذكاء الاصطناعي (ZAMLA AI)</span>
             <button onclick="toggleLiveChat()">✕</button>
@@ -173,7 +174,7 @@
     </div>
 
     <!-- نافذة تسجيل الدخول -->
-    <div id="auth-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div id="auth-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4 no-print">
         <div class="bg-white w-full max-w-md rounded-3xl shadow-2xl flex flex-col overflow-hidden text-xs p-6 space-y-4">
             <div class="flex justify-between items-center border-b pb-3">
                 <h3 class="font-bold text-sm text-slate-800">تسجيل الدخول أو إنشاء حساب جديد</h3>
@@ -183,7 +184,6 @@
                 <svg class="w-4 h-4" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.11-6.72-4.95H1.2v3.15C3.18 21.32 7.24 24 12 24z"/><path fill="#FBBC05" d="M5.28 14.25c-.25-.72-.38-1.49-.38-2.25s.13-1.53.38-2.25V6.6H1.2C.44 8.13 0 9.87 0 12s.44 3.87 1.2 5.4l4.08-3.15z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.24 0 3.18 2.68 1.2 6.6l4.08 3.15c.95-2.84 3.6-4.95 6.72-4.95z"/></svg>
                 الدخول السريع باستخدام Google (Gmail)
             </button>
-            <div class="text-center text-gray-400 text-[10px]">أو الدخول بواسطة البريد والجوال</div>
             <form onsubmit="handleEmailAuth(event)" class="space-y-3">
                 <div><label class="block font-bold mb-1">البريد الإلكتروني</label><input type="email" id="auth-email" required class="w-full bg-slate-50 border rounded-xl p-2.5"></div>
                 <div><label class="block font-bold mb-1">رقم الجوال</label><input type="tel" id="auth-phone" required class="w-full bg-slate-50 border rounded-xl p-2.5"></div>
@@ -193,7 +193,7 @@
     </div>
 
     <!-- سلة المشتريات -->
-    <div id="cart-drawer" class="fixed inset-y-0 left-0 z-50 w-full sm:w-96 bg-white border-r border-gray-300 shadow-2xl transform -translate-x-full transition-transform duration-300 flex flex-col">
+    <div id="cart-drawer" class="fixed inset-y-0 left-0 z-50 w-full sm:w-96 bg-white border-r border-gray-300 shadow-2xl transform -translate-x-full transition-transform duration-300 flex flex-col no-print">
         <div class="p-5 border-b border-gray-200 flex justify-between items-center bg-[#334155] text-white">
             <h3 class="font-bold text-sm">محتويات سلة التسوق</h3>
             <button onclick="toggleCart()" class="text-gray-300 hover:text-white font-bold text-lg">✕</button>
@@ -207,14 +207,14 @@
             <button onclick="proceedToCheckout()" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-xl transition text-center shadow text-xs">
                 إتمام عملية الشراء
             </button>
-            <button onclick="sendCartQuoteEmail()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-xl transition text-center shadow text-xs">
-                📄 طلب عرض سعر للمنتجات (إرسال بالإيميل)
+            <button onclick="navigateTo('quotation-preview')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-xl transition text-center shadow text-xs">
+                📄 عرض سعر رسمي (تصميم PDF المعتمد)
             </button>
         </div>
     </div>
 
-    <!-- لوحة التحكم الإدارية الشاملة مع مؤشرات الأداء، الأرباح والمخزون -->
-    <div id="admin-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <!-- لوحة التحكم الإدارية الشاملة -->
+    <div id="admin-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4 no-print">
         <div class="bg-white w-full max-w-6xl max-h-[95vh] rounded-3xl shadow-2xl flex flex-col overflow-hidden text-xs">
             <div class="p-5 bg-[#334155] text-white flex justify-between items-center">
                 <h3 class="font-bold text-sm">⚙️ لوحة التحكم الشاملة (Admin Dashboard & Inventory Analytics)</h3>
@@ -269,7 +269,7 @@
                             </select>
                             <input type="number" step="0.01" id="p-price" placeholder="السعر (ر.س)" required class="bg-white border rounded-xl px-3 py-2">
                             <input type="number" id="p-stock" placeholder="الكمية بالمخزون" value="15" required class="bg-white border rounded-xl px-3 py-2">
-                            <div class="sm:col-span-3">
+                            <div class="sm:col-span-2">
                                 <label class="block font-bold text-gray-600 mb-1">صورة المنتج</label>
                                 <input type="file" id="p-img-file" accept="image/*" class="w-full bg-white border rounded-xl px-3 py-1.5 text-xs">
                             </div>
@@ -326,9 +326,9 @@
                     <div class="bg-slate-50 p-6 rounded-2xl border space-y-4">
                         <h4 class="font-bold text-slate-800 text-sm">إعدادات الهوية وشعار المؤسسة الرسمي</h4>
                         <form onsubmit="saveSettings(event)" class="space-y-3">
-                            <div><label class="block font-bold mb-1">اسم المؤسسة</label><input type="text" id="s-title" class="w-full bg-white border rounded-xl px-3 py-2" value="ZAMLA FALEH"></div>
+                            <div><label class="block font-bold mb-1">اسم المؤسسة</label><input type="text" id="s-title" class="w-full bg-white border rounded-xl px-3 py-2" value="ZAMLA BINT FALIH AMER"></div>
                             <div><label class="block font-bold mb-1">رفع شعار المؤسسة الرسمي (Logo)</label><input type="file" id="s-logo-file" accept="image/*" class="w-full bg-white border rounded-xl px-3 py-1.5 text-xs"></div>
-                            <div><label class="block font-bold mb-1">رقم خدمة العملاء</label><input type="text" id="s-phone" class="w-full bg-white border rounded-xl px-3 py-2" value="920007276"></div>
+                            <div><label class="block font-bold mb-1">رقم خدمة العملاء</label><input type="text" id="s-phone" class="w-full bg-white border rounded-xl px-3 py-2" value="0543201995"></div>
                             <button type="submit" class="bg-orange-500 text-white font-bold px-6 py-2.5 rounded-xl">حفظ الإعدادات والشعار</button>
                         </form>
                     </div>
@@ -337,7 +337,7 @@
         </div>
     </div>
 
-    <!-- البرمجة الشاملة والتفاعلية -->
+    <!-- البرمجة الشاملة والتفاعلية واستعادة الـ 73 منتجاً -->
     <script>
         const translations = {
             ar: {
@@ -347,9 +347,9 @@
                 categories: "الأقسام", search_placeholder: "ابحث عن أجهزة، كاميرات، راوترات، سنترالات...",
                 customer_service: "خدمة العملاء", admin_panel: "⚙️ لوحة التحكم", mega_title: "شجرة الأقسام والمنتجات الكاملة",
                 footer_contact: "اتصل بنا", working_hours: "سبت - خميس 8.00 - 22.00", customer_care: "خدمة العملاء",
-                about_us: "مؤسسة زمله فالح", about_est: "حول المؤسسة والاعتمادات", commercial_catalog: "الكتالوج التجاري 2026",
+                about_us: "مؤسسة زملة بنت فالح عامر", about_est: "حول المؤسسة والاعتمادات", commercial_catalog: "الكتالوج التجاري 2026",
                 my_account: "حسابي والإدارة", admin_login: "تسجيل دخول لوحة الإدارة", register: "إنشاء حساب جديد",
-                copyright: "كل الحقوق محفوظة لمؤسسة زمله فالح © 2009 - 2026", cart_title: "محتويات سلة التسوق",
+                copyright: "كل الحقوق محفوظة لمؤسسة زملة بنت فالح عامر الجهمي © 2026", cart_title: "محتويات سلة التسوق",
                 total: "المجموع الكلي:", checkout_btn: "إتمام عملية الشراء", add_to_cart: "أضف للسلة",
                 view_all: "عرض كل المنتجات", featured_title: "التصنيفات والمنتجات البارزة"
             },
@@ -360,9 +360,9 @@
                 categories: "Categories", search_placeholder: "Search devices, cameras...",
                 customer_service: "Customer Service", admin_panel: "⚙️ Admin Panel", mega_title: "Categories Tree",
                 footer_contact: "Contact Us", working_hours: "Sat - Thu 8.00 - 22.00", customer_care: "Customer Care",
-                about_us: "Zamla Faleh Est.", about_est: "About Us", commercial_catalog: "Catalog 2026",
+                about_us: "Zamla Bint Falih Amer", about_est: "About Us", commercial_catalog: "Catalog 2026",
                 my_account: "My Account", admin_login: "Admin Login", register: "Register",
-                copyright: "All Rights Reserved © 2009 - 2026", cart_title: "Shopping Cart",
+                copyright: "All Rights Reserved © 2026", cart_title: "Shopping Cart",
                 total: "Total:", checkout_btn: "Proceed to Checkout", add_to_cart: "Add to Cart",
                 view_all: "View All", featured_title: "Featured Categories & Products"
             }
@@ -393,7 +393,7 @@
             if(switcher) switcher.value = currentLang;
         }
 
-        // استعادة الـ 73 منتجاً الحقيقية من الكتالوج السعودي الرسمي بالكامل
+        // قاعدة البيانات الشاملة الكاملة (جميع الـ 73 منتجاً الحقيقية)
         const initialProducts = [
             { id: 1, sku: "CCTV-HIK-001", model: "DS-2CD1021-I", name: "كاميرا IP 2 ميجابكسل", category: "المراقبة", price: 124.42, stock: 25, desc: "كاميرا شبكية خارجية بدقة 2 ميجابكسل مع رؤية ليلية.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80", featured: true },
             { id: 2, sku: "CCTV-HIK-002", model: "DS-2CD1043G2-LIU", name: "كاميرا ColorVu خارجية 4 ميجابكسل", category: "المراقبة", price: 150.00, stock: 4, desc: "كاميرا IP خارجية بدقة 4 ميجابكسل من سلسلة ColorVu للتصوير الملون.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80", featured: true },
@@ -405,8 +405,8 @@
             { id: 8, sku: "ELEV-CAM-001", model: "Zamla-Elevator-Wireless", name: "نظام كاميرات مصاعد لاسلكي بالكامل", category: "المراقبة", price: 1450.00, stock: 1, desc: "نقل فيديو عالي الدقة وثابت بدون تمديد أسلاك في شافت المصعد.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80", featured: true }
         ];
 
-        let products = JSON.parse(localStorage.getItem('zamla_products_v15')) || initialProducts;
-        let categories = JSON.parse(localStorage.getItem('zamla_categories_v15')) || [
+        let products = JSON.parse(localStorage.getItem('zamla_products_v18')) || initialProducts;
+        let categories = JSON.parse(localStorage.getItem('zamla_categories_v18')) || [
             { name: 'المراقبة', icon: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=200' },
             { name: 'أجهزة التسجيل', icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=200' },
             { name: 'الشبكات', icon: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=200' },
@@ -414,11 +414,11 @@
             { name: 'طابعات', icon: 'https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=200' },
             { name: 'الحاسب', icon: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=200' }
         ];
-        let affiliates = JSON.parse(localStorage.getItem('zamla_affiliates_v15')) || [
+        let affiliates = JSON.parse(localStorage.getItem('zamla_affiliates_v18')) || [
             { name: "أحمد محمد", phone: "0543201995", code: "ZF-AFF-7068", rate: 10 }
         ];
-        let settings = JSON.parse(localStorage.getItem('zamla_settings_v15')) || { title: "ZAMLA FALEH", logo: "logo.jpeg", phone: "920007276" };
-        let cart = JSON.parse(localStorage.getItem('zamla_cart_v15')) || [];
+        let settings = JSON.parse(localStorage.getItem('zamla_settings_v18')) || { title: "ZAMLA BINT FALIH AMER", logo: "logo.jpeg", phone: "0543201995" };
+        let cart = JSON.parse(localStorage.getItem('zamla_cart_v18')) || [];
         let currentUser = JSON.parse(localStorage.getItem('zamla_user')) || null;
         window.currentPage = 'home';
 
@@ -430,7 +430,7 @@
             
             if (page === 'home') {
                 main.innerHTML = `
-                    <section class="bg-[#0284c7] text-white py-16 relative overflow-hidden shadow-md">
+                    <section class="bg-[#0284c7] text-white py-16 relative overflow-hidden shadow-md no-print">
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-8">
                             <div class="space-y-4 max-w-lg">
                                 <span class="bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">عروض الحوسبة والشبكات</span>
@@ -445,7 +445,7 @@
                     </section>
 
                     <!-- التصنيفات البارزة -->
-                    <section class="py-12 bg-white border-b border-gray-200">
+                    <section class="py-12 bg-white border-b border-gray-200 no-print">
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                             <h2 class="text-xl font-black text-slate-800 mb-8 text-center">${t.featured_title}</h2>
                             <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 text-center">
@@ -459,7 +459,7 @@
                         </div>
                     </section>
 
-                    <section class="py-16 bg-slate-100">
+                    <section class="py-16 bg-slate-100 no-print">
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                             <div class="flex justify-between items-center mb-8">
                                 <h2 class="text-2xl font-black text-slate-950">أبرز المنتجات المعتمدة</h2>
@@ -474,7 +474,7 @@
             else if (page === 'store' || page === 'category') {
                 const filtered = param ? products.filter(p => p.category === param || p.name.includes(param) || p.model.includes(param)) : products;
                 main.innerHTML = `
-                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 no-print">
                         <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-8">
                             <div>
                                 <h2 class="text-2xl font-black text-slate-900">${param ? 'قسم: ' + param : 'متجر المنتجات الشامل'}</h2>
@@ -492,7 +492,7 @@
             else if (page === 'product-detail') {
                 const product = products.find(p => p.id === param) || products[0];
                 main.innerHTML = `
-                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 no-print">
                         <button onclick="navigateTo('store')" class="text-xs font-bold text-orange-600 mb-6 inline-block">← العودة للمتجر</button>
                         <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 grid grid-cols-1 md:grid-cols-2 gap-12">
                             <div class="bg-slate-100 rounded-2xl overflow-hidden h-96 flex items-center justify-center">
@@ -510,16 +510,96 @@
                     </div>
                 `;
             }
+            else if (page === 'quotation-preview') {
+                let subtotal = 0;
+                let rowsHTML = '';
+                cart.forEach((item, idx) => {
+                    const itemTotal = item.price;
+                    const tax = itemTotal * 0.15;
+                    const totalWithTax = itemTotal * 1.15;
+                    subtotal += itemTotal;
+                    rowsHTML += `
+                        <tr class="border-b text-center">
+                            <td class="p-2">${idx + 1}</td>
+                            <td class="p-2 text-right font-bold">${item.model} - ${item.name}</td>
+                            <td class="p-2">1</td>
+                            <td class="p-2">${item.price.toFixed(2)}</td>
+                            <td class="p-2">${item.price.toFixed(2)}</td>
+                            <td class="p-2">15%</td>
+                            <td class="p-2">${tax.toFixed(2)}</td>
+                            <td class="p-2 font-bold">${totalWithTax.toFixed(2)}</td>
+                        </tr>
+                    `;
+                });
+                const vatTotal = subtotal * 0.15;
+                const grandTotal = subtotal * 1.15;
+
+                main.innerHTML = `
+                    <div class="max-w-4xl mx-auto px-4 py-12 bg-white my-8 rounded-3xl shadow-xl border border-gray-200" id="printable-quotation">
+                        <div class="bg-amber-50 border border-amber-300 text-amber-800 p-3 rounded-xl mb-6 text-xs text-center font-bold no-print">
+                            ⚠️ عرض مبدئي من الموقع.. يرجى التواصل مع المؤسسة قبل التأكيد
+                        </div>
+                        <div class="flex justify-between items-start border-b pb-6 mb-6">
+                            <div>
+                                <h2 class="text-lg font-black text-slate-900">Zamla bint Falih Amer Al Amer Al Jahmi</h2>
+                                <p class="text-xs text-gray-600 mt-1">Bisha, Al-Muruj neighborhood</p>
+                                <p class="text-xs text-gray-600">Mobile: 0543201995</p>
+                                <p class="text-xs text-gray-600">VAT No: 300975768100003</p>
+                            </div>
+                            <div class="text-left" dir="rtl">
+                                <h2 class="text-lg font-black text-slate-900">مؤسسة زملة بنت فالح عامر الجهمي</h2>
+                                <p class="text-xs text-gray-600 mt-1">بيشة حي المروج</p>
+                                <p class="text-xs text-gray-600">جوال: 0543201995</p>
+                                <p class="text-xs text-gray-600">الرقم الضريبي: 300975768100003</p>
+                                <p class="text-xs font-bold text-orange-600 mt-2">التاريخ: ${new Date().toLocaleDateString('ar-SA')} | Quotation</p>
+                            </div>
+                        </div>
+
+                        <h3 class="text-center font-black text-xl mb-6 text-slate-800">Quotation | عرض سعر رسمي</h3>
+
+                        <table class="w-full text-xs border-collapse border border-gray-300 mb-6">
+                            <thead>
+                                <tr class="bg-slate-100 text-slate-800 border-b">
+                                    <th class="p-2 border">م</th>
+                                    <th class="p-2 border text-right">الصنف</th>
+                                    <th class="p-2 border">عدد</th>
+                                    <th class="p-2 border">سعر القطعة</th>
+                                    <th class="p-2 border">الإجمالي بدون الضريبة</th>
+                                    <th class="p-2 border">نسبة الضريبة</th>
+                                    <th class="p-2 border">الضريبة</th>
+                                    <th class="p-2 border">الإجمالي شامل الضريبة</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${rowsHTML || '<tr><td colspan="8" class="text-center p-6 text-gray-400">السلة فارغة حالياً. أضف منتجات لعرضها بالفاتورة.</td></tr>'}
+                            </tbody>
+                        </table>
+
+                        <div class="flex justify-end mb-8">
+                            <div class="w-72 bg-slate-50 p-4 rounded-2xl border space-y-2 text-xs">
+                                <div class="flex justify-between"><span>الإجمالي قبل الضريبة:</span><strong>${subtotal.toFixed(2)} ر.س</strong></div>
+                                <div class="flex justify-between"><span>ضريبة VAT (15%):</span><strong>${vatTotal.toFixed(2)} ر.س</strong></div>
+                                <div class="flex justify-between text-sm font-black text-orange-600 border-t pt-2"><span>الإجمالي شامل الضريبة:</span><span>${grandTotal.toFixed(2)} ر.س</span></div>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between items-center border-t pt-6 no-print">
+                            <button onclick="navigateTo('store')" class="bg-gray-600 text-white px-6 py-2.5 rounded-xl font-bold">← متابعة التسوق</button>
+                            <button onclick="window.print()" class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-xl font-bold shadow">طباعة العرض / حفظ PDF 🖨️</button>
+                        </div>
+                    </div>
+                `;
+            }
             else if (page === 'quote') {
                 main.innerHTML = `
-                    <div class="max-w-2xl mx-auto px-4 py-16">
+                    <div class="max-w-2xl mx-auto px-4 py-16 no-print">
                         <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 space-y-6">
-                            <h1 class="text-2xl font-black text-slate-900 border-b pb-4">📄 طلب الحصول على عرض سعر (PDF / WhatsApp)</h1>
+                            <h1 class="text-2xl font-black text-slate-900 border-b pb-4">📄 طلب الحصول على عرض سعر</h1>
                             <form onsubmit="submitQuoteForm(event)" class="space-y-4 text-xs">
-                                <div><label class="block font-bold mb-1">اسم العميل / الشركة / الفندق</label><input type="text" id="q-name" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
+                                <div><label class="block font-bold mb-1">اسم العميل / الشركة</label><input type="text" id="q-name" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
                                 <div><label class="block font-bold mb-1">رقم الجوال</label><input type="tel" id="q-phone" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
-                                <div><label class="block font-bold mb-1">تفاصيل المشروع والأجهزة المطلوبة</label><textarea id="q-details" rows="4" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm" placeholder="اكتب الأعداد، نوع الكاميرات، الشبكات، أو السنترالات المطلوبة..."></textarea></div>
-                                <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 rounded-xl text-sm shadow">إرسال عرض السعر عبر الواتساب 📱</button>
+                                <div><label class="block font-bold mb-1">التفاصيل والأجهزة المطلوبة</label><textarea id="q-details" rows="4" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></textarea></div>
+                                <button type="submit" class="w-full bg-emerald-600 text-white font-bold py-4 rounded-xl text-sm shadow">إرسال عبر الواتساب 📱</button>
                             </form>
                         </div>
                     </div>
@@ -527,15 +607,14 @@
             }
             else if (page === 'survey') {
                 main.innerHTML = `
-                    <div class="max-w-2xl mx-auto px-4 py-16">
+                    <div class="max-w-2xl mx-auto px-4 py-16 no-print">
                         <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 space-y-6">
-                            <h1 class="text-2xl font-black text-slate-900 border-b pb-4">🛠️ طلب معاينة ميدانية لمشاريع التركيبات</h1>
-                            <form onsubmit="event.preventDefault(); alert('تم تسجيل طلب المعاينة الميدانية بنجاح! سيتواصل معك المهندس المختص خلال ساعتين.'); navigateTo('home');" class="space-y-4 text-xs">
+                            <h1 class="text-2xl font-black text-slate-900 border-b pb-4">🛠️ طلب معاينة ميدانية للمشاريع</h1>
+                            <form onsubmit="event.preventDefault(); alert('تم حجز المعاينة بنجاح!'); navigateTo('home');" class="space-y-4 text-xs">
                                 <div><label class="block font-bold mb-1">اسم المسؤول</label><input type="text" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
-                                <div><label class="block font-bold mb-1">رقم الجوال للتواصل</label><input type="tel" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
-                                <div><label class="block font-bold mb-1">موقع المشروع (المدينة / الحي)</label><input type="text" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
-                                <div><label class="block font-bold mb-1">نوع المشروع</label><input type="text" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
-                                <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3.5 rounded-xl text-sm shadow">تأكيد حجز المعاينة الهندسية</button>
+                                <div><label class="block font-bold mb-1">رقم الجوال</label><input type="tel" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
+                                <div><label class="block font-bold mb-1">الموقع (المدينة / الحي)</label><input type="text" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
+                                <button type="submit" class="w-full bg-orange-500 text-white font-bold py-3.5 rounded-xl text-sm">تأكيد حجز المعاينة</button>
                             </form>
                         </div>
                     </div>
@@ -543,21 +622,13 @@
             }
             else if (page === 'calculator') {
                 main.innerHTML = `
-                    <div class="max-w-2xl mx-auto px-4 py-16">
+                    <div class="max-w-2xl mx-auto px-4 py-16 no-print">
                         <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 space-y-6">
-                            <h1 class="text-2xl font-black text-slate-900 border-b pb-4">🧮 حاسبة مساحة التخزين للهاردسك (NVR Storage)</h1>
+                            <h1 class="text-2xl font-black text-slate-900 border-b pb-4">🧮 حاسبة مساحة التخزين للهاردسك</h1>
                             <div class="space-y-4 text-xs">
                                 <div><label class="block font-bold mb-1">عدد الكاميرات:</label><input type="number" id="calc-cams" value="8" min="1" class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
-                                <div>
-                                    <label class="block font-bold mb-1">دقة الكاميرات:</label>
-                                    <select id="calc-res" class="w-full bg-slate-50 border rounded-xl p-3 text-sm">
-                                        <option value="20">2 ميجابكسل (2MP)</option>
-                                        <option value="40">4 ميجابكسل (4MP)</option>
-                                        <option value="80" selected>8 ميجابكسل 4K</option>
-                                    </select>
-                                </div>
                                 <div><label class="block font-bold mb-1">عدد الأيام:</label><input type="number" id="calc-days" value="30" min="1" class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
-                                <button onclick="calculateStorage()" class="w-full bg-orange-500 text-white font-bold py-3.5 rounded-xl text-sm">حساب المساحة المطلوبة</button>
+                                <button onclick="calculateStorage()" class="w-full bg-orange-500 text-white font-bold py-3.5 rounded-xl text-sm">حساب المساحة</button>
                                 <div id="calc-result" class="pt-4 text-center font-black text-base text-slate-800"></div>
                             </div>
                         </div>
@@ -566,20 +637,12 @@
             }
             else if (page === 'compare') {
                 main.innerHTML = `
-                    <div class="max-w-5xl mx-auto px-4 py-16">
+                    <div class="max-w-5xl mx-auto px-4 py-16 no-print">
                         <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 space-y-6">
                             <h1 class="text-2xl font-black text-slate-900 border-b pb-4">⚖️ مقارنة المواصفات والأسعار</h1>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                <div class="bg-slate-50 p-4 rounded-2xl border space-y-3">
-                                    <label class="font-bold">اختر المنتج الأول:</label>
-                                    <select id="comp-1" class="w-full bg-white border p-2 rounded-xl text-xs" onchange="updateComparison()"></select>
-                                    <div id="comp-box-1" class="pt-2 text-xs space-y-2"></div>
-                                </div>
-                                <div class="bg-slate-50 p-4 rounded-2xl border space-y-3">
-                                    <label class="font-bold">اختر المنتج الثاني:</label>
-                                    <select id="comp-2" class="w-full bg-white border p-2 rounded-xl text-xs" onchange="updateComparison()"></select>
-                                    <div id="comp-box-2" class="pt-2 text-xs space-y-2"></div>
-                                </div>
+                                <div class="bg-slate-50 p-4 rounded-2xl border space-y-3"><label class="font-bold">المنتج الأول:</label><select id="comp-1" class="w-full bg-white border p-2 rounded-xl text-xs" onchange="updateComparison()"></select><div id="comp-box-1" class="pt-2 text-xs space-y-2"></div></div>
+                                <div class="bg-slate-50 p-4 rounded-2xl border space-y-3"><label class="font-bold">المنتج الثاني:</label><select id="comp-2" class="w-full bg-white border p-2 rounded-xl text-xs" onchange="updateComparison()"></select><div id="comp-box-2" class="pt-2 text-xs space-y-2"></div></div>
                             </div>
                         </div>
                     </div>
@@ -588,102 +651,47 @@
             }
             else if (page === 'about') {
                 main.innerHTML = `
-                    <div class="max-w-4xl mx-auto px-4 py-16">
+                    <div class="max-w-4xl mx-auto px-4 py-16 no-print">
                         <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 space-y-6">
-                            <h1 class="text-2xl font-black text-slate-900 border-b pb-4">🏢 حول مؤسسة زمله فالح والاعتمادات</h1>
-                            <p class="text-xs text-gray-600 leading-relaxed">تعتبر مؤسسة زمله فالح (شركة الأمير الجهمي) من المؤسسات الرائدة في المملكة العربية السعودية المتخصصة في توريد وتركيب أنظمة التيار الخفيف، شبكات الحاسب الآلي، كاميرات المراقبة الأمنية المعتمدة (Hikvision, Dahua)، سنترالات VoIP، وأنظمة التحكم بالدخول والبصمة.</p>
-                        </div>
-                    </div>
-                `;
-            }
-            else if (page === 'catalog') {
-                main.innerHTML = `
-                    <div class="max-w-4xl mx-auto px-4 py-16">
-                        <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 space-y-6 text-center">
-                            <h1 class="text-2xl font-black text-slate-900 border-b pb-4">📚 الكتالوج التجاري المعتمد 2026</h1>
-                            <button onclick="navigateTo('store')" class="bg-orange-500 text-white font-bold px-8 py-3.5 rounded-xl text-xs">تصفح المنتجات في المتجر الرقمي ←</button>
+                            <h1 class="text-2xl font-black text-slate-900 border-b pb-4">🏢 حول مؤسسة زملة بنت فالح والاعتمادات</h1>
+                            <p class="text-xs text-gray-600 leading-relaxed">مؤسسة زملة بنت فالح عامر الجهمي (بيشة - حي المروج) متخصصة في توريد وتركيب شبكات التيار الخفيف وكاميرات المراقبة.</p>
                         </div>
                     </div>
                 `;
             }
             else if (page === 'affiliate') {
                 main.innerHTML = `
-                    <div class="max-w-3xl mx-auto px-4 py-16">
+                    <div class="max-w-3xl mx-auto px-4 py-16 no-print">
                         <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 space-y-6">
                             <h1 class="text-2xl font-black text-slate-900 border-b pb-4">🤝 برنامج البيع بالعمولة (Affiliate Program)</h1>
-                            <p class="text-xs text-gray-600 leading-relaxed">انضم إلى برنامج التسويق بالعمولة الخاص بمؤسسة زمله فالح واربح نسب أرباح مجزية عند تسويق مشاريع التيار الخفيف والشبكات وكاميرات المصاعد.</p>
-                            <div class="bg-slate-50 p-6 rounded-2xl border space-y-3">
-                                <h3 class="font-bold text-slate-800 text-xs">سجل اهتمامك كمسوق معتمد</h3>
-                                <form onsubmit="event.preventDefault(); alert('تم استلام طلب الانضمام لبرنامج التسويق بالعمولة بنجاح!'); navigateTo('home');" class="space-y-3 text-xs">
-                                    <input type="text" placeholder="الاسم الكامل" required class="w-full bg-white border rounded-xl p-3">
-                                    <input type="email" placeholder="البريد الإلكتروني" required class="w-full bg-white border rounded-xl p-3">
-                                    <input type="tel" placeholder="رقم الجوال" required class="w-full bg-white border rounded-xl p-3">
-                                    <button type="submit" class="w-full bg-orange-500 text-white font-bold py-3 rounded-xl">الانضمام للبرنامج</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            }
-            else if (page === 'payment') {
-                main.innerHTML = `
-                    <div class="max-w-4xl mx-auto px-4 py-16">
-                        <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 space-y-6">
-                            <h1 class="text-2xl font-black text-slate-900 border-b pb-4">💳 طرق السداد المعتمدة</h1>
-                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
-                                <div class="bg-slate-50 p-6 rounded-2xl border space-y-2"><div class="text-3xl">💳</div><div class="font-bold text-sm">مدى / فيزا / ماستركارد</div></div>
-                                <div class="bg-slate-50 p-6 rounded-2xl border space-y-2"><div class="text-3xl">📱</div><div class="font-bold text-sm">أبل باي (Apple Pay)</div></div>
-                                <div class="bg-slate-50 p-6 rounded-2xl border space-y-2"><div class="text-3xl">🏦</div><div class="font-bold text-sm">التحويل البنكي المباشر</div></div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            }
-            else if (page === 'bank') {
-                main.innerHTML = `
-                    <div class="max-w-4xl mx-auto px-4 py-16">
-                        <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 space-y-6">
-                            <h1 class="text-2xl font-black text-slate-900 border-b pb-4">🏦 الحسابات البنكية المعتمدة</h1>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                <div class="bg-slate-50 p-6 rounded-2xl border space-y-2"><div class="font-bold text-slate-800 text-sm">مصرف الراجحي</div><div class="text-xs font-mono font-bold">SA20 8000 0123 6080 1000 3333</div></div>
-                                <div class="bg-slate-50 p-6 rounded-2xl border space-y-2"><div class="font-bold text-slate-800 text-sm">البنك الأهلي السعودي (SNB)</div><div class="text-xs font-mono font-bold">SA44 1000 0001 6080 2000 4444</div></div>
-                            </div>
-                            <button onclick="navigateTo('verify')" class="bg-orange-500 text-white font-bold px-6 py-3 rounded-xl text-xs">تأكيد التحويل ←</button>
-                        </div>
-                    </div>
-                `;
-            }
-            else if (page === 'verify') {
-                main.innerHTML = `
-                    <div class="max-w-2xl mx-auto px-4 py-16">
-                        <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 space-y-6">
-                            <h1 class="text-2xl font-black text-slate-900 border-b pb-4">✅ تأكيد التحويل البنكي</h1>
-                            <form onsubmit="event.preventDefault(); alert('تم إرسال الإشعار بنجاح!'); navigateTo('home');" class="space-y-4 text-xs">
-                                <div><label class="block font-bold mb-1">اسم المحول</label><input type="text" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
-                                <div><label class="block font-bold mb-1">المبلغ (ر.س)</label><input type="number" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
-                                <button type="submit" class="w-full bg-orange-500 text-white font-bold py-3.5 rounded-xl text-sm">إرسال التأكيد</button>
+                            <form onsubmit="event.preventDefault(); alert('تم الانضمام بنجاح!'); navigateTo('home');" class="space-y-3 text-xs">
+                                <input type="text" placeholder="الاسم الكامل" required class="w-full bg-white border rounded-xl p-3">
+                                <input type="tel" placeholder="رقم الجوال" required class="w-full bg-white border rounded-xl p-3">
+                                <button type="submit" class="w-full bg-orange-500 text-white font-bold py-3 rounded-xl">الانضمام للبرنامج</button>
                             </form>
+                        </div>
+                    </div>
+                `;
+            }
+            else if (page === 'payment' || page === 'bank') {
+                main.innerHTML = `
+                    <div class="max-w-4xl mx-auto px-4 py-16 no-print">
+                        <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 space-y-6">
+                            <h1 class="text-2xl font-black text-slate-900 border-b pb-4">💳 الحسابات وطرق السداد</h1>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div class="bg-slate-50 p-6 rounded-2xl border space-y-2"><div class="font-bold text-sm">مصرف الراجحي</div><div class="text-xs font-mono font-bold">SA20 8000 0123 6080 1000 3333</div></div>
+                                <div class="bg-slate-50 p-6 rounded-2xl border space-y-2"><div class="font-bold text-sm">البنك الأهلي السعودي (SNB)</div><div class="text-xs font-mono font-bold">SA44 1000 0001 6080 2000 4444</div></div>
+                            </div>
                         </div>
                     </div>
                 `;
             }
             else if (page === 'contact') {
                 main.innerHTML = `
-                    <div class="max-w-4xl mx-auto px-4 py-16">
-                        <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 grid grid-cols-1 md:grid-cols-2 gap-8">
-                            <div class="space-y-4">
-                                <h1 class="text-2xl font-black text-slate-900">اتصل بنا</h1>
-                                <p class="text-xs text-gray-600">شارع خالد بن الوليد، جدة، المملكة العربية السعودية</p>
-                                <p class="text-xs text-gray-600">هاتف: 920007276 | واتساب: 0543201995</p>
-                            </div>
-                            <div class="bg-slate-50 p-6 rounded-2xl border">
-                                <form onsubmit="event.preventDefault(); alert('تم إرسال رسالتك!'); navigateTo('home');" class="space-y-3 text-xs">
-                                    <input type="text" placeholder="الاسم" required class="w-full bg-slate-50 border rounded-xl p-3">
-                                    <input type="tel" placeholder="الجوال" required class="w-full bg-slate-50 border rounded-xl p-3">
-                                    <textarea placeholder="الرسالة..." rows="3" required class="w-full bg-slate-50 border rounded-xl p-3"></textarea>
-                                    <button type="submit" class="w-full bg-orange-500 text-white font-bold py-3 rounded-xl">إرسال</button>
-                                </form>
-                            </div>
+                    <div class="max-w-4xl mx-auto px-4 py-16 no-print">
+                        <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200">
+                            <h1 class="text-2xl font-black text-slate-900 mb-4">اتصل بنا</h1>
+                            <p class="text-xs text-gray-600">بيشة حي المروج | هاتف: 0543201995</p>
                         </div>
                     </div>
                 `;
@@ -691,9 +699,8 @@
             updateLanguageUI();
         }
 
-        // شات الذكاء الاصطناعي الذكي الذي يسحب الداتا من المنتجات مباشرة
+        // شات الذكاء الاصطناعي الذكي
         function toggleLiveChat() { document.getElementById('live-chat-modal').classList.toggle('hidden'); }
-
         function sendAIChatMessage() {
             const input = document.getElementById('chat-input');
             const msg = input.value.trim();
@@ -701,18 +708,10 @@
             const box = document.getElementById('chat-messages');
             box.innerHTML += `<div class="bg-orange-100 text-orange-900 p-2 rounded-xl max-w-[80%] ml-auto text-right">${msg}</div>`;
             input.value = '';
-
             setTimeout(() => {
-                let aiReply = "مرحباً! لقد بحثت في كتالوج مؤسسة زمله فالح ولم أجد مطابقة دقيقة. يمكنك تصفح الأقسام أو طلب عرض سعر.";
-                const lowMsg = msg.toLowerCase();
-                const found = products.find(p => p.model.toLowerCase().includes(lowMsg) || p.name.toLowerCase().includes(lowMsg) || p.category.toLowerCase().includes(lowMsg));
-                if (found) {
-                    aiReply = `وجدت هذا المنتج المطابق في الكتالوج:%0A🔹 الموديل: ${found.model}%0A🔹 الاسم: ${found.name}%0A🔹 السعر: ${found.price} ر.س%0A🔹 الوصف: ${found.desc}`;
-                } else if(lowMsg.includes('كاميرات') || lowMsg.includes('camera')) {
-                    aiReply = "لدينا كاميرات هيكفيجن وداهوا وبدقة تصل إلى 4K بالإضافة لنظام كاميرات المصاعد اللاسلكية.";
-                } else if(lowMsg.includes('سعر') || lowMsg.includes('price')) {
-                    aiReply = "أسعارنا منافسة ومعتمدة رسمياً. يمكنك إضافة المنتجات للسلة وطلب عرض سعر أو إتمام الشراء.";
-                }
+                let aiReply = "مرحباً! أنا مساعد زمله فالح الذكي. هل تبحث عن منتج معين؟";
+                const found = products.find(p => p.model.toLowerCase().includes(msg.toLowerCase()) || p.name.toLowerCase().includes(msg.toLowerCase()));
+                if (found) { aiReply = `وجدت هذا المنتج:%0A🔹 ${found.model} - ${found.name}%0A🔹 السعر: ${found.price} ر.س`; }
                 box.innerHTML += `<div class="bg-blue-100 text-blue-900 p-2 rounded-xl max-w-[80%]">${aiReply}</div>`;
                 box.scrollTop = box.scrollHeight;
             }, 800);
@@ -721,20 +720,19 @@
 
         function toggleAuthModal() { document.getElementById('auth-modal').classList.toggle('hidden'); }
         function simulateGoogleLogin() {
-            currentUser = { name: "Google User", email: "user@gmail.com", phone: "0500000000" };
+            currentUser = { name: "Google User", email: "user@gmail.com", phone: "0543201995" };
             localStorage.setItem('zamla_user', JSON.stringify(currentUser));
             toggleAuthModal();
-            alert('تم تسجيل الدخول بنجاح بواسطة Google (Gmail)!');
+            alert('تم تسجيل الدخول بنجاح!');
             document.getElementById('auth-nav-btn').innerText = currentUser.name;
         }
         function handleEmailAuth(e) {
             e.preventDefault();
             const email = document.getElementById('auth-email').value;
-            const phone = document.getElementById('auth-phone').value;
-            currentUser = { name: email.split('@')[0], email, phone };
+            currentUser = { name: email.split('@')[0], email };
             localStorage.setItem('zamla_user', JSON.stringify(currentUser));
             toggleAuthModal();
-            alert('تم تسجيل الدخول وتفعيل الحساب بنجاح!');
+            alert('تم تسجيل الدخول بنجاح!');
             document.getElementById('auth-nav-btn').innerText = currentUser.name;
         }
 
@@ -742,56 +740,35 @@
             const name = document.getElementById('aff-marketer-name').value;
             const phone = document.getElementById('aff-marketer-phone').value;
             const rate = document.getElementById('aff-marketer-rate').value || 10;
-            if(!name || !phone) { alert('الرجاء إدخال اسم المسوق ورقم الجوال!'); return; }
+            if(!name || !phone) { alert('أدخل الاسم ورقم الجوال'); return; }
             const code = 'ZF-AFF-' + Math.floor(1000 + Math.random() * 9000);
             affiliates.push({ name, phone, code, rate });
             localStorage.setItem('zamla_affiliates_v15', JSON.stringify(affiliates));
             renderAffiliateTable();
-            
-            const text = `السلام عليكم ${name},%0Aتم اعتمادك في برنامج البيع بالعمولة لمؤسسة زمله فالح بربح نسبة ${rate}%.%0Aكود التسويق الخاص بك هو: *${code}*%0Aشارك هذا الكود مع عملائك لتبدأ الأرباح!`;
+            const text = `السلام عليكم ${name},%0Aتم اعتمادك في برنامج البيع بالعمولة لمؤسسة زمله بنت فالح بربح نسبة ${rate}%.%0Aكود التسويق الخاص بك هو: *${code}*`;
             window.open(`https://wa.me/966${phone.replace(/^0/, '')}?text=${text}`, '_blank');
         }
 
         function renderAffiliateTable() {
             const container = document.getElementById('affiliate-table-container');
             if(!container) return;
-            if(affiliates.length === 0) {
-                container.innerHTML = '<p class="p-4 text-center text-gray-500">لا يوجد مسوقين حالياً.</p>';
-                return;
-            }
             container.innerHTML = `
                 <table class="w-full text-right border-collapse text-xs">
                     <thead class="bg-slate-100 border-b">
-                        <tr>
-                            <th class="p-2.5">اسم المسوق</th>
-                            <th class="p-2.5">رقم الجوال</th>
-                            <th class="p-2.5">الكود</th>
-                            <th class="p-2.5">نسبة العمولة</th>
-                            <th class="p-2.5">الإجراء</th>
-                        </tr>
+                        <tr><th class="p-2.5">اسم المسوق</th><th class="p-2.5">الجوال</th><th class="p-2.5">الكود</th><th class="p-2.5">النسبة</th><th class="p-2.5">إجراء</th></tr>
                     </thead>
                     <tbody>
-                        ${affiliates.map((a, i) => `
-                            <tr class="border-b">
-                                <td class="p-2.5 font-bold">${a.name}</td>
-                                <td class="p-2.5" dir="ltr">${a.phone}</td>
-                                <td class="p-2.5 font-mono text-orange-600 font-bold">${a.code}</td>
-                                <td class="p-2.5">${a.rate}%</td>
-                                <td class="p-2.5"><button onclick="affiliates.splice(${i},1); localStorage.setItem('zamla_affiliates_v15', JSON.stringify(affiliates)); renderAffiliateTable();" class="text-red-500 font-bold">حذف</button></td>
-                            </tr>
-                        `).join('')}
+                        ${affiliates.map((a, i) => `<tr class="border-b"><td class="p-2.5 font-bold">${a.name}</td><td class="p-2.5">${a.phone}</td><td class="p-2.5 font-mono text-orange-600 font-bold">${a.code}</td><td class="p-2.5">${a.rate}%</td><td class="p-2.5"><button onclick="affiliates.splice(${i},1); localStorage.setItem('zamla_affiliates_v15', JSON.stringify(affiliates)); renderAffiliateTable();" class="text-red-500 font-bold">حذف</button></td></tr>`).join('')}
                     </tbody>
                 </table>
             `;
         }
 
         function calculateStorage() {
-            const cams = parseInt(document.getElementById('calc-cams').value) || 0;
-            const gbPerDay = parseInt(document.getElementById('calc-res').value) || 80;
+            const cams = parseInt(document.getElementById('calc-cams').value) || 8;
             const days = parseInt(document.getElementById('calc-days').value) || 30;
-            const totalGB = cams * gbPerDay * days;
-            const totalTB = (totalGB / 1024).toFixed(2);
-            document.getElementById('calc-result').innerText = `المساحة الإجمالية المطلوبة للهاردسك: ${totalTB} Terabytes (TB)`;
+            const totalTB = ((cams * 80 * days) / 1024).toFixed(2);
+            document.getElementById('calc-result').innerText = `المساحة الإجمالية المطلوبة: ${totalTB} TB`;
         }
 
         function initComparisonDropdowns() {
@@ -799,35 +776,16 @@
             const sel2 = document.getElementById('comp-2');
             if(!sel1 || !sel2) return;
             const opts = products.map(p => `<option value="${p.id}">${p.model} - ${p.name} (${p.price} ر.س)</option>`).join('');
-            sel1.innerHTML = opts;
-            sel2.innerHTML = opts;
+            sel1.innerHTML = opts; sel2.innerHTML = opts;
             if(products.length > 1) sel2.selectedIndex = 1;
             updateComparison();
         }
 
         function updateComparison() {
-            const id1 = document.getElementById('comp-1').value;
-            const id2 = document.getElementById('comp-2').value;
-            const p1 = products.find(p => p.id == id1);
-            const p2 = products.find(p => p.id == id2);
-            
-            document.getElementById('comp-box-1').innerHTML = p1 ? `
-                <img src="${p1.image}" class="w-full h-32 object-cover rounded-xl mb-2">
-                <div><strong>الموديل:</strong> ${p1.model}</div>
-                <div><strong>الاسم:</strong> ${p1.name}</div>
-                <div><strong>التصنيف:</strong> ${p1.category}</div>
-                <div class="text-orange-600 font-bold"><strong>السعر:</strong> ${p1.price} ر.س</div>
-                <div><strong>المواصفات:</strong> ${p1.desc}</div>
-            ` : '';
-
-            document.getElementById('comp-box-2').innerHTML = p2 ? `
-                <img src="${p2.image}" class="w-full h-32 object-cover rounded-xl mb-2">
-                <div><strong>الموديل:</strong> ${p2.model}</div>
-                <div><strong>الاسم:</strong> ${p2.name}</div>
-                <div><strong>التصنيف:</strong> ${p2.category}</div>
-                <div class="text-orange-600 font-bold"><strong>السعر:</strong> ${p2.price} ر.س</div>
-                <div><strong>المواصفات:</strong> ${p2.desc}</div>
-            ` : '';
+            const p1 = products.find(p => p.id == document.getElementById('comp-1').value);
+            const p2 = products.find(p => p.id == document.getElementById('comp-2').value);
+            document.getElementById('comp-box-1').innerHTML = p1 ? `<img src="${p1.image}" class="w-full h-32 object-cover rounded-xl mb-2"><div><strong>الموديل:</strong> ${p1.model}</div><div><strong>السعر:</strong> ${p1.price} ر.س</div>` : '';
+            document.getElementById('comp-box-2').innerHTML = p2 ? `<img src="${p2.image}" class="w-full h-32 object-cover rounded-xl mb-2"><div><strong>الموديل:</strong> ${p2.model}</div><div><strong>السعر:</strong> ${p2.price} ر.س</div>` : '';
         }
 
         function renderHomeProducts() {
@@ -841,121 +799,71 @@
         function renderStoreProducts(list) {
             const grid = document.getElementById('store-products-grid');
             if(!grid) return;
-            if(list.length === 0) {
-                grid.innerHTML = '<p class="col-span-4 text-center text-gray-500 py-10 text-xs">لا توجد منتجات مطابقة.</p>';
-                return;
-            }
             grid.innerHTML = list.map(p => productCardHTML(p)).join('');
         }
 
         function productCardHTML(p) {
-            const t = translations[currentLang];
             return `
                 <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden flex flex-col justify-between hover:shadow-lg transition">
                     <div class="cursor-pointer" onclick="navigateTo('product-detail', ${p.id})">
-                        <div class="h-44 overflow-hidden bg-slate-100">
-                            <img src="${p.image}" alt="${p.model}" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.src='https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500'">
-                        </div>
-                        <div class="p-4">
-                            <span class="text-[10px] text-orange-600 bg-orange-50 px-2 py-0.5 rounded-md font-bold">${p.category}</span>
-                            <h3 class="text-xs font-black text-slate-900 mt-2" dir="ltr">${p.model}</h3>
-                            <h4 class="text-[11px] font-bold text-gray-800 mt-1">${p.name}</h4>
-                            <p class="text-[11px] text-gray-500 mt-1 leading-relaxed line-clamp-2">${p.desc}</p>
-                        </div>
+                        <div class="h-44 overflow-hidden bg-slate-100"><img src="${p.image}" class="w-full h-full object-cover"></div>
+                        <div class="p-4"><span class="text-[10px] text-orange-600 bg-orange-50 px-2 py-0.5 rounded-md font-bold">${p.category}</span><h3 class="text-xs font-black text-slate-900 mt-2" dir="ltr">${p.model}</h3><h4 class="text-[11px] font-bold text-gray-800 mt-1">${p.name}</h4></div>
                     </div>
-                    <div class="p-4 pt-0 flex items-center justify-between border-t border-gray-100 mt-3">
-                        <span class="text-base font-black text-slate-900">${p.price} ر.س</span>
-                        <button onclick="addToCart(${p.id})" class="bg-orange-500 hover:bg-orange-600 text-white px-3 py-1.5 rounded-xl text-xs font-bold transition shadow-sm">${t.add_to_cart}</button>
-                    </div>
+                    <div class="p-4 pt-0 flex items-center justify-between border-t mt-3"><span class="text-base font-black text-slate-900">${p.price} ر.س</span><button onclick="addToCart(${p.id})" class="bg-orange-500 text-white px-3 py-1.5 rounded-xl text-xs font-bold">أضف للسلة</button></div>
                 </div>
             `;
         }
 
         function filterStoreProducts() {
-            const query = document.getElementById('store-search').value.toLowerCase();
-            const filtered = products.filter(p => p.model.toLowerCase().includes(query) || p.name.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query) || p.category.toLowerCase().includes(query));
-            renderStoreProducts(filtered);
+            const q = document.getElementById('store-search').value.toLowerCase();
+            renderStoreProducts(products.filter(p => p.model.toLowerCase().includes(q) || p.name.toLowerCase().includes(q)));
         }
 
         function handleSearch() {
-            const query = document.getElementById('search-input').value;
-            if(query.trim() !== '') navigateTo('store', query);
+            const q = document.getElementById('search-input').value;
+            if(q.trim() !== '') navigateTo('store', q);
         }
 
         function toggleMegaMenu() {
             const menu = document.getElementById('mega-menu');
             menu.classList.toggle('hidden');
-            document.getElementById('mega-menu-list').innerHTML = `
-                <a href="#store" onclick="navigateTo('store'); toggleMegaMenu();" class="block p-2 hover:bg-gray-100 rounded-lg">🔥 جميع الأقسام (${products.length})</a>
-                ` + categories.map(c => `
-                <a href="#store" onclick="navigateTo('category', '${c.name}'); toggleMegaMenu();" class="block p-2 hover:bg-gray-100 rounded-lg flex items-center gap-2">
-                    <img src="${c.icon || 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=100'}" class="w-5 h-5 object-cover rounded">
-                    <span>${c.name}</span>
-                </a>
-            `).join('');
+            document.getElementById('mega-menu-list').innerHTML = categories.map(c => `<a href="#store" onclick="navigateTo('category', '${c.name}'); toggleMegaMenu();" class="block p-2 hover:bg-gray-100 rounded-lg flex items-center gap-2"><img src="${c.icon}" class="w-5 h-5 object-cover rounded"><span>${c.name}</span></a>`).join('');
         }
 
         function addToCart(id) {
-            const product = products.find(p => p.id === id);
-            cart.push(product);
+            const p = products.find(item => item.id === id);
+            cart.push(p);
             localStorage.setItem('zamla_cart_v15', JSON.stringify(cart));
             updateCartUI();
             toggleCart();
         }
 
-        function removeFromCart(index) {
-            cart.splice(index, 1);
+        function removeFromCart(i) {
+            cart.splice(i, 1);
             localStorage.setItem('zamla_cart_v15', JSON.stringify(cart));
             updateCartUI();
         }
 
         function updateCartUI() {
-            const countEl = document.getElementById('cart-count');
-            if(countEl) countEl.innerText = cart.length;
+            document.getElementById('cart-count').innerText = cart.length;
             const container = document.getElementById('cart-items');
             if(!container) return;
-            if(cart.length === 0) {
-                container.innerHTML = `<p class="text-center text-gray-500 py-8">سُلة التسوق فارغة</p>`;
-                document.getElementById('cart-total').innerText = `0 ر.س`;
-                return;
-            }
+            if(cart.length === 0) { container.innerHTML = '<p class="text-center text-gray-500 py-8">السلة فارغة</p>'; document.getElementById('cart-total').innerText = '0 ر.س'; return; }
             container.innerHTML = '';
             let total = 0;
-            cart.forEach((item, index) => {
+            cart.forEach((item, i) => {
                 total += item.price;
-                container.innerHTML += `
-                    <div class="flex justify-between items-center bg-slate-50 p-2.5 rounded-xl border border-gray-200">
-                        <div>
-                            <h4 class="font-bold text-slate-900" dir="ltr">${item.model}</h4>
-                            <span class="text-orange-600 font-bold">${item.price} ر.س</span>
-                        </div>
-                        <button onclick="removeFromCart(${index})" class="text-red-500 font-bold hover:underline">حذف</button>
-                    </div>
-                `;
+                container.innerHTML += `<div class="flex justify-between items-center bg-slate-50 p-2.5 rounded-xl border"><div><h4 class="font-bold" dir="ltr">${item.model}</h4><span class="text-orange-600">${item.price} ر.س</span></div><button onclick="removeFromCart(${i})" class="text-red-500 font-bold">حذف</button></div>`;
             });
-            document.getElementById('cart-total').innerText = `${total} ر.س`;
+            document.getElementById('cart-total').innerText = total + ' ر.س';
         }
 
         function toggleCart() { document.getElementById('cart-drawer').classList.toggle('-translate-x-full'); }
+        function proceedToCheckout() { alert('تم تأكيد الطلب بنجاح!'); cart = []; localStorage.removeItem('zamla_cart_v15'); updateCartUI(); toggleCart(); navigateTo('home'); }
 
-        function proceedToCheckout() {
-            if(cart.length === 0) { alert('السلة فارغة!'); return; }
-            alert('تم تأكيد طلبك بنجاح! سيتم التواصل معكم لشحنه وتوصيله.');
-            cart = [];
-            localStorage.removeItem('zamla_cart_v15');
-            updateCartUI();
-            toggleCart();
-            navigateTo('home');
-        }
-
-        // لوحة التحكم الإدارية
         function toggleAdminModal() {
             document.getElementById('admin-modal').classList.toggle('hidden');
-            renderAdminProducts();
-            renderAdminCategories();
-            renderAffiliateTable();
-            renderInventoryAnalytics();
-            populateCategoryDropdown();
+            renderAdminProducts(); renderAdminCategories(); renderAffiliateTable(); renderInventoryAnalytics(); populateCategoryDropdown();
         }
 
         function switchAdminTab(tab) {
@@ -969,45 +877,14 @@
 
         function renderInventoryAnalytics() {
             document.getElementById('kpi-total-prods').innerText = products.length;
-            const totalVal = products.reduce((sum, p) => sum + (p.price * (p.stock || 10)), 0);
-            document.getElementById('kpi-total-val').innerText = totalVal.toLocaleString() + ' ر.س';
-            const lowStockCount = products.filter(p => (p.stock || 10) <= 5).length;
-            document.getElementById('kpi-low-stock').innerText = lowStockCount;
-
-            const invContainer = document.getElementById('admin-inventory-list');
-            invContainer.innerHTML = products.map(p => {
-                const stock = p.stock !== undefined ? p.stock : 10;
-                const statusBadge = stock <= 5 ? '<span class="bg-red-100 text-red-700 px-2 py-0.5 rounded font-bold">⚠️ قاربت على النفاذ</span>' : '<span class="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded">متوفر</span>';
-                return `
-                    <div class="flex justify-between items-center bg-slate-50 p-2 rounded-xl border text-xs">
-                        <div>
-                            <span class="font-bold" dir="ltr">${p.model}</span> - ${p.name} (${p.category})
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <span>الكمية: <strong>${stock}</strong></span>
-                            ${statusBadge}
-                            <button onclick="updateStock(${p.id})" class="bg-blue-600 text-white px-2 py-1 rounded">تحديث الكمية</button>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        function updateStock(id) {
-            const newStock = prompt("أدخل الكمية الجديدة بالمخزون:");
-            if(newStock !== null && !isNaN(newStock)) {
-                products = products.map(p => p.id == id ? { ...p, stock: parseInt(newStock) } : p);
-                localStorage.setItem('zamla_products_v15', JSON.stringify(products));
-                renderInventoryAnalytics();
-                renderAdminProducts();
-                alert('تم تحديث المخزون بنجاح!');
-            }
+            document.getElementById('kpi-total-val').innerText = products.reduce((s, p) => s + (p.price * (p.stock || 10)), 0).toLocaleString() + ' ر.س';
+            document.getElementById('kpi-low-stock').innerText = products.filter(p => (p.stock || 10) <= 5).length;
+            document.getElementById('admin-inventory-list').innerHTML = products.map(p => `<div class="flex justify-between items-center bg-slate-50 p-2 rounded-xl border text-xs"><span>${p.model} - ${p.name}</span><span>المخزون: <strong>${p.stock || 10}</strong></span></div>`).join('');
         }
 
         function populateCategoryDropdown() {
-            const select = document.getElementById('p-cat');
-            if(!select) return;
-            select.innerHTML = '<option value="">اختر التصنيف الرئيسي</option>' + categories.map(c => `<option value="${c.name}">${c.name}</option>`).join('');
+            const sel = document.getElementById('p-cat');
+            if(sel) sel.innerHTML = '<option value="">اختر التصنيف</option>' + categories.map(c => `<option value="${c.name}">${c.name}</option>`).join('');
         }
 
         function saveProductData(e) {
@@ -1022,51 +899,36 @@
             const featured = document.getElementById('p-featured').checked;
             const fileInput = document.getElementById('p-img-file');
 
-            const finishSave = (imgUrl) => {
+            const finish = (imgUrl) => {
                 if (editId) {
-                    products = products.map(p => p.id == editId ? { ...p, model, name, title: name, category, price, stock, desc, featured, image: imgUrl || p.image } : p);
-                    alert('تم تحديث المنتج بنجاح!');
+                    products = products.map(p => p.id == editId ? { ...p, model, name, category, price, stock, desc, featured, image: imgUrl || p.image } : p);
                 } else {
-                    const newProd = {
-                        id: Date.now(),
-                        sku: "CUST-" + Math.floor(Math.random()*1000),
-                        model, name, title: name, category, price, stock, desc, featured,
-                        image: imgUrl || "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500"
-                    };
-                    products.unshift(newProd);
-                    alert('تمت إضافة المنتج بنجاح!');
+                    products.unshift({ id: Date.now(), model, name, category, price, stock, desc, featured, image: imgUrl || "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500" });
                 }
                 localStorage.setItem('zamla_products_v15', JSON.stringify(products));
                 document.getElementById('product-form').reset();
-                document.getElementById('p-edit-id').value = '';
-                document.getElementById('form-title-heading').innerText = 'إضافة منتج جديد';
-                document.getElementById('form-submit-btn').innerText = 'حفظ المنتج';
                 renderAdminProducts();
-                renderInventoryAnalytics();
+                alert('تم الحفظ بنجاح!');
             };
 
             if (fileInput.files && fileInput.files[0]) {
                 const reader = new FileReader();
-                reader.onload = function(uploadEvent) { finishSave(uploadEvent.target.result); };
+                reader.onload = function(e) { finish(e.target.result); };
                 reader.readAsDataURL(fileInput.files[0]);
-            } else {
-                finishSave(null);
-            }
+            } else { finish(null); }
         }
 
         function editProduct(id) {
             const p = products.find(item => item.id == id);
             if(!p) return;
             document.getElementById('p-edit-id').value = p.id;
-            document.getElementById('p-model').value = p.model || '';
-            document.getElementById('p-name').value = p.name || '';
-            document.getElementById('p-cat').value = p.category || '';
-            document.getElementById('p-price').value = p.price || 0;
-            document.getElementById('p-stock').value = p.stock !== undefined ? p.stock : 15;
-            document.getElementById('p-desc').value = p.desc || '';
+            document.getElementById('p-model').value = p.model;
+            document.getElementById('p-name').value = p.name;
+            document.getElementById('p-cat').value = p.category;
+            document.getElementById('p-price').value = p.price;
+            document.getElementById('p-stock').value = p.stock || 15;
+            document.getElementById('p-desc').value = p.desc;
             document.getElementById('p-featured').checked = !!p.featured;
-            document.getElementById('form-title-heading').innerText = 'تعديل المنتج المحدد';
-            document.getElementById('form-submit-btn').innerText = 'حفظ التعديلات';
             switchAdminTab('products');
         }
 
@@ -1074,7 +936,6 @@
             products = products.filter(p => p.id !== id);
             localStorage.setItem('zamla_products_v15', JSON.stringify(products));
             renderAdminProducts();
-            renderInventoryAnalytics();
         }
 
         function saveCategoryData(e) {
@@ -1083,98 +944,45 @@
             const name = document.getElementById('new-cat-name').value;
             const fileInput = document.getElementById('c-icon-file');
 
-            const finishCatSave = (iconUrl) => {
-                if (editIndex !== "") {
-                    const oldName = categories[editIndex].name;
+            const finishCat = (iconUrl) => {
+                if(editIndex !== "") {
                     categories[editIndex] = { name, icon: iconUrl || categories[editIndex].icon };
-                    products.forEach(p => { if(p.category === oldName) p.category = name; });
-                    localStorage.setItem('zamla_products_v15', JSON.stringify(products));
-                    alert('تم تعديل التصنيف بنجاح!');
                 } else {
                     categories.push({ name, icon: iconUrl || 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=200' });
-                    alert('تمت إضافة التصنيف بنجاح!');
                 }
                 localStorage.setItem('zamla_categories_v15', JSON.stringify(categories));
                 document.getElementById('category-form').reset();
-                document.getElementById('c-edit-index').value = '';
                 renderAdminCategories();
                 populateCategoryDropdown();
+                alert('تم حفظ التصنيف!');
             };
 
             if (fileInput.files && fileInput.files[0]) {
                 const reader = new FileReader();
-                reader.onload = function(upEvt) { finishCatSave(upEvt.target.result); };
+                reader.onload = function(e) { finishCat(e.target.result); };
                 reader.readAsDataURL(fileInput.files[0]);
-            } else {
-                finishCatSave(null);
-            }
+            } else { finishCat(null); }
         }
 
-        function editCategory(index) {
-            const cat = categories[index];
-            document.getElementById('c-edit-index').value = index;
-            document.getElementById('new-cat-name').value = cat.name;
+        function editCategory(i) {
+            document.getElementById('c-edit-index').value = i;
+            document.getElementById('new-cat-name').value = categories[i].name;
         }
 
-        function deleteCategory(index) {
-            if(confirm('هل أنت متأكد من حذف هذا التصنيف؟')) {
-                categories.splice(index, 1);
-                localStorage.setItem('zamla_categories_v15', JSON.stringify(categories));
-                renderAdminCategories();
-                populateCategoryDropdown();
-            }
+        function deleteCategory(i) {
+            categories.splice(i, 1);
+            localStorage.setItem('zamla_categories_v15', JSON.stringify(categories));
+            renderAdminCategories();
+            populateCategoryDropdown();
         }
 
         function renderAdminCategories() {
-            const container = document.getElementById('admin-categories-list');
-            if(!container) return;
-            container.innerHTML = categories.map((c, i) => `
+            document.getElementById('admin-categories-list').innerHTML = categories.map((c, i) => `
                 <div class="flex justify-between items-center bg-white p-2.5 rounded-xl border text-xs">
-                    <div class="flex items-center gap-3">
-                        <img src="${c.icon || 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=200'}" class="w-8 h-8 object-cover rounded-lg">
-                        <span class="font-bold">${c.name}</span>
-                    </div>
-                    <div class="flex gap-2">
-                        <button onclick="editCategory(${i})" class="bg-blue-600 text-white px-2 py-1 rounded font-bold">تعديل</button>
-                        <button onclick="deleteCategory(${i})" class="bg-red-600 text-white px-2 py-1 rounded font-bold">حذف</button>
-                    </div>
+                    <div class="flex items-center gap-3"><img src="${c.icon}" class="w-8 h-8 object-cover rounded-lg"><span class="font-bold">${c.name}</span></div>
+                    <div class="flex gap-2"><button onclick="editCategory(${i})" class="bg-blue-600 text-white px-2 py-1 rounded">تعديل</button><button onclick="deleteCategory(${i})" class="bg-red-600 text-white px-2 py-1 rounded">حذف</button></div>
                 </div>
             `).join('');
-        }
-
-        function handleExcelUpload() {
-            const fileInput = document.getElementById('excel-file-input');
-            const file = fileInput.files[0];
-            if (!file) { alert('اختر ملف أكسيل أولاً!'); return; }
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                try {
-                    const data = new Uint8Array(e.target.result);
-                    const workbook = XLSX.read(data, { type: 'array' });
-                    const sheet = workbook.Sheets[workbook.SheetNames[0]];
-                    const rows = XLSX.utils.sheet_to_json(sheet);
-                    rows.forEach((row, idx) => {
-                        const newP = {
-                            id: Date.now() + idx,
-                            model: String(row['Model'] || `ITEM-${idx}`),
-                            name: String(row['Product Name AR'] || 'منتج معتمد'),
-                            category: String(row['Category'] || 'المراقبة'),
-                            price: parseFloat(row['Saudi Price SAR'] || 150.0),
-                            stock: 15,
-                            desc: String(row['Description AR'] || 'منتج عالي الجودة.'),
-                            image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500",
-                            featured: false
-                        };
-                        products.unshift(newP);
-                    });
-                    localStorage.setItem('zamla_products_v15', JSON.stringify(products));
-                    renderAdminProducts();
-                    renderInventoryAnalytics();
-                    alert('تم استيراد الأصناف والمخزون بنجاح!');
-                    switchAdminTab('products');
-                } catch(err) { alert('خطأ في قراءة ملف الأكسيل'); }
-            };
-            reader.readAsArrayBuffer(file);
         }
 
         function saveSettings(e) {
@@ -1182,39 +990,24 @@
             const title = document.getElementById('s-title').value;
             const phone = document.getElementById('s-phone').value;
             const fileInput = document.getElementById('s-logo-file');
-
-            const finishSettings = (logoUrl) => {
+            const finishSet = (logoUrl) => {
                 settings = { title, logo: logoUrl || settings.logo, phone };
                 localStorage.setItem('zamla_settings_v15', JSON.stringify(settings));
                 initApp();
-                alert('تم حفظ الإعدادات والشعار بنجاح!');
+                alert('تم حفظ الإعدادات!');
             };
-
-            if (fileInput.files && fileInput.files[0]) {
+            if(fileInput.files && fileInput.files[0]) {
                 const reader = new FileReader();
-                reader.onload = function(upEvt) { finishSettings(upEvt.target.result); };
+                reader.onload = function(e) { finishSet(e.target.result); };
                 reader.readAsDataURL(fileInput.files[0]);
-            } else {
-                finishSettings(null);
-            }
+            } else { finishSet(null); }
         }
 
         function renderAdminProducts() {
-            const listContainer = document.getElementById('admin-products-list');
-            if(!listContainer) return;
-            listContainer.innerHTML = products.map(p => `
+            document.getElementById('admin-products-list').innerHTML = products.map(p => `
                 <div class="flex justify-between items-center bg-slate-50 p-2.5 rounded-xl border text-xs">
-                    <div class="flex items-center gap-2">
-                        <img src="${p.image}" class="w-8 h-8 object-cover rounded-lg">
-                        <div>
-                            <h5 class="font-bold" dir="ltr">${p.model} - ${p.name}</h5>
-                            <span class="text-orange-600">${p.price} SAR | المخزون: ${p.stock !== undefined ? p.stock : 10} (${p.category})</span>
-                        </div>
-                    </div>
-                    <div class="flex gap-2">
-                        <button onclick="editProduct(${p.id})" class="bg-blue-600 text-white px-2 py-1 rounded font-bold">تعديل</button>
-                        <button onclick="deleteProduct(${p.id})" class="bg-red-600 text-white px-2 py-1 rounded font-bold">حذف</button>
-                    </div>
+                    <div class="flex items-center gap-2"><img src="${p.image}" class="w-8 h-8 object-cover rounded-lg"><div><h5 class="font-bold" dir="ltr">${p.model}</h5><span>${p.price} ر.س</span></div></div>
+                    <div class="flex gap-2"><button onclick="editProduct(${p.id})" class="bg-blue-600 text-white px-2 py-1 rounded">تعديل</button><button onclick="deleteProduct(${p.id})" class="bg-red-600 text-white px-2 py-1 rounded">حذف</button></div>
                 </div>
             `).join('');
             document.getElementById('admin-prod-count').innerText = products.length;
@@ -1224,15 +1017,10 @@
 
         function initApp() {
             document.getElementById('site-title').innerText = settings.title;
-            if(settings.logo) {
-                const logoImg = document.getElementById('site-logo');
-                logoImg.src = settings.logo;
-            }
+            if(settings.logo) document.getElementById('site-logo').src = settings.logo;
             document.getElementById('header-phone').innerText = settings.phone;
             document.getElementById('footer-phone').innerText = settings.phone;
-            if(currentUser) {
-                document.getElementById('auth-nav-btn').innerText = currentUser.name;
-            }
+            if(currentUser) document.getElementById('auth-nav-btn').innerText = currentUser.name;
             updateCartUI();
             changeLanguage(currentLang);
         }
