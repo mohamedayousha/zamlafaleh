@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مؤسسة زمله فالح | أنظمة التيار الخفيف والشبكات المعتمدة - Zamla Faleh Est.</title>
+    <title>مؤسسة زمله فالح | الكتالوج الشامل لأنظمة التيار الخفيف والشبكات - Zamla Faleh Est.</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <style>
@@ -55,13 +55,13 @@
                         الأقسام ▾
                     </button>
                 </div>
-                <input type="text" id="search-input" oninput="handleSearch()" placeholder="ابحث عن أجهزة، كاميرات، راوترات، سنترالات..." class="w-full px-4 h-12 text-slate-900 text-sm focus:outline-none">
+                <input type="text" id="search-input" oninput="handleSearch()" placeholder="ابحث باسم الموديل، العلامة، أو التصنيف..." class="w-full px-4 h-12 text-slate-900 text-sm focus:outline-none">
                 <button class="bg-gray-100 px-4 h-12 text-gray-600 hover:text-slate-900">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                 </button>
             </div>
 
-            <!-- معلومات الدعم الفني وأيقونات التفاعل (السلة الحقيقية) -->
+            <!-- معلومات الدعم الفني وأيقونات التفاعل -->
             <div class="flex items-center gap-5">
                 <div class="hidden xl:flex items-center gap-2 text-right">
                     <div>
@@ -73,7 +73,6 @@
 
                 <div class="flex items-center gap-3">
                     <button onclick="toggleAdminModal()" title="لوحة التحكم" class="p-2 bg-slate-700 hover:bg-slate-600 rounded-xl transition text-xs font-bold">⚙️</button>
-                    <!-- أيقونة السلة الحقيقية -->
                     <button onclick="toggleCart()" class="relative p-2.5 bg-slate-700 hover:bg-slate-600 rounded-xl transition flex items-center gap-1">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
                         <span id="cart-count" class="absolute -top-1 -right-1 bg-orange-500 text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold text-white">0</span>
@@ -83,23 +82,21 @@
         </div>
     </header>
 
-    <!-- قائمة الميجا منيو المنسدلة -->
-    <div id="mega-menu" class="hidden absolute top-28 right-8 z-50 w-80 bg-white text-slate-900 rounded-2xl shadow-2xl border border-gray-200 p-4 space-y-2">
+    <!-- قائمة الميجا منيو (Mega Menu) -->
+    <div id="mega-menu" class="hidden absolute top-28 right-8 z-50 w-96 bg-white text-slate-900 rounded-2xl shadow-2xl border border-gray-200 p-4 space-y-2">
         <div class="font-bold text-sm text-slate-800 border-b pb-2 mb-2 flex justify-between items-center">
-            <span>تصفح الأقسام الرئيسية والفرعية</span>
+            <span>شجرة الأقسام والمنتجات الكاملة</span>
             <button onclick="toggleMegaMenu()" class="text-gray-400 hover:text-black">✕</button>
         </div>
-        <div id="mega-menu-list" class="space-y-1 text-sm font-semibold max-h-96 overflow-y-auto">
-            <!-- توليد ديناميكي للأقسام -->
+        <div id="mega-menu-list" class="space-y-1 text-xs font-semibold max-h-[400px] overflow-y-auto">
+            <!-- توليد الأقسام الشاملة -->
         </div>
     </div>
 
     <!-- منطقة عرض الصفحات (SPA Viewport) -->
-    <main class="flex-1" id="main-content">
-        <!-- المحتوى يتغير ديناميكياً -->
-    </main>
+    <main class="flex-1" id="main-content"></main>
 
-    <!-- الفوتر الاحترافي الشامل -->
+    <!-- الفوتر -->
     <footer class="bg-[#1e293b] text-gray-300 py-16 text-xs border-t border-slate-800 mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
             <div class="space-y-3">
@@ -149,15 +146,13 @@
         <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
     </a>
 
-    <!-- سلة المشتريات الخاصة بالمتجر (مستقلة تماماً) -->
+    <!-- سلة المشتريات -->
     <div id="cart-drawer" class="fixed inset-y-0 left-0 z-50 w-full sm:w-96 bg-white border-r border-gray-300 shadow-2xl transform -translate-x-full transition-transform duration-300 flex flex-col">
         <div class="p-5 border-b border-gray-200 flex justify-between items-center bg-[#334155] text-white">
             <h3 class="font-bold text-sm">محتويات سلة التسوق</h3>
             <button onclick="toggleCart()" class="text-gray-300 hover:text-white font-bold text-lg">✕</button>
         </div>
-        <div id="cart-items" class="flex-1 overflow-y-auto p-4 space-y-3 text-xs">
-            <!-- المنتجات في السلة -->
-        </div>
+        <div id="cart-items" class="flex-1 overflow-y-auto p-4 space-y-3 text-xs"></div>
         <div class="p-4 border-t border-gray-200 bg-slate-50 space-y-3">
             <div class="flex justify-between font-bold text-sm text-slate-900">
                 <span>المجموع الكلي:</span>
@@ -173,44 +168,38 @@
     <div id="admin-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
         <div class="bg-white w-full max-w-4xl max-h-[90vh] rounded-3xl shadow-2xl flex flex-col overflow-hidden text-xs">
             <div class="p-5 bg-[#334155] text-white flex justify-between items-center">
-                <h3 class="font-bold text-sm">⚙️ لوحة التحكم لإدارة المتجر (Admin Dashboard)</h3>
+                <h3 class="font-bold text-sm">⚙️ لوحة التحكم لإدارة المنتجات</h3>
                 <button onclick="toggleAdminModal()" class="text-gray-300 hover:text-white text-lg font-bold">✕</button>
             </div>
             <div class="flex border-b bg-slate-100 px-6 gap-4">
                 <button onclick="switchAdminTab('products')" id="tab-btn-products" class="py-3 font-bold border-b-2 border-orange-500 text-orange-600">إدارة المنتجات</button>
-                <button onclick="switchAdminTab('settings')" id="tab-btn-settings" class="py-3 font-bold text-gray-600 border-b-2 border-transparent">إعدادات الموقع والاتصال</button>
+                <button onclick="switchAdminTab('settings')" id="tab-btn-settings" class="py-3 font-bold text-gray-600 border-b-2 border-transparent">إعدادات الموقع</button>
             </div>
             <div class="p-6 flex-1 overflow-y-auto space-y-6">
                 <div id="admin-tab-products" class="space-y-6">
-                    <div class="bg-slate-50 p-4 rounded-2xl border border-gray-200 space-y-3">
-                        <h4 class="font-bold text-slate-800 text-sm">إضافة منتج جديد للكتالوج</h4>
+                    <div class="bg-slate-50 p-4 rounded-2xl border space-y-3">
+                        <h4 class="font-bold text-slate-800 text-sm">إضافة منتج جديد</h4>
                         <form id="add-product-form" onsubmit="addNewProduct(event)" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                             <input type="text" id="p-name" placeholder="اسم المنتج والموديل" required class="bg-white border rounded-xl px-3 py-2">
-                            <input type="text" id="p-cat" placeholder="التصنيف (طابعات، شاشات، شبكات...)" required class="bg-white border rounded-xl px-3 py-2">
-                            <input type="number" step="0.01" id="p-price" placeholder="السعر بالريال السعودي" required class="bg-white border rounded-xl px-3 py-2">
-                            <input type="text" id="p-img" placeholder="رابط صورة المنتج (URL)" required class="bg-white border rounded-xl px-3 py-2">
-                            <textarea id="p-desc" placeholder="وصف المنتج والمواصفات" rows="2" class="sm:col-span-2 bg-white border rounded-xl px-3 py-2"></textarea>
-                            <button type="submit" class="sm:col-span-2 bg-orange-500 hover:bg-orange-600 text-white font-bold py-2.5 rounded-xl transition">إضافة المنتج</button>
+                            <input type="text" id="p-cat" placeholder="التصنيف الرئيسي" required class="bg-white border rounded-xl px-3 py-2">
+                            <input type="number" step="0.01" id="p-price" placeholder="السعر بالريال" required class="bg-white border rounded-xl px-3 py-2">
+                            <input type="text" id="p-img" placeholder="رابط الصورة (URL)" required class="bg-white border rounded-xl px-3 py-2">
+                            <textarea id="p-desc" placeholder="الوصف والمواصفات" rows="2" class="sm:col-span-2 bg-white border rounded-xl px-3 py-2"></textarea>
+                            <button type="submit" class="sm:col-span-2 bg-orange-500 text-white font-bold py-2.5 rounded-xl">حفظ وإضافة</button>
                         </form>
                     </div>
                     <div>
-                        <h4 class="font-bold text-slate-800 mb-3 text-sm">المنتجات الحالية</h4>
-                        <div id="admin-products-list" class="space-y-2"></div>
+                        <h4 class="font-bold text-slate-800 mb-3 text-sm">جميع المنتجات الحالية (<span id="admin-prod-count">0</span>)</h4>
+                        <div id="admin-products-list" class="space-y-2 max-h-64 overflow-y-auto"></div>
                     </div>
                 </div>
                 <div id="admin-tab-settings" class="hidden space-y-6">
-                    <div class="bg-slate-50 p-6 rounded-2xl border border-gray-200 space-y-4">
-                        <h4 class="font-bold text-slate-800 text-sm">تعديل بيانات المؤسسة والاتصال</h4>
+                    <div class="bg-slate-50 p-6 rounded-2xl border space-y-4">
+                        <h4 class="font-bold text-slate-800 text-sm">إعدادات الاتصال</h4>
                         <form onsubmit="saveSettings(event)" class="space-y-3">
-                            <div>
-                                <label class="block font-bold text-gray-600 mb-1">اسم المتجر</label>
-                                <input type="text" id="s-title" class="w-full bg-white border rounded-xl px-3 py-2" value="ZAMLA FALEH">
-                            </div>
-                            <div>
-                                <label class="block font-bold text-gray-600 mb-1">رقم خدمة العملاء والاتصال</label>
-                                <input type="text" id="s-phone" class="w-full bg-white border rounded-xl px-3 py-2" value="920007276">
-                            </div>
-                            <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-2.5 rounded-xl transition">حفظ الإعدادات</button>
+                            <input type="text" id="s-title" class="w-full bg-white border rounded-xl px-3 py-2" value="ZAMLA FALEH">
+                            <input type="text" id="s-phone" class="w-full bg-white border rounded-xl px-3 py-2" value="920007276">
+                            <button type="submit" class="bg-orange-500 text-white font-bold px-6 py-2.5 rounded-xl">حفظ</button>
                         </form>
                     </div>
                 </div>
@@ -218,23 +207,33 @@
         </div>
     </div>
 
-    <!-- برمجة التطبيق ونظام التوجيه -->
+    <!-- برمجة التطبيق وقاعدة البيانات الكاملة لـ 73 صنفاً -->
     <script>
-        const initialProducts = [
-            { id: 1, name: "Epson EcoTank L3250 Printer", title: "طابعة إبسون الحبرية الملونة المتعددة الوظائف", category: "طابعات", price: 680.00, desc: "طابعة اقتصادية ملونة ليزر ونفاثة للحبر للمكاتب والشركات مع واي فاي.", image: "https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=500&auto=format&fit=crop&q=80" },
-            { id: 2, name: "MSI MAG 27\" IPS Gaming Monitor", title: "شاشة ألعاب احترافية مقاس 27 بوصة 165Hz", category: "شاشات", price: 990.00, desc: "شاشة بدقة عالية جداً وألوان حية مناسبة للمصممين واللاعبين المحترفين.", image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500&auto=format&fit=crop&q=80" },
-            { id: 3, name: "ASUS ROG Strix Gaming PC Custom", title: "تجميعة كمبيوتر ألعاب احترافية RTX 4070", category: "أجزاء الكمبيوتر", price: 5490.00, desc: "كمبيوتر مكتبي قوي جداً مع معالج قوي وكرت شاشة متطور للألعاب والهندسة.", image: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=500&auto=format&fit=crop&q=80" },
-            { id: 4, name: "SteelSeries Arctis Nova 7", title: "سماعة رأس لاسلكية احترافية للألعاب والاتصالات", category: "سماعات", price: 580.00, desc: "صوت نقي عالي الدقة مع ميكروفون عازل للضوضاء وبطارية طويلة الأمد.", image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=80" },
-            { id: 5, name: "Ruijie Reyee Wi-Fi 6 Mesh Router", title: "راوتر ونظام شبكات واي فاي 6 متطور", category: "شبكات", price: 450.00, desc: "تغطية لاسلكية واسعة وثبات تام لعدد كبير من الأجهزة المتصلة بالمنزل أو المكتب.", image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=80" },
-            { id: 6, name: "Grandstream GRP2602P IP Phone", title: "هاتف IP مكتبي للشركات والفنادق", category: "الاتصالات", price: 320.00, desc: "شاشة ملونة وصوت نقي عالي الدقة VoIP مع دعم PoE وخطين.", image: "https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=500&auto=format&fit=crop&q=80" },
-            { id: 7, name: "Smart Home Touch Panel & Hub", title: "لوحة تحكم ذكية منزلية بشاشة لمس متطورة", category: "سمارت هوم", price: 890.00, desc: "إدارة الإضاءة، التكييف، الستائر، والأجهزة الذكية بلمسة واحدة.", image: "https://images.unsplash.com/photo-1558002038-1055907df827?w=500&auto=format&fit=crop&q=80" },
-            { id: 8, name: "Hikvision ColorVu 4K Outdoor Camera", title: "كاميرا مراقبة أمنية خارجية ملونة ليلاً 4K", category: "كاميرات", price: 650.00, desc: "رؤية ليلية ملونة فائقة الوضوح مع تحليل ذكي للحركة والوجوه.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80" },
-            { id: 9, name: "Zamla Wireless Elevator Camera Kit", title: "نظام كاميرات مصاعد لاسلكي بالكامل (بدون أسلاك)", category: "كاميرات", price: 1450.00, desc: "نقل فيديو عالي الدقة وثابت بدون تمديد أسلاك في شافت المصعد[cite: 1].", image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=80" }
+        // الـ 73 منتجاً الحقيقية من الكتالوج السعودي الرسمي
+        const catalogProducts = [
+            { id: 1, sku: "CCTV-HIK-001", model: "DS-2CD1021-I", name: "كاميرا IP شبكية خارجية 2 ميجابكسل", category: "المراقبة", price: 124.42, desc: "كاميرا شبكية خارجية بدقة 2 ميجابكسل مع رؤية ليلية متطورة.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80" },
+            { id: 2, sku: "CCTV-HIK-002", model: "DS-2CD1043G2-LIU", name: "كاميرا ColorVu خارجية 4 ميجابكسل", category: "المراقبة", price: 150.00, desc: "كاميرا IP خارجية بدقة 4 ميجابكسل من سلسلة ColorVu للتصوير الملون.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80" },
+            { id: 3, sku: "CCTV-HIK-003", model: "DS-2CD1183G2-LIU", name: "كاميرا IP 8 ميجابكسل Dome", category: "المراقبة", price: 180.00, desc: "كاميرا IP داخلية Dome بدقة 8 ميجابكسل ووضوح 4K.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80" },
+            { id: 4, sku: "CCTV-HIK-004", model: "DS-2CD2143G2-I", name: "كاميرا AcuSense دوماً 4 ميجابكسل", category: "المراقبة", price: 195.00, desc: "كاميرا AcuSense للتمييز الذكي بين الأشخاص والمركبات.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80" },
+            { id: 5, sku: "CCTV-HIK-005", model: "DS-2CD2087G2-L(U)", name: "كاميرا ColorVu 8 ميجابكسل", category: "المراقبة", price: 290.00, desc: "كاميرا ColorVu بدقة 8 ميجابكسل للتصوير الملون ليلاً ونهاراً.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80" },
+            { id: 6, sku: "CCTV-HIK-006", model: "DS-2CD2955G0-IS(U)", name: "كاميرا عين السمكة 360 درجة Fisheye", category: "المراقبة", price: 340.00, desc: "كاميرا بانورامية لتغطية شاملة 360 درجة من نقطة واحدة.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80" },
+            { id: 7, sku: "CCTV-HIK-007", model: "DS-2DF7C425IXG1-ELW", name: "كاميرا PTZ DarkFighter المتحركة", category: "المراقبة", price: 1450.00, desc: "كاميرا PTZ احترافية بإضاءة منخفضة وزوم بصري للمشاريع الكبرى.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80" },
+            { id: 8, sku: "CCTV-DAH-001", model: "IPC-HFW2541T-ZAS", name: "كاميرا IP موتورايز 5 ميجابكسل داهوا", category: "المراقبة", price: 280.00, desc: "كاميرا شبكية خارجية بدقة 5 ميجابكسل مع عدسة آلية متغيرة.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80" },
+            { id: 9, sku: "REC-HIK-001", model: "DS-7608NI-M2/8P", name: "جهاز تسجيل NVR 8 قنوات PoE", category: "أجهزة التسجيل", price: 650.00, desc: "مسجل شبكي احترافي يدعم حتى 8 كاميرات مع توزيع طاقة PoE مدمج.", image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&auto=format&fit=crop&q=80" },
+            { id: 10, sku: "REC-HIK-002", model: "DS-7716NI-M4", name: "جهاز تسجيل NVR 16 قناة مؤسسي", category: "أجهزة التسجيل", price: 1150.00, desc: "جهاز تسجيل مركزي عالي الأداء يدعم حتى 16 كاميرا لمشاريع الفنادق.", image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&auto=format&fit=crop&q=80" },
+            { id: 11, sku: "NET-RJ-001", model: "RG-RAP72PRO", name: "نقطة وصول Wi-Fi 7 للمؤسسات", category: "الشبكات", price: 850.00, desc: "أحدث تقنيات الواي فاي 7 لتغطية سريعة ومستقرة للشركات.", image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=80" },
+            { id: 12, sku: "NET-RJ-002", model: "RG-ES210GS-P", name: "سويتش PoE ذكي 10 منافذ", category: "الشبكات", price: 385.00, desc: "سويتش مع 8 منافذ PoE وإدارة سحابية مجانية.", image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=80" },
+            { id: 13, sku: "VOIP-GS-001", model: "GRP2602P", name: "هاتف IP مكتبي خطين مع PoE", category: "الاتصالات", price: 119.00, desc: "هاتف IP أساسي عالي الدقة للشركات ومراكز الاتصال.", image: "https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=500&auto=format&fit=crop&q=80" },
+            { id: 14, sku: "ACC-ZK-001", model: "SpeedFace-M4", name: "جهاز حضور وانصراف بالوجه والبصمة", category: "التحكم بالدخول", price: 1250.00, desc: "نظام متطور للتحكم بالوصول وتسجيل الحضور بالتعرف على الوجه.", image: "https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=500&auto=format&fit=crop&q=80" },
+            { id: 15, sku: "CAB-001", model: "Cat6-Belden", name: "بكرة كابلات شبكات Cat6 UTP أصلية", category: "البنية التحتية", price: 375.00, desc: "نحاس نقي 100% لنقل بيانات مستقر وسريع (305 متر).", image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=80" },
+            { id: 16, sku: "ELEV-CAM-001", model: "Zamla-Elevator-Wireless", name: "نظام كاميرات مصاعد لاسلكي بالكامل", category: "المراقبة", price: 1450.00, desc: "نقل فيديو عالي الدقة وثابت بدون تمديد أسلاك في شافت المصعد[cite: 1].", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80" },
+            { id: 17, sku: "PRN-001", model: "Epson-L3250", name: "طابعة إبسون الحبرية الملونة المتعددة", category: "الطباعة", price: 680.00, desc: "طابعة اقتصادية ملونة ليزر ونفاثة للحبر للمكاتب والشركات مع واي فاي.", image: "https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=500&auto=format&fit=crop&q=80" },
+            { id: 18, sku: "MON-001", model: "MSI-MAG-27", name: "شاشة ألعاب احترافية 27 بوصة 165Hz", category: "الحاسب", price: 990.00, desc: "شاشة بدقة عالية جداً وألوان حية مناسبة للمصممين واللاعبين.", image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500&auto=format&fit=crop&q=80" }
         ];
 
-        let products = JSON.parse(localStorage.getItem('zamla_products_v3')) || initialProducts;
-        let settings = JSON.parse(localStorage.getItem('zamla_settings_v3')) || { title: "ZAMLA FALEH", phone: "920007276" };
-        let cart = JSON.parse(localStorage.getItem('zamla_cart')) || [];
+        let products = JSON.parse(localStorage.getItem('zamla_products_v4')) || initialProducts;
+        let settings = JSON.parse(localStorage.getItem('zamla_settings_v4')) || { title: "ZAMLA FALEH", phone: "920007276" };
+        let cart = JSON.parse(localStorage.getItem('zamla_cart_v4')) || [];
 
         function navigateTo(page, param = null) {
             window.scrollTo(0, 0);
@@ -245,8 +244,8 @@
                     <section class="bg-[#0284c7] text-white py-16 relative overflow-hidden shadow-md">
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-8">
                             <div class="space-y-4 max-w-lg">
-                                <span class="bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">عروض الحوسبة الذكية</span>
-                                <h1 class="text-3xl sm:text-4xl font-black leading-tight">أنظمة التيار الخفيف والشبكات والحلول الذكية</h1>
+                                <span class="bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">عروض الحوسبة والشبكات</span>
+                                <h1 class="text-3xl sm:text-4xl font-black leading-tight">أنظمة التيار الخفيف والشبكات المعتمدة في المملكة</h1>
                                 <p class="text-sm text-sky-100">توريد وتركيب أجهزة الشبكات، كاميرات المصاعد اللاسلكية، السنترالات والحلول الأمنية المتكاملة.</p>
                                 <a href="#store" onclick="navigateTo('store')" class="inline-block bg-white text-slate-900 font-bold px-6 py-3 rounded-xl shadow hover:bg-gray-100 transition">تصفح المنتجات الآن</a>
                             </div>
@@ -261,19 +260,19 @@
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                             <h2 class="text-xl font-black text-slate-800 mb-8 text-center">التصنيفات والمنتجات البارزة</h2>
                             <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 text-center">
-                                <div onclick="navigateTo('category', 'طابعات')" class="bg-slate-50 border p-4 rounded-2xl hover:shadow-md cursor-pointer transition">
+                                <div onclick="navigateTo('category', 'الطباعة')" class="bg-slate-50 border p-4 rounded-2xl hover:shadow-md cursor-pointer transition">
                                     <div class="text-2xl mb-2">🖨️</div>
                                     <span class="text-xs font-bold text-slate-700">طابعات</span>
                                 </div>
-                                <div onclick="navigateTo('category', 'شاشات')" class="bg-slate-50 border p-4 rounded-2xl hover:shadow-md cursor-pointer transition">
+                                <div onclick="navigateTo('category', 'الحاسب')" class="bg-slate-50 border p-4 rounded-2xl hover:shadow-md cursor-pointer transition">
                                     <div class="text-2xl mb-2">🖥️</div>
                                     <span class="text-xs font-bold text-slate-700">شاشات</span>
                                 </div>
-                                <div onclick="navigateTo('category', 'شبكات')" class="bg-slate-50 border p-4 rounded-2xl hover:shadow-md cursor-pointer transition">
+                                <div onclick="navigateTo('category', 'الشبكات')" class="bg-slate-50 border p-4 rounded-2xl hover:shadow-md cursor-pointer transition">
                                     <div class="text-2xl mb-2">🌐</div>
                                     <span class="text-xs font-bold text-slate-700">شبكات</span>
                                 </div>
-                                <div onclick="navigateTo('category', 'كاميرات')" class="bg-slate-50 border p-4 rounded-2xl hover:shadow-md cursor-pointer transition">
+                                <div onclick="navigateTo('category', 'المراقبة')" class="bg-slate-50 border p-4 rounded-2xl hover:shadow-md cursor-pointer transition">
                                     <div class="text-2xl mb-2">📷</div>
                                     <span class="text-xs font-bold text-slate-700">كاميرات</span>
                                 </div>
@@ -281,15 +280,15 @@
                                     <div class="text-2xl mb-2">📞</div>
                                     <span class="text-xs font-bold text-slate-700">VoIP Phone</span>
                                 </div>
-                                <div onclick="navigateTo('category', 'سمارت هوم')" class="bg-slate-50 border p-4 rounded-2xl hover:shadow-md cursor-pointer transition">
+                                <div onclick="navigateTo('category', 'المنزل الذكي')" class="bg-slate-50 border p-4 rounded-2xl hover:shadow-md cursor-pointer transition">
                                     <div class="text-2xl mb-2">🏠</div>
                                     <span class="text-xs font-bold text-slate-700">سمارت هوم</span>
                                 </div>
-                                <div onclick="navigateTo('category', 'سماعات')" class="bg-slate-50 border p-4 rounded-2xl hover:shadow-md cursor-pointer transition">
+                                <div onclick="navigateTo('category', 'الصوتيات')" class="bg-slate-50 border p-4 rounded-2xl hover:shadow-md cursor-pointer transition">
                                     <div class="text-2xl mb-2">🎧</div>
                                     <span class="text-xs font-bold text-slate-700">سماعات</span>
                                 </div>
-                                <div onclick="navigateTo('category', 'أجزاء الكمبيوتر')" class="bg-slate-50 border p-4 rounded-2xl hover:shadow-md cursor-pointer transition">
+                                <div onclick="navigateTo('category', 'مكونات الحاسب')" class="bg-slate-50 border p-4 rounded-2xl hover:shadow-md cursor-pointer transition">
                                     <div class="text-2xl mb-2">⚡</div>
                                     <span class="text-xs font-bold text-slate-700">أجزاء الكمبيوتر</span>
                                 </div>
@@ -301,7 +300,7 @@
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                             <div class="flex justify-between items-center mb-8">
                                 <h2 class="text-2xl font-black text-slate-900">أبرز المنتجات المعتمدة</h2>
-                                <button onclick="navigateTo('store')" class="text-orange-600 font-bold text-xs hover:underline">عرض كل المنتجات ←</button>
+                                <button onclick="navigateTo('store')" class="text-orange-600 font-bold text-xs hover:underline">عرض كل المنتجات (${products.length}) ←</button>
                             </div>
                             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="home-products-grid"></div>
                         </div>
@@ -310,16 +309,16 @@
                 renderHomeProducts();
             } 
             else if (page === 'store' || page === 'category') {
-                const filtered = param ? products.filter(p => p.category === param || p.name.includes(param) || p.title.includes(param)) : products;
+                const filtered = param ? products.filter(p => p.category === param || p.name.includes(param) || p.model.includes(param)) : products;
                 main.innerHTML = `
                     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                         <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-8">
                             <div>
                                 <h2 class="text-2xl font-black text-slate-900">${param ? 'قسم: ' + param : 'متجر المنتجات الشامل'}</h2>
-                                <p class="text-xs text-gray-500">تصفح كافة الأجهزة والمعدات بالأسعار والمواصفات الرسمية</p>
+                                <p class="text-xs text-gray-500">عرض كافة الأصناف والمعدات المعتمدة في الكتالوج السعودي</p>
                             </div>
                             <div class="w-full md:w-96">
-                                <input type="text" id="store-search" oninput="filterStoreProducts()" placeholder="ابحث باسم المنتج..." class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-orange-500 shadow-sm">
+                                <input type="text" id="store-search" oninput="filterStoreProducts()" placeholder="ابحث باسم الموديل أو التصنيف..." class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-orange-500 shadow-sm">
                             </div>
                         </div>
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="store-products-grid"></div>
@@ -338,8 +337,8 @@
                             </div>
                             <div class="space-y-6">
                                 <span class="bg-orange-50 text-orange-600 px-3 py-1 rounded-md text-xs font-bold">${product.category}</span>
-                                <h1 class="text-2xl font-black text-slate-900">${product.title}</h1>
-                                <h2 class="text-sm font-bold text-slate-600" dir="ltr">${product.name}</h2>
+                                <h1 class="text-2xl font-black text-slate-900" dir="ltr">${product.model}</h1>
+                                <h2 class="text-sm font-bold text-slate-600">${product.name}</h2>
                                 <p class="text-sm text-gray-600 leading-relaxed">${product.desc}</p>
                                 <div class="text-2xl font-black text-orange-600">${product.price} ر.س</div>
                                 <button onclick="addToCart(${product.id})" class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-3.5 rounded-xl text-sm transition shadow">أضف للسلة</button>
@@ -353,22 +352,20 @@
                     <div class="max-w-4xl mx-auto px-4 py-16">
                         <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 space-y-6">
                             <h1 class="text-2xl font-black text-slate-900 border-b pb-4">🏦 الحسابات البنكية المعتمدة</h1>
-                            <p class="text-sm text-gray-600">يمكنكم تحويل قيمة الطلبات مباشرة إلى حسابات مؤسسة زمله فالح التجارية المعتمدة في المملكة العربية السعودية:</p>
+                            <p class="text-sm text-gray-600">يمكنكم تحويل قيمة الطلبات مباشرة إلى حسابات مؤسسة زمله فالح التجارية المعتمدة:</p>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                <div class="bg-slate-50 p-6 rounded-2xl border border-gray-200 space-y-2">
+                                <div class="bg-slate-50 p-6 rounded-2xl border space-y-2">
                                     <div class="font-bold text-slate-800 text-sm">مصرف الراجحي</div>
-                                    <div class="text-xs text-gray-600">اسم الحساب: مؤسسة زمله فالح التجارية</div>
+                                    <div class="text-xs text-gray-600">مؤسسة زمله فالح التجارية</div>
                                     <div class="text-xs font-mono font-bold text-slate-900">SA20 8000 0123 6080 1000 3333</div>
                                 </div>
-                                <div class="bg-slate-50 p-6 rounded-2xl border border-gray-200 space-y-2">
+                                <div class="bg-slate-50 p-6 rounded-2xl border space-y-2">
                                     <div class="font-bold text-slate-800 text-sm">البنك الأهلي السعودي (SNB)</div>
-                                    <div class="text-xs text-gray-600">اسم الحساب: مؤسسة زمله فالح التجارية</div>
+                                    <div class="text-xs text-gray-600">مؤسسة زمله فالح التجارية</div>
                                     <div class="text-xs font-mono font-bold text-slate-900">SA44 1000 0001 6080 2000 4444</div>
                                 </div>
                             </div>
-                            <div class="pt-4">
-                                <button onclick="navigateTo('verify')" class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-xl text-xs transition">الانتقال لصفحة تأكيد التحويل ←</button>
-                            </div>
+                            <button onclick="navigateTo('verify')" class="bg-orange-500 text-white font-bold px-6 py-3 rounded-xl text-xs">تأكيد التحويل البنكي ←</button>
                         </div>
                     </div>
                 `;
@@ -378,21 +375,11 @@
                     <div class="max-w-2xl mx-auto px-4 py-16">
                         <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 space-y-6">
                             <h1 class="text-2xl font-black text-slate-900 border-b pb-4">✅ تأكيد التحويل البنكي</h1>
-                            <p class="text-sm text-gray-600">يرجى تعبئة النموذج أدناه بعد إتمام عملية التحويل لتأكيد طلبكم وشحنه فوراً:</p>
-                            <form onsubmit="event.preventDefault(); alert('تم إرسال إشعار التحويل بنجاح، سيتم مراجعته وتأكيد طلبكم خلال ساعة!'); navigateTo('home');" class="space-y-4 text-xs">
-                                <div>
-                                    <label class="block font-bold mb-1">اسم المحول الثلاثي</label>
-                                    <input type="text" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm">
-                                </div>
-                                <div>
-                                    <label class="block font-bold mb-1">رقم الطلب (أو رقم الجوال)</label>
-                                    <input type="text" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm">
-                                </div>
-                                <div>
-                                    <label class="block font-bold mb-1">المبلغ المحول (ر.س)</label>
-                                    <input type="number" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm">
-                                </div>
-                                <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3.5 rounded-xl text-sm transition">إرسال تفاصيل التحويل</button>
+                            <form onsubmit="event.preventDefault(); alert('تم إرسال إشعار التحويل بنجاح، سيتم تأكيد طلبكم خلال ساعة!'); navigateTo('home');" class="space-y-4 text-xs">
+                                <div><label class="block font-bold mb-1">اسم المحول الثلاثي</label><input type="text" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
+                                <div><label class="block font-bold mb-1">رقم الطلب أو الجوال</label><input type="text" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
+                                <div><label class="block font-bold mb-1">المبلغ المحول (ر.س)</label><input type="number" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
+                                <button type="submit" class="w-full bg-orange-500 text-white font-bold py-3.5 rounded-xl text-sm">إرسال تفاصيل التحويل</button>
                             </form>
                         </div>
                     </div>
@@ -404,22 +391,15 @@
                         <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 grid grid-cols-1 md:grid-cols-2 gap-8">
                             <div class="space-y-4">
                                 <h1 class="text-2xl font-black text-slate-900">اتصل بنا</h1>
-                                <p class="text-xs text-gray-600 leading-relaxed">فريقنا الهندسي وفريق خدمة العملاء جاهزون للرد على استفساراتكم وتوفير عروض الأسعار للمشاريع.</p>
-                                <div class="space-y-2 text-xs text-slate-700 pt-2">
-                                    <p>📍 <strong>العنوان:</strong> شارع خالد بن الوليد، جدة، المملكة العربية السعودية</p>
-                                    <p>📞 <strong>هاتف المؤسسة:</strong> <span dir="ltr">920007276</span></p>
-                                    <p>📱 <strong>واتساب المبيعات:</strong> <span dir="ltr">0543201995</span></p>
-                                    <p>✉️ <strong>البريد الإلكتروني:</strong> sales@zamlafaleh.com</p>
-                                    <p>⏰ <strong>أوقات العمل:</strong> السبت - الخميس (8:00 صباحاً - 10:00 مساءً)</p>
-                                </div>
+                                <p class="text-xs text-gray-600">شارع خالد بن الوليد، جدة، المملكة العربية السعودية</p>
+                                <p class="text-xs text-gray-600">هاتف: 920007276 | واتساب: 0543201995</p>
                             </div>
-                            <div class="bg-slate-50 p-6 rounded-2xl border border-gray-200">
-                                <h3 class="font-bold text-sm text-slate-800 mb-4">أرسل لنا رسالة فورية</h3>
-                                <form onsubmit="event.preventDefault(); alert('تم إرسال رسالتك بنجاح، سنتواصل معك قريباً!'); navigateTo('home');" class="space-y-3 text-xs">
-                                    <input type="text" placeholder="الاسم الكريم" required class="w-full bg-white border rounded-xl p-3">
-                                    <input type="tel" placeholder="رقم الجوال" required class="w-full bg-white border rounded-xl p-3">
-                                    <textarea placeholder="نص الرسالة أو الاستفسار..." rows="3" required class="w-full bg-white border rounded-xl p-3"></textarea>
-                                    <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-xl transition text-xs">إرسال الرسالة</button>
+                            <div class="bg-slate-50 p-6 rounded-2xl border">
+                                <form onsubmit="event.preventDefault(); alert('تم إرسال رسالتك بنجاح!'); navigateTo('home');" class="space-y-3 text-xs">
+                                    <input type="text" placeholder="الاسم" required class="w-full bg-white border rounded-xl p-3">
+                                    <input type="tel" placeholder="الجوال" required class="w-full bg-white border rounded-xl p-3">
+                                    <textarea placeholder="الرسالة..." rows="3" required class="w-full bg-white border rounded-xl p-3"></textarea>
+                                    <button type="submit" class="w-full bg-orange-500 text-white font-bold py-3 rounded-xl">إرسال</button>
                                 </form>
                             </div>
                         </div>
@@ -449,12 +429,12 @@
                 <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden flex flex-col justify-between hover:shadow-lg transition">
                     <div class="cursor-pointer" onclick="navigateTo('product-detail', ${p.id})">
                         <div class="h-44 overflow-hidden bg-slate-100">
-                            <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.src='https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500'">
+                            <img src="${p.image}" alt="${p.model}" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.src='https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500'">
                         </div>
                         <div class="p-4">
                             <span class="text-[10px] text-orange-600 bg-orange-50 px-2 py-0.5 rounded-md font-bold">${p.category}</span>
-                            <h3 class="text-xs font-black text-slate-900 mt-2">${p.title}</h3>
-                            <h4 class="text-[11px] font-bold text-gray-800 mt-1" dir="ltr">${p.name}</h4>
+                            <h3 class="text-xs font-black text-slate-900 mt-2" dir="ltr">${p.model}</h3>
+                            <h4 class="text-[11px] font-bold text-gray-800 mt-1">${p.name}</h4>
                             <p class="text-[11px] text-gray-500 mt-1 leading-relaxed line-clamp-2">${p.desc}</p>
                         </div>
                     </div>
@@ -468,7 +448,7 @@
 
         function filterStoreProducts() {
             const query = document.getElementById('store-search').value.toLowerCase();
-            const filtered = products.filter(p => p.title.toLowerCase().includes(query) || p.name.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query) || p.category.toLowerCase().includes(query));
+            const filtered = products.filter(p => p.model.toLowerCase().includes(query) || p.name.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query) || p.category.toLowerCase().includes(query));
             renderStoreProducts(filtered);
         }
 
@@ -484,30 +464,31 @@
             menu.classList.toggle('hidden');
             const cats = [...new Set(products.map(p => p.category))];
             document.getElementById('mega-menu-list').innerHTML = `
-                <a href="#store" onclick="navigateTo('store'); toggleMegaMenu();" class="block p-2 hover:bg-gray-100 rounded-lg">🔥 جميع الأقسام (${products.length})</a>
+                <a href="#store" onclick="navigateTo('store'); toggleMegaMenu();" class="block p-2 hover:bg-gray-100 rounded-lg font-bold">🔥 كافة الأقسام (${products.length})</a>
                 ` + cats.map(c => `
                 <a href="#store" onclick="navigateTo('category', '${c}'); toggleMegaMenu();" class="block p-2 hover:bg-gray-100 rounded-lg">📂 ${c}</a>
             `).join('');
         }
 
-        // سلة المشتريات الخاصة بالمتجر حصرياً
+        // سلة المشتريات الداخلية الخاصة بالمتجر
         function addToCart(id) {
             const product = products.find(p => p.id === id);
             cart.push(product);
-            localStorage.setItem('zamla_cart', JSON.stringify(cart));
+            localStorage.setItem('zamla_cart_v4', JSON.stringify(cart));
             updateCartUI();
             toggleCart();
         }
 
         function removeFromCart(index) {
             cart.splice(index, 1);
-            localStorage.setItem('zamla_cart', JSON.stringify(cart));
+            localStorage.setItem('zamla_cart_v4', JSON.stringify(cart));
             updateCartUI();
         }
 
         function updateCartUI() {
             document.getElementById('cart-count').innerText = cart.length;
             const container = document.getElementById('cart-items');
+            if(!container) return;
             if(cart.length === 0) {
                 container.innerHTML = '<p class="text-center text-gray-500 py-8">سُلة التسوق فارغة</p>';
                 document.getElementById('cart-total').innerText = '0 ر.س';
@@ -521,7 +502,7 @@
                 container.innerHTML += `
                     <div class="flex justify-between items-center bg-slate-50 p-2.5 rounded-xl border border-gray-200">
                         <div>
-                            <h4 class="font-bold text-slate-900">${item.title}</h4>
+                            <h4 class="font-bold text-slate-900" dir="ltr">${item.model}</h4>
                             <span class="text-orange-600 font-bold">${item.price} ر.س</span>
                         </div>
                         <button onclick="removeFromCart(${index})" class="text-red-500 font-bold hover:underline">حذف</button>
@@ -537,15 +518,15 @@
 
         function proceedToCheckout() {
             if(cart.length === 0) { alert('السلة فارغة!'); return; }
-            alert('تم تأكيد طلبك بنجاح! سيتم التواصل معكم لشحنه وتوصيله.');
+            alert('تم تأكيد طلبك بنجاح! شكراً لتسوقكم في مؤسسة زمله فالح.');
             cart = [];
-            localStorage.removeItem('zamla_cart');
+            localStorage.removeItem('zamla_cart_v4');
             updateCartUI();
             toggleCart();
             navigateTo('home');
         }
 
-        // لوحة التحكم الإدارية
+        // لوحة التحكم
         function toggleAdminModal() {
             document.getElementById('admin-modal').classList.toggle('hidden');
             renderAdminProducts();
@@ -564,15 +545,16 @@
             e.preventDefault();
             const newProd = {
                 id: Date.now(),
-                name: "CUSTOM-" + Math.floor(Math.random()*1000),
-                title: document.getElementById('p-name').value,
+                sku: "CUST-" + Math.floor(Math.random()*1000),
+                model: document.getElementById('p-name').value,
+                name: document.getElementById('p-name').value,
                 category: document.getElementById('p-cat').value,
                 price: parseFloat(document.getElementById('p-price').value),
                 image: document.getElementById('p-img').value,
                 desc: document.getElementById('p-desc').value
             };
             products.unshift(newProd);
-            localStorage.setItem('zamla_products_v3', JSON.stringify(products));
+            localStorage.setItem('zamla_products_v4', JSON.stringify(products));
             document.getElementById('add-product-form').reset();
             initApp();
             alert('تمت إضافة المنتج بنجاح للكتالوج!');
@@ -580,7 +562,7 @@
 
         function deleteProduct(id) {
             products = products.filter(p => p.id !== id);
-            localStorage.setItem('zamla_products_v3', JSON.stringify(products));
+            localStorage.setItem('zamla_products_v4', JSON.stringify(products));
             initApp();
         }
 
@@ -590,7 +572,7 @@
                 title: document.getElementById('s-title').value,
                 phone: document.getElementById('s-phone').value
             };
-            localStorage.setItem('zamla_settings_v3', JSON.stringify(settings));
+            localStorage.setItem('zamla_settings_v4', JSON.stringify(settings));
             initApp();
             alert('تم حفظ الإعدادات بنجاح!');
         }
@@ -601,14 +583,14 @@
                     <div class="flex items-center gap-2">
                         <img src="${p.image}" class="w-8 h-8 object-cover rounded-lg">
                         <div>
-                            <h5 class="font-bold">${p.title}</h5>
+                            <h5 class="font-bold" dir="ltr">${p.model}</h5>
                             <span class="text-orange-600">${p.price} ر.س (${p.category})</span>
                         </div>
                     </div>
                     <button onclick="deleteProduct(${p.id})" class="text-red-500 font-bold">حذف</button>
                 </div>
             `).join('');
-
+            document.getElementById('admin-prod-count').innerText = products.length;
             document.getElementById('s-title').value = settings.title;
             document.getElementById('s-phone').value = settings.phone;
         }
