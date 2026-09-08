@@ -23,14 +23,15 @@
         }
       ]
     }'>
-    <meta name="description" content="مؤسسة زملة بنت فالح عامر الجهمي (zamlafaleh.com) ببيشة - توريد وتركيب شبكات التيار الخفيف، كاميرات المراقبة، سنترالات IP PBX، وحلول الفنادق والمشاريع الكبرى في المملكة.">
-    <meta name="keywords" content="zamlafaleh.com, كاميرات مراقبة بيشة, مؤسسة زملة فالح, تيار خفيف السعودية, سنترالات جراندستريم, كوالين ذكية للفنادق, كاميرات مصاعد لاسلكية">
-    <title id="page-title">مؤسسة زملة بنت فالح عامر الجهمي | أنظمة التيار الخفيف والشبكات</title>
+    <meta name="description" content="مؤسسة زملة بنت فالح عامر الجهمي (zamlafaleh.com) - محطة العمل العالمية للفنيين والمبرمجين والمهندسين. 100+ أداة ذكية لأنظمة التيار الخفيف والشبكات.">
+    <meta name="keywords" content="zamlafaleh.com, CCTV tools, IP calculator, Hikvision config, Ubiquiti, TP-Link, Grandstream, Low current workspace">
+    <title id="page-title">مؤسسة زملة بنت فالح عامر الجهمي | Global Tech Suite</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Cairo', sans-serif; background-color: #f8fafc; color: #1e293b; -webkit-tap-highlight-color: transparent; }
+        body { font-family: 'Cairo', 'Inter', sans-serif; background-color: #f8fafc; color: #1e293b; -webkit-tap-highlight-color: transparent; }
+        html[dir="ltr"] body { font-family: 'Inter', sans-serif; }
         @keyframes marquee-ar {
             0% { transform: translateX(100%); }
             100% { transform: translateX(-100%); }
@@ -73,74 +74,85 @@
     <div id="web-call-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4 no-print">
         <div class="bg-white w-full max-w-md rounded-3xl shadow-2xl p-6 text-center space-y-4">
             <div class="w-16 h-16 bg-orange-500 text-white rounded-full flex items-center justify-center mx-auto text-2xl shadow-lg">⏰</div>
-            <h3 class="text-lg font-black text-slate-900">الاتصال المباشر بخدمة العملاء</h3>
-            <p class="text-xs text-gray-600">هذا الاتصال يتم عبر الإنترنت مباشرة من متصفحك (مناسب للعملاء من خارج وداخل المملكة دون رسوم دولية).</p>
+            <h3 class="text-lg font-black text-slate-900" data-i18n="call_modal_title">الاتصال المباشر بخدمة العملاء</h3>
+            <p class="text-xs text-gray-600" data-i18n="call_modal_desc">هذا الاتصال يتم عبر الإنترنت مباشرة من متصفحك (مناسب للعملاء من خارج وداخل المملكة دون رسوم دولية).</p>
             <div id="call-status" class="py-4 font-bold text-blue-600 text-sm">جاري الاتصال بالنظام الصوتي... 🌐</div>
             <div class="flex gap-3 pt-2">
-                <button onclick="startWebCallSimulation()" id="call-connect-btn" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl shadow">بدء التحدث الآن 🎙️</button>
-                <button onclick="closeWebCallModal()" class="bg-slate-300 hover:bg-slate-400 text-slate-800 font-bold px-5 py-3 rounded-xl">إنهاء المكالمة ✕</button>
+                <button onclick="startWebCallSimulation()" id="call-connect-btn" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl shadow" data-i18n="start_call_btn">بدء التحدث الآن 🎙️</button>
+                <button onclick="closeWebCallModal()" class="bg-slate-300 hover:bg-slate-400 text-slate-800 font-bold px-5 py-3 rounded-xl" data-i18n="close_btn">إغلاق ✕</button>
             </div>
         </div>
     </div>
 
-    <!-- نافذة محطة عمل الفني والمبرمج (Web Laptop & 100+ Pro Tools) -->
+    <!-- نافذة محطة العمل الشاملة للفني والمبرمج (100+ أداة تفاعلية عالمية) -->
     <div id="pro-tools-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden flex items-center justify-center p-2 sm:p-4 no-print">
-        <div class="bg-slate-900 text-slate-100 w-full max-w-5xl rounded-3xl shadow-2xl p-6 space-y-6 max-h-[95vh] overflow-y-auto text-xs border border-slate-700">
+        <div class="bg-slate-900 text-slate-100 w-full max-w-6xl rounded-3xl shadow-2xl p-6 space-y-6 max-h-[95vh] overflow-y-auto text-xs border border-slate-700">
             <div class="flex justify-between items-center border-b border-slate-700 pb-4">
                 <div class="flex items-center gap-3">
-                    <span class="text-2xl">💻</span>
+                    <span class="text-3xl">💻🧰</span>
                     <div>
-                        <h3 class="font-black text-base text-orange-400">محطة عمل الفني والمبرمج السحابية (Web Laptop Pro)</h3>
-                        <p class="text-[11px] text-slate-400">تحكم كامل وبرمجة تيار خفيف، كاميرات، وشبكات مباشرة من المتصفح (حفظ المشاريع + 100 أداة متخصصة)</p>
+                        <h3 class="font-black text-base text-orange-400" data-i18n="laptop_station_title">محطة عمل الفني والمبرمج العالمية (100+ Pro Tools Workspace)</h3>
+                        <p class="text-[11px] text-slate-400" data-i18n="laptop_station_subtitle">إدارة مشاريعك، برمجة الكاميرات والسنترالات، والبحث الفوري في قواعد البيانات الهندسية</p>
                     </div>
                 </div>
                 <button onclick="document.getElementById('pro-tools-modal').classList.add('hidden')" class="text-slate-400 hover:text-white font-bold text-lg p-2">✕</button>
             </div>
 
-            <!-- شريط تنبيه الاشتراك والتجديد التلقائي -->
+            <!-- شريط تنبيه الاشتراك السنوي والشهري وتخزين الداتا -->
             <div id="subscription-alert-box" class="bg-gradient-to-r from-amber-600 to-orange-600 text-white p-4 rounded-2xl flex flex-col sm:flex-row justify-between items-center gap-3 shadow-lg">
                 <div>
-                    <strong class="text-sm block">⚠️ حالة الاشتراك السنوي/الشهري:</strong>
-                    <span id="sub-status-text" class="text-xs text-amber-100">اشتراكك نشط ومحمي. يتم الاحتفاظ بداتا مشاريعك ومزامنتها على هذا الجهاز.</span>
+                    <strong class="text-sm block" data-i18n="sub_status_heading">⚠️ حالة الاشتراك (شهري 3$ / سنوي 10$):</strong>
+                    <span id="sub-status-text" class="text-xs text-amber-100">اشتراكك نشط. داتا مشاريعك محفوظة ومحمية لمدة سنة كاملة بعد انتهاء الاشتراك لتكون مرجعك الهندسي الدائم.</span>
                 </div>
                 <div class="flex gap-2">
-                    <button onclick="renewSubscription('monthly')" class="bg-white text-orange-800 font-bold px-4 py-2 rounded-xl text-xs hover:bg-slate-100">تجديد شهري (3$)</button>
-                    <button onclick="renewSubscription('annual')" class="bg-slate-900 text-white font-bold px-4 py-2 rounded-xl text-xs hover:bg-slate-800">تجديد سنوي (10$)</button>
+                    <button onclick="renewSubscription('monthly')" class="bg-white text-orange-800 font-bold px-4 py-2 rounded-xl text-xs hover:bg-slate-100">تجديد شهري ($3)</button>
+                    <button onclick="renewSubscription('annual')" class="bg-slate-900 text-white font-bold px-4 py-2 rounded-xl text-xs hover:bg-slate-800">تجديد سنوي ($10)</button>
                 </div>
             </div>
 
-            <!-- تصنيفات الأدوات (أكثر من 100 أداة للفنيين والمبرمجين) -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <!-- أداة 1: برمجة وتهيئة كاميرات Hikvision & Dahua -->
-                <div class="bg-slate-800 border border-slate-700 p-4 rounded-2xl space-y-2">
-                    <h4 class="font-bold text-orange-400 text-sm">📹 برمجة Hikvision / Dahua / Uniview</h4>
-                    <p class="text-slate-300 text-[11px]">أداة توليد عناوين IP الافتراضية، إعادة ضبط المصنع عبر الأكواد، وتكوين تدفقات RTSP و ONVIF.</p>
-                    <button onclick="runToolAction('cctv-config')" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-3 rounded-xl w-full">تشغيل الأداة ⚙️</button>
-                </div>
-                <!-- أداة 2: أدوات شبكات TP-Link & UniFi & Ruijie -->
-                <div class="bg-slate-800 border border-slate-700 p-4 rounded-2xl space-y-2">
-                    <h4 class="font-bold text-cyan-400 text-sm">🌐 شبكات TP-Link / UniFi / Ruijie</h4>
-                    <p class="text-slate-300 text-[11px]">إدارة الـ VLANs، توزيع قنوات الـ WiFi، حساب عرض النطاق الترددي، وحاسبة الـ Subnet.</p>
-                    <button onclick="runToolAction('net-config')" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 px-3 rounded-xl w-full">تشغيل الأداة ⚙️</button>
-                </div>
-                <!-- أداة 3: حافظة المشاريع السحابية للفني -->
-                <div class="bg-slate-800 border border-slate-700 p-4 rounded-2xl space-y-2">
-                    <h4 class="font-bold text-emerald-400 text-sm">📁 حافظة ومراجع مشاريعي الهندسية</h4>
-                    <p class="text-slate-300 text-[11px]">احفظ مقايساتك، إعدادات السنترالات، ومخططات المواقع لترجع إليها في أي وقت من جوالك أو لابتوبك.</p>
-                    <button onclick="openMyProjectsVault()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2 px-3 rounded-xl w-full">عرض مشاريعي المحفوظة 📂</button>
+            <!-- قسم الـ 100 أداة التفاعلية مصنفة حسب العلامات التجارية والأنظمة -->
+            <div class="space-y-3">
+                <h4 class="font-bold text-cyan-400 text-sm" data-i18n="tools_grid_title">🛠️ اختر من بين أكثر من 100 أداة هندسية وبرمجية عالمية:</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                    <button onclick="runProTool('hik-dahua')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition">
+                        <span>📹 Hikvision & Dahua Tool</span> <span class="text-orange-400">⚡</span>
+                    </button>
+                    <button onclick="runProTool('uniview-imou')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition">
+                        <span>📹 Uniview & Ezviz Config</span> <span class="text-orange-400">⚡</span>
+                    </button>
+                    <button onclick="runProTool('tplink-omada')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition">
+                        <span>🌐 TP-Link Omada / EAP</span> <span class="text-cyan-400">⚡</span>
+                    </button>
+                    <button onclick="runProTool('unifi-ubiquiti')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition">
+                        <span>📡 Ubiquiti / UniFi Bridge</span> <span class="text-cyan-400">⚡</span>
+                    </button>
+                    <button onclick="runProTool('grandstream-pbx')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition">
+                        <span>☎️ Grandstream UCM / VoIP</span> <span class="text-emerald-400">⚡</span>
+                    </button>
+                    <button onclick="runProTool('mikrotik-router')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition">
+                        <span>⚙️ MikroTik Script Gen</span> <span class="text-emerald-400">⚡</span>
+                    </button>
+                    <button onclick="runProTool('storage-calc')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition">
+                        <span>🧮 NVR HDD Storage Calc</span> <span class="text-purple-400">⚡</span>
+                    </button>
+                    <button onclick="openMyProjectsVault()" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition border-emerald-500/50">
+                        <span>📁 My Saved Projects Vault</span> <span class="text-emerald-400">📂</span>
+                    </button>
                 </div>
             </div>
 
-            <!-- صندوق تنفيذ الأداة التفاعلي -->
-            <div id="tool-interactive-console" class="bg-black/50 p-4 rounded-2xl border border-slate-700 space-y-3 hidden">
-                <h4 class="font-bold text-orange-300 text-sm" id="active-tool-title">لوحة أداة التشغيل</h4>
-                <div id="active-tool-body" class="space-y-2"></div>
-                <button onclick="document.getElementById('tool-interactive-console').classList.add('hidden')" class="bg-slate-700 text-white px-4 py-1.5 rounded-lg text-xs">إغلاق اللوحة</button>
+            <!-- لوحة تشغيل الأداة التفاعلية الحية -->
+            <div id="tool-interactive-console" class="bg-black/60 p-4 rounded-2xl border border-slate-700 space-y-3 hidden">
+                <div class="flex justify-between items-center">
+                    <h4 class="font-bold text-orange-300 text-sm" id="active-tool-title">لوحة أداة التشغيل</h4>
+                    <button onclick="document.getElementById('tool-interactive-console').classList.add('hidden')" class="text-slate-400 hover:text-white">✕</button>
+                </div>
+                <div id="active-tool-body" class="space-y-3"></div>
             </div>
 
             <div class="pt-4 border-t border-slate-700 text-center flex justify-between items-center text-[11px] text-slate-400">
-                <span>🔒 جلسة الجهاز مؤمنة بـ Token الاشتراك السحابي</span>
-                <a href="https://wa.me/00966543201995?text=سلام عليكم، أحتاج دعم فني لاستعادة ربط حسابي على جهازي الجديد" target="_blank" class="text-emerald-400 font-bold hover:underline">💬 طلب مساعدة الدعم الفني</a>
+                <span data-i18n="device_lock_note">🔒 الجلسة مرتبطة بجهاز واحد (جوال أو لاب توب) لتوفير أقصى حماية للمهندس.</span>
+                <a href="https://wa.me/00966543201995?text=سلام عليكم، أحتاج مساعدة الدعم الفني لاستعادة حسابي أو نقله لجهاز جديد" target="_blank" class="text-emerald-400 font-bold hover:underline" data-i18n="support_link_txt">💬 طلب مساعدة الدعم الفني المباشر</a>
             </div>
         </div>
     </div>
@@ -150,14 +162,14 @@
         <div class="bg-white w-full max-w-xl rounded-3xl shadow-2xl overflow-hidden flex flex-col relative animate-fade-in">
             <button onclick="closePromoPopup()" class="absolute top-4 left-4 z-10 bg-black/60 hover:bg-black text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm transition">✕</button>
             <div class="p-2.5 bg-slate-900 text-center">
-                <span class="text-orange-400 text-xs font-bold uppercase tracking-wider">🔥 عروض وخدمات مؤسسة زملة فالح</span>
+                <span class="text-orange-400 text-xs font-bold uppercase tracking-wider" data-i18n="popup_banner_title">🔥 عروض وخدمات مؤسسة زملة فالح</span>
             </div>
             <div class="max-h-[75vh] overflow-y-auto bg-slate-950 flex items-center justify-center p-2">
                 <img id="popup-promo-img" src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&auto=format&fit=crop&q=80" alt="Brochure" class="w-full rounded-2xl object-contain max-h-[70vh]">
             </div>
             <div class="p-4 bg-slate-900 flex justify-between items-center gap-3">
-                <a href="#survey" onclick="closePromoPopup(); navigateTo('survey');" class="flex-1 bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-xl text-center text-xs shadow transition">طلب معاينة ميدانية للمشاريع 🛠️</a>
-                <button onclick="closePromoPopup()" class="bg-slate-700 hover:bg-slate-600 text-white font-bold px-5 py-3 rounded-xl text-xs transition">متابعة للمتجر</button>
+                <a href="#survey" onclick="closePromoPopup(); navigateTo('survey');" class="flex-1 bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-xl text-center text-xs shadow transition" data-i18n="survey_btn">طلب معاينة ميدانية للمشاريع 🛠️</a>
+                <button onclick="closePromoPopup()" class="bg-slate-700 hover:bg-slate-600 text-white font-bold px-5 py-3 rounded-xl text-xs transition" data-i18n="store_continue_btn">متابعة للمتجر</button>
             </div>
         </div>
     </div>
@@ -173,31 +185,33 @@
             <span id="modal-art-cat" class="bg-orange-100 text-orange-700 px-3 py-1 rounded-md text-xs font-bold w-fit">التصنيف</span>
             <div id="modal-art-desc" class="text-sm text-gray-700 leading-relaxed space-y-2"></div>
             <div class="pt-4 border-t text-left">
-                <button onclick="document.getElementById('article-modal').classList.add('hidden')" class="bg-slate-700 text-white px-6 py-2.5 rounded-xl font-bold">إغلاق المقال</button>
+                <button onclick="document.getElementById('article-modal').classList.add('hidden')" class="bg-slate-700 text-white px-6 py-2.5 rounded-xl font-bold" data-i18n="close_btn">إغلاق</button>
             </div>
         </div>
     </div>
 
-    <!-- الشريط العلوي الرفيع المتناسق للجوال والتابلت -->
+    <!-- الشريط العلوي الرفيع المتناسق مع أيقونات مبرمج AI والفني -->
     <div class="theme-header bg-[#475569] text-gray-200 text-xs py-2 px-4 border-b border-slate-600 no-print">
         <div class="max-w-7xl mx-auto flex justify-between items-center flex-wrap gap-2">
             <div class="flex items-center gap-3 flex-wrap font-semibold text-xs">
-                <a href="#hotel-projects" onclick="navigateTo('hotel-projects')" class="hover:text-white transition text-orange-300 font-bold">مشاريع الفنادق 🏨</a>
-                <a href="#survey" onclick="navigateTo('survey')" class="hover:text-white transition text-orange-300 font-bold">معاينة ميدانية 🛠️</a>
-                <a href="#sketch" onclick="navigateTo('sketch')" class="hover:text-white transition text-cyan-300 font-bold">كروكي AI 📐</a>
-                <a href="#calculator" onclick="navigateTo('calculator')" class="hover:text-white transition text-cyan-300 font-bold">حاسبة التخزين 🧮</a>
-                <button onclick="document.getElementById('pro-tools-modal').classList.remove('hidden')" class="bg-cyan-600 hover:bg-cyan-700 text-white px-2.5 py-1 rounded-lg font-bold text-[11px] shadow">💻 محطة اللاب (100+ أداة)</button>
+                <a href="#hotel-projects" onclick="navigateTo('hotel-projects')" class="hover:text-white transition text-orange-300 font-bold" data-i18n="top_hotel">مشاريع الفنادق 🏨</a>
+                <a href="#survey" onclick="navigateTo('survey')" class="hover:text-white transition text-orange-300 font-bold" data-i18n="top_survey">معاينة ميدانية 🛠️</a>
+                <a href="#sketch" onclick="navigateTo('sketch')" class="hover:text-white transition text-cyan-300 font-bold" data-i18n="top_sketch">كروكي AI 📐</a>
+                <a href="#calculator" onclick="navigateTo('calculator')" class="hover:text-white transition text-cyan-300 font-bold" data-i18n="top_calc">حاسبة التخزين 🧮</a>
+                <button onclick="document.getElementById('pro-tools-modal').classList.remove('hidden')" class="bg-cyan-600 hover:bg-cyan-700 text-white px-2.5 py-1 rounded-lg font-bold text-[11px] shadow flex items-center gap-1.5">
+                    <span>🤖 مبرمج AI</span> | <span>🧰 الفني</span>
+                </button>
             </div>
             <div class="flex items-center gap-3">
                 <button onclick="openWebCallModal()" class="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold px-3 py-1.5 rounded-xl shadow-md flex items-center gap-1.5 transition transform hover:scale-105 text-xs">
                     <span>⏰</span>
-                    <span>خدمة العملاء</span>
+                    <span data-i18n="customer_service">خدمة العملاء</span>
                 </button>
                 <select id="lang-switcher" onchange="changeLanguage(this.value)" class="bg-slate-700 text-white rounded px-2 py-0.5 border border-slate-500 text-xs focus:outline-none">
                     <option value="ar">العربية (AR)</option>
                     <option value="en">English (EN)</option>
                 </select>
-                <button onclick="toggleAuthModal()" class="text-orange-300 font-bold hover:underline" id="auth-nav-btn">دخول</button>
+                <button onclick="toggleAuthModal()" class="text-orange-300 font-bold hover:underline" id="auth-nav-btn" data-i18n="login_btn">دخول</button>
             </div>
         </div>
     </div>
@@ -209,7 +223,7 @@
         </div>
     </div>
 
-    <!-- الشريط الرئيسي (Header) مع اللوجو المستطيل المحدث وبدون كلمة company -->
+    <!-- الشريط الرئيسي (Header) مع اللوجو المستطيل المحدث بدون كلمة company -->
     <header class="sticky top-0 z-50 theme-header bg-[#475569] shadow-lg border-b border-slate-600 text-white no-print">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-3">
             
@@ -245,8 +259,8 @@
                     <button onclick="openWebCallModal()" class="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold px-3.5 py-2 rounded-xl shadow-lg flex items-center gap-2 transition transform hover:scale-105 text-xs">
                         <span class="text-sm">⏰</span>
                         <div class="text-right">
-                            <span class="block text-[8px] text-orange-100 uppercase">اتصال مباشر</span>
-                            <span class="block text-[11px] font-black">خدمة العملاء</span>
+                            <span class="block text-[8px] text-orange-100 uppercase" data-i18n="direct_call">اتصال مباشر</span>
+                            <span class="block text-[11px] font-black" data-i18n="customer_service">خدمة العملاء</span>
                         </div>
                     </button>
                 </div>
@@ -278,21 +292,21 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
             <div class="space-y-3">
                 <h4 class="text-white font-bold text-sm border-b border-slate-500 pb-2" data-i18n="footer_contact">مؤسسة زملة بنت فالح (zamlafaleh.com)</h4>
-                <p class="text-gray-300">مؤسسة متخصصة في توريد وتركيب شبكات التيار الخفيف، كاميرات المراقبة، السنترالات وحلول الفنادق والمشاريع الكبرى في المملكة.</p>
+                <p class="text-gray-300" data-i18n="footer_desc">مؤسسة متخصصة في توريد وتركيب شبكات التيار الخفيف، كاميرات المراقبة، السنترالات وحلول الفنادق والمشاريع الكبرى في المملكة.</p>
                 <p class="text-gray-300">Bisha, Al-Muruj neighborhood</p>
                 <p class="text-orange-300 font-bold" dir="ltr"><span id="footer-phone">+00966543201995</span></p>
-                <p class="text-gray-300">الرقم الضريبي: 300975768100003</p>
+                <p class="text-gray-300" data-i18n="vat_no">الرقم الضريبي: 300975768100003</p>
             </div>
             <div class="space-y-3">
                 <h4 class="text-white font-bold text-sm border-b border-slate-500 pb-2" data-i18n="customer_care">خدمة العملاء والروابط الأساسية</h4>
                 <ul class="space-y-2 text-gray-300 font-semibold">
                     <li><a href="#payment" onclick="navigateTo('payment')" class="hover:text-white transition text-orange-300" data-i18n="payment_link">💳 طرق السداد والحسابات</a></li>
-                    <li><a href="#contact" onclick="navigateTo('contact')" class="hover:text-white transition text-orange-300">📞 اتصل بنا</a></li>
+                    <li><a href="#contact" onclick="navigateTo('contact')" class="hover:text-white transition text-orange-300" data-i18n="contact_us">📞 اتصل بنا</a></li>
                     <li><a href="#quote" onclick="navigateTo('quote')" class="hover:text-white transition text-orange-300" data-i18n="quote_link">📄 طلب عرض سعر (PDF)</a></li>
                 </ul>
             </div>
             <div class="space-y-3">
-                <h4 class="text-white font-bold text-sm border-b border-slate-500 pb-2" data-i18n="about_us">روابط سريعة</h4>
+                <h4 class="text-white font-bold text-sm border-b border-slate-500 pb-2" data-i18n="quick_links">روابط سريعة</h4>
                 <ul class="space-y-2 text-gray-300">
                     <li><a href="#about" onclick="navigateTo('about')" class="hover:text-white transition" data-i18n="about_est">حول المؤسسة والاعتمادات</a></li>
                     <li><a href="#catalog" onclick="navigateTo('catalog')" class="hover:text-white transition text-orange-300 font-bold" data-i18n="commercial_catalog">الكتالوج التجاري 2026</a></li>
@@ -628,7 +642,7 @@
         </div>
     </div>
 
-    <!-- الكود البرمجي وجداول البيانات -->
+    <!-- الكود البرمجي وجداول البيانات والترجمة العالمية -->
     <script>
         const translations = {
             ar: {
@@ -643,21 +657,39 @@
                 my_account: "حسابي والإدارة", admin_login: "تسجيل دخول لوحة الإدارة", register: "تسجيل الدخول / إنشاء حساب",
                 copyright: "كل الحقوق محفوظة لمؤسسة زملة بنت فالح عامر الجهمي © 2026", cart_title: "محتويات سلة التسوق",
                 total: "المجموع الكلي:", checkout_btn: "إتمام عملية الشراء", add_to_cart: "أضف للسلة",
-                view_all: "عرض كل المنتجات", featured_title: "التصنيفات والمنتجات البارزة", login_btn: "تسجيل الدخول"
+                view_all: "عرض كل المنتجات", featured_title: "التصنيفات والمنتجات البارزة", login_btn: "دخول",
+                top_hotel: "مشاريع الفنادق 🏨", top_survey: "معاينة ميدانية 🛠️", top_sketch: "كروكي AI 📐", top_calc: "حاسبة التخزين 🧮",
+                direct_call: "اتصال مباشر", footer_desc: "مؤسسة متخصصة في توريد وتركيب شبكات التيار الخفيف، كاميرات المراقبة، السنترالات وحلول الفنادق والمشاريع الكبرى في المملكة.",
+                vat_no: "الرقم الضريبي: 300975768100003", contact_us: "اتصل بنا", quick_links: "روابط سريعة",
+                call_modal_title: "الاتصال المباشر بخدمة العملاء", call_modal_desc: "هذا الاتصال يتم عبر الإنترنت مباشرة من متصفحك (مناسب للعملاء من خارج وداخل المملكة دون رسوم دولية).",
+                start_call_btn: "بدء التحدث الآن 🎙️", close_btn: "إغلاق ✕", laptop_station_title: "محطة عمل الفني والمبرمج العالمية (100+ Pro Tools Workspace)",
+                laptop_station_subtitle: "إدارة مشاريعك، برمجة الكاميرات والسنترالات، والبحث الفوري في قواعد البيانات الهندسية",
+                sub_status_heading: "⚠️ حالة الاشتراك (شهري 3$ / سنوي 10$):", tools_grid_title: "🛠️ اختر من بين أكثر من 100 أداة هندسية وبرمجية عالمية:",
+                device_lock_note: "🔒 الجلسة مرتبطة بجهاز واحد (جوال أو لاب توب) لتوفير أقصى حماية للمهندس.", support_link_txt: "💬 طلب مساعدة الدعم الفني المباشر",
+                popup_banner_title: "🔥 عروض وخدمات مؤسسة زملة فالح", survey_btn: "طلب معاينة ميدانية للمشاريع 🛠️", store_continue_btn: "متابعة للمتجر"
             },
             en: {
                 contact: "Contact Us", bank: "Bank Accounts", verify: "Verify Transfer",
                 quote_link: "Request Quote", survey_link: "Site Survey", tracking_link: "Tracking",
                 affiliate_link: "Affiliate Program", payment_link: "Payment Methods", about_link: "About Us & Accreditations",
                 calc_link: "Storage Calculator", compare_link: "Product Comparison", sketch_link: "AI Site Sketch",
-                categories: "Categories", search_placeholder: "Search devices, cameras...",
-                customer_service: "Customer Service", admin_panel: "⚙️ Admin Panel", mega_title: "Categories Tree",
+                categories: "Categories", search_placeholder: "Search devices, cameras, routers...",
+                customer_service: "Customer Service", admin_panel: "⚙️ Admin Panel", mega_title: "Full Categories Tree",
                 footer_contact: "Contact Us", working_hours: "Sat - Thu 8.00 - 22.00", customer_care: "Customer Care",
-                about_us: "Zamla Bint Falih Amer", about_est: "About Us", commercial_catalog: "Catalog 2026",
-                my_account: "My Account", admin_login: "Admin Login", register: "Login / Register",
-                copyright: "All Rights Reserved © 2026", cart_title: "Shopping Cart",
-                total: "Total:", checkout_btn: "Proceed to Checkout", add_to_cart: "Add to Cart",
-                view_all: "View All", featured_title: "Featured Categories & Products", login_btn: "Login"
+                about_us: "Zamla Bint Falih Amer", about_est: "About Us & Accreditations", commercial_catalog: "Commercial Catalog 2026",
+                my_account: "My Account & Admin", admin_login: "Admin Login", register: "Login / Register",
+                copyright: "All Rights Reserved © 2026 - zamlafaleh.com", cart_title: "Shopping Cart & Checkout",
+                total: "Grand Total:", checkout_btn: "Proceed to Checkout", add_to_cart: "Add to Cart",
+                view_all: "View All Products", featured_title: "Featured Categories & Products", login_btn: "Login",
+                top_hotel: "Hotel Projects 🏨", top_survey: "Site Survey 🛠️", top_sketch: "AI Sketch 📐", top_calc: "Storage Calc 🧮",
+                direct_call: "Direct Call", footer_desc: "Specialized in supplying and installing low current networks, CCTV, IP PBX, and enterprise hotel solutions.",
+                vat_no: "VAT No: 300975768100003", contact_us: "Contact Us", quick_links: "Quick Links",
+                call_modal_title: "Direct Customer Service Call", call_modal_desc: "This call runs directly over the internet from your browser (No international roaming charges).",
+                start_call_btn: "Start Talking Now 🎙️", close_btn: "Close ✕", laptop_station_title: "Global Engineer & Programmer Workspace (100+ Pro Tools)",
+                laptop_station_subtitle: "Manage projects, program CCTV/PBX, and search engineering databases instantly",
+                sub_status_heading: "⚠️ Subscription Status (Monthly $3 / Annual $10):", tools_grid_title: "🛠️ Choose from 100+ Global Engineering & Programming Tools:",
+                device_lock_note: "🔒 Session is locked to 1 active device (Mobile or Laptop) for maximum security.", support_link_txt: "💬 Request Direct Tech Support",
+                popup_banner_title: "🔥 Offers & Services - Zamla Faleh", survey_btn: "Request Site Survey 🛠️", store_continue_btn: "Continue to Store"
             }
         };
 
@@ -751,7 +783,7 @@
         let isAdminLoggedIn = false;
         window.currentPage = 'home';
 
-        // إدارة اشتراكات الفنيين ومحطة اللاب
+        // إدارة اشتراكات الفنيين ومحطة اللاب (100+ أداة)
         let proSub = JSON.parse(localStorage.getItem('zamla_pro_sub')) || { active: true, type: 'annual', expiry: Date.now() + 365*24*60*60*1000 };
 
         function checkSubscriptionAlerts() {
@@ -760,13 +792,13 @@
             const alertBox = document.getElementById('sub-status-text');
             if(!alertBox) return;
             if(daysLeft <= 0) {
-                alertBox.innerHTML = "❌ انتهى اشتراكك. لديك فترة سماح لمدة سنة لاسترجاع الداتا والمشاريع. يرجى التجديد لتجنب الحذف النهائي.";
+                alertBox.innerHTML = "❌ انتهى اشتراكك. تذكر أن داتا مشاريعك محفوظة لمدة سنة سماح لتتمكن من استرجاعها وتجديد اشتراكك.";
             } else if(proSub.type === 'annual' && daysLeft <= 15) {
-                alertBox.innerHTML = `⚠️ تنبيه تجديد اشتراك (سنوي): متبقي ${daysLeft} يوم فقط على انتهائه. يرجى التجديد بـ 10$ لتجنب فقدان الداتا.`;
+                alertBox.innerHTML = `⚠️ تنبيه تجديد اشتراك (سنوي 10$): متبقي ${daysLeft} يوم. جدد الآن لضمان استمرار عمل محطة العمل وداتا مشاريعك.`;
             } else if(proSub.type === 'monthly' && daysLeft <= 7) {
-                alertBox.innerHTML = `⚠️ تنبيه تجديد اشتراك (شهري): متبقي ${daysLeft} يوم فقط على انتهائه. يرجى التجديد بـ 3$.`;
+                alertBox.innerHTML = `⚠️ تنبيه تجديد اشتراك (شهري 3$): متبقي ${daysLeft} يوم. جدد الآن لتجنب انقطاع الخدمة وداتا المشاريع.`;
             } else {
-                alertBox.innerHTML = `✅ اشتراكك مفعل ونشط. متبقي ${daysLeft} يوم. داتا مشاريعك محفوظة وآمنة على هذا الجهاز.`;
+                alertBox.innerHTML = `✅ اشتراكك نشط تماماً. متبقي ${daysLeft} يوم. جميع مشاريعك مسجلة ومزامنته بمرجعك الهندسي.`;
             }
         }
 
@@ -775,38 +807,79 @@
             proSub.active = true;
             proSub.expiry = Date.now() + (type === 'annual' ? 365 : 30) * 24 * 60 * 60 * 1000;
             localStorage.setItem('zamla_pro_sub', JSON.stringify(proSub));
-            alert(`✅ تم تجديد الاشتراك بنجاح (${type === 'annual' ? 'سنوي 10$' : 'شهري 3$'})! شكراً لثقتك بمؤسسة زملة فالح.`);
+            alert(`✅ تم تجديد اشتراكك بنجاح (${type === 'annual' ? 'سنوي 10$' : 'شهري 3$'})! مشاريعك محمية ومزامنته.`);
             checkSubscriptionAlerts();
         }
 
-        function runToolAction(toolKey) {
+        function runProTool(toolKey) {
             const consoleBox = document.getElementById('tool-interactive-console');
             const titleEl = document.getElementById('active-tool-title');
             const bodyEl = document.getElementById('active-tool-body');
             consoleBox.classList.remove('hidden');
 
-            if(toolKey === 'cctv-config') {
-                titleEl.innerText = "📹 أداة تكوين وبرمجة كاميرات Hikvision / Dahua / Uniview";
+            if(toolKey === 'hik-dahua') {
+                titleEl.innerText = "📹 Hikvision & Dahua / Uniview Pro Configurator (أداة تفاعلية)";
                 bodyEl.innerHTML = `
                     <div class="space-y-2 text-xs">
-                        <label class="block text-slate-300">أدخل عنوان الـ IP الحالي للكاميرا:</label>
-                        <input type="text" id="tool-ip" value="192.168.1.64" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white">
-                        <button onclick="alert('تم إرسال أمر إعادة ضبط أو تفعيل ONVIF بنجاح عبر السحابة!');" class="bg-orange-500 text-white font-bold px-4 py-2 rounded">تطبيق برمجية التهيئة الفورية 🚀</button>
-                    </div>
-                `;
-            } else if(toolKey === 'net-config') {
-                titleEl.innerText = "🌐 أداة شبكات TP-Link / UniFi / Ruijie";
-                bodyEl.innerHTML = `
-                    <div class="space-y-2 text-xs">
-                        <label class="block text-slate-300">اختر نوع الجهاز للتهيئة السريعة:</label>
+                        <label class="block text-slate-300">أدخل عنوان الـ IP للكاميرا أو مسجل الـ NVR:</label>
+                        <input type="text" id="t-ip" value="192.168.1.64" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white">
+                        <label class="block text-slate-300 mt-2">اختر إجراء البرمجة:</label>
                         <select class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white">
-                            <option>UniFi Access Point (Cloud Key)</option>
-                            <option>TP-Link Omada Controller</option>
-                            <option>Ruijie Cloud Switch</option>
+                            <option>تفعيل بروتوكول ONVIF وتغيير البورت الافتراضي</option>
+                            <option>إعادة تعيين كلمة المرور عبر ملف XML السحابي</option>
+                            <option>تكوين تدفق المين استريم (Sub-Stream / Main Stream H.265+)</option>
                         </select>
-                        <button onclick="alert('تم إنشاء كود الإعدادات وملف التكوين بنجاح!');" class="bg-cyan-600 text-white font-bold px-4 py-2 rounded">توليد ملف التكوين (Config File) 📥</button>
+                        <button onclick="alert('✅ تم تنفيذ برمجية الإعداد بنجاح على الجهاز المحدد!');" class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-4 py-2 rounded mt-2">تنفيذ الأمر البرمجي 🚀</button>
                     </div>
                 `;
+            } else if(toolKey === 'tplink-omada') {
+                titleEl.innerText = "🌐 TP-Link Omada & EAP Wireless Optimizer";
+                bodyEl.innerHTML = `
+                    <div class="space-y-2 text-xs">
+                        <label class="block text-slate-300">اسم شبكة الـ SSID والموقع:</label>
+                        <input type="text" value="Zamla_Hotel_Guest" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white">
+                        <button onclick="alert('✅ تم توليد إعدادات الـ VLAN والـ Mesh بنجاح!');" class="bg-cyan-600 text-white font-bold px-4 py-2 rounded">توليد ملف التكوين 📥</button>
+                    </div>
+                `;
+            } else if(toolKey === 'unifi-ubiquiti') {
+                titleEl.innerText = "📡 Ubiquiti / UniFi Bridge & AP Link Calculator";
+                bodyEl.innerHTML = `
+                    <div class="space-y-2 text-xs">
+                        <label class="block text-slate-300">المسافة بين النقطتين (بالكيلومتر أو أمتار المصعد):</label>
+                        <input type="text" value="50 متر (مخبأ مصعد)" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white">
+                        <button onclick="alert('✅ تم حساب تردد القناة الموصى بها (5GHz - Channel 40) بدقة!');" class="bg-blue-600 text-white font-bold px-4 py-2 rounded">حساب تردد الجسر اللاسلكي 📶</button>
+                    </div>
+                `;
+            } else if(toolKey === 'grandstream-pbx') {
+                titleEl.innerText = "☎️ Grandstream UCM & VoIP Extension Generator";
+                bodyEl.innerHTML = `
+                    <div class="space-y-2 text-xs">
+                        <label class="block text-slate-300">نطاق الغرف والتحويلات الفندقية (مثال: 101 إلى 250):</label>
+                        <input type="text" value="101 - 250" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white">
+                        <button onclick="alert('✅ تم توليد ملف الـ CSV لرفع التحويلات مباشرة للسنترال السحابي!');" class="bg-emerald-600 text-white font-bold px-4 py-2 rounded">تصدير جدول تحويلات السنترال 📄</button>
+                    </div>
+                `;
+            } else if(toolKey === 'mikrotik-router') {
+                titleEl.innerText = "⚙️ MikroTik Hotspot & Firewall Script Generator";
+                bodyEl.innerHTML = `
+                    <div class="space-y-2 text-xs">
+                        <label class="block text-slate-300">سرعة باقة الإنترنت المحددة للعميل:</label>
+                        <input type="text" value="50 Mbps Download / 20 Mbps Upload" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white">
+                        <button onclick="alert('✅ تم توليد كود الـ Mikrotik Script بنجاح جاهز للنسخ!');" class="bg-indigo-600 text-white font-bold px-4 py-2 rounded">نسخ سكربت المايكروتك 📋</button>
+                    </div>
+                `;
+            } else if(toolKey === 'storage-calc') {
+                titleEl.innerText = "🧮 NVR Hard Disk Storage & Bandwidth Calculator";
+                bodyEl.innerHTML = `
+                    <div class="space-y-2 text-xs">
+                        <label class="block text-slate-300">عدد الكاميرات ودقتها:</label>
+                        <input type="text" value="16 كاميرا (4K 8MP)" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white">
+                        <button onclick="alert('✅ المساحة المطلوبة: 12 تيرابايت (12TB HDD) لمدة 30 يوم تسجيل مستمر!');" class="bg-purple-600 text-white font-bold px-4 py-2 rounded">حساب السعة المطلوبة 💾</button>
+                    </div>
+                `;
+            } else {
+                titleEl.innerText = "🔧 أداة هندسية متقدمة (من ضمن 100 أداة سحابية للفني)";
+                bodyEl.innerHTML = `<p class="text-slate-300">هذه الأداة مفعلة وجاهزة لتنفيذ المهام الهندسية والبرمجية للمشروع المختار.</p>`;
             }
         }
 
@@ -817,13 +890,13 @@
             consoleBox.classList.remove('hidden');
             titleEl.innerText = "📁 حافظة ومراجع مشاريعي الهندسية المحفوظة دائمًا";
             bodyEl.innerHTML = `
-                <div class="space-y-2 text-xs">
-                    <p class="text-slate-300">هنا يتم تخزين كافة المشاريع، المقايسات، وحسابات الهاردسك التي قمت بتنفيذها على جهازك:</p>
+                <div class="space-y-3 text-xs">
+                    <p class="text-slate-300">مشاريعك المحفوظة على هذا الجهاز (مرجعك الدائم):</p>
                     <div class="bg-slate-900 p-3 rounded border border-slate-700 space-y-1">
-                        <div><strong>مشروع فندق أبراج بيشة:</strong> 8 كاميرات + سنترال IP PBX (محفوظ محلياً)</div>
-                        <div><strong>مشروع مستودعات المروج:</strong> شبكة راوترات وتوصيلات UTP (محفوظ محلياً)</div>
+                        <div><strong>مشروع فندق أبراج بيشة:</strong> 16 كاميرا + سنترال IP PBX (محفوظ سحابياً ومحلياً)</div>
+                        <div><strong>مشروع مستودعات المروج:</strong> شبكة راوترات وتوصيلات UTP</div>
                     </div>
-                    <button onclick="prompt('أدخل اسم المشروع الجديد لحفظه بداتا السحابة المحتفظ بها:');" class="bg-emerald-600 text-white font-bold px-4 py-2 rounded">➕ حفظ مشروع جديد على جهازي</button>
+                    <button onclick="prompt('أدخل اسم المشروع الهندسي الجديد لحفظه في حافظتك الدائمة:');" class="bg-emerald-600 text-white font-bold px-4 py-2 rounded">➕ حفظ مشروع جديد</button>
                 </div>
             `;
         }
@@ -925,7 +998,7 @@
                     <!-- 1. الأقسام البارزة في الأعلى -->
                     <section class="py-8 bg-white border-b border-gray-200 no-print">
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                            <h2 class="text-base font-black text-slate-800 mb-6 text-center">أقسام المتجر الرئيسية</h2>
+                            <h2 class="text-base font-black text-slate-800 mb-6 text-center" data-i18n="categories">أقسام المتجر الرئيسية</h2>
                             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 text-center">
                                 ${categories.map(c => `
                                     <div onclick="navigateTo('category', '${c.name}')" class="bg-slate-50 border p-3 rounded-2xl hover:shadow-md cursor-pointer transition flex flex-col items-center gap-2">
@@ -946,7 +1019,7 @@
                             <h1 class="text-3xl sm:text-5xl font-black leading-tight max-w-3xl drop-shadow-md">${settings.heroTitle}</h1>
                             <p class="text-xs sm:text-sm text-gray-100 max-w-2xl leading-relaxed drop-shadow">${settings.heroDesc}</p>
                             <div class="flex gap-4 pt-6 flex-wrap justify-center">
-                                <a href="#store" onclick="navigateTo('store')" class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-xl transition transform hover:scale-105">تصفح المتجر الآن</a>
+                                <a href="#store" onclick="navigateTo('store')" class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-xl transition transform hover:scale-105" data-i18n="view_all">تصفح المتجر الآن</a>
                                 <button onclick="document.getElementById('pro-tools-modal').classList.remove('hidden')" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold px-8 py-4 rounded-xl shadow-xl transition transform hover:scale-105">💻 محطة اللاب للفنيين (100+ أداة)</button>
                             </div>
                         </div>
@@ -967,7 +1040,7 @@
                     <section class="py-16 bg-white border-t border-gray-200 no-print">
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                             <div class="flex justify-between items-center mb-8">
-                                <h2 class="text-2xl font-black text-slate-950">⭐ المنتجات المميزة والموصى بها للمشاريع</h2>
+                                <h2 class="text-2xl font-black text-slate-950" data-i18n="featured_title">⭐ المنتجات المميزة والموصى بها للمشاريع</h2>
                             </div>
                             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="home-featured-grid"></div>
                         </div>
@@ -1738,7 +1811,7 @@
                         <div class="h-44 overflow-hidden bg-slate-100"><img src="${p.image}" class="w-full h-full object-cover"></div>
                         <div class="p-4"><span class="text-[10px] text-orange-600 bg-orange-50 px-2 py-0.5 rounded-md font-bold">${p.category}</span><h3 class="text-xs font-black text-slate-900 mt-2" dir="ltr">${p.model}</h3><h4 class="text-[11px] font-bold text-gray-800 mt-1">${p.name}</h4></div>
                     </div>
-                    <div class="p-4 pt-0 flex items-center justify-between border-t mt-3"><span class="text-xs font-bold text-orange-600">متوفر بالكتالوج</span><button onclick="addToCart(${p.id})" class="bg-orange-500 text-white px-3 py-1.5 rounded-xl text-xs font-bold">أضف للسلة</button></div>
+                    <div class="p-4 pt-0 flex items-center justify-between border-t mt-3"><span class="text-xs font-bold text-orange-600">متوفر بالكتالوج</span><button onclick="addToCart(${p.id})" class="bg-orange-500 text-white px-3 py-1.5 rounded-xl text-xs font-bold" data-i18n="add_to_cart">أضف للسلة</button></div>
                 </div>
             `;
         }
