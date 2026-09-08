@@ -49,7 +49,7 @@
 </head>
 <body class="antialiased flex flex-col min-h-screen" id="body-theme">
 
-    <!-- نافذة الإعلان المنبثق التلقائي عند دخول الموقع (الشاشة الافتتاحية بصورة بروشور المصاعد اللاسلكية) -->
+    <!-- نافذة الإعلان المنبثق التلقائي عند دخول الموقع -->
     <div id="promo-popup-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 no-print">
         <div class="bg-white w-full max-w-xl rounded-3xl shadow-2xl overflow-hidden flex flex-col relative animate-fade-in">
             <button onclick="closePromoPopup()" class="absolute top-4 left-4 z-10 bg-black/60 hover:bg-black text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm transition">✕</button>
@@ -216,7 +216,7 @@
         </div>
     </footer>
 
-    <!-- أزرار التواصل (شات ذكي + واتساب موجه لرقم 00966543201996) -->
+    <!-- أزرار التواصل -->
     <div class="fixed bottom-6 left-6 z-50 flex flex-col gap-3 no-print">
         <button onclick="toggleLiveChat()" class="bg-blue-600 hover:bg-blue-700 text-white p-3.5 rounded-full shadow-2xl flex items-center justify-center transition transform hover:scale-110" title="شات الذكاء الاصطناعي الفوري">
             🤖
@@ -272,7 +272,7 @@
         </div>
     </div>
 
-    <!-- نافذة تسجيل دخول الإدارة (Admin Login Modal) -->
+    <!-- نافذة تسجيل دخول الإدارة -->
     <div id="admin-login-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4 no-print">
         <div class="bg-white w-full max-w-sm rounded-3xl shadow-2xl flex flex-col overflow-hidden text-xs p-6 space-y-4">
             <div class="flex justify-between items-center border-b pb-3">
@@ -374,7 +374,7 @@
                         <div class="bg-emerald-50 border p-4 rounded-2xl"><div class="text-gray-500 font-bold mb-1">قيمة المخزون</div><div class="text-2xl font-black text-emerald-700" id="kpi-total-val">0 ر.س</div></div>
                         <div class="bg-red-50 border p-4 rounded-2xl"><div class="text-gray-500 font-bold mb-1">قاربت على النفاذ</div><div class="text-2xl font-black text-red-700" id="kpi-low-stock">0</div></div>
                     </div>
-                    <!-- أداة تصدير واستيراد البيانات للتزامن الفوري -->
+                    <!-- أداة التزامن الفوري -->
                     <div class="bg-amber-50 border border-amber-300 p-4 rounded-2xl space-y-3">
                         <h4 class="font-bold text-amber-900 text-sm">🔄 أداة التزامن الفوري بين اللاب والجوال (Cloud/Local Backup Sync)</h4>
                         <p class="text-xs text-amber-800">لتزامن التعديلات التي تقمها من اللاب مع الجوال لحظياً، قم بتصدير ملف النسخة الاحتياطية من هنا واستيراده على الجوال:</p>
@@ -413,7 +413,7 @@
                     </div>
                     <div id="admin-products-list" class="space-y-2 max-h-72 overflow-y-auto border p-3 rounded-2xl bg-white"></div>
                 </div>
-                <!-- التصنيفات والبروشور الإعلاني الكبير -->
+                <!-- التصنيفات والبروشور -->
                 <div id="admin-tab-categories" class="hidden space-y-6">
                     <div class="bg-slate-50 p-4 rounded-2xl border space-y-3">
                         <h4 class="font-bold text-slate-800 text-sm">تعديل البروشور الإعلاني وعروض التركيب في الواجهة</h4>
@@ -440,7 +440,7 @@
                     </div>
                     <div id="admin-categories-list" class="space-y-2"></div>
                 </div>
-                <!-- قسم إدارة الإعلانات الخارجية والنافذة المنبثقة -->
+                <!-- إدارة الإعلانات الخارجية -->
                 <div id="admin-tab-ads" class="hidden space-y-6">
                     <div class="bg-slate-50 p-6 rounded-2xl border space-y-4">
                         <h4 class="font-bold text-slate-800 text-sm">📢 إدارة الإعلانات الخارجية والنافذة المنبثقة عند الدخول (Popup Ads)</h4>
@@ -454,7 +454,7 @@
                         </form>
                     </div>
                 </div>
-                <!-- قسم إدارة المقالات والإرشادات التقنية -->
+                <!-- إدارة المقالات والإرشادات التقنية -->
                 <div id="admin-tab-articles" class="hidden space-y-6">
                     <div class="bg-slate-50 p-6 rounded-2xl border space-y-4">
                         <h4 class="font-bold text-slate-800 text-sm">✍️ إدارة المقالات والإرشادات التقنية (إضافة / تعديل)</h4>
@@ -524,7 +524,7 @@
         </div>
     </div>
 
-    <!-- البرمجة الشاملة والتفاعلية وقاموس اللغات الشامل -->
+    <!-- الكود البرمجي وجداول البيانات المحدثة -->
     <script>
         const translations = {
             ar: {
@@ -592,35 +592,48 @@
         }
 
         const initialProducts = [
-            { id: 1, sku: "CCTV-HIK-001", model: "DS-2CD1021-I", name: "كاميرا IP 2 ميجابكسل", category: "المراقبة", price: 124.42, stock: 25, desc: "كاميرا شبكية خارجية بدقة 2 ميجابكسل مع رؤية ليلية.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80", featured: true },
-            { id: 2, sku: "CCTV-HIK-002", model: "DS-2CD1043G2-LIU", name: "كاميرا ColorVu خارجية 4 ميجابكسل", category: "المراقبة", price: 150.00, stock: 4, desc: "كاميرا IP خارجية بدقة 4 ميجابكسل من سلسلة ColorVu للتصوير الملون.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80", featured: true },
-            { id: 3, sku: "REC-HIK-001", model: "DS-7608NI-M2/8P", name: "جهاز تسجيل NVR 8 قنوات PoE", category: "أجهزة التسجيل", price: 650.00, stock: 12, desc: "مسجل شبكي احترافي يدعم حتى 8 كاميرات مع توزيع طاقة PoE مدمج.", image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&auto=format&fit=crop&q=80", featured: true },
-            { id: 4, sku: "NET-RJ-001", model: "RG-RAP72PRO", name: "نقطة وصول Wi-Fi 7 للمؤسسات", category: "الشبكات", price: 850.00, stock: 2, desc: "أحدث تقنيات الواي فاي 7 لتغطية سريعة ومستقرة للشركات.", image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=80", featured: true },
-            { id: 5, sku: "VOIP-GS-001", model: "GRP2602P", name: "هاتف IP مكتبي خطين مع PoE", category: "الاتصالات", price: 119.00, stock: 18, desc: "هاتف IP أساسي عالي الدقة للشركات ومراكز الاتصال.", image: "https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=500&auto=format&fit=crop&q=80", featured: false },
-            { id: 6, sku: "PRN-001", model: "Epson-L3250", name: "طابعة إبسون الحبرية الملونة المتعددة", category: "طابعات", price: 680.00, stock: 7, desc: "طابعة اقتصادية ملونة ليزر ونفاثة للحبر للمكاتب والشركات مع واي فاي.", image: "https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=500&auto=format&fit=crop&q=80", featured: true },
-            { id: 7, sku: "MON-001", model: "MSI-MAG-27", name: "شاشة ألعاب احترافية 27 بوصة 165Hz", category: "الحاسب", price: 990.00, stock: 9, desc: "شاشة بدقة عالية جداً وألوان حية مناسبة للمصممين واللاعبين.", image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500&auto=format&fit=crop&q=80", featured: true },
-            { id: 8, sku: "ELEV-CAM-001", model: "Zamla-Elevator-Wireless", name: "نظام كاميرات مصاعد لاسلكي بالكامل", category: "المراقبة", price: 1450.00, stock: 1, desc: "نقل فيديو عالي الدقة وثابت بدون تمديد أسلاك في شافت المصعد.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80", featured: true }
+            { id: 1, sku: "CCTV-HIK-001", model: "DS-2CD1021-I", name: "كاميرا Hikvision IP 2 ميجابكسل", category: "📹 Hikvision", price: 124.42, stock: 25, desc: "كاميرا شبكية خارجية بدقة 2 ميجابكسل مع رؤية ليلية.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80", featured: true },
+            { id: 2, sku: "CCTV-DAH-002", model: "DH-HAC-HFW1200T", name: "كاميرا Dahua خارجية 2 ميجابكسل", category: "📹 Dahua", price: 135.00, stock: 14, desc: "كاميرا مراقبة عالية الدقة من داهوا.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80", featured: true },
+            { id: 3, sku: "NET-RJ-001", model: "RG-RAP72PRO", name: "نقطة وصول Wi-Fi 7 للمؤسسات", category: "شبكات", price: 850.00, stock: 12, desc: "أحدث تقنيات الواي فاي 7 لتغطية سريعة ومستقرة للشركات.", image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&auto=format&fit=crop&q=80", featured: true },
+            { id: 4, sku: "VOIP-GS-001", model: "GRP2602P", name: "هاتف IP مكتبي خطين مع PoE", category: "هواتف اي بي VoIP Phone", price: 119.00, stock: 18, desc: "هاتف IP أساسي عالي الدقة للشركات ومراكز الاتصال.", image: "https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=500&auto=format&fit=crop&q=80", featured: true }
         ];
 
-        let products = JSON.parse(localStorage.getItem('zamla_products_v38')) || initialProducts;
-        let categories = JSON.parse(localStorage.getItem('zamla_categories_v38')) || [
-            { name: 'المراقبة', icon: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=200' },
-            { name: 'أجهزة التسجيل', icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=200' },
-            { name: 'الشبكات', icon: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=200' },
-            { name: 'الاتصالات', icon: 'https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=200' },
-            { name: 'طابعات', icon: 'https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=200' },
-            { name: 'الحاسب', icon: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=200' }
+        let products = JSON.parse(localStorage.getItem('zamla_products_v40')) || initialProducts;
+        
+        // الأقسام الرئيسية الجديدة المحدثة حسب طلبك
+        let categories = JSON.parse(localStorage.getItem('zamla_categories_v40')) || [
+            { name: 'شبكات', icon: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=200' },
+            { name: 'اجهزة لاسلكية', icon: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=200' },
+            { name: 'راوترات', icon: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=200' },
+            { name: 'سويتشات', icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=200' },
+            { name: 'الانظمة الامنية', icon: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=200' },
+            { name: 'سيرفرات', icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=200' },
+            { name: 'كاميرات المراقبة', icon: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=200' },
+            { name: 'هواتف اي بي VoIP Phone', icon: 'https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=200' },
+            { name: 'أنظمة التخزين', icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=200' },
+            { name: 'سمارت هوم', icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=200' },
+            { name: 'الدورات التدريبية', icon: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=200' },
+            { name: 'الملحقات والاكسسوارات', icon: 'https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=200' },
+            { name: 'حلول IP-TV', icon: 'https://images.unsplash.com/photo-1593784991095-a205069470b6?w=200' },
+            { name: 'اجتماعات الفيديو', icon: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=200' },
+            { name: '📹 Hikvision', icon: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=200' },
+            { name: '📹 Dahua', icon: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=200' },
+            { name: '📹 Uniview', icon: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=200' },
+            { name: '📹 Ezviz / Imou', icon: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=200' },
+            { name: 'الكترونيات', icon: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=200' },
+            { name: 'توصيلات كهربائية', icon: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=200' }
         ];
-        let affiliates = JSON.parse(localStorage.getItem('zamla_affiliates_v38')) || [
+
+        let affiliates = JSON.parse(localStorage.getItem('zamla_affiliates_v40')) || [
             { name: "أحمد محمد", phone: "0543201996", code: "ZF-AFF-7068", rate: 10 }
         ];
-        let members = JSON.parse(localStorage.getItem('zamla_members_v38')) || [
+        let members = JSON.parse(localStorage.getItem('zamla_members_v40')) || [
             { name: "عبدالله الشمري", phone: "0501234567", whatsapp: "00966501234567", location: "الرياض، الملز", nationality: "سعودي", company: "مؤسسة الاتصالات الذكية", type: "فني معتمد" }
         ];
-        let articles = JSON.parse(localStorage.getItem('zamla_articles_v38')) || [
-            { id: 1, title: "كيف تختار كاميرات ColorVu للتصوير المليلي الملون؟", category: "كاميرات مراقبة", desc: "تعرف على أهم الفروقات بين كاميرات الأشعة تحت الحمراء التقليدية وكاميرات التصوير الملّون بالكامل في الظلام التام.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500" }
+        let articles = JSON.parse(localStorage.getItem('zamla_articles_v40')) || [
+            { id: 1, title: "كيف تختار كاميرات ColorVu للتصوير المليلي الملون؟", category: "كاميرات المراقبة", desc: "تعرف على أهم الفروقات بين كاميرات الأشعة تحت الحمراء التقليدية وكاميرات التصوير الملّون بالكامل في الظلام التام.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500" }
         ];
-        let settings = JSON.parse(localStorage.getItem('zamla_settings_v38')) || { 
+        let settings = JSON.parse(localStorage.getItem('zamla_settings_v40')) || { 
             title: "ZAMLA BINT FALIH AMER", 
             logo: "logo.jpeg", 
             phone: "0543201996",
@@ -630,7 +643,7 @@
             heroImg: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&auto=format&fit=crop&q=80",
             ropaBanner: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&auto=format&fit=crop&q=80"
         };
-        let cart = JSON.parse(localStorage.getItem('zamla_cart_v38')) || [];
+        let cart = JSON.parse(localStorage.getItem('zamla_cart_v40')) || [];
         let currentUser = JSON.parse(localStorage.getItem('zamla_user')) || null;
         let isAdminLoggedIn = false;
         window.currentPage = 'home';
@@ -669,10 +682,10 @@
                 fileReader.onload = function (e) {
                     try {
                         const parsed = JSON.parse(e.target.result);
-                        if(parsed.products) { products = parsed.products; localStorage.setItem('zamla_products_v38', JSON.stringify(products)); }
-                        if(parsed.categories) { categories = parsed.categories; localStorage.setItem('zamla_categories_v38', JSON.stringify(categories)); }
-                        if(parsed.articles) { articles = parsed.articles; localStorage.setItem('zamla_articles_v38', JSON.stringify(articles)); }
-                        if(parsed.settings) { settings = parsed.settings; localStorage.setItem('zamla_settings_v38', JSON.stringify(settings)); }
+                        if(parsed.products) { products = parsed.products; localStorage.setItem('zamla_products_v40', JSON.stringify(products)); }
+                        if(parsed.categories) { categories = parsed.categories; localStorage.setItem('zamla_categories_v40', JSON.stringify(categories)); }
+                        if(parsed.articles) { articles = parsed.articles; localStorage.setItem('zamla_articles_v40', JSON.stringify(articles)); }
+                        if(parsed.settings) { settings = parsed.settings; localStorage.setItem('zamla_settings_v40', JSON.stringify(settings)); }
                         alert('✅ تم استيراد وتزامن بيانات المتجر بنجاح تام على هذا الجهاز!');
                         initApp();
                     } catch(err) {
@@ -1102,7 +1115,6 @@
             updateLanguageUI();
         }
 
-        // إرسال طلب مشاريع الفنادق والمؤسسات مع الأدوار، الغرف، المصاعد والمخططات لرقم 00966543201996 وإيميل الإدارة
         function submitHotelProjectForm(e) {
             e.preventDefault();
             const name = document.getElementById('hp-name').value;
@@ -1128,7 +1140,6 @@
             navigateTo('home');
         }
 
-        // فتح نافذة الدفع الإلكتروني
         function openCheckoutModal() {
             if (cart.length === 0) { alert('السلة فارغة!'); return; }
             const total = cart.reduce((sum, item) => sum + (item.price * (item.qty || 1)), 0) * 1.15;
@@ -1155,14 +1166,13 @@
             window.open(`https://wa.me/00966543201996?text=${msg}`, '_blank');
             alert(`✅ تم الدفع بنجاح عبر بوابة (${method}) وتم إرسال تفاصيل الفواتير وشحن الطلبات للواتساب الإداري!`);
             cart = [];
-            localStorage.removeItem('zamla_cart_v38');
+            localStorage.removeItem('zamla_cart_v40');
             updateCartUI();
             toggleCheckoutModal();
             toggleCart();
             navigateTo('home');
         }
 
-        // حفظ وتعديل المقالات من لوحة التحكم مع الصور
         function saveArticleData(e) {
             e.preventDefault();
             const editId = document.getElementById('art-edit-id').value;
@@ -1183,7 +1193,7 @@
                         image: imgUrl || "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500"
                     });
                 }
-                localStorage.setItem('zamla_articles_v38', JSON.stringify(articles));
+                localStorage.setItem('zamla_articles_v40', JSON.stringify(articles));
                 document.getElementById('article-form').reset();
                 document.getElementById('art-edit-id').value = '';
                 renderAdminArticles();
@@ -1208,13 +1218,12 @@
                     <div><strong>${a.title}</strong> (${a.category})</div>
                     <div class="flex gap-2">
                         <button onclick="editArticle(${a.id})" class="bg-blue-600 text-white px-2 py-1 rounded">تعديل</button>
-                        <button onclick="articles.splice(${idx},1); localStorage.setItem('zamla_articles_v38', JSON.stringify(articles)); renderAdminArticles();" class="text-red-500 font-bold">حذف</button>
+                        <button onclick="articles.splice(${idx},1); localStorage.setItem('zamla_articles_v40', JSON.stringify(articles)); renderAdminArticles();" class="text-red-500 font-bold">حذف</button>
                     </div>
                 </div>
             `).join('');
         }
 
-        // إرسال طلب المعاينة الميدانية مع الصور للواتساب والإيميل
         function submitSurveyWithEmailAndWhatsApp(e) {
             e.preventDefault();
             const name = document.getElementById('srv-name').value;
@@ -1238,7 +1247,7 @@
                 const reader = new FileReader();
                 reader.onload = function(e) {
                     settings.externalAdImg = e.target.result;
-                    localStorage.setItem('zamla_settings_v38', JSON.stringify(settings));
+                    localStorage.setItem('zamla_settings_v40', JSON.stringify(settings));
                     const promoImg = document.getElementById('popup-promo-img');
                     if (promoImg) promoImg.src = e.target.result;
                     alert('تم تحديث الإعلان الخارجي والنافذة المنبثقة بنجاح!');
@@ -1268,9 +1277,9 @@
 
             if(!dims) { alert('الرجاء إدخال أبعاد ومساحة الموقع'); return; }
 
-            const camItem = products.find(p => p.category === 'المراقبة') || products[0];
-            const nvrItem = products.find(p => p.category === 'أجهزة التسجيل') || products[1];
-            const netItem = products.find(p => p.category === 'الشبكات') || products[2];
+            const camItem = products.find(p => p.category.includes('Hikvision') || p.category.includes('كاميرات')) || products[0];
+            const nvrItem = products.find(p => p.category.includes('تخزين') || p.category.includes('سيرفرات')) || products[1];
+            const netItem = products.find(p => p.category.includes('شبكات') || p.category.includes('راوترات')) || products[2];
 
             const camCount = 6;
             const cableMeters = camCount * 25;
@@ -1308,14 +1317,14 @@
                         <p class="text-orange-300 font-bold">🛒 جدول الأجهزة والقطع المقترحة:</p>
                         <ul class="list-disc pr-4 space-y-1 text-slate-300">
                             <li>${camCount} × ${camItem ? camItem.model : 'DS-2CD1021-I'} (${camItem ? camItem.name : 'كاميرا IP'})</li>
-                            <li>1 × ${nvrItem ? nvrItem.model : 'DS-7608NI'} (جهاز تسجيل NVR)</li>
-                            <li>1 × ${netItem ? netItem.model : 'RG-RAP72PRO'} (راوتر / شبكة)</li>
+                            <li>1 × ${nvrItem ? nvrItem.model : 'NVR'} (جهاز تسجيل NVR)</li>
+                            <li>1 × ${netItem ? netItem.model : 'Router'} (راوتر / شبكة)</li>
                         </ul>
                         <div class="flex justify-between items-center bg-slate-800 p-3 rounded-xl mt-3">
                             <span class="font-bold text-sm">إجمالي التكلفة التقديرية الشاملة:</span>
                             <span class="text-orange-400 font-black text-sm">${grandTotalEstimate.toFixed(2)} ر.س</span>
                         </div>
-                        <button onclick="addAdvancedQuoteToCart(${camItem ? camItem.id : 1}, ${nvrItem ? nvrItem.id : 2}, ${netItem ? netItem.id : 4}, ${camCount})" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl text-xs shadow">إضافة كافة الاحتياجات للسلة وإصدار عرض السعر الرسمي 📄</button>
+                        <button onclick="addAdvancedQuoteToCart(${camItem ? camItem.id : 1}, ${nvrItem ? nvrItem.id : 2}, ${netItem ? netItem.id : 3}, ${camCount})" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl text-xs shadow">إضافة كافة الاحتياجات للسلة وإصدار عرض السعر الرسمي 📄</button>
                     </div>
                 </div>
             `;
@@ -1328,7 +1337,7 @@
             if(p1) { p1.qty = count; cart.push(p1); }
             if(p2) { p2.qty = 1; cart.push(p2); }
             if(p3) { p3.qty = 1; cart.push(p3); }
-            localStorage.setItem('zamla_cart_v38', JSON.stringify(cart));
+            localStorage.setItem('zamla_cart_v40', JSON.stringify(cart));
             updateCartUI();
             alert('تمت إضافة جميع الاحتياجات والقطع المقترحة للسلة بنجاح!');
             navigateTo('quotation-preview');
@@ -1364,7 +1373,7 @@
 
             const newMember = { name, phone, whatsapp, location, nationality, company, type };
             members.push(newMember);
-            localStorage.setItem('zamla_members_v38', JSON.stringify(members));
+            localStorage.setItem('zamla_members_v40', JSON.stringify(members));
 
             currentUser = { name, phone, email: phone + '@zamla.com' };
             localStorage.setItem('zamla_user', JSON.stringify(currentUser));
@@ -1408,7 +1417,7 @@
             if(!name || !phone) { alert('أدخل الاسم ورقم الجوال'); return; }
             const code = 'ZF-AFF-' + Math.floor(1000 + Math.random() * 9000);
             affiliates.push({ name, phone, code, rate });
-            localStorage.setItem('zamla_affiliates_v38', JSON.stringify(affiliates));
+            localStorage.setItem('zamla_affiliates_v40', JSON.stringify(affiliates));
             renderAffiliateTable();
             const text = `السلام عليكم ${name},%0Aتم اعتمادك في برنامج البيع بالعمولة لمؤسسة زمله بنت فالح بربح نسبة ${rate}%.%0Aكود التسويق الخاص بك هو: *${code}*`;
             window.open(`https://wa.me/966${phone.replace(/^0/, '')}?text=${text}`, '_blank');
@@ -1423,7 +1432,7 @@
                         <tr><th class="p-2.5">اسم المسوق</th><th class="p-2.5">الجوال</th><th class="p-2.5">الكود</th><th class="p-2.5">النسبة</th><th class="p-2.5">إجراء</th></tr>
                     </thead>
                     <tbody>
-                        ${affiliates.map((a, i) => `<tr class="border-b"><td class="p-2.5 font-bold">${a.name}</td><td class="p-2.5">${a.phone}</td><td class="p-2.5 font-mono text-orange-600 font-bold">${a.code}</td><td class="p-2.5">${a.rate}%</td><td class="p-2.5"><button onclick="affiliates.splice(${i},1); localStorage.setItem('zamla_affiliates_v38', JSON.stringify(affiliates)); renderAffiliateTable();" class="text-red-500 font-bold">حذف</button></td></tr>`).join('')}
+                        ${affiliates.map((a, i) => `<tr class="border-b"><td class="p-2.5 font-bold">${a.name}</td><td class="p-2.5">${a.phone}</td><td class="p-2.5 font-mono text-orange-600 font-bold">${a.code}</td><td class="p-2.5">${a.rate}%</td><td class="p-2.5"><button onclick="affiliates.splice(${i},1); localStorage.setItem('zamla_affiliates_v40', JSON.stringify(affiliates)); renderAffiliateTable();" class="text-red-500 font-bold">حذف</button></td></tr>`).join('')}
                     </tbody>
                 </table>
             `;
@@ -1546,7 +1555,7 @@
             } else {
                 cart.push({ ...p, qty: 1 });
             }
-            localStorage.setItem('zamla_cart_v38', JSON.stringify(cart));
+            localStorage.setItem('zamla_cart_v40', JSON.stringify(cart));
             updateCartUI();
             toggleCart();
         }
@@ -1557,13 +1566,13 @@
             if (cart[index].qty <= 0) {
                 cart.splice(index, 1);
             }
-            localStorage.setItem('zamla_cart_v38', JSON.stringify(cart));
+            localStorage.setItem('zamla_cart_v40', JSON.stringify(cart));
             updateCartUI();
         }
 
         function removeFromCart(i) {
             cart.splice(i, 1);
-            localStorage.setItem('zamla_cart_v38', JSON.stringify(cart));
+            localStorage.setItem('zamla_cart_v40', JSON.stringify(cart));
             updateCartUI();
         }
 
@@ -1593,7 +1602,7 @@
         }
 
         function toggleCart() { document.getElementById('cart-drawer').classList.toggle('-translate-x-full'); }
-        function proceedToCheckout() { alert('تم تأكيد الطلب بنجاح!'); cart = []; localStorage.removeItem('zamla_cart_v38'); updateCartUI(); toggleCart(); navigateTo('home'); }
+        function proceedToCheckout() { alert('تم تأكيد الطلب بنجاح!'); cart = []; localStorage.removeItem('zamla_cart_v40'); updateCartUI(); toggleCart(); navigateTo('home'); }
 
         function toggleAdminModal() {
             document.getElementById('admin-modal').classList.toggle('hidden');
@@ -1644,7 +1653,7 @@
                 } else {
                     products.unshift({ id: Date.now(), model, name, category, price, stock, desc, featured, image: imgUrl || "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500" });
                 }
-                localStorage.setItem('zamla_products_v38', JSON.stringify(products));
+                localStorage.setItem('zamla_products_v40', JSON.stringify(products));
                 document.getElementById('product-form').reset();
                 renderAdminProducts();
                 renderInventoryAnalytics();
@@ -1674,7 +1683,7 @@
 
         function deleteProduct(id) {
             products = products.filter(p => p.id !== id);
-            localStorage.setItem('zamla_products_v38', JSON.stringify(products));
+            localStorage.setItem('zamla_products_v40', JSON.stringify(products));
             renderAdminProducts();
             renderInventoryAnalytics();
         }
@@ -1691,7 +1700,7 @@
                 } else {
                     categories.push({ name, icon: iconUrl || 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=200' });
                 }
-                localStorage.setItem('zamla_categories_v38', JSON.stringify(categories));
+                localStorage.setItem('zamla_categories_v40', JSON.stringify(categories));
                 document.getElementById('category-form').reset();
                 renderAdminCategories();
                 populateCategoryDropdown();
@@ -1715,7 +1724,7 @@
                 if(imgUrl) {
                     settings.heroImg = imgUrl;
                 }
-                localStorage.setItem('zamla_settings_v38', JSON.stringify(settings));
+                localStorage.setItem('zamla_settings_v40', JSON.stringify(settings));
                 alert('تم تحديث البروشور بنجاح!');
                 navigateTo('home');
             };
@@ -1734,7 +1743,7 @@
 
         function deleteCategory(i) {
             categories.splice(i, 1);
-            localStorage.setItem('zamla_categories_v38', JSON.stringify(categories));
+            localStorage.setItem('zamla_categories_v40', JSON.stringify(categories));
             renderAdminCategories();
             populateCategoryDropdown();
         }
@@ -1764,7 +1773,7 @@
                             id: Date.now() + idx,
                             model: String(row['Model'] || `ITEM-${idx}`),
                             name: String(row['Product Name AR'] || 'منتج معتمد'),
-                            category: String(row['Category'] || 'المراقبة'),
+                            category: String(row['Category'] || 'شبكات'),
                             price: parseFloat(row['Saudi Price SAR'] || 150.0),
                             stock: 15,
                             desc: String(row['Description AR'] || 'منتج عالي الجودة.'),
@@ -1773,7 +1782,7 @@
                         };
                         products.unshift(newP);
                     });
-                    localStorage.setItem('zamla_products_v38', JSON.stringify(products));
+                    localStorage.setItem('zamla_products_v40', JSON.stringify(products));
                     renderAdminProducts();
                     renderInventoryAnalytics();
                     alert('تم استيراد الأصناف والمخزون بنجاح!');
@@ -1795,7 +1804,7 @@
                 settings.phone = phone;
                 settings.themeColor = themeColor;
                 if(logoUrl) settings.logo = logoUrl;
-                localStorage.setItem('zamla_settings_v38', JSON.stringify(settings));
+                localStorage.setItem('zamla_settings_v40', JSON.stringify(settings));
                 applyThemeColors();
                 initApp();
                 alert('تم حفظ الألوان وإعدادات الهوية بنجاح!');
