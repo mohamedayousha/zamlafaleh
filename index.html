@@ -84,7 +84,7 @@
         </div>
     </div>
 
-    <!-- نافذة محطة العمل الهندسية وقاعدة بيانات الموديلات الفورية (Instant Field Engineering Hub) -->
+    <!-- نافذة محطة العمل الهندسية وقاعدة بيانات الموديلات الشاملة (Instant Field Engineering Hub) -->
     <div id="pro-tools-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden flex items-center justify-center p-2 sm:p-4 no-print">
         <div class="bg-slate-900 text-slate-100 w-full max-w-6xl rounded-3xl shadow-2xl p-6 space-y-6 max-h-[95vh] overflow-y-auto text-xs border border-slate-700">
             <div class="flex justify-between items-center border-b border-slate-700 pb-4">
@@ -110,27 +110,30 @@
                 </div>
             </div>
 
-            <!-- محرك البحث الفوري في قواعد بيانات الأجهزة (Hikvision, Dahua, TP-Link, Ubiquiti, Grandstream) -->
+            <!-- محرك البحث الفوري في قواعد بيانات الأجهزة المعتمدة -->
             <div class="bg-slate-800 p-4 rounded-2xl border border-slate-700 space-y-3">
-                <h4 class="font-bold text-cyan-400 text-sm">🔍 محرك البحث الهندسي الفوري بالموديل أو العلامة التجارية:</h4>
+                <h4 class="font-bold text-cyan-400 text-sm">🔍 محرك البحث الهندسي الفوري (هيكفيجن، داهوا، تبي لينك، يوني فاي، سنترالات):</h4>
                 <div class="flex gap-2">
-                    <input type="text" id="engineering-search-input" oninput="searchEngineeringDatabase()" placeholder="اكتب اسم الموديل (مثال: EAP610, DS-2CD, UCM6300, ER605)..." class="flex-1 bg-slate-900 border border-slate-700 p-3 rounded-xl text-white text-xs focus:outline-none focus:border-cyan-500">
+                    <input type="text" id="engineering-search-input" oninput="searchEngineeringDatabase()" placeholder="اكتب اسم الموديل أو الشركة (مثال: DS-2CD, DH-IPC, EAP610, UCM6300)..." class="flex-1 bg-slate-900 border border-slate-700 p-3 rounded-xl text-white text-xs focus:outline-none focus:border-cyan-500">
                     <button onclick="searchEngineeringDatabase()" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold px-5 py-3 rounded-xl">بحث فوري 🔎</button>
                 </div>
                 <div id="engineering-search-results" class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3 max-h-60 overflow-y-auto text-slate-300">
-                    <div>💡 اكتب في خانة البحث أعلاه اسم الموديل أو اختر من الأدوات أدناه للحصول على الـ IP، بيانات الدخول، وأوامر البرمجة فوراً.</div>
+                    <div>💡 اكتب في خانة البحث أعلاه اسم الموديل أو الشركة للحصول فوراً على الـ IP الافتراضي، بيانات الدخول الرسمية، وروابط الأدوات الأصلية الصحيحة 100%.</div>
                 </div>
             </div>
 
-            <!-- تصنيفات الأداة السريعة -->
+            <!-- تصنيفات الشركات والأدوات السريعة -->
             <div class="space-y-3">
-                <h4 class="font-bold text-orange-400 text-sm">🛠️ الاختصارات السريعة لأدوات الشركات المصنعة:</h4>
+                <h4 class="font-bold text-orange-400 text-sm">🛠️ الاختصارات السريعة لأدوات الشركات المصنعة العالمية:</h4>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                     <button onclick="loadQuickToolData('hikvision')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition">
                         <span>📹 Hikvision (SADP & IP)</span> <span class="text-orange-400">⚡</span>
                     </button>
                     <button onclick="loadQuickToolData('dahua')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition">
                         <span>📹 Dahua ConfigTool</span> <span class="text-orange-400">⚡</span>
+                    </button>
+                    <button onclick="loadQuickToolData('uniview')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition">
+                        <span>📹 Uniview (EZTools)</span> <span class="text-orange-400">⚡</span>
                     </button>
                     <button onclick="loadQuickToolData('tplink')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition">
                         <span>🌐 TP-Link Omada / EAP</span> <span class="text-cyan-400">⚡</span>
@@ -142,10 +145,7 @@
                         <span>☎️ Grandstream UCM PBX</span> <span class="text-emerald-400">⚡</span>
                     </button>
                     <button onclick="loadQuickToolData('mikrotik')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition">
-                        <span>⚙️ MikroTik RouterOS CLI</span> <span class="text-emerald-400">⚡</span>
-                    </button>
-                    <button onclick="loadQuickToolData('storage')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition">
-                        <span>🧮 NVR Storage Calculator</span> <span class="text-purple-400">⚡</span>
+                        <span>⚙️ MikroTik WinBox & CLI</span> <span class="text-emerald-400">⚡</span>
                     </button>
                     <button onclick="openMyProjectsVault()" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition border-emerald-500/50">
                         <span>📁 My Saved Projects Vault</span> <span class="text-emerald-400">📂</span>
@@ -822,21 +822,22 @@
             checkSubscriptionAlerts();
         }
 
-        // قاعدة بيانات المهندس الشاملة الفورية (تضم الموديلات، الـ IPs، والأدوات الرسمية)
+        // قاعدة البيانات الهندسية الشاملة والمحدثة (تتضمن Hikvision, Dahua, Uniview, TP-Link, Ubiquiti, Grandstream, MikroTik مع الروابط الرسمية والصحيحة 100%)
         const engineeringDatabase = [
-            { brand: "Hikvision", model: "DS-2CD / NVR / DVR", ip: "192.168.1.64", user: "admin", pass: "admin / active pass", toolUrl: "https://www.hikvision.com/en/support/tools/desktop-tools/sadp-tool/", desc: "تحميل أداة SADP الرسمية لاكتشاف وتهيئة كاميرات هيكفيجن." },
-            { brand: "Dahua", model: "DH-IPC / NVR", ip: "192.168.1.108", user: "admin", pass: "admin / set on init", toolUrl: "https://www.dahuasecurity.com/support/tools", desc: "تحميل أداة ConfigTool الرسمية لاكتشاف وتغيير IPs أجهزة داهوا." },
-            { brand: "TP-Link Omada", model: "EAP610 / EAP650 / OC200", ip: "192.168.0.254", user: "admin", pass: "admin / admin", toolUrl: "https://www.tp-link.com/en/support/download/", desc: "تحميل تطبيق Omada Controller وبرامج التشغيل الرسمية." },
-            { brand: "Ubiquiti / UniFi", model: "U6-Pro / LiteBeam / Nanostation", ip: "192.168.1.20", user: "ubnt", pass: "ubnt / custom", toolUrl: "https://www.ui.com/download/", desc: "تحميل أداة UniFi Network Controller وبرامج ربط الأبراج." },
-            { brand: "Grandstream", model: "UCM6300 / GRP2602", ip: "192.168.2.1", user: "admin", pass: "admin", toolUrl: "https://www.grandstream.com/support/tools", desc: "تحميل أدوات سنترالات جراندستريم وتكوين امتدادات VoIP." },
-            { brand: "MikroTik", model: "RouterBoard / hEX / CCR", ip: "192.168.88.1", user: "admin", pass: "blank (no password)", toolUrl: "https://mikrotik.com/download", desc: "تحميل برنامج WinBox الرسمي لإدارة وبرمجة روترات مايكروتك." }
+            { brand: "Hikvision", model: "DS-2CD / NVR / DVR", ip: "192.168.1.64", user: "admin", pass: "admin / active on init", toolUrl: "https://www.hikvision.com/en/support/tools/desktop-tools/sadp-tool/", desc: "Official SADP Tool for device activation and IP configuration." },
+            { brand: "Dahua", model: "DH-IPC / NVR / XVR", ip: "192.168.1.108", user: "admin", pass: "admin / set on init", toolUrl: "https://www.dahuasecurity.com/support/tools", desc: "Official ConfigTool for searching and configuring Dahua devices." },
+            { brand: "Uniview", model: "IPC / NVR / EZView", ip: "192.168.0.13", user: "admin", pass: "123456", toolUrl: "https://global.uniview.com/Support/Download_Center/Tool/", desc: "Official EZTools for batch configuration and firmware upgrades." },
+            { brand: "TP-Link Omada", model: "EAP610 / EAP650 / OC200 / Switches", ip: "192.168.0.254", user: "admin", pass: "admin / admin", toolUrl: "https://www.tp-link.com/en/support/download/", desc: "Official Omada Controller and discovery utilities." },
+            { brand: "Ubiquiti / UniFi", model: "U6-Pro / LiteBeam / Nanostation", ip: "192.168.1.20", user: "ubnt", pass: "ubnt / custom", toolUrl: "https://www.ui.com/download/", desc: "Official UniFi Network Controller and UISP utilities." },
+            { brand: "Grandstream", model: "UCM6300 / GRP2602 / GXW", ip: "192.168.2.1", user: "admin", pass: "admin", toolUrl: "https://www.grandstream.com/support/tools", desc: "Official Grandstream IP PBX management tools." },
+            { brand: "MikroTik", model: "RouterBoard / hEX / CCR", ip: "192.168.88.1", user: "admin", pass: "blank (no password)", toolUrl: "https://mikrotik.com/download", desc: "Official WinBox utility for RouterOS management." }
         ];
 
         function searchEngineeringDatabase() {
             const query = document.getElementById('engineering-search-input').value.toLowerCase();
             const resultsBox = document.getElementById('engineering-search-results');
             if(!query) {
-                resultsBox.innerHTML = `<div>💡 اكتب في خانة البحث أعلاه اسم الموديل (مثال: Hikvision, EAP, UCM) لتظهر لك البيانات الفورية والروابط الرسمية.</div>`;
+                resultsBox.innerHTML = `<div>💡 اكتب في خانة البحث أعلاه اسم الموديل أو الشركة (مثال: Hikvision, Dahua, EAP, UCM) لتظهر لك البيانات الفورية والروابط الرسمية المعتمدة.</div>`;
                 return;
             }
 
@@ -847,20 +848,21 @@
             );
 
             if(matched.length === 0) {
-                resultsBox.innerHTML = `<div class="text-orange-400">⚠️ لم يتم العثور على هذا الموديل في قاعدة البيانات المحلية الحالية. سيتم إضافته قريباً عبر التحديث السحابي.</div>`;
+                resultsBox.innerHTML = `<div class="text-orange-400">⚠️ لم يتم العثور على هذا الموديل في قاعدة البيانات المحلية. تواصل مع الدعم الفني لإضافته فوراً.</div>`;
                 return;
             }
 
             resultsBox.innerHTML = matched.map(item => `
-                <div class="bg-slate-900 p-3 rounded-xl border border-slate-700 space-y-1">
+                <div class="bg-slate-900 p-3 rounded-xl border border-slate-700 space-y-2">
                     <div class="flex justify-between items-center text-cyan-400 font-bold">
                         <span>${item.brand} - ${item.model}</span>
                         <span class="bg-slate-800 px-2 py-0.5 rounded text-[10px] text-orange-300">Default IP: ${item.ip}</span>
                     </div>
                     <div class="text-slate-300 text-[11px]">User / Pass: <strong>${item.user}</strong> / <code>${item.pass}</code></div>
                     <div class="text-slate-400 text-[11px]">${item.desc}</div>
-                    <div class="pt-2">
+                    <div class="pt-1 flex gap-2">
                         <a href="${item.toolUrl}" target="_blank" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold px-3 py-1.5 rounded-lg inline-block text-[11px]">🔗 تحميل الأداة الرسمية الأصلية</a>
+                        <button onclick="navigator.clipboard.writeText('${item.ip}'); alert('تم نسخ الـ IP الافتراضي بنجاح!');" class="bg-slate-700 text-white font-bold px-2.5 py-1.5 rounded-lg text-[11px]">📋 نسخ IP</button>
                     </div>
                 </div>
             `).join('');
@@ -879,11 +881,11 @@
                 <div class="space-y-3 text-xs">
                     <div class="bg-slate-900 p-3 rounded-xl border border-slate-700 space-y-2">
                         <div>العنوان الافتراضي (Default IP): <strong class="text-orange-400" dir="ltr">${item.ip}</strong></div>
-                        <div>بيانات الدخول (Credentials): <strong class="text-cyan-400" dir="ltr">${item.user} / ${item.pass}</strong></div>
+                        <div>بيانات الدخول الافتراضية (Default Credentials): <strong class="text-cyan-400" dir="ltr">${item.user} / ${item.pass}</strong></div>
                         <p class="text-slate-300">${item.desc}</p>
                         <div class="pt-2 flex gap-2">
                             <a href="${item.toolUrl}" target="_blank" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold px-4 py-2 rounded-xl inline-block">🌐 فتح رابط التحميل الرسمي والأداة الأصلية</a>
-                            <button onclick="navigator.clipboard.writeText('${item.ip}'); alert('تم نسخ الIP الافتراضي!');" class="bg-slate-700 text-white font-bold px-3 py-2 rounded-xl">📋 نسخ IP</button>
+                            <button onclick="navigator.clipboard.writeText('${item.ip}'); alert('تم نسخ الـ IP الافتراضي!');" class="bg-slate-700 text-white font-bold px-3 py-2 rounded-xl">📋 نسخ IP</button>
                         </div>
                     </div>
                 </div>
