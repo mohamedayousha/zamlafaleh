@@ -47,7 +47,7 @@
 </head>
 <body class="antialiased flex flex-col min-h-screen" id="body-theme">
 
-    <!-- نافذة الإعلان المنبثق التلقائي عند دخول الموقع (Promo Popup Modal - قابلة للتغيير من الداشبورد) -->
+    <!-- نافذة الإعلان المنبثق التلقائي عند دخول الموقع (Promo Popup Modal) -->
     <div id="promo-popup-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 no-print">
         <div class="bg-white w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden flex flex-col relative animate-fade-in">
             <button onclick="closePromoPopup()" class="absolute top-4 left-4 z-10 bg-black/60 hover:bg-black text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm transition">✕</button>
@@ -418,7 +418,7 @@
         </div>
     </div>
 
-    <!-- البرمجة الشاملة والتفاعلية -->
+    <!-- البرمجة الشاملة والتفاعلية وقاموس اللغات الشامل -->
     <script>
         const translations = {
             ar: {
@@ -475,7 +475,7 @@
             const switcher = document.getElementById('lang-switcher');
             if(switcher) switcher.value = currentLang;
 
-            // اتجاه شريط الإعلانات حسب اللغة (العربية يسار ليمين، الإنجليزية يمين لليسار)
+            // اتجاه شريط الإعلانات حسب اللغة (العربية لليسار، الإنجليزية لليمين)
             const wrapper = document.getElementById('ticker-wrapper');
             if(wrapper) {
                 if(currentLang === 'ar') {
@@ -498,8 +498,8 @@
             { id: 8, sku: "ELEV-CAM-001", model: "Zamla-Elevator-Wireless", name: "نظام كاميرات مصاعد لاسلكي بالكامل", category: "المراقبة", price: 1450.00, stock: 1, desc: "نقل فيديو عالي الدقة وثابت بدون تمديد أسلاك في شافت المصعد.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80", featured: true }
         ];
 
-        let products = JSON.parse(localStorage.getItem('zamla_products_v34')) || initialProducts;
-        let categories = JSON.parse(localStorage.getItem('zamla_categories_v34')) || [
+        let products = JSON.parse(localStorage.getItem('zamla_products_v35')) || initialProducts;
+        let categories = JSON.parse(localStorage.getItem('zamla_categories_v35')) || [
             { name: 'المراقبة', icon: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=200' },
             { name: 'أجهزة التسجيل', icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=200' },
             { name: 'الشبكات', icon: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=200' },
@@ -507,13 +507,13 @@
             { name: 'طابعات', icon: 'https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=200' },
             { name: 'الحاسب', icon: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=200' }
         ];
-        let affiliates = JSON.parse(localStorage.getItem('zamla_affiliates_v34')) || [
+        let affiliates = JSON.parse(localStorage.getItem('zamla_affiliates_v35')) || [
             { name: "أحمد محمد", phone: "0543201995", code: "ZF-AFF-7068", rate: 10 }
         ];
-        let members = JSON.parse(localStorage.getItem('zamla_members_v34')) || [
+        let members = JSON.parse(localStorage.getItem('zamla_members_v35')) || [
             { name: "عبدالله الشمري", phone: "0501234567", whatsapp: "00966501234567", location: "الرياض، الملز", nationality: "سعودي", company: "مؤسسة الاتصالات الذكية", type: "فني معتمد" }
         ];
-        let settings = JSON.parse(localStorage.getItem('zamla_settings_v34')) || { 
+        let settings = JSON.parse(localStorage.getItem('zamla_settings_v35')) || { 
             title: "ZAMLA BINT FALIH AMER", 
             logo: "logo.jpeg", 
             phone: "0543201995",
@@ -522,7 +522,7 @@
             heroDesc: "توريد وتركيب أجهزة الشبكات، كاميرات المصاعد اللاسلكية، السنترالات والحلول الأمنية المتكاملة.",
             heroImg: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&auto=format&fit=crop&q=80"
         };
-        let cart = JSON.parse(localStorage.getItem('zamla_cart_v34')) || [];
+        let cart = JSON.parse(localStorage.getItem('zamla_cart_v35')) || [];
         let currentUser = JSON.parse(localStorage.getItem('zamla_user')) || null;
         let isAdminLoggedIn = false;
         window.currentPage = 'home';
@@ -561,18 +561,18 @@
                         </div>
                     </section>
 
-                    <!-- 2. مساحة إعلانية لعرض صور المشاريع السابقة والتركيبات -->
-                    <section class="relative bg-slate-800 text-white py-16 overflow-hidden shadow-xl no-print">
-                        <div class="absolute inset-0 opacity-40">
-                            <img src="${settings.heroImg}" alt="Previous Projects" class="w-full h-full object-cover">
+                    <!-- 2. مساحة إعلانية لعرض صور المشاريع السابقة والتركيبات (مع إزاحة الأزرار للأسفل ليظهر البروشور بالخلف بوضوح) -->
+                    <section class="relative bg-slate-800 text-white py-24 sm:py-32 overflow-hidden shadow-xl no-print">
+                        <div class="absolute inset-0 opacity-50">
+                            <img src="${settings.heroImg}" alt="Promo Brochure" class="w-full h-full object-cover">
                         </div>
-                        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center space-y-4">
-                            <span class="bg-orange-500 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest">معرض أعمالنا ومشاريعنا السابقة 2026</span>
-                            <h1 class="text-3xl sm:text-4xl font-black leading-tight max-w-3xl">${settings.heroTitle}</h1>
-                            <p class="text-xs sm:text-sm text-gray-200 max-w-2xl leading-relaxed">${settings.heroDesc}</p>
-                            <div class="flex gap-4 pt-2">
-                                <a href="#store" onclick="navigateTo('store')" class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-xl shadow-lg transition">تصفح الكتالوج الآن</a>
-                                <a href="#survey" onclick="navigateTo('survey')" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-xl shadow-lg transition">🛠️ طلب معاينة ميدانية</a>
+                        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center space-y-6 pt-8 sm:pt-16">
+                            <span class="bg-orange-500 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest shadow">بروشور العروض والتركيبات الرسمية 2026</span>
+                            <h1 class="text-3xl sm:text-5xl font-black leading-tight max-w-3xl drop-shadow-md">${settings.heroTitle}</h1>
+                            <p class="text-xs sm:text-sm text-gray-100 max-w-2xl leading-relaxed drop-shadow">${settings.heroDesc}</p>
+                            <div class="flex gap-4 pt-6">
+                                <a href="#store" onclick="navigateTo('store')" class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-xl transition transform hover:scale-105">تصفح الكتالوج الآن</a>
+                                <a href="#survey" onclick="navigateTo('survey')" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-xl shadow-xl transition transform hover:scale-105">🛠️ طلب معاينة ميدانية</a>
                             </div>
                         </div>
                     </section>
@@ -755,7 +755,6 @@
                 `;
             }
             else if (page === 'survey') {
-                // استبدال الكروكي بطلب معاينة ميدانية للمشاريع مع إرفاق صور وإرسال واتساب وإيميل
                 main.innerHTML = `
                     <div class="max-w-2xl mx-auto px-4 py-16 no-print">
                         <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 space-y-6">
@@ -777,7 +776,6 @@
                 `;
             }
             else if (page === 'sketch') {
-                // أداة تصميم كروكي ذكي مع احتساب التمديد والتركيب
                 main.innerHTML = `
                     <div class="max-w-3xl mx-auto px-4 py-16 no-print">
                         <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 space-y-6">
@@ -912,9 +910,9 @@
             const location = document.getElementById('srv-location').value;
             const details = document.getElementById('srv-details').value;
 
-            const msg = `طلب معاينة ميدانية جديدة:%0A- الاسم: ${name}%0A- الجوال: ${phone}%0A- الموقع: ${location}%0A- التفاصيل: ${details}`;
+            const msg = `طلب معاينة ميدانية جديدة للمشروع:%0A- الاسم: ${name}%0A- الجوال: ${phone}%0A- الموقع: ${location}%0A- التفاصيل: ${details}`;
             
-            // فتح واتساب الإدارة
+            // فتح واتساب المؤسسة 00966543201995
             window.open(`https://wa.me/00966543201995?text=${msg}`, '_blank');
             
             // إرسال عبر الإيميل الإداري msaeed.zamlafaleh@gmail.com
@@ -1006,7 +1004,7 @@
             if(p1) { p1.qty = count; cart.push(p1); }
             if(p2) { p2.qty = 1; cart.push(p2); }
             if(p3) { p3.qty = 1; cart.push(p3); }
-            localStorage.setItem('zamla_cart_v34', JSON.stringify(cart));
+            localStorage.setItem('zamla_cart_v35', JSON.stringify(cart));
             updateCartUI();
             alert('تمت إضافة جميع الاحتياجات والقطع المقترحة للسلة بنجاح!');
             navigateTo('quotation-preview');
@@ -1042,7 +1040,7 @@
 
             const newMember = { name, phone, whatsapp, location, nationality, company, type };
             members.push(newMember);
-            localStorage.setItem('zamla_members_v34', JSON.stringify(members));
+            localStorage.setItem('zamla_members_v35', JSON.stringify(members));
 
             currentUser = { name, phone, email: phone + '@zamla.com' };
             localStorage.setItem('zamla_user', JSON.stringify(currentUser));
@@ -1095,7 +1093,7 @@
             if(!name || !phone) { alert('أدخل الاسم ورقم الجوال'); return; }
             const code = 'ZF-AFF-' + Math.floor(1000 + Math.random() * 9000);
             affiliates.push({ name, phone, code, rate });
-            localStorage.setItem('zamla_affiliates_v34', JSON.stringify(affiliates));
+            localStorage.setItem('zamla_affiliates_v35', JSON.stringify(affiliates));
             renderAffiliateTable();
             const text = `السلام عليكم ${name},%0Aتم اعتمادك في برنامج البيع بالعمولة لمؤسسة زمله بنت فالح بربح نسبة ${rate}%.%0Aكود التسويق الخاص بك هو: *${code}*`;
             window.open(`https://wa.me/966${phone.replace(/^0/, '')}?text=${text}`, '_blank');
@@ -1110,7 +1108,7 @@
                         <tr><th class="p-2.5">اسم المسوق</th><th class="p-2.5">الجوال</th><th class="p-2.5">الكود</th><th class="p-2.5">النسبة</th><th class="p-2.5">إجراء</th></tr>
                     </thead>
                     <tbody>
-                        ${affiliates.map((a, i) => `<tr class="border-b"><td class="p-2.5 font-bold">${a.name}</td><td class="p-2.5">${a.phone}</td><td class="p-2.5 font-mono text-orange-600 font-bold">${a.code}</td><td class="p-2.5">${a.rate}%</td><td class="p-2.5"><button onclick="affiliates.splice(${i},1); localStorage.setItem('zamla_affiliates_v34', JSON.stringify(affiliates)); renderAffiliateTable();" class="text-red-500 font-bold">حذف</button></td></tr>`).join('')}
+                        ${affiliates.map((a, i) => `<tr class="border-b"><td class="p-2.5 font-bold">${a.name}</td><td class="p-2.5">${a.phone}</td><td class="p-2.5 font-mono text-orange-600 font-bold">${a.code}</td><td class="p-2.5">${a.rate}%</td><td class="p-2.5"><button onclick="affiliates.splice(${i},1); localStorage.setItem('zamla_affiliates_v35', JSON.stringify(affiliates)); renderAffiliateTable();" class="text-red-500 font-bold">حذف</button></td></tr>`).join('')}
                     </tbody>
                 </table>
             `;
@@ -1233,7 +1231,7 @@
             } else {
                 cart.push({ ...p, qty: 1 });
             }
-            localStorage.setItem('zamla_cart_v34', JSON.stringify(cart));
+            localStorage.setItem('zamla_cart_v35', JSON.stringify(cart));
             updateCartUI();
             toggleCart();
         }
@@ -1244,13 +1242,13 @@
             if (cart[index].qty <= 0) {
                 cart.splice(index, 1);
             }
-            localStorage.setItem('zamla_cart_v34', JSON.stringify(cart));
+            localStorage.setItem('zamla_cart_v35', JSON.stringify(cart));
             updateCartUI();
         }
 
         function removeFromCart(i) {
             cart.splice(i, 1);
-            localStorage.setItem('zamla_cart_v34', JSON.stringify(cart));
+            localStorage.setItem('zamla_cart_v35', JSON.stringify(cart));
             updateCartUI();
         }
 
@@ -1280,7 +1278,7 @@
         }
 
         function toggleCart() { document.getElementById('cart-drawer').classList.toggle('-translate-x-full'); }
-        function proceedToCheckout() { alert('تم تأكيد الطلب بنجاح!'); cart = []; localStorage.removeItem('zamla_cart_v34'); updateCartUI(); toggleCart(); navigateTo('home'); }
+        function proceedToCheckout() { alert('تم تأكيد الطلب بنجاح!'); cart = []; localStorage.removeItem('zamla_cart_v35'); updateCartUI(); toggleCart(); navigateTo('home'); }
 
         function toggleAdminModal() {
             document.getElementById('admin-modal').classList.toggle('hidden');
@@ -1331,7 +1329,7 @@
                 } else {
                     products.unshift({ id: Date.now(), model, name, category, price, stock, desc, featured, image: imgUrl || "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500" });
                 }
-                localStorage.setItem('zamla_products_v34', JSON.stringify(products));
+                localStorage.setItem('zamla_products_v35', JSON.stringify(products));
                 document.getElementById('product-form').reset();
                 renderAdminProducts();
                 renderInventoryAnalytics();
@@ -1361,7 +1359,7 @@
 
         function deleteProduct(id) {
             products = products.filter(p => p.id !== id);
-            localStorage.setItem('zamla_products_v34', JSON.stringify(products));
+            localStorage.setItem('zamla_products_v35', JSON.stringify(products));
             renderAdminProducts();
             renderInventoryAnalytics();
         }
@@ -1378,7 +1376,7 @@
                 } else {
                     categories.push({ name, icon: iconUrl || 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=200' });
                 }
-                localStorage.setItem('zamla_categories_v34', JSON.stringify(categories));
+                localStorage.setItem('zamla_categories_v35', JSON.stringify(categories));
                 document.getElementById('category-form').reset();
                 renderAdminCategories();
                 populateCategoryDropdown();
@@ -1404,7 +1402,7 @@
                     const promoImg = document.getElementById('popup-promo-img');
                     if (promoImg) promoImg.src = imgUrl;
                 }
-                localStorage.setItem('zamla_settings_v34', JSON.stringify(settings));
+                localStorage.setItem('zamla_settings_v35', JSON.stringify(settings));
                 alert('تم تحديث البروشور والاعلان المنبثق بنجاح!');
                 navigateTo('home');
             };
@@ -1423,7 +1421,7 @@
 
         function deleteCategory(i) {
             categories.splice(i, 1);
-            localStorage.setItem('zamla_categories_v34', JSON.stringify(categories));
+            localStorage.setItem('zamla_categories_v35', JSON.stringify(categories));
             renderAdminCategories();
             populateCategoryDropdown();
         }
@@ -1462,7 +1460,7 @@
                         };
                         products.unshift(newP);
                     });
-                    localStorage.setItem('zamla_products_v34', JSON.stringify(products));
+                    localStorage.setItem('zamla_products_v35', JSON.stringify(products));
                     renderAdminProducts();
                     renderInventoryAnalytics();
                     alert('تم استيراد الأصناف والمخزون بنجاح!');
@@ -1484,7 +1482,7 @@
                 settings.phone = phone;
                 settings.themeColor = themeColor;
                 if(logoUrl) settings.logo = logoUrl;
-                localStorage.setItem('zamla_settings_v34', JSON.stringify(settings));
+                localStorage.setItem('zamla_settings_v35', JSON.stringify(settings));
                 applyThemeColors();
                 initApp();
                 alert('تم حفظ الألوان وإعدادات الهوية بنجاح!');
