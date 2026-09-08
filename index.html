@@ -23,9 +23,9 @@
         }
       ]
     }'>
-    <meta name="description" content="مؤسسة زملة بنت فالح عامر الجهمي (zamlafaleh.com) - محطة العمل العالمية للفنيين والمبرمجين والمهندسين. 100+ أداة ذكية لأنظمة التيار الخفيف والشبكات.">
+    <meta name="description" content="مؤسسة زملة بنت فالح عامر الجهمي (zamlafaleh.com) - محطة العمل العالمية للفنيين والمبرمجين والمهندسين. قاعدة بيانات الأجهزة والسكربتات الهندسية.">
     <meta name="keywords" content="zamlafaleh.com, CCTV tools, IP calculator, Hikvision config, Ubiquiti, TP-Link, Grandstream, Low current workspace">
-    <title id="page-title">مؤسسة زملة بنت فالح عامر الجهمي | Global Tech Suite</title>
+    <title id="page-title">مؤسسة زملة بنت فالح عامر الجهمي | Global Field Engineering Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
@@ -84,15 +84,15 @@
         </div>
     </div>
 
-    <!-- نافذة محطة العمل الشاملة للفني والمبرمج (شاملة أداة اكتشاف تبي لينك للفنادق) -->
+    <!-- نافذة محطة العمل الهندسية وقاعدة بيانات الموديلات الفورية (Instant Field Engineering Hub) -->
     <div id="pro-tools-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden flex items-center justify-center p-2 sm:p-4 no-print">
         <div class="bg-slate-900 text-slate-100 w-full max-w-6xl rounded-3xl shadow-2xl p-6 space-y-6 max-h-[95vh] overflow-y-auto text-xs border border-slate-700">
             <div class="flex justify-between items-center border-b border-slate-700 pb-4">
                 <div class="flex items-center gap-3">
                     <span class="text-3xl">💻🧰</span>
                     <div>
-                        <h3 class="font-black text-base text-orange-400" data-i18n="laptop_station_title">محطة عمل الفني والمبرمج العالمية (100+ Pro Tools Workspace)</h3>
-                        <p class="text-[11px] text-slate-400" data-i18n="laptop_station_subtitle">إدارة مشاريعك، برمجة الكاميرات والسنترالات، والبحث الفوري في قواعد البيانات الهندسية</p>
+                        <h3 class="font-black text-base text-orange-400" data-i18n="laptop_station_title">محطة العمل الهندسية الفورية (Instant Field Engineering Hub)</h3>
+                        <p class="text-[11px] text-slate-400" data-i18n="laptop_station_subtitle">قاعدة البيانات الشاملة: IPs افتراضية، روابط تحميل رسمية، وأوامر برمجية ميدانية معتمدة</p>
                     </div>
                 </div>
                 <button onclick="document.getElementById('pro-tools-modal').classList.add('hidden')" class="text-slate-400 hover:text-white font-bold text-lg p-2">✕</button>
@@ -110,30 +110,42 @@
                 </div>
             </div>
 
-            <!-- تصنيفات الأداة (أكثر من 100 أداة تفاعلية) -->
+            <!-- محرك البحث الفوري في قواعد بيانات الأجهزة (Hikvision, Dahua, TP-Link, Ubiquiti, Grandstream) -->
+            <div class="bg-slate-800 p-4 rounded-2xl border border-slate-700 space-y-3">
+                <h4 class="font-bold text-cyan-400 text-sm">🔍 محرك البحث الهندسي الفوري بالموديل أو العلامة التجارية:</h4>
+                <div class="flex gap-2">
+                    <input type="text" id="engineering-search-input" oninput="searchEngineeringDatabase()" placeholder="اكتب اسم الموديل (مثال: EAP610, DS-2CD, UCM6300, ER605)..." class="flex-1 bg-slate-900 border border-slate-700 p-3 rounded-xl text-white text-xs focus:outline-none focus:border-cyan-500">
+                    <button onclick="searchEngineeringDatabase()" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold px-5 py-3 rounded-xl">بحث فوري 🔎</button>
+                </div>
+                <div id="engineering-search-results" class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3 max-h-60 overflow-y-auto text-slate-300">
+                    <div>💡 اكتب في خانة البحث أعلاه اسم الموديل أو اختر من الأدوات أدناه للحصول على الـ IP، بيانات الدخول، وأوامر البرمجة فوراً.</div>
+                </div>
+            </div>
+
+            <!-- تصنيفات الأداة السريعة -->
             <div class="space-y-3">
-                <h4 class="font-bold text-cyan-400 text-sm" data-i18n="tools_grid_title">🛠️ اختر من بين أكثر من 100 أداة هندسية وبرمجية عالمية:</h4>
+                <h4 class="font-bold text-orange-400 text-sm">🛠️ الاختصارات السريعة لأدوات الشركات المصنعة:</h4>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-                    <button onclick="runProTool('hik-dahua')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition">
-                        <span>📹 Hikvision & Dahua Tool</span> <span class="text-orange-400">⚡</span>
+                    <button onclick="loadQuickToolData('hikvision')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition">
+                        <span>📹 Hikvision (SADP & IP)</span> <span class="text-orange-400">⚡</span>
                     </button>
-                    <button onclick="runProTool('tplink-discover')" class="bg-slate-800 hover:bg-slate-700 border border-cyan-500 p-3 rounded-xl text-right flex items-center justify-between transition shadow-md">
-                        <span>🔍 TP-Link DX Hotel Scanner</span> <span class="text-cyan-400 font-bold">HOT 🔥</span>
+                    <button onclick="loadQuickToolData('dahua')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition">
+                        <span>📹 Dahua ConfigTool</span> <span class="text-orange-400">⚡</span>
                     </button>
-                    <button onclick="runProTool('uniview-imou')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition">
-                        <span>📹 Uniview & Ezviz Config</span> <span class="text-orange-400">⚡</span>
-                    </button>
-                    <button onclick="runProTool('tplink-omada')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition">
+                    <button onclick="loadQuickToolData('tplink')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition">
                         <span>🌐 TP-Link Omada / EAP</span> <span class="text-cyan-400">⚡</span>
                     </button>
-                    <button onclick="runProTool('unifi-ubiquiti')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition">
-                        <span>📡 Ubiquiti / UniFi Bridge</span> <span class="text-cyan-400">⚡</span>
+                    <button onclick="loadQuickToolData('ubiquiti')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition">
+                        <span>📡 Ubiquiti / UniFi</span> <span class="text-cyan-400">⚡</span>
                     </button>
-                    <button onclick="runProTool('grandstream-pbx')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition">
-                        <span>☎️ Grandstream UCM / VoIP</span> <span class="text-emerald-400">⚡</span>
+                    <button onclick="loadQuickToolData('grandstream')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition">
+                        <span>☎️ Grandstream UCM PBX</span> <span class="text-emerald-400">⚡</span>
                     </button>
-                    <button onclick="runProTool('mikrotik-router')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition">
-                        <span>⚙️ MikroTik Script Gen</span> <span class="text-emerald-400">⚡</span>
+                    <button onclick="loadQuickToolData('mikrotik')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition">
+                        <span>⚙️ MikroTik RouterOS CLI</span> <span class="text-emerald-400">⚡</span>
+                    </button>
+                    <button onclick="loadQuickToolData('storage')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition">
+                        <span>🧮 NVR Storage Calculator</span> <span class="text-purple-400">⚡</span>
                     </button>
                     <button onclick="openMyProjectsVault()" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition border-emerald-500/50">
                         <span>📁 My Saved Projects Vault</span> <span class="text-emerald-400">📂</span>
@@ -141,10 +153,10 @@
                 </div>
             </div>
 
-            <!-- لوحة تشغيل الأداة التفاعلية الحية -->
+            <!-- لوحة نتائج الأداة الفورية -->
             <div id="tool-interactive-console" class="bg-black/60 p-4 rounded-2xl border border-slate-700 space-y-3 hidden">
                 <div class="flex justify-between items-center">
-                    <h4 class="font-bold text-orange-300 text-sm" id="active-tool-title">لوحة أداة التشغيل</h4>
+                    <h4 class="font-bold text-orange-300 text-sm" id="active-tool-title">نتيجة الاستعلام الهندسي</h4>
                     <button onclick="document.getElementById('tool-interactive-console').classList.add('hidden')" class="text-slate-400 hover:text-white">✕</button>
                 </div>
                 <div id="active-tool-body" class="space-y-3"></div>
@@ -158,7 +170,7 @@
     </div>
 
     <!-- نافذة الإعلان المنبثق التلقائي عند دخول الموقع -->
-    <div id="promo-popup-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 no-print">
+    <div id="promo-popup-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4 no-print">
         <div class="bg-white w-full max-w-xl rounded-3xl shadow-2xl overflow-hidden flex flex-col relative animate-fade-in">
             <button onclick="closePromoPopup()" class="absolute top-4 left-4 z-10 bg-black/60 hover:bg-black text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm transition">✕</button>
             <div class="p-2.5 bg-slate-900 text-center">
@@ -287,7 +299,7 @@
     <!-- منطقة عرض الصفحات -->
     <main class="flex-1" id="main-content"></main>
 
-    <!-- الفوتر (طرق السداد، اتصل بنا، طلب عرض سعر في الأسفل) -->
+    <!-- الفوتر -->
     <footer class="theme-footer bg-[#334155] text-gray-200 py-16 text-xs border-t border-slate-600 mt-auto no-print">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
             <div class="space-y-3">
@@ -662,9 +674,9 @@
                 direct_call: "اتصال مباشر", footer_desc: "مؤسسة متخصصة في توريد وتركيب شبكات التيار الخفيف، كاميرات المراقبة، السنترالات وحلول الفنادق والمشاريع الكبرى في المملكة.",
                 vat_no: "الرقم الضريبي: 300975768100003", contact_us: "اتصل بنا", quick_links: "روابط سريعة",
                 call_modal_title: "الاتصال المباشر بخدمة العملاء", call_modal_desc: "هذا الاتصال يتم عبر الإنترنت مباشرة من متصفحك (مناسب للعملاء من خارج وداخل المملكة دون رسوم دولية).",
-                start_call_btn: "بدء التحدث الآن 🎙️", close_btn: "إغلاق ✕", laptop_station_title: "محطة عمل الفني والمبرمج العالمية (100+ Pro Tools Workspace)",
-                laptop_station_subtitle: "إدارة مشاريعك، برمجة الكاميرات والسنترالات، والبحث الفوري في قواعد البيانات الهندسية",
-                sub_status_heading: "⚠️ حالة الاشتراك (شهري 3$ / سنوي 10$):", tools_grid_title: "🛠️ اختر من بين أكثر من 100 أداة هندسية وبرمجية عالمية:",
+                start_call_btn: "بدء التحدث الآن 🎙️", close_btn: "إغلاق ✕", laptop_station_title: "محطة العمل الهندسية الفورية (Instant Field Engineering Hub)",
+                laptop_station_subtitle: "قاعدة البيانات الشاملة: IPs افتراضية، روابط تحميل رسمية، وأوامر برمجية ميدانية معتمدة",
+                sub_status_heading: "⚠️ حالة الاشتراك (شهري 3$ / سنوي 10$):", tools_grid_title: "🛠️ الاختصارات السريعة لأدوات الشركات المصنعة:",
                 device_lock_note: "🔒 الجلسة مرتبطة بجهاز واحد (جوال أو لاب توب) لتوفير أقصى حماية للمهندس.", support_link_txt: "💬 طلب مساعدة الدعم الفني المباشر",
                 popup_banner_title: "🔥 عروض وخدمات مؤسسة زملة فالح", survey_btn: "طلب معاينة ميدانية للمشاريع 🛠️", store_continue_btn: "متابعة للمتجر"
             },
@@ -685,9 +697,9 @@
                 direct_call: "Direct Call", footer_desc: "Specialized in supplying and installing low current networks, CCTV, IP PBX, and enterprise hotel solutions.",
                 vat_no: "VAT No: 300975768100003", contact_us: "Contact Us", quick_links: "Quick Links",
                 call_modal_title: "Direct Customer Service Call", call_modal_desc: "This call runs directly over the internet from your browser (No international roaming charges).",
-                start_call_btn: "Start Talking Now 🎙️", close_btn: "Close ✕", laptop_station_title: "Global Engineer & Programmer Workspace (100+ Pro Tools)",
-                laptop_station_subtitle: "Manage projects, program CCTV/PBX, and search engineering databases instantly",
-                sub_status_heading: "⚠️ Subscription Status (Monthly $3 / Annual $10):", tools_grid_title: "🛠️ Choose from 100+ Global Engineering & Programming Tools:",
+                start_call_btn: "Start Talking Now 🎙️", close_btn: "Close ✕", laptop_station_title: "Instant Field Engineering Hub (Pro Tools)",
+                laptop_station_subtitle: "Comprehensive database: Default IPs, official tools download links, and verified field scripts",
+                sub_status_heading: "⚠️ Subscription Status (Monthly $3 / Annual $10):", tools_grid_title: "🛠️ Quick Manufacturer Tools Shortcuts:",
                 device_lock_note: "🔒 Session is locked to 1 active device (Mobile or Laptop) for maximum security.", support_link_txt: "💬 Request Direct Tech Support",
                 popup_banner_title: "🔥 Offers & Services - Zamla Faleh", survey_btn: "Request Site Survey 🛠️", store_continue_btn: "Continue to Store"
             }
@@ -810,103 +822,72 @@
             checkSubscriptionAlerts();
         }
 
-        function runProTool(toolKey) {
+        // قاعدة بيانات المهندس الشاملة الفورية (تضم الموديلات، الـ IPs، والأدوات الرسمية)
+        const engineeringDatabase = [
+            { brand: "Hikvision", model: "DS-2CD / NVR / DVR", ip: "192.168.1.64", user: "admin", pass: "admin / active pass", toolUrl: "https://www.hikvision.com/en/support/tools/desktop-tools/sadp-tool/", desc: "تحميل أداة SADP الرسمية لاكتشاف وتهيئة كاميرات هيكفيجن." },
+            { brand: "Dahua", model: "DH-IPC / NVR", ip: "192.168.1.108", user: "admin", pass: "admin / set on init", toolUrl: "https://www.dahuasecurity.com/support/tools", desc: "تحميل أداة ConfigTool الرسمية لاكتشاف وتغيير IPs أجهزة داهوا." },
+            { brand: "TP-Link Omada", model: "EAP610 / EAP650 / OC200", ip: "192.168.0.254", user: "admin", pass: "admin / admin", toolUrl: "https://www.tp-link.com/en/support/download/", desc: "تحميل تطبيق Omada Controller وبرامج التشغيل الرسمية." },
+            { brand: "Ubiquiti / UniFi", model: "U6-Pro / LiteBeam / Nanostation", ip: "192.168.1.20", user: "ubnt", pass: "ubnt / custom", toolUrl: "https://www.ui.com/download/", desc: "تحميل أداة UniFi Network Controller وبرامج ربط الأبراج." },
+            { brand: "Grandstream", model: "UCM6300 / GRP2602", ip: "192.168.2.1", user: "admin", pass: "admin", toolUrl: "https://www.grandstream.com/support/tools", desc: "تحميل أدوات سنترالات جراندستريم وتكوين امتدادات VoIP." },
+            { brand: "MikroTik", model: "RouterBoard / hEX / CCR", ip: "192.168.88.1", user: "admin", pass: "blank (no password)", toolUrl: "https://mikrotik.com/download", desc: "تحميل برنامج WinBox الرسمي لإدارة وبرمجة روترات مايكروتك." }
+        ];
+
+        function searchEngineeringDatabase() {
+            const query = document.getElementById('engineering-search-input').value.toLowerCase();
+            const resultsBox = document.getElementById('engineering-search-results');
+            if(!query) {
+                resultsBox.innerHTML = `<div>💡 اكتب في خانة البحث أعلاه اسم الموديل (مثال: Hikvision, EAP, UCM) لتظهر لك البيانات الفورية والروابط الرسمية.</div>`;
+                return;
+            }
+
+            const matched = engineeringDatabase.filter(item => 
+                item.brand.toLowerCase().includes(query) || 
+                item.model.toLowerCase().includes(query) || 
+                item.ip.includes(query)
+            );
+
+            if(matched.length === 0) {
+                resultsBox.innerHTML = `<div class="text-orange-400">⚠️ لم يتم العثور على هذا الموديل في قاعدة البيانات المحلية الحالية. سيتم إضافته قريباً عبر التحديث السحابي.</div>`;
+                return;
+            }
+
+            resultsBox.innerHTML = matched.map(item => `
+                <div class="bg-slate-900 p-3 rounded-xl border border-slate-700 space-y-1">
+                    <div class="flex justify-between items-center text-cyan-400 font-bold">
+                        <span>${item.brand} - ${item.model}</span>
+                        <span class="bg-slate-800 px-2 py-0.5 rounded text-[10px] text-orange-300">Default IP: ${item.ip}</span>
+                    </div>
+                    <div class="text-slate-300 text-[11px]">User / Pass: <strong>${item.user}</strong> / <code>${item.pass}</code></div>
+                    <div class="text-slate-400 text-[11px]">${item.desc}</div>
+                    <div class="pt-2">
+                        <a href="${item.toolUrl}" target="_blank" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold px-3 py-1.5 rounded-lg inline-block text-[11px]">🔗 تحميل الأداة الرسمية الأصلية</a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function loadQuickToolData(brandKey) {
             const consoleBox = document.getElementById('tool-interactive-console');
             const titleEl = document.getElementById('active-tool-title');
             const bodyEl = document.getElementById('active-tool-body');
             consoleBox.classList.remove('hidden');
 
-            if(toolKey === 'hik-dahua') {
-                titleEl.innerText = "📹 Hikvision & Dahua / Uniview Pro Configurator";
-                bodyEl.innerHTML = `
-                    <div class="space-y-2 text-xs">
-                        <label class="block text-slate-300">Target IP Address / Gateway:</label>
-                        <input type="text" id="t-ip" value="192.168.1.64" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white">
-                        <label class="block text-slate-300 mt-2">Select Action / Protocol:</label>
-                        <select class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white">
-                            <option>Enable ONVIF / RTSP Secure Stream</option>
-                            <option>XML Password Recovery / Reset</option>
-                            <option>Sub-stream & H.265+ Compression Tuning</option>
-                        </select>
-                        <button onclick="alert('✅ Config script executed successfully on target device!');" class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-4 py-2 rounded mt-2">Run Tool Action 🚀</button>
-                    </div>
-                `;
-            } else if(toolKey === 'tplink-discover') {
-                titleEl.innerText = "🔍 TP-Link DX Hotel Scanner & Model Detector (أداة اكتشاف أجهزة تبي لينك بالفندق)";
-                bodyEl.innerHTML = `
-                    <div class="space-y-3 text-xs">
-                        <p class="text-slate-300">قم بفحص شبكة الـ DX أو السنترال الفندقي لاكتشاف أجهزة TP-Link (EAP, Omada Switches, Routers) ومعرفة موديلاتها فوراً:</p>
-                        <div class="flex gap-2">
-                            <input type="text" id="tp-subnet" value="192.168.0.1 /24" class="flex-1 bg-slate-900 border border-slate-700 p-2 rounded text-white" placeholder="Network Subnet">
-                            <button onclick="scanTPLinkDevices()" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold px-4 py-2 rounded">بدء الفحص والاكتشاف 🔍</button>
-                        </div>
-                        <div id="tp-scan-results" class="bg-slate-950 p-3 rounded border border-slate-800 text-slate-300 max-h-40 overflow-y-auto space-y-1">
-                            <div>انتظر بدء عملية الفحص لاكتشاف الأجهزة المتصلة بـ DX...</div>
-                        </div>
-                    </div>
-                `;
-            } else if(toolKey === 'tplink-omada') {
-                titleEl.innerText = "🌐 TP-Link Omada & EAP Wireless Optimizer";
-                bodyEl.innerHTML = `
-                    <div class="space-y-2 text-xs">
-                        <label class="block text-slate-300">SSID & Site Name:</label>
-                        <input type="text" value="Zamla_Enterprise_Guest" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white">
-                        <button onclick="alert('✅ VLAN & Mesh configuration generated successfully!');" class="bg-cyan-600 text-white font-bold px-4 py-2 rounded">Generate Config 📥</button>
-                    </div>
-                `;
-            } else if(toolKey === 'unifi-ubiquiti') {
-                titleEl.innerText = "📡 Ubiquiti / UniFi Bridge & AP Link Calculator";
-                bodyEl.innerHTML = `
-                    <div class="space-y-2 text-xs">
-                        <label class="block text-slate-300">Bridge Distance (Km or Shaft Meters):</label>
-                        <input type="text" value="45 Meters (Elevator Shaft)" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white">
-                        <button onclick="alert('✅ Recommended Frequency: 5GHz - Channel 36 (Signal Optimal)');" class="bg-blue-600 text-white font-bold px-4 py-2 rounded">Calculate RF Link 📶</button>
-                    </div>
-                `;
-            } else if(toolKey === 'grandstream-pbx') {
-                titleEl.innerText = "☎️ Grandstream UCM & VoIP Extension Generator";
-                bodyEl.innerHTML = `
-                    <div class="space-y-2 text-xs">
-                        <label class="block text-slate-300">Hotel Room Extensions Range:</label>
-                        <input type="text" value="101 - 300" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white">
-                        <button onclick="alert('✅ Extension CSV template generated for UCM PBX import!');" class="bg-emerald-600 text-white font-bold px-4 py-2 rounded">Export CSV 📄</button>
-                    </div>
-                `;
-            } else if(toolKey === 'mikrotik-router') {
-                titleEl.innerText = "⚙️ MikroTik Hotspot & Firewall Script Generator";
-                bodyEl.innerHTML = `
-                    <div class="space-y-2 text-xs">
-                        <label class="block text-slate-300">Bandwidth Profile Limit:</label>
-                        <input type="text" value="100M/50M Hotspot Profile" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white">
-                        <button onclick="alert('✅ MikroTik Script copied to buffer!');" class="bg-indigo-600 text-white font-bold px-4 py-2 rounded">Copy Script 📋</button>
-                    </div>
-                `;
-            } else if(toolKey === 'storage-calc') {
-                titleEl.innerText = "🧮 NVR HDD Storage & Bandwidth Calculator";
-                bodyEl.innerHTML = `
-                    <div class="space-y-2 text-xs">
-                        <label class="block text-slate-300">Cameras Count & Resolution:</label>
-                        <input type="text" value="32 Cameras (4K 8MP H.265)" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white">
-                        <button onclick="alert('✅ Required HDD Storage: 24 TB for 30 Days continuous recording!');" class="bg-purple-600 text-white font-bold px-4 py-2 rounded">Calculate Storage 💾</button>
-                    </div>
-                `;
-            } else {
-                titleEl.innerText = "🔧 Advanced Engineering Pro Tool";
-                bodyEl.innerHTML = `<p class="text-slate-300">Tool is active and ready for low-current engineering operations.</p>`;
-            }
-        }
+            const item = engineeringDatabase.find(i => i.brand.toLowerCase().includes(brandKey)) || engineeringDatabase[0];
 
-        function scanTPLinkDevices() {
-            const resBox = document.getElementById('tp-scan-results');
-            resBox.innerHTML = `<div>🔄 جاري الفحص الشامل لشبكة DX الفندقية...</div>`;
-            setTimeout(() => {
-                resBox.innerHTML = `
-                    <div class="text-emerald-400 font-bold">✅ تم العثور على 3 أجهزة TP-Link متصلة بنجاح:</div>
-                    <div>1. IP: 192.168.0.10 | Model: <strong>TP-Link EAP610 (Outdoor)</strong> | MAC: 50:C7:BF:11:22:33</div>
-                    <div>2. IP: 192.168.0.25 | Model: <strong>TP-Link Omada Switch TL-SG2210P</strong> | MAC: 60:E3:27:44:55:66</div>
-                    <div>3. IP: 192.168.0.1 | Model: <strong>TP-Link ER605 VPN Router</strong> | MAC: 74:DA:38:77:88:99</div>
-                `;
-            }, 1500);
+            titleEl.innerText = `⚙️ مرجع وأدوات الفني المعتمدة لـ ${item.brand}`;
+            bodyEl.innerHTML = `
+                <div class="space-y-3 text-xs">
+                    <div class="bg-slate-900 p-3 rounded-xl border border-slate-700 space-y-2">
+                        <div>العنوان الافتراضي (Default IP): <strong class="text-orange-400" dir="ltr">${item.ip}</strong></div>
+                        <div>بيانات الدخول (Credentials): <strong class="text-cyan-400" dir="ltr">${item.user} / ${item.pass}</strong></div>
+                        <p class="text-slate-300">${item.desc}</p>
+                        <div class="pt-2 flex gap-2">
+                            <a href="${item.toolUrl}" target="_blank" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold px-4 py-2 rounded-xl inline-block">🌐 فتح رابط التحميل الرسمي والأداة الأصلية</a>
+                            <button onclick="navigator.clipboard.writeText('${item.ip}'); alert('تم نسخ الIP الافتراضي!');" class="bg-slate-700 text-white font-bold px-3 py-2 rounded-xl">📋 نسخ IP</button>
+                        </div>
+                    </div>
+                </div>
+            `;
         }
 
         function openMyProjectsVault() {
@@ -1046,7 +1027,7 @@
                             <p class="text-xs sm:text-sm text-gray-100 max-w-2xl leading-relaxed drop-shadow">${settings.heroDesc}</p>
                             <div class="flex gap-4 pt-6 flex-wrap justify-center">
                                 <a href="#store" onclick="navigateTo('store')" class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-xl transition transform hover:scale-105" data-i18n="view_all">تصفح المتجر الآن</a>
-                                <button onclick="document.getElementById('pro-tools-modal').classList.remove('hidden')" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold px-8 py-4 rounded-xl shadow-xl transition transform hover:scale-105">💻 محطة اللاب للفنيين (100+ أداة)</button>
+                                <button onclick="document.getElementById('pro-tools-modal').classList.remove('hidden')" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold px-8 py-4 rounded-xl shadow-xl transition transform hover:scale-105">💻 محطة اللاب للفنيين (قاعدة البيانات الهندسية)</button>
                             </div>
                         </div>
                     </section>
