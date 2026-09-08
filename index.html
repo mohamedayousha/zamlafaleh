@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="مؤسسة زملة بنت فالح عامر الجهمي ببيشة - توريد وتركيب شبكات التيار الخفيف، كاميرات المراقبة، سنترالات IP PBX، وكاميرات المصاعد اللاسلكية المعتمدة في المملكة.">
+    <meta name="keywords" content="كاميرات مراقبة بيشة, مؤسسة زملة فالح, تيار خفيف السعودية, سنترالات جراندستريم, كاميرات مصاعد لاسلكية">
     <title id="page-title">مؤسسة زملة بنت فالح عامر الجهمي | أنظمة التيار الخفيف والشبكات</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
@@ -47,19 +49,35 @@
 </head>
 <body class="antialiased flex flex-col min-h-screen" id="body-theme">
 
-    <!-- نافذة الإعلان المنبثق التلقائي عند دخول الموقع (Promo Popup Modal) -->
+    <!-- نافذة الإعلان المنبثق التلقائي عند دخول الموقع (الشاشة الافتتاحية بصورة بروشور المصاعد اللاسلكية) -->
     <div id="promo-popup-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 no-print">
-        <div class="bg-white w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden flex flex-col relative animate-fade-in">
+        <div class="bg-white w-full max-w-xl rounded-3xl shadow-2xl overflow-hidden flex flex-col relative animate-fade-in">
             <button onclick="closePromoPopup()" class="absolute top-4 left-4 z-10 bg-black/60 hover:bg-black text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm transition">✕</button>
-            <div class="p-2 bg-slate-900 text-center">
-                <span class="text-orange-400 text-xs font-bold uppercase tracking-wider">🔥 حصرياً من مؤسسة زملة فالح</span>
+            <div class="p-2.5 bg-slate-900 text-center">
+                <span class="text-orange-400 text-xs font-bold uppercase tracking-wider">🔥 بروشور العروض الرسمية - مؤسسة زملة فالح</span>
             </div>
             <div class="max-h-[75vh] overflow-y-auto bg-slate-950 flex items-center justify-center p-2">
-                <img id="popup-promo-img" src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&auto=format&fit=crop&q=80" alt="External Promo" class="w-full rounded-2xl object-contain max-h-[70vh]">
+                <img id="popup-promo-img" src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&auto=format&fit=crop&q=80" alt="Wireless Elevator CCTV Brochure" class="w-full rounded-2xl object-contain max-h-[70vh]">
             </div>
             <div class="p-4 bg-slate-900 flex justify-between items-center gap-3">
                 <a href="#survey" onclick="closePromoPopup(); navigateTo('survey');" class="flex-1 bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-xl text-center text-xs shadow transition">طلب معاينة ميدانية للمشاريع 🛠️</a>
                 <button onclick="closePromoPopup()" class="bg-slate-700 hover:bg-slate-600 text-white font-bold px-5 py-3 rounded-xl text-xs transition">متابعة للمتجر</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- نافذة قراءة المقال بشكل تفصيلي ومكبر -->
+    <div id="article-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4 no-print">
+        <div class="bg-white w-full max-w-2xl max-h-[90vh] rounded-3xl shadow-2xl flex flex-col overflow-hidden text-xs p-6 space-y-4 overflow-y-auto">
+            <div class="flex justify-between items-center border-b pb-3">
+                <h3 class="font-bold text-base text-slate-900" id="modal-art-title">عنوان المقال</h3>
+                <button onclick="document.getElementById('article-modal').classList.add('hidden')" class="text-gray-400 font-bold text-lg">✕</button>
+            </div>
+            <img id="modal-art-img" src="" class="w-full h-64 object-cover rounded-2xl shadow-sm">
+            <span id="modal-art-cat" class="bg-orange-100 text-orange-700 px-3 py-1 rounded-md text-xs font-bold w-fit">التصنيف</span>
+            <div id="modal-art-desc" class="text-sm text-gray-700 leading-relaxed space-y-2"></div>
+            <div class="pt-4 border-t text-left">
+                <button onclick="document.getElementById('article-modal').classList.add('hidden')" class="bg-slate-700 text-white px-6 py-2.5 rounded-xl font-bold">إغلاق المقال</button>
             </div>
         </div>
     </div>
@@ -312,10 +330,10 @@
                         <div class="bg-emerald-50 border p-4 rounded-2xl"><div class="text-gray-500 font-bold mb-1">قيمة المخزون</div><div class="text-2xl font-black text-emerald-700" id="kpi-total-val">0 ر.س</div></div>
                         <div class="bg-red-50 border p-4 rounded-2xl"><div class="text-gray-500 font-bold mb-1">قاربت على النفاذ</div><div class="text-2xl font-black text-red-700" id="kpi-low-stock">0</div></div>
                     </div>
-                    <!-- أداة تصدير واستيراد البيانات للتزامن بين اللاب والجوال -->
+                    <!-- أداة تصدير واستيراد البيانات للتزامن الفوري بين اللاب والجوال -->
                     <div class="bg-amber-50 border border-amber-300 p-4 rounded-2xl space-y-3">
                         <h4 class="font-bold text-amber-900 text-sm">🔄 أداة التزامن الفوري بين اللاب والجوال (Cloud/Local Backup Sync)</h4>
-                        <p class="text-xs text-amber-800">نظرًا لأن الموقع يعمل كمتجر استاتيكي فوري، لتزامن التعديلات التي تقمها من اللاب مع الجوال، يمكنك تصدير ملف النسخة الاحتياطية واستيراده على الجوال بضغطة زر:</p>
+                        <p class="text-xs text-amber-800">لتزامن التعديلات التي تقمها من اللاب مع الجوال لحظياً، قم بتصدير ملف النسخة الاحتياطية من هنا واستيراده على الجوال:</p>
                         <div class="flex gap-3">
                             <button onclick="exportSiteDataJSON()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 py-2 rounded-xl text-xs">تصدير بيانات المتجر (Export JSON) 📥</button>
                             <label class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2 rounded-xl text-xs cursor-pointer inline-flex items-center">
@@ -392,19 +410,20 @@
                         </form>
                     </div>
                 </div>
-                <!-- قسم إدارة المقالات والإرشادات التقنية -->
+                <!-- قسم إدارة المقالات والإرشادات التقنية (إضافة وتعديل مع الصور) -->
                 <div id="admin-tab-articles" class="hidden space-y-6">
                     <div class="bg-slate-50 p-6 rounded-2xl border space-y-4">
-                        <h4 class="font-bold text-slate-800 text-sm">✍️ إدارة المقالات والإرشادات التقنية</h4>
-                        <form onsubmit="saveArticleData(event)" class="space-y-3">
+                        <h4 class="font-bold text-slate-800 text-sm">✍️ إدارة المقالات والإرشادات التقنية (إضافة / تعديل)</h4>
+                        <form id="article-form" onsubmit="saveArticleData(event)" class="space-y-3">
+                            <input type="hidden" id="art-edit-id" value="">
                             <input type="text" id="art-title" placeholder="عنوان المقال" required class="w-full bg-white border rounded-xl px-3 py-2">
                             <input type="text" id="art-cat" placeholder="التصنيف (مثال: كاميرات مراقبة)" required class="w-full bg-white border rounded-xl px-3 py-2">
-                            <textarea id="art-desc" placeholder="محتوى المقال أو الإرشاد التقني..." rows="3" required class="w-full bg-white border rounded-xl px-3 py-2"></textarea>
+                            <textarea id="art-desc" placeholder="محتوى المقال أو الإرشاد التقني الكامل..." rows="3" required class="w-full bg-white border rounded-xl px-3 py-2"></textarea>
                             <div>
                                 <label class="block font-bold mb-1">صورة المقال</label>
                                 <input type="file" id="art-img" accept="image/*" class="w-full bg-white border rounded-xl px-3 py-1.5 text-xs">
                             </div>
-                            <button type="submit" class="bg-orange-500 text-white font-bold px-6 py-2.5 rounded-xl">نشر المقال في الصفحة الرئيسية 📝</button>
+                            <button type="submit" id="art-submit-btn" class="bg-orange-500 text-white font-bold px-6 py-2.5 rounded-xl">نشر أو تعديل المقال 📝</button>
                         </form>
                         <div id="admin-articles-list" class="space-y-2 mt-4 max-h-48 overflow-y-auto"></div>
                     </div>
@@ -528,7 +547,7 @@
             }
         }
 
-        // جميع الـ 73 منتجاً الحقيقية من الكتالوج السعودي الرسمي بالكامل
+        // جميع الـ 73 منتجاً وحلول المؤسسة المعتمدة كافتراضيات أساسية لضمان التزامن
         const initialProducts = [
             { id: 1, sku: "CCTV-HIK-001", model: "DS-2CD1021-I", name: "كاميرا IP 2 ميجابكسل", category: "المراقبة", price: 124.42, stock: 25, desc: "كاميرا شبكية خارجية بدقة 2 ميجابكسل مع رؤية ليلية.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80", featured: true },
             { id: 2, sku: "CCTV-HIK-002", model: "DS-2CD1043G2-LIU", name: "كاميرا ColorVu خارجية 4 ميجابكسل", category: "المراقبة", price: 150.00, stock: 4, desc: "كاميرا IP خارجية بدقة 4 ميجابكسل من سلسلة ColorVu للتصوير الملون.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80", featured: true },
@@ -540,8 +559,8 @@
             { id: 8, sku: "ELEV-CAM-001", model: "Zamla-Elevator-Wireless", name: "نظام كاميرات مصاعد لاسلكي بالكامل", category: "المراقبة", price: 1450.00, stock: 1, desc: "نقل فيديو عالي الدقة وثابت بدون تمديد أسلاك في شافت المصعد.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80", featured: true }
         ];
 
-        let products = JSON.parse(localStorage.getItem('zamla_products_v36')) || initialProducts;
-        let categories = JSON.parse(localStorage.getItem('zamla_categories_v36')) || [
+        let products = JSON.parse(localStorage.getItem('zamla_products_v37')) || initialProducts;
+        let categories = JSON.parse(localStorage.getItem('zamla_categories_v37')) || [
             { name: 'المراقبة', icon: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=200' },
             { name: 'أجهزة التسجيل', icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=200' },
             { name: 'الشبكات', icon: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=200' },
@@ -549,16 +568,16 @@
             { name: 'طابعات', icon: 'https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=200' },
             { name: 'الحاسب', icon: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=200' }
         ];
-        let affiliates = JSON.parse(localStorage.getItem('zamla_affiliates_v36')) || [
+        let affiliates = JSON.parse(localStorage.getItem('zamla_affiliates_v37')) || [
             { name: "أحمد محمد", phone: "0543201995", code: "ZF-AFF-7068", rate: 10 }
         ];
-        let members = JSON.parse(localStorage.getItem('zamla_members_v36')) || [
+        let members = JSON.parse(localStorage.getItem('zamla_members_v37')) || [
             { name: "عبدالله الشمري", phone: "0501234567", whatsapp: "00966501234567", location: "الرياض، الملز", nationality: "سعودي", company: "مؤسسة الاتصالات الذكية", type: "فني معتمد" }
         ];
-        let articles = JSON.parse(localStorage.getItem('zamla_articles_v36')) || [
+        let articles = JSON.parse(localStorage.getItem('zamla_articles_v37')) || [
             { id: 1, title: "كيف تختار كاميرات ColorVu للتصوير المليلي الملون؟", category: "كاميرات مراقبة", desc: "تعرف على أهم الفروقات بين كاميرات الأشعة تحت الحمراء التقليدية وكاميرات التصوير الملّون بالكامل في الظلام التام.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500" }
         ];
-        let settings = JSON.parse(localStorage.getItem('zamla_settings_v36')) || { 
+        let settings = JSON.parse(localStorage.getItem('zamla_settings_v37')) || { 
             title: "ZAMLA BINT FALIH AMER", 
             logo: "logo.jpeg", 
             phone: "0543201995",
@@ -568,7 +587,7 @@
             heroImg: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&auto=format&fit=crop&q=80",
             externalAdImg: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&auto=format&fit=crop&q=80"
         };
-        let cart = JSON.parse(localStorage.getItem('zamla_cart_v36')) || [];
+        let cart = JSON.parse(localStorage.getItem('zamla_cart_v37')) || [];
         let currentUser = JSON.parse(localStorage.getItem('zamla_user')) || null;
         let isAdminLoggedIn = false;
         window.currentPage = 'home';
@@ -589,7 +608,7 @@
             }
         }
 
-        // أدوات التزامن السحابي عبر JSON Export / Import
+        // أدوات التزامن السحابي الفوري عبر Export / Import JSON
         function exportSiteDataJSON() {
             const backup = { products, categories, affiliates, members, articles, settings };
             const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(backup, null, 2));
@@ -608,10 +627,10 @@
                 fileReader.onload = function (e) {
                     try {
                         const parsed = JSON.parse(e.target.result);
-                        if(parsed.products) { products = parsed.products; localStorage.setItem('zamla_products_v36', JSON.stringify(products)); }
-                        if(parsed.categories) { categories = parsed.categories; localStorage.setItem('zamla_categories_v36', JSON.stringify(categories)); }
-                        if(parsed.articles) { articles = parsed.articles; localStorage.setItem('zamla_articles_v36', JSON.stringify(articles)); }
-                        if(parsed.settings) { settings = parsed.settings; localStorage.setItem('zamla_settings_v36', JSON.stringify(settings)); }
+                        if(parsed.products) { products = parsed.products; localStorage.setItem('zamla_products_v37', JSON.stringify(products)); }
+                        if(parsed.categories) { categories = parsed.categories; localStorage.setItem('zamla_categories_v37', JSON.stringify(categories)); }
+                        if(parsed.articles) { articles = parsed.articles; localStorage.setItem('zamla_articles_v37', JSON.stringify(articles)); }
+                        if(parsed.settings) { settings = parsed.settings; localStorage.setItem('zamla_settings_v37', JSON.stringify(settings)); }
                         alert('✅ تم استيراد وتزامن بيانات المتجر بنجاح تام على هذا الجهاز!');
                         initApp();
                     } catch(err) {
@@ -619,6 +638,28 @@
                     }
                 };
             }
+        }
+
+        // فتح المقال بشكل مكبر وتفصيلي
+        function openArticleModal(id) {
+            const art = articles.find(a => a.id == id);
+            if(!art) return;
+            document.getElementById('modal-art-title').innerText = art.title;
+            document.getElementById('modal-art-cat').innerText = art.category;
+            document.getElementById('modal-art-img').src = art.image || 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500';
+            document.getElementById('modal-art-desc').innerText = art.desc;
+            document.getElementById('article-modal').classList.remove('hidden');
+        }
+
+        // تعديل مقال بعد النشر من الداشبورد
+        function editArticle(id) {
+            const art = articles.find(a => a.id == id);
+            if(!art) return;
+            document.getElementById('art-edit-id').value = art.id;
+            document.getElementById('art-title').value = art.title;
+            document.getElementById('art-cat').value = art.category;
+            document.getElementById('art-desc').value = art.desc;
+            switchAdminTab('articles');
         }
 
         function navigateTo(page, param = null) {
@@ -644,12 +685,12 @@
                         </div>
                     </section>
 
-                    <!-- 2. مساحة إعلانية لعرض صور المشاريع السابقة والتركيبات (مع إزاحة الأزرار للأسفل ليظهر البروشور بالخلف) -->
+                    <!-- 2. مساحة إعلانية لعرض صورة الشعار والبانر الجديد (الصورة الرسمية المطلوبة مع أزرار منخفضة) -->
                     <section class="relative bg-slate-800 text-white py-24 sm:py-32 overflow-hidden shadow-xl no-print">
-                        <div class="absolute inset-0 opacity-50">
-                            <img src="${settings.heroImg}" alt="Promo Brochure" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 opacity-60">
+                            <img src="${settings.heroImg}" alt="Zamla Faleh Banner" class="w-full h-full object-cover">
                         </div>
-                        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center space-y-6 pt-8 sm:pt-16">
+                        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center space-y-6 pt-12 sm:pt-20">
                             <span class="bg-orange-500 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest shadow">بروشور العروض والتركيبات الرسمية 2026</span>
                             <h1 class="text-3xl sm:text-5xl font-black leading-tight max-w-3xl drop-shadow-md">${settings.heroTitle}</h1>
                             <p class="text-xs sm:text-sm text-gray-100 max-w-2xl leading-relaxed drop-shadow">${settings.heroDesc}</p>
@@ -671,7 +712,7 @@
                         </div>
                     </section>
 
-                    <!-- 4. قسم المقالات والإرشادات التقنية -->
+                    <!-- 4. قسم المقالات والإرشادات التقنية (يمكن فتح المقال بشكل تفصيلي ومكبر) -->
                     <section class="py-16 bg-white border-t border-gray-200 no-print">
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
                             <div class="text-center">
@@ -680,12 +721,13 @@
                             </div>
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="home-articles-grid">
                                 ${articles.map(art => `
-                                    <div class="bg-slate-50 border rounded-2xl overflow-hidden shadow-sm space-y-3">
+                                    <div onclick="openArticleModal(${art.id})" class="bg-slate-50 border rounded-2xl overflow-hidden shadow-sm space-y-3 cursor-pointer hover:shadow-md transition">
                                         <img src="${art.image || 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500'}" class="w-full h-40 object-cover">
                                         <div class="p-5 space-y-2">
                                             <span class="bg-orange-100 text-orange-700 px-2 py-0.5 rounded text-[10px] font-bold">${art.category}</span>
                                             <h3 class="font-bold text-sm text-slate-900">${art.title}</h3>
-                                            <p class="text-xs text-gray-600 leading-relaxed">${art.desc}</p>
+                                            <p class="text-xs text-gray-600 leading-relaxed line-clamp-2">${art.desc}</p>
+                                            <span class="text-orange-600 font-bold text-xs inline-block pt-1">قراءة المقال كاملاً ←</span>
                                         </div>
                                     </div>
                                 `).join('')}
@@ -980,35 +1022,42 @@
             updateLanguageUI();
         }
 
-        // حفظ المقالات والإرشادات التقنية الجديدة من لوحة التحكم
+        // حفظ وتعديل المقالات من لوحة التحكم مع الصور
         function saveArticleData(e) {
             e.preventDefault();
+            const editId = document.getElementById('art-edit-id').value;
             const title = document.getElementById('art-title').value;
             const category = document.getElementById('art-cat').value;
             const desc = document.getElementById('art-desc').value;
             const fileInput = document.getElementById('art-img');
 
             const finishArt = (imgUrl) => {
-                articles.unshift({
-                    id: Date.now(),
-                    title,
-                    category,
-                    desc,
-                    image: imgUrl || "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500"
-                });
-                localStorage.setItem('zamla_articles_v36', JSON.stringify(articles));
-                document.getElementById('art-title').value = '';
-                document.getElementById('art-cat').value = '';
-                document.getElementById('art-desc').value = '';
+                if (editId) {
+                    articles = articles.map(a => a.id == editId ? { ...a, title, category, desc, image: imgUrl || a.image } : a);
+                } else {
+                    articles.unshift({
+                        id: Date.now(),
+                        title,
+                        category,
+                        desc,
+                        image: imgUrl || "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500"
+                    });
+                }
+                localStorage.setItem('zamla_articles_v37', JSON.stringify(articles));
+                document.getElementById('article-form').reset();
+                document.getElementById('art-edit-id').value = '';
                 renderAdminArticles();
-                alert('تم نشر المقال بنجاح في الصفحة الرئيسية!');
+                alert('تم حفظ وتعديل المقال بنجاح!');
             };
 
             if (fileInput.files && fileInput.files[0]) {
                 const reader = new FileReader();
                 reader.onload = function(e) { finishArt(e.target.result); };
                 reader.readAsDataURL(fileInput.files[0]);
-            } else { finishArt(null); }
+            } else {
+                const existing = articles.find(a => a.id == editId);
+                finishArt(existing ? existing.image : null);
+            }
         }
 
         function renderAdminArticles() {
@@ -1017,7 +1066,10 @@
             container.innerHTML = articles.map((a, idx) => `
                 <div class="flex justify-between items-center bg-white p-2.5 rounded-xl border text-xs">
                     <div><strong>${a.title}</strong> (${a.category})</div>
-                    <button onclick="articles.splice(${idx},1); localStorage.setItem('zamla_articles_v36', JSON.stringify(articles)); renderAdminArticles();" class="text-red-500 font-bold">حذف</button>
+                    <div class="flex gap-2">
+                        <button onclick="editArticle(${a.id})" class="bg-blue-600 text-white px-2 py-1 rounded">تعديل</button>
+                        <button onclick="articles.splice(${idx},1); localStorage.setItem('zamla_articles_v37', JSON.stringify(articles)); renderAdminArticles();" class="text-red-500 font-bold">حذف</button>
+                    </div>
                 </div>
             `).join('');
         }
@@ -1032,17 +1084,13 @@
 
             const msg = `طلب معاينة ميدانية جديدة للمشروع:%0A- الاسم: ${name}%0A- الجوال: ${phone}%0A- الموقع: ${location}%0A- التفاصيل: ${details}`;
             
-            // فتح واتساب المؤسسة 00966543201995
             window.open(`https://wa.me/00966543201995?text=${msg}`, '_blank');
-            
-            // إرسال عبر الإيميل الإداري msaeed.zamlafaleh@gmail.com
             window.location.href = `mailto:msaeed.zamlafaleh@gmail.com?subject=طلب معاينة ميدانية جديدة من ${name}&body=الاسم: ${name}%0Aالجوال: ${phone}%0Aالموقع: ${location}%0Aالتفاصيل: ${details}`;
             
             alert('تم إرسال طلب المعاينة بنجاح إلى واتساب المؤسسة والبريد الإلكتروني msaeed.zamlafaleh@gmail.com!');
             navigateTo('home');
         }
 
-        // حفظ وتحديث الإعلان الخارجي من الداشبورد
         function saveExternalAd(e) {
             e.preventDefault();
             const fileInput = document.getElementById('ext-ad-file');
@@ -1050,7 +1098,7 @@
                 const reader = new FileReader();
                 reader.onload = function(e) {
                     settings.externalAdImg = e.target.result;
-                    localStorage.setItem('zamla_settings_v36', JSON.stringify(settings));
+                    localStorage.setItem('zamla_settings_v37', JSON.stringify(settings));
                     const promoImg = document.getElementById('popup-promo-img');
                     if (promoImg) promoImg.src = e.target.result;
                     alert('تم تحديث الإعلان الخارجي والنافذة المنبثقة بنجاح!');
@@ -1059,7 +1107,6 @@
             }
         }
 
-        // حماية لوحة التحكم بيوزر وباسورد للادمن فقط
         function requestAdminAccess() {
             const user = prompt("أدخل اسم المستخدم المشرف (Admin Username):");
             if (!user) return;
@@ -1141,7 +1188,7 @@
             if(p1) { p1.qty = count; cart.push(p1); }
             if(p2) { p2.qty = 1; cart.push(p2); }
             if(p3) { p3.qty = 1; cart.push(p3); }
-            localStorage.setItem('zamla_cart_v36', JSON.stringify(cart));
+            localStorage.setItem('zamla_cart_v37', JSON.stringify(cart));
             updateCartUI();
             alert('تمت إضافة جميع الاحتياجات والقطع المقترحة للسلة بنجاح!');
             navigateTo('quotation-preview');
@@ -1177,7 +1224,7 @@
 
             const newMember = { name, phone, whatsapp, location, nationality, company, type };
             members.push(newMember);
-            localStorage.setItem('zamla_members_v36', JSON.stringify(members));
+            localStorage.setItem('zamla_members_v37', JSON.stringify(members));
 
             currentUser = { name, phone, email: phone + '@zamla.com' };
             localStorage.setItem('zamla_user', JSON.stringify(currentUser));
@@ -1230,7 +1277,7 @@
             if(!name || !phone) { alert('أدخل الاسم ورقم الجوال'); return; }
             const code = 'ZF-AFF-' + Math.floor(1000 + Math.random() * 9000);
             affiliates.push({ name, phone, code, rate });
-            localStorage.setItem('zamla_affiliates_v36', JSON.stringify(affiliates));
+            localStorage.setItem('zamla_affiliates_v37', JSON.stringify(affiliates));
             renderAffiliateTable();
             const text = `السلام عليكم ${name},%0Aتم اعتمادك في برنامج البيع بالعمولة لمؤسسة زمله بنت فالح بربح نسبة ${rate}%.%0Aكود التسويق الخاص بك هو: *${code}*`;
             window.open(`https://wa.me/966${phone.replace(/^0/, '')}?text=${text}`, '_blank');
@@ -1245,7 +1292,7 @@
                         <tr><th class="p-2.5">اسم المسوق</th><th class="p-2.5">الجوال</th><th class="p-2.5">الكود</th><th class="p-2.5">النسبة</th><th class="p-2.5">إجراء</th></tr>
                     </thead>
                     <tbody>
-                        ${affiliates.map((a, i) => `<tr class="border-b"><td class="p-2.5 font-bold">${a.name}</td><td class="p-2.5">${a.phone}</td><td class="p-2.5 font-mono text-orange-600 font-bold">${a.code}</td><td class="p-2.5">${a.rate}%</td><td class="p-2.5"><button onclick="affiliates.splice(${i},1); localStorage.setItem('zamla_affiliates_v36', JSON.stringify(affiliates)); renderAffiliateTable();" class="text-red-500 font-bold">حذف</button></td></tr>`).join('')}
+                        ${affiliates.map((a, i) => `<tr class="border-b"><td class="p-2.5 font-bold">${a.name}</td><td class="p-2.5">${a.phone}</td><td class="p-2.5 font-mono text-orange-600 font-bold">${a.code}</td><td class="p-2.5">${a.rate}%</td><td class="p-2.5"><button onclick="affiliates.splice(${i},1); localStorage.setItem('zamla_affiliates_v37', JSON.stringify(affiliates)); renderAffiliateTable();" class="text-red-500 font-bold">حذف</button></td></tr>`).join('')}
                     </tbody>
                 </table>
             `;
@@ -1368,7 +1415,7 @@
             } else {
                 cart.push({ ...p, qty: 1 });
             }
-            localStorage.setItem('zamla_cart_v36', JSON.stringify(cart));
+            localStorage.setItem('zamla_cart_v37', JSON.stringify(cart));
             updateCartUI();
             toggleCart();
         }
@@ -1379,13 +1426,13 @@
             if (cart[index].qty <= 0) {
                 cart.splice(index, 1);
             }
-            localStorage.setItem('zamla_cart_v36', JSON.stringify(cart));
+            localStorage.setItem('zamla_cart_v37', JSON.stringify(cart));
             updateCartUI();
         }
 
         function removeFromCart(i) {
             cart.splice(i, 1);
-            localStorage.setItem('zamla_cart_v36', JSON.stringify(cart));
+            localStorage.setItem('zamla_cart_v37', JSON.stringify(cart));
             updateCartUI();
         }
 
@@ -1415,7 +1462,7 @@
         }
 
         function toggleCart() { document.getElementById('cart-drawer').classList.toggle('-translate-x-full'); }
-        function proceedToCheckout() { alert('تم تأكيد الطلب بنجاح!'); cart = []; localStorage.removeItem('zamla_cart_v36'); updateCartUI(); toggleCart(); navigateTo('home'); }
+        function proceedToCheckout() { alert('تم تأكيد الطلب بنجاح!'); cart = []; localStorage.removeItem('zamla_cart_v37'); updateCartUI(); toggleCart(); navigateTo('home'); }
 
         function toggleAdminModal() {
             document.getElementById('admin-modal').classList.toggle('hidden');
@@ -1466,7 +1513,7 @@
                 } else {
                     products.unshift({ id: Date.now(), model, name, category, price, stock, desc, featured, image: imgUrl || "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500" });
                 }
-                localStorage.setItem('zamla_products_v36', JSON.stringify(products));
+                localStorage.setItem('zamla_products_v37', JSON.stringify(products));
                 document.getElementById('product-form').reset();
                 renderAdminProducts();
                 renderInventoryAnalytics();
@@ -1496,7 +1543,7 @@
 
         function deleteProduct(id) {
             products = products.filter(p => p.id !== id);
-            localStorage.setItem('zamla_products_v36', JSON.stringify(products));
+            localStorage.setItem('zamla_products_v37', JSON.stringify(products));
             renderAdminProducts();
             renderInventoryAnalytics();
         }
@@ -1513,7 +1560,7 @@
                 } else {
                     categories.push({ name, icon: iconUrl || 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=200' });
                 }
-                localStorage.setItem('zamla_categories_v36', JSON.stringify(categories));
+                localStorage.setItem('zamla_categories_v37', JSON.stringify(categories));
                 document.getElementById('category-form').reset();
                 renderAdminCategories();
                 populateCategoryDropdown();
@@ -1537,7 +1584,7 @@
                 if(imgUrl) {
                     settings.heroImg = imgUrl;
                 }
-                localStorage.setItem('zamla_settings_v36', JSON.stringify(settings));
+                localStorage.setItem('zamla_settings_v37', JSON.stringify(settings));
                 alert('تم تحديث البروشور بنجاح!');
                 navigateTo('home');
             };
@@ -1556,7 +1603,7 @@
 
         function deleteCategory(i) {
             categories.splice(i, 1);
-            localStorage.setItem('zamla_categories_v36', JSON.stringify(categories));
+            localStorage.setItem('zamla_categories_v37', JSON.stringify(categories));
             renderAdminCategories();
             populateCategoryDropdown();
         }
@@ -1595,14 +1642,14 @@
                         };
                         products.unshift(newP);
                     });
-                    localStorage.setItem('zamla_products_v36', JSON.stringify(products));
+                    localStorage.setItem('zamla_products_v37', JSON.stringify(products));
                     renderAdminProducts();
                     renderInventoryAnalytics();
                     alert('تم استيراد الأصناف والمخزون بنجاح!');
                     switchAdminTab('products');
                 } catch(err) { alert('خطأ في قراءة ملف الأكسيل'); }
             };
-            reader.readAsDataURL(file);
+            reader.readAsArrayBuffer(file);
         }
 
         function saveSettings(e) {
@@ -1617,7 +1664,7 @@
                 settings.phone = phone;
                 settings.themeColor = themeColor;
                 if(logoUrl) settings.logo = logoUrl;
-                localStorage.setItem('zamla_settings_v36', JSON.stringify(settings));
+                localStorage.setItem('zamla_settings_v37', JSON.stringify(settings));
                 applyThemeColors();
                 initApp();
                 alert('تم حفظ الألوان وإعدادات الهوية بنجاح!');
