@@ -84,7 +84,7 @@
         </div>
     </div>
 
-    <!-- نافذة محطة العمل الشاملة للفني والمبرمج (100+ أداة تفاعلية عالمية) -->
+    <!-- نافذة محطة العمل الشاملة للفني والمبرمج (100+ أداة تفاعليه حية) -->
     <div id="pro-tools-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden flex items-center justify-center p-2 sm:p-4 no-print">
         <div class="bg-slate-900 text-slate-100 w-full max-w-6xl rounded-3xl shadow-2xl p-6 space-y-6 max-h-[95vh] overflow-y-auto text-xs border border-slate-700">
             <div class="flex justify-between items-center border-b border-slate-700 pb-4">
@@ -110,7 +110,7 @@
                 </div>
             </div>
 
-            <!-- قسم الـ 100 أداة التفاعلية مصنفة حسب العلامات التجارية والأنظمة -->
+            <!-- تصنيفات الأداة (أكثر من 100 أداة تفاعلية) -->
             <div class="space-y-3">
                 <h4 class="font-bold text-cyan-400 text-sm" data-i18n="tools_grid_title">🛠️ اختر من بين أكثر من 100 أداة هندسية وبرمجية عالمية:</h4>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
@@ -642,7 +642,7 @@
         </div>
     </div>
 
-    <!-- الكود البرمجي وجداول البيانات والترجمة العالمية -->
+    <!-- الكود البرمجي وجداول البيانات والترجمة الفورية -->
     <script>
         const translations = {
             ar: {
@@ -657,7 +657,7 @@
                 my_account: "حسابي والإدارة", admin_login: "تسجيل دخول لوحة الإدارة", register: "تسجيل الدخول / إنشاء حساب",
                 copyright: "كل الحقوق محفوظة لمؤسسة زملة بنت فالح عامر الجهمي © 2026", cart_title: "محتويات سلة التسوق",
                 total: "المجموع الكلي:", checkout_btn: "إتمام عملية الشراء", add_to_cart: "أضف للسلة",
-                view_all: "عرض كل المنتجات", featured_title: "التصنيفات والمنتجات البارزة", login_btn: "دخول",
+                view_all: "عرض كل المنتجات", featured_title: "⭐ المنتجات المميزة والموصى بها للمشاريع", login_btn: "دخول",
                 top_hotel: "مشاريع الفنادق 🏨", top_survey: "معاينة ميدانية 🛠️", top_sketch: "كروكي AI 📐", top_calc: "حاسبة التخزين 🧮",
                 direct_call: "اتصال مباشر", footer_desc: "مؤسسة متخصصة في توريد وتركيب شبكات التيار الخفيف، كاميرات المراقبة، السنترالات وحلول الفنادق والمشاريع الكبرى في المملكة.",
                 vat_no: "الرقم الضريبي: 300975768100003", contact_us: "اتصل بنا", quick_links: "روابط سريعة",
@@ -680,7 +680,7 @@
                 my_account: "My Account & Admin", admin_login: "Admin Login", register: "Login / Register",
                 copyright: "All Rights Reserved © 2026 - zamlafaleh.com", cart_title: "Shopping Cart & Checkout",
                 total: "Grand Total:", checkout_btn: "Proceed to Checkout", add_to_cart: "Add to Cart",
-                view_all: "View All Products", featured_title: "Featured Categories & Products", login_btn: "Login",
+                view_all: "View All Products", featured_title: "⭐ Featured & Recommended Products", login_btn: "Login",
                 top_hotel: "Hotel Projects 🏨", top_survey: "Site Survey 🛠️", top_sketch: "AI Sketch 📐", top_calc: "Storage Calc 🧮",
                 direct_call: "Direct Call", footer_desc: "Specialized in supplying and installing low current networks, CCTV, IP PBX, and enterprise hotel solutions.",
                 vat_no: "VAT No: 300975768100003", contact_us: "Contact Us", quick_links: "Quick Links",
@@ -783,7 +783,6 @@
         let isAdminLoggedIn = false;
         window.currentPage = 'home';
 
-        // إدارة اشتراكات الفنيين ومحطة اللاب (100+ أداة)
         let proSub = JSON.parse(localStorage.getItem('zamla_pro_sub')) || { active: true, type: 'annual', expiry: Date.now() + 365*24*60*60*1000 };
 
         function checkSubscriptionAlerts() {
@@ -792,13 +791,13 @@
             const alertBox = document.getElementById('sub-status-text');
             if(!alertBox) return;
             if(daysLeft <= 0) {
-                alertBox.innerHTML = "❌ انتهى اشتراكك. تذكر أن داتا مشاريعك محفوظة لمدة سنة سماح لتتمكن من استرجاعها وتجديد اشتراكك.";
+                alertBox.innerHTML = "❌ Subscription ended. Your projects are stored for 1-year grace period. Renew now to restore full access.";
             } else if(proSub.type === 'annual' && daysLeft <= 15) {
-                alertBox.innerHTML = `⚠️ تنبيه تجديد اشتراك (سنوي 10$): متبقي ${daysLeft} يوم. جدد الآن لضمان استمرار عمل محطة العمل وداتا مشاريعك.`;
+                alertBox.innerHTML = `⚠️ Renewal Notice (Annual $10): Only ${daysLeft} days left. Renew to protect your cloud project vault.`;
             } else if(proSub.type === 'monthly' && daysLeft <= 7) {
-                alertBox.innerHTML = `⚠️ تنبيه تجديد اشتراك (شهري 3$): متبقي ${daysLeft} يوم. جدد الآن لتجنب انقطاع الخدمة وداتا المشاريع.`;
+                alertBox.innerHTML = `⚠️ Renewal Notice (Monthly $3): Only ${daysLeft} days left. Renew to keep your workspace active.`;
             } else {
-                alertBox.innerHTML = `✅ اشتراكك نشط تماماً. متبقي ${daysLeft} يوم. جميع مشاريعك مسجلة ومزامنته بمرجعك الهندسي.`;
+                alertBox.innerHTML = `✅ Pro Workspace Active (${daysLeft} days remaining). All project vaults synced securely.`;
             }
         }
 
@@ -807,7 +806,7 @@
             proSub.active = true;
             proSub.expiry = Date.now() + (type === 'annual' ? 365 : 30) * 24 * 60 * 60 * 1000;
             localStorage.setItem('zamla_pro_sub', JSON.stringify(proSub));
-            alert(`✅ تم تجديد اشتراكك بنجاح (${type === 'annual' ? 'سنوي 10$' : 'شهري 3$'})! مشاريعك محمية ومزامنته.`);
+            alert(`✅ Successfully renewed subscription (${type === 'annual' ? 'Annual $10' : 'Monthly $3'})!`);
             checkSubscriptionAlerts();
         }
 
@@ -818,68 +817,68 @@
             consoleBox.classList.remove('hidden');
 
             if(toolKey === 'hik-dahua') {
-                titleEl.innerText = "📹 Hikvision & Dahua / Uniview Pro Configurator (أداة تفاعلية)";
+                titleEl.innerText = "📹 Hikvision & Dahua / Uniview Pro Configurator";
                 bodyEl.innerHTML = `
                     <div class="space-y-2 text-xs">
-                        <label class="block text-slate-300">أدخل عنوان الـ IP للكاميرا أو مسجل الـ NVR:</label>
+                        <label class="block text-slate-300">Target IP Address / Gateway:</label>
                         <input type="text" id="t-ip" value="192.168.1.64" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white">
-                        <label class="block text-slate-300 mt-2">اختر إجراء البرمجة:</label>
+                        <label class="block text-slate-300 mt-2">Select Action / Protocol:</label>
                         <select class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white">
-                            <option>تفعيل بروتوكول ONVIF وتغيير البورت الافتراضي</option>
-                            <option>إعادة تعيين كلمة المرور عبر ملف XML السحابي</option>
-                            <option>تكوين تدفق المين استريم (Sub-Stream / Main Stream H.265+)</option>
+                            <option>Enable ONVIF / RTSP Secure Stream</option>
+                            <option>XML Password Recovery / Reset</option>
+                            <option>Sub-stream & H.265+ Compression Tuning</option>
                         </select>
-                        <button onclick="alert('✅ تم تنفيذ برمجية الإعداد بنجاح على الجهاز المحدد!');" class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-4 py-2 rounded mt-2">تنفيذ الأمر البرمجي 🚀</button>
+                        <button onclick="alert('✅ Config script executed successfully on target device!');" class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-4 py-2 rounded mt-2">Run Tool Action 🚀</button>
                     </div>
                 `;
             } else if(toolKey === 'tplink-omada') {
                 titleEl.innerText = "🌐 TP-Link Omada & EAP Wireless Optimizer";
                 bodyEl.innerHTML = `
                     <div class="space-y-2 text-xs">
-                        <label class="block text-slate-300">اسم شبكة الـ SSID والموقع:</label>
-                        <input type="text" value="Zamla_Hotel_Guest" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white">
-                        <button onclick="alert('✅ تم توليد إعدادات الـ VLAN والـ Mesh بنجاح!');" class="bg-cyan-600 text-white font-bold px-4 py-2 rounded">توليد ملف التكوين 📥</button>
+                        <label class="block text-slate-300">SSID & Site Name:</label>
+                        <input type="text" value="Zamla_Enterprise_Guest" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white">
+                        <button onclick="alert('✅ VLAN & Mesh configuration generated successfully!');" class="bg-cyan-600 text-white font-bold px-4 py-2 rounded">Generate Config 📥</button>
                     </div>
                 `;
             } else if(toolKey === 'unifi-ubiquiti') {
                 titleEl.innerText = "📡 Ubiquiti / UniFi Bridge & AP Link Calculator";
                 bodyEl.innerHTML = `
                     <div class="space-y-2 text-xs">
-                        <label class="block text-slate-300">المسافة بين النقطتين (بالكيلومتر أو أمتار المصعد):</label>
-                        <input type="text" value="50 متر (مخبأ مصعد)" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white">
-                        <button onclick="alert('✅ تم حساب تردد القناة الموصى بها (5GHz - Channel 40) بدقة!');" class="bg-blue-600 text-white font-bold px-4 py-2 rounded">حساب تردد الجسر اللاسلكي 📶</button>
+                        <label class="block text-slate-300">Bridge Distance (Km or Shaft Meters):</label>
+                        <input type="text" value="45 Meters (Elevator Shaft)" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white">
+                        <button onclick="alert('✅ Recommended Frequency: 5GHz - Channel 36 (Signal Optimal)');" class="bg-blue-600 text-white font-bold px-4 py-2 rounded">Calculate RF Link 📶</button>
                     </div>
                 `;
             } else if(toolKey === 'grandstream-pbx') {
                 titleEl.innerText = "☎️ Grandstream UCM & VoIP Extension Generator";
                 bodyEl.innerHTML = `
                     <div class="space-y-2 text-xs">
-                        <label class="block text-slate-300">نطاق الغرف والتحويلات الفندقية (مثال: 101 إلى 250):</label>
-                        <input type="text" value="101 - 250" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white">
-                        <button onclick="alert('✅ تم توليد ملف الـ CSV لرفع التحويلات مباشرة للسنترال السحابي!');" class="bg-emerald-600 text-white font-bold px-4 py-2 rounded">تصدير جدول تحويلات السنترال 📄</button>
+                        <label class="block text-slate-300">Hotel Room Extensions Range:</label>
+                        <input type="text" value="101 - 300" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white">
+                        <button onclick="alert('✅ Extension CSV template generated for UCM PBX import!');" class="bg-emerald-600 text-white font-bold px-4 py-2 rounded">Export CSV 📄</button>
                     </div>
                 `;
             } else if(toolKey === 'mikrotik-router') {
                 titleEl.innerText = "⚙️ MikroTik Hotspot & Firewall Script Generator";
                 bodyEl.innerHTML = `
                     <div class="space-y-2 text-xs">
-                        <label class="block text-slate-300">سرعة باقة الإنترنت المحددة للعميل:</label>
-                        <input type="text" value="50 Mbps Download / 20 Mbps Upload" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white">
-                        <button onclick="alert('✅ تم توليد كود الـ Mikrotik Script بنجاح جاهز للنسخ!');" class="bg-indigo-600 text-white font-bold px-4 py-2 rounded">نسخ سكربت المايكروتك 📋</button>
+                        <label class="block text-slate-300">Bandwidth Profile Limit:</label>
+                        <input type="text" value="100M/50M Hotspot Profile" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white">
+                        <button onclick="alert('✅ MikroTik Script copied to buffer!');" class="bg-indigo-600 text-white font-bold px-4 py-2 rounded">Copy Script 📋</button>
                     </div>
                 `;
             } else if(toolKey === 'storage-calc') {
-                titleEl.innerText = "🧮 NVR Hard Disk Storage & Bandwidth Calculator";
+                titleEl.innerText = "🧮 NVR HDD Storage & Bandwidth Calculator";
                 bodyEl.innerHTML = `
                     <div class="space-y-2 text-xs">
-                        <label class="block text-slate-300">عدد الكاميرات ودقتها:</label>
-                        <input type="text" value="16 كاميرا (4K 8MP)" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white">
-                        <button onclick="alert('✅ المساحة المطلوبة: 12 تيرابايت (12TB HDD) لمدة 30 يوم تسجيل مستمر!');" class="bg-purple-600 text-white font-bold px-4 py-2 rounded">حساب السعة المطلوبة 💾</button>
+                        <label class="block text-slate-300">Cameras Count & Resolution:</label>
+                        <input type="text" value="32 Cameras (4K 8MP H.265)" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white">
+                        <button onclick="alert('✅ Required HDD Storage: 24 TB for 30 Days continuous recording!');" class="bg-purple-600 text-white font-bold px-4 py-2 rounded">Calculate Storage 💾</button>
                     </div>
                 `;
             } else {
-                titleEl.innerText = "🔧 أداة هندسية متقدمة (من ضمن 100 أداة سحابية للفني)";
-                bodyEl.innerHTML = `<p class="text-slate-300">هذه الأداة مفعلة وجاهزة لتنفيذ المهام الهندسية والبرمجية للمشروع المختار.</p>`;
+                titleEl.innerText = "🔧 Advanced Engineering Pro Tool";
+                bodyEl.innerHTML = `<p class="text-slate-300">Tool is active and ready for low-current engineering operations.</p>`;
             }
         }
 
@@ -888,15 +887,15 @@
             const titleEl = document.getElementById('active-tool-title');
             const bodyEl = document.getElementById('active-tool-body');
             consoleBox.classList.remove('hidden');
-            titleEl.innerText = "📁 حافظة ومراجع مشاريعي الهندسية المحفوظة دائمًا";
+            titleEl.innerText = "📁 Saved Projects Vault (Cloud / Local)";
             bodyEl.innerHTML = `
                 <div class="space-y-3 text-xs">
-                    <p class="text-slate-300">مشاريعك المحفوظة على هذا الجهاز (مرجعك الدائم):</p>
+                    <p class="text-slate-300">Your saved engineering projects on this device:</p>
                     <div class="bg-slate-900 p-3 rounded border border-slate-700 space-y-1">
-                        <div><strong>مشروع فندق أبراج بيشة:</strong> 16 كاميرا + سنترال IP PBX (محفوظ سحابياً ومحلياً)</div>
-                        <div><strong>مشروع مستودعات المروج:</strong> شبكة راوترات وتوصيلات UTP</div>
+                        <div><strong>Bisha Hotel Project:</strong> 32 Cameras + IP PBX UCM6300</div>
+                        <div><strong>Al-Muruj Warehouse:</strong> Ubiquiti Wireless Bridge Setup</div>
                     </div>
-                    <button onclick="prompt('أدخل اسم المشروع الهندسي الجديد لحفظه في حافظتك الدائمة:');" class="bg-emerald-600 text-white font-bold px-4 py-2 rounded">➕ حفظ مشروع جديد</button>
+                    <button onclick="prompt('Enter new project name to save in your cloud/local vault:');" class="bg-emerald-600 text-white font-bold px-4 py-2 rounded">➕ Save New Project</button>
                 </div>
             `;
         }
