@@ -92,7 +92,7 @@
                     <span class="text-3xl">💻🧰</span>
                     <div>
                         <h3 class="font-black text-base text-orange-400" data-i18n="laptop_station_title">محطة العمل الهندسية العالمية (Global Field Engineering Hub)</h3>
-                        <p class="text-[11px] text-slate-400" data-i18n="laptop_station_subtitle">مصر، الخليج، وعالمياً: قواعد بيانات IPs افتراضية، روابط تحميل رسمية لـ Cisco, Tenda, Linksys, Hikvision, Dahua وغيرها</p>
+                        <p class="text-[11px] text-slate-400" data-i18n="laptop_station_subtitle">مصر، الخليج، وعالمياً: قواعد بيانات IPs افتراضية، روابط تحميل رسمية لـ Cisco, Tenda, Linksys, Hikvision وغيرها</p>
                     </div>
                 </div>
                 <button onclick="document.getElementById('pro-tools-modal').classList.add('hidden')" class="text-slate-400 hover:text-white font-bold text-lg p-2">✕</button>
@@ -112,9 +112,9 @@
 
             <!-- محرك البحث الفوري في قواعد بيانات الأجهزة المعتمدة -->
             <div class="bg-slate-800 p-4 rounded-2xl border border-slate-700 space-y-3">
-                <h4 class="font-bold text-cyan-400 text-sm">🔍 محرك البحث الهندسي الفوري (ابحث بأي موديل أو شركة مثل Cisco, Tenda, Linksys, Hikvision):</h4>
+                <h4 class="font-bold text-cyan-400 text-sm">🔍 محرك البحث الهندسي الفوري (ابحث بأي موديل أو شركة مثل Tenda, Yeastar, DrayTek, Hikvision, Cisco)...</h4>
                 <div class="flex gap-2">
-                    <input type="text" id="engineering-search-input" oninput="searchEngineeringDatabase()" placeholder="اكتب اسم الموديل أو الشركة (مثال: Cisco, Tenda, Linksys, SADP, EAP)..." class="flex-1 bg-slate-900 border border-slate-700 p-3 rounded-xl text-white text-xs focus:outline-none focus:border-cyan-500">
+                    <input type="text" id="engineering-search-input" oninput="searchEngineeringDatabase()" placeholder="اكتب اسم الموديل أو الشركة (مثال: Tenda, Yeastar, DrayTek, Linksys, Cisco, SADP)..." class="flex-1 bg-slate-900 border border-slate-700 p-3 rounded-xl text-white text-xs focus:outline-none focus:border-cyan-500">
                     <button onclick="searchEngineeringDatabase()" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold px-5 py-3 rounded-xl">بحث فوري 🔎</button>
                 </div>
                 <div id="engineering-search-results" class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3 max-h-60 overflow-y-auto text-slate-300">
@@ -126,17 +126,26 @@
             <div class="space-y-3">
                 <h4 class="font-bold text-orange-400 text-sm">🛠️ الاختصارات السريعة لأدوات الشركات المصنعة العالمية:</h4>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-                    <button onclick="loadQuickToolData('cisco')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition">
-                        <span>🔌 Cisco Catalyst & Switches</span> <span class="text-blue-400">⚡</span>
-                    </button>
                     <button onclick="loadQuickToolData('tenda')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition">
                         <span>🌐 Tenda Routers & Mesh</span> <span class="text-cyan-400">⚡</span>
                     </button>
+                    <button onclick="loadQuickToolData('yeastar')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition">
+                        <span>☎️ Yeastar P-Series PBX</span> <span class="text-emerald-400">⚡</span>
+                    </button>
+                    <button onclick="loadQuickToolData('draytek')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition">
+                        <span>⚙️ DrayTek Vigor Routers</span> <span class="text-emerald-400">⚡</span>
+                    </button>
+                    <button onclick="loadQuickToolData('engenius')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition">
+                        <span>📡 EnGenius Long Range</span> <span class="text-cyan-400">⚡</span>
+                    </button>
+                    <button onclick="loadQuickToolData('cisco')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition">
+                        <span>🔌 Cisco Catalyst & SG</span> <span class="text-blue-400">⚡</span>
+                    </button>
                     <button onclick="loadQuickToolData('linksys')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition">
-                        <span>📡 Linksys Velop / Business</span> <span class="text-cyan-400">⚡</span>
+                        <span>🌐 Linksys Velop Mesh</span> <span class="text-cyan-400">⚡</span>
                     </button>
                     <button onclick="loadQuickToolData('hikvision')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition">
-                        <span>📹 Hikvision (SADP & IP)</span> <span class="text-orange-400">⚡</span>
+                        <span>📹 Hikvision (SADP)</span> <span class="text-orange-400">⚡</span>
                     </button>
                     <button onclick="loadQuickToolData('dahua')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition">
                         <span>📹 Dahua ConfigTool</span> <span class="text-orange-400">⚡</span>
@@ -146,6 +155,9 @@
                     </button>
                     <button onclick="loadQuickToolData('grandstream')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition">
                         <span>☎️ Grandstream UCM PBX</span> <span class="text-emerald-400">⚡</span>
+                    </button>
+                    <button onclick="loadQuickToolData('ezviz')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition">
+                        <span>📹 Ezviz & Imou Smart Cam</span> <span class="text-orange-400">⚡</span>
                     </button>
                     <button onclick="openMyProjectsVault()" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 p-3 rounded-xl text-right flex items-center justify-between transition border-emerald-500/50">
                         <span>📁 My Saved Projects Vault</span> <span class="text-emerald-400">📂</span>
@@ -202,7 +214,7 @@
         </div>
     </div>
 
-    <!-- الشريط العلوي الرفيع المتناسق (بدون تكرار خدمة العملاء في الهيدر الرئيسي) -->
+    <!-- الشريط العلوي الرفيع المتناسق مع أيقونات مبرمج AI والفني -->
     <div class="theme-header bg-[#475569] text-gray-200 text-xs py-2 px-4 border-b border-slate-600 no-print">
         <div class="max-w-7xl mx-auto flex justify-between items-center flex-wrap gap-2">
             <div class="flex items-center gap-3 flex-wrap font-semibold text-xs">
@@ -235,7 +247,7 @@
         </div>
     </div>
 
-    <!-- الشريط الرئيسي (Header) مع اللوجو المستطيل المحدث بدون كلمة company وبدون تكرار خدمة العملاء -->
+    <!-- الشريط الرئيسي (Header) مع اللوجو المستطيل المحدث بدون كلمة company -->
     <header class="sticky top-0 z-50 theme-header bg-[#475569] shadow-lg border-b border-slate-600 text-white no-print">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-3">
             
@@ -665,7 +677,7 @@
                 vat_no: "الرقم الضريبي: 300975768100003", contact_us: "اتصل بنا", quick_links: "روابط سريعة",
                 call_modal_title: "الاتصال المباشر بخدمة العملاء", call_modal_desc: "هذا الاتصال يتم عبر الإنترنت مباشرة من متصفحك (مناسب للعملاء من خارج وداخل المملكة دون رسوم دولية).",
                 start_call_btn: "بدء التحدث الآن 🎙️", close_btn: "إغلاق ✕", laptop_station_title: "محطة العمل الهندسية العالمية (Global Field Engineering Hub)",
-                laptop_station_subtitle: "مصر، الخليج، وعالمياً: قواعد بيانات IPs افتراضية، روابط تحميل رسمية لـ Cisco, Tenda, Linksys, Hikvision وغيرها",
+                laptop_station_subtitle: "مصر، الخليج، وعالمياً: قواعد بيانات IPs افتراضية، روابط تحميل رسمية لـ Tenda, Yeastar, DrayTek, EnGenius, Cisco وغيرها",
                 sub_status_heading: "⚠️ حالة الاشتراك (شهري 3$ / سنوي 10$):", tools_grid_title: "🛠️ الاختصارات السريعة لأدوات الشركات المصنعة العالمية:",
                 device_lock_note: "🔒 الجلسة مرتبطة بجهاز واحد (جوال أو لاب توب) لتوفير أقصى حماية للمهندس.", support_link_txt: "💬 طلب مساعدة الدعم الفني المباشر",
                 popup_banner_title: "🔥 عروض وخدمات مؤسسة زملة فالح", survey_btn: "طلب معاينة ميدانية للمشاريع 🛠️", store_continue_btn: "متابعة للمتجر"
@@ -688,7 +700,7 @@
                 vat_no: "VAT No: 300975768100003", contact_us: "Contact Us", quick_links: "Quick Links",
                 call_modal_title: "Direct Customer Service Call", call_modal_desc: "This call runs directly over the internet from your browser (No international roaming charges).",
                 start_call_btn: "Start Talking Now 🎙️", close_btn: "Close ✕", laptop_station_title: "Global Field Engineering Hub",
-                laptop_station_subtitle: "Egypt, Gulf & Global: Default IPs, official tools download links for Cisco, Tenda, Linksys, Hikvision & more",
+                laptop_station_subtitle: "Egypt, Gulf & Global: Default IPs, official download links for Tenda, Yeastar, DrayTek, EnGenius, Cisco, Hikvision & more",
                 sub_status_heading: "⚠️ Subscription Status (Monthly $3 / Annual $10):", tools_grid_title: "🛠️ Quick Manufacturer Tools Shortcuts:",
                 device_lock_note: "🔒 Session is locked to 1 active device (Mobile or Laptop) for maximum security.", support_link_txt: "💬 Request Direct Tech Support",
                 popup_banner_title: "🔥 Offers & Services - Zamla Faleh", survey_btn: "Request Site Survey 🛠️", store_continue_btn: "Continue to Store"
@@ -812,10 +824,13 @@
             checkSubscriptionAlerts();
         }
 
-        // قاعدة البيانات الهندسية الشاملة والمحدثة (تغطي مصر والخليج والعالم: Cisco, Tenda, Linksys, Hikvision, Dahua, Uniview, TP-Link, Ubiquiti, Grandstream, MikroTik) مع الروابط الرسمية الصحيحة 100%
+        // قاعدة البيانات الهندسية الشاملة والمحدثة (مصر، الخليج، وعالمياً: Tenda, Yeastar, DrayTek, EnGenius, Cisco, Linksys, Hikvision, Dahua, Uniview, TP-Link, Ubiquiti, Grandstream, MikroTik) مع روابط رسمية صحيحة 100%
         const engineeringDatabase = [
+            { brand: "Tenda", model: "AC10 / Nova Mesh / O3 CPE", ip: "192.168.0.1", user: "admin", pass: "admin / no pass", toolUrl: "https://www.tendacn.com/en/download/default.html", desc: "Official Tenda setup utilities and firmware downloads." },
+            { brand: "Yeastar", model: "P-Series / S-Series IP PBX", ip: "192.168.5.150", user: "admin", pass: "admin / password", toolUrl: "https://www.yeastar.com/support/download-center/", desc: "Official Yeastar P-Series PBX management tools and firmware." },
+            { brand: "DrayTek", model: "Vigor 2925 / 2927 / 2862", ip: "192.168.1.1", user: "admin", pass: "admin", toolUrl: "https://www.draytek.com/download/", desc: "Official DrayTek Vigor router firmware and management utilities." },
+            { brand: "EnGenius", model: "EnStation / EMR / EAP Series", ip: "192.168.0.1", user: "admin", pass: "admin", toolUrl: "https://www.engeniustech.com/support/downloads/", desc: "Official EnGenius wireless point-to-point and AP tools." },
             { brand: "Cisco", model: "Catalyst 2960 / SG350 / Business", ip: "192.168.1.254", user: "cisco / admin", pass: "cisco / blank", toolUrl: "https://www.cisco.com/c/en/us/support/cloud-systems-management/index.html", desc: "Cisco CLI console tools and network assistant." },
-            { brand: "Tenda", model: "AC10 / Nova Mesh / O3 CPE", ip: "192.168.0.1", user: "admin", pass: "admin / no pass", toolUrl: "https://www.tendacn.com/en/download/default.html", desc: "Tenda Wi-Fi router setup and firmware utilities." },
             { brand: "Linksys", model: "Velop Mesh / E-Series / Business", ip: "192.168.1.1", user: "admin", pass: "admin / serial", toolUrl: "https://www.linksys.com/support-center/", desc: "Linksys Smart Wi-Fi and enterprise management tools." },
             { brand: "Hikvision", model: "DS-2CD / NVR / DVR", ip: "192.168.1.64", user: "admin", pass: "admin / active on init", toolUrl: "https://www.hikvision.com/en/support/tools/desktop-tools/sadp-tool/", desc: "Official SADP Tool for device activation and IP configuration." },
             { brand: "Dahua", model: "DH-IPC / NVR / XVR", ip: "192.168.1.108", user: "admin", pass: "admin / set on init", toolUrl: "https://www.dahuasecurity.com/support/tools", desc: "Official ConfigTool for searching and configuring Dahua devices." },
@@ -823,6 +838,7 @@
             { brand: "TP-Link Omada", model: "EAP610 / EAP650 / OC200 / Switches", ip: "192.168.0.254", user: "admin", pass: "admin / admin", toolUrl: "https://www.tp-link.com/en/support/download/", desc: "Official TP-Link Omada Controller and discovery utilities." },
             { brand: "Ubiquiti / UniFi", model: "U6-Pro / LiteBeam / Nanostation", ip: "192.168.1.20", user: "ubnt", pass: "ubnt / custom", toolUrl: "https://www.ui.com/download/", desc: "Official UniFi Network Controller and UISP utilities." },
             { brand: "Grandstream", model: "UCM6300 / GRP2602 / GXW", ip: "192.168.2.1", user: "admin", pass: "admin", toolUrl: "https://www.grandstream.com/support/tools", desc: "Official Grandstream IP PBX management tools." },
+            { brand: "Ezviz / Imou", model: "Smart Wi-Fi Cameras", ip: "Dynamic DHCP", user: "admin", pass: "device verification code", toolUrl: "https://www.ezviz.com/en/download", desc: "Official Ezviz and Imou configuration tools." },
             { brand: "MikroTik", model: "RouterBoard / hEX / CCR", ip: "192.168.88.1", user: "admin", pass: "blank (no password)", toolUrl: "https://mikrotik.com/download", desc: "Official WinBox utility for RouterOS management." }
         ];
 
@@ -830,7 +846,7 @@
             const query = document.getElementById('engineering-search-input').value.toLowerCase();
             const resultsBox = document.getElementById('engineering-search-results');
             if(!query) {
-                resultsBox.innerHTML = `<div>💡 اكتب في خانة البحث أعلاه اسم الموديل أو الشركة (مثال: Cisco, Tenda, Linksys, Hikvision, EAP) لتظهر لك البيانات الفورية والروابط الرسمية المعتمدة.</div>`;
+                resultsBox.innerHTML = `<div>💡 اكتب في خانة البحث أعلاه اسم الموديل أو الشركة (مثال: Tenda, Yeastar, DrayTek, Linksys, Cisco, Hikvision, EAP) لتظهر لك البيانات الفورية والروابط الرسمية المعتمدة.</div>`;
                 return;
             }
 
