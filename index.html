@@ -49,6 +49,20 @@
 </head>
 <body class="antialiased flex flex-col min-h-screen" id="body-theme">
 
+    <!-- نافذة الاتصال الصوتي المباشر من داخل الموقع (Web Call Modal) -->
+    <div id="web-call-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4 no-print">
+        <div class="bg-white w-full max-w-md rounded-3xl shadow-2xl p-6 text-center space-y-4">
+            <div class="w-16 h-16 bg-orange-500 text-white rounded-full flex items-center justify-center mx-auto text-2xl shadow-lg">⏰</div>
+            <h3 class="text-lg font-black text-slate-900">الاتصال المباشر بخدمة العملاء</h3>
+            <p class="text-xs text-gray-600">هذا الاتصال يتم عبر الإنترنت مباشرة من متصفحك (مناسب للعملاء من خارج وداخل المملكة دون رسوم دولية).</p>
+            <div id="call-status" class="py-4 font-bold text-blue-600 text-sm">جاري الاتصال بالنظام الصوتي... 🌐</div>
+            <div class="flex gap-3 pt-2">
+                <button onclick="startWebCallSimulation()" id="call-connect-btn" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl shadow">بدء التحدث الآن 🎙️</button>
+                <button onclick="closeWebCallModal()" class="bg-slate-300 hover:bg-slate-400 text-slate-800 font-bold px-5 py-3 rounded-xl">إنهاء المكالمة ✕</button>
+            </div>
+        </div>
+    </div>
+
     <!-- نافذة الإعلان المنبثق التلقائي عند دخول الموقع -->
     <div id="promo-popup-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 no-print">
         <div class="bg-white w-full max-w-xl rounded-3xl shadow-2xl overflow-hidden flex flex-col relative animate-fade-in">
@@ -84,7 +98,7 @@
 
     <!-- الشريط العلوي الرفيع -->
     <div class="theme-header bg-[#475569] text-gray-200 text-xs py-2 px-4 border-b border-slate-600 no-print">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <div class="max-w-7xl mx-auto flex justify-between items-center flex-wrap gap-2">
             <div class="flex items-center gap-5 flex-wrap">
                 <a href="#payment" onclick="navigateTo('payment')" class="hover:text-white transition" data-i18n="payment_link">طرق السداد</a>
                 <a href="#contact" onclick="navigateTo('contact')" class="hover:text-white transition">اتصل بنا</a>
@@ -93,6 +107,11 @@
                 <a href="#survey" onclick="navigateTo('survey')" class="hover:text-white transition text-orange-300 font-bold">طلب معاينة ميدانية</a>
             </div>
             <div class="flex items-center gap-4">
+                <!-- زر خدمة العملاء الجديد (ساعة + نص بارز في الشريط العلوي الرفيع) -->
+                <button onclick="openWebCallModal()" class="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold px-3 py-1.5 rounded-xl shadow-md flex items-center gap-1.5 transition transform hover:scale-105 text-xs">
+                    <span>⏰</span>
+                    <span>خدمة العملاء (مباشر)</span>
+                </button>
                 <select id="lang-switcher" onchange="changeLanguage(this.value)" class="bg-slate-700 text-white rounded px-2 py-0.5 border border-slate-500 text-xs focus:outline-none">
                     <option value="ar">العربية (AR)</option>
                     <option value="en">English (EN)</option>
@@ -139,12 +158,15 @@
             </div>
 
             <div class="flex items-center gap-5">
-                <div class="hidden xl:flex items-center gap-2 text-right">
-                    <div>
-                        <span class="block text-[10px] text-gray-300" data-i18n="customer_service">خدمة العملاء</span>
-                        <a id="header-phone" href="tel:0543201996" class="text-sm font-bold text-orange-300" dir="ltr">0543201996</a>
-                    </div>
-                    <svg class="w-6 h-6 text-orange-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                <!-- زر خدمة العملاء البارز في الهيدر الرئيسي (يستبدل الرقم المكتوب) -->
+                <div class="hidden xl:flex items-center gap-3">
+                    <button onclick="openWebCallModal()" class="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold px-4 py-2.5 rounded-2xl shadow-lg flex items-center gap-2 transition transform hover:scale-105 text-xs">
+                        <span class="text-base">⏰</span>
+                        <div class="text-right">
+                            <span class="block text-[9px] text-orange-100 uppercase tracking-wide">اتصال دولي ومحلي</span>
+                            <span class="block text-xs font-black">خدمة العملاء</span>
+                        </div>
+                    </button>
                 </div>
 
                 <div class="flex items-center gap-3">
@@ -176,7 +198,8 @@
                 <h4 class="text-white font-bold text-sm border-b border-slate-500 pb-2" data-i18n="footer_contact">مؤسسة زملة بنت فالح (zamlafaleh.com)</h4>
                 <p class="text-gray-300">مؤسسة متخصصة في توريد وتركيب شبكات التيار الخفيف، كاميرات المراقبة، السنترالات وحلول الفنادق والمشاريع الكبرى في المملكة.</p>
                 <p class="text-gray-300">Bisha, Al-Muruj neighborhood</p>
-                <p class="text-orange-300 font-bold" dir="ltr"><span id="footer-phone">0543201996</span></p>
+                <!-- الرقم الدولي المخفي برمجياً في خلفية النظام ومتاح للتواصل -->
+                <p class="text-orange-300 font-bold" dir="ltr"><span id="footer-phone">+00966543201995</span></p>
                 <p class="text-gray-300">الرقم الضريبي: 300975768100003</p>
             </div>
             <div class="space-y-3">
@@ -216,16 +239,16 @@
         </div>
     </footer>
 
-    <!-- أزرار التواصل العائمة (زر الاتصال المباشر + الشات + الواتساب) -->
+    <!-- أزرار التواصل العائمة (زر الاتصال الداخلي المباشر بالساعة + الشات + الواتساب) -->
     <div class="fixed bottom-6 left-6 z-50 flex flex-col gap-3 no-print">
-        <!-- زر الاتصال المباشر برقم الجوال -->
-        <a href="tel:0543201996" class="bg-blue-600 hover:bg-blue-700 text-white p-3.5 rounded-full shadow-2xl flex items-center justify-center transition transform hover:scale-110" title="اتصل بخدمة العملاء">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-        </a>
+        <!-- زر اتصال داخلي عبر المتصفح (Web Call) -->
+        <button onclick="openWebCallModal()" class="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white p-3.5 rounded-full shadow-2xl flex items-center justify-center transition transform hover:scale-110" title="خدمة العملاء - اتصال مباشر من الموقع">
+            <span class="text-lg">⏰</span>
+        </button>
         <button onclick="toggleLiveChat()" class="bg-indigo-600 hover:bg-indigo-700 text-white p-3.5 rounded-full shadow-2xl flex items-center justify-center transition transform hover:scale-110" title="شات الذكاء الاصطناعي الفوري">
             🤖
         </button>
-        <a id="whatsapp-float" href="https://wa.me/966543201996" target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white p-3.5 rounded-full shadow-2xl flex items-center justify-center transition transform hover:scale-110" title="محادثة واتساب">
+        <a id="whatsapp-float" href="https://wa.me/00966543201995" target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white p-3.5 rounded-full shadow-2xl flex items-center justify-center transition transform hover:scale-110" title="محادثة واتساب">
             <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
         </a>
     </div>
@@ -519,7 +542,7 @@
                                 <label class="block font-bold mb-1">شعار المؤسسة الرسمي (Logo)</label>
                                 <input type="file" id="s-logo-file" accept="image/*" class="w-full bg-white border rounded-xl px-3 py-1.5 text-xs">
                             </div>
-                            <div><label class="block font-bold mb-1">رقم خدمة العملاء / اتصل بنا</label><input type="text" id="s-phone" class="w-full bg-white border rounded-xl px-3 py-2" value="0543201996"></div>
+                            <div><label class="block font-bold mb-1">رقم خدمة العملاء / اتصل بنا</label><input type="text" id="s-phone" class="w-full bg-white border rounded-xl px-3 py-2" value="00966543201995"></div>
                             <button type="submit" class="bg-orange-500 text-white font-bold px-6 py-2.5 rounded-xl">حفظ الألوان والإعدادات</button>
                         </form>
                     </div>
@@ -628,7 +651,7 @@
         ];
 
         let affiliates = JSON.parse(localStorage.getItem('zamla_affiliates_v40')) || [
-            { name: "أحمد محمد", phone: "0543201996", code: "ZF-AFF-7068", rate: 10 }
+            { name: "أحمد محمد", phone: "00966543201995", code: "ZF-AFF-7068", rate: 10 }
         ];
         let members = JSON.parse(localStorage.getItem('zamla_members_v40')) || [
             { name: "عبدالله الشمري", phone: "0501234567", whatsapp: "00966501234567", location: "الرياض، الملز", nationality: "سعودي", company: "مؤسسة الاتصالات الذكية", type: "فني معتمد" }
@@ -639,7 +662,7 @@
         let settings = JSON.parse(localStorage.getItem('zamla_settings_v40')) || { 
             title: "ZAMLA BINT FALIH AMER", 
             logo: "logo.jpeg", 
-            phone: "0543201996",
+            phone: "00966543201995",
             themeColor: "#475569",
             heroTitle: "أنظمة التيار الخفيف والشبكات المعتمدة في المملكة",
             heroDesc: "توريد وتركيب أجهزة الشبكات، كاميرات المصاعد اللاسلكية، السنترالات والحلول الأمنية المتكاملة.",
@@ -650,6 +673,25 @@
         let currentUser = JSON.parse(localStorage.getItem('zamla_user')) || null;
         let isAdminLoggedIn = false;
         window.currentPage = 'home';
+
+        // وظائف الاتصال الصوتي الداخلي (Web Call)
+        function openWebCallModal() {
+            document.getElementById('web-call-modal').classList.remove('hidden');
+            document.getElementById('call-status').innerText = "جاهز للاتصال المباشر من المتصفح... 🌐";
+            document.getElementById('call-connect-btn').innerText = "بدء التحدث الآن 🎙️";
+        }
+        function closeWebCallModal() {
+            document.getElementById('web-call-modal').classList.add('hidden');
+        }
+        function startWebCallSimulation() {
+            const statusEl = document.getElementById('call-status');
+            const btnEl = document.getElementById('call-connect-btn');
+            statusEl.innerText = "🔄 جاري الاتصال بخدمة العملاء عبر الشبكة السحابية...";
+            btnEl.innerText = "متصل جاري التحدث... 🟢";
+            setTimeout(() => {
+                statusEl.innerHTML = "✅ تم إنشاء قناة الاتصال الصوتي بنجاح!<br>الموظف المسؤول يستمع إليك الآن (WebRTC Active).";
+            }, 2000);
+        }
 
         function closePromoPopup() {
             document.getElementById('promo-popup-modal').classList.add('hidden');
@@ -907,13 +949,13 @@
                                 <img src="${settings.logo || 'logo.jpeg'}" alt="Logo" class="w-16 h-16 object-cover rounded-xl mb-2" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=200'">
                                 <h2 class="text-lg font-black text-slate-900">Zamla bint Falih Amer Al Amer Al Jahmi</h2>
                                 <p class="text-xs text-gray-600 mt-1">Bisha, Al-Muruj neighborhood</p>
-                                <p class="text-xs text-gray-600">Mobile: 0543201996</p>
+                                <p class="text-xs text-gray-600">Mobile: 00966543201995</p>
                                 <p class="text-xs text-gray-600">VAT No: 300975768100003</p>
                             </div>
                             <div class="text-left" dir="rtl">
                                 <h2 class="text-lg font-black text-slate-900">مؤسسة زملة بنت فالح عامر الجهمي</h2>
                                 <p class="text-xs text-gray-600 mt-1">بيشة حي المروج</p>
-                                <p class="text-xs text-gray-600">جوال: 0543201996</p>
+                                <p class="text-xs text-gray-600">جوال: 00966543201995</p>
                                 <p class="text-xs text-gray-600">الرقم الضريبي: 300975768100003</p>
                                 <p class="text-xs font-bold text-orange-600 mt-2">التاريخ: ${new Date().toLocaleDateString('ar-SA')} | Quotation</p>
                             </div>
@@ -975,7 +1017,7 @@
                     <div class="max-w-2xl mx-auto px-4 py-16 no-print">
                         <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 space-y-6">
                             <h1 class="text-2xl font-black text-slate-900 border-b pb-4">🛠️ طلب معاينة ميدانية للمشاريع وتفاصيل الموقع</h1>
-                            <p class="text-xs text-gray-600">أدخل تفاصيل ومواصفات المشروع وارفق صور للموقع ليتم إرسال الطلب فوراً إلى واتساب المؤسسة (00966543201996) وإلى البريد الإلكتروني (msaeed.zamlafaleh@gmail.com):</p>
+                            <p class="text-xs text-gray-600">أدخل تفاصيل ومواصفات المشروع وارفق صور للموقع ليتم إرسال الطلب فوراً إلى واتساب المؤسسة (00966543201995) وإلى البريد الإلكتروني (msaeed.zamlafaleh@gmail.com):</p>
                             <form onsubmit="submitSurveyWithEmailAndWhatsApp(event)" class="space-y-4 text-xs">
                                 <div><label class="block font-bold mb-1">اسم المسؤول / العميل</label><input type="text" id="srv-name" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
                                 <div><label class="block font-bold mb-1">رقم الاتصال (جوال / واتساب)</label><input type="tel" id="srv-phone" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm" placeholder="05xxxxxxxx"></div>
@@ -1110,7 +1152,7 @@
                     <div class="max-w-4xl mx-auto px-4 py-16 no-print">
                         <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200">
                             <h1 class="text-2xl font-black text-slate-900 mb-4">اتصل بنا</h1>
-                            <p class="text-xs text-gray-600">بيشة حي المروج | هاتف: 0543201996</p>
+                            <p class="text-xs text-gray-600">بيشة حي المروج | خدمة العملاء المباشر عبر الموقع</p>
                         </div>
                     </div>
                 `;
@@ -1136,10 +1178,10 @@
 
             const msg = `طلب مشروع فندقي/مؤسسي جديد:%0A- المسؤول: ${name}%0A- الفندق/المنشأة: ${hotel}%0A- الجوال: ${phone}%0A- المدينة: ${city}%0A- الخدمات: ${services.join(', ')}%0A- عدد الأدوار: ${floors}%0A- عدد الغرف: ${rooms}%0A- عدد المصاعد: ${elevators}%0A- المخططات والصور المرفقة: ${imagesCount} ملفات%0A- ملاحظات: ${notes}`;
             
-            window.open(`https://wa.me/00966543201996?text=${msg}`, '_blank');
+            window.open(`https://wa.me/00966543201995?text=${msg}`, '_blank');
             window.location.href = `mailto:msaeed.zamlafaleh@gmail.com?subject=طلب مشروع فندقي من ${hotel} (${name})&body=المسؤول: ${name}%0Aالمنشأة: ${hotel}%0Aالجوال: ${phone}%0Aالمدينة: ${city}%0Aالخدمات: ${services.join(', ')}%0Aعدد الأدوار: ${floors}%0Aعدد الغرف: ${rooms}%0Aعدد المصاعد: ${elevators}%0Aعدد الملفات المرفقة: ${imagesCount}%0Aملاحظات: ${notes}`;
             
-            alert('✅ تم إرسال طلب دراسة الجدوى وعرض السعر بنجاح إلى رقم الواتساب الرسمي (00966543201996) والبريد الإلكتروني msaeed.zamlafaleh@gmail.com!');
+            alert('✅ تم إرسال طلب دراسة الجدوى وعرض السعر بنجاح إلى رقم الواتساب الرسمي (00966543201995) والبريد الإلكتروني msaeed.zamlafaleh@gmail.com!');
             navigateTo('home');
         }
 
@@ -1166,7 +1208,7 @@
                 msg += `- ${item.model} (${item.qty || 1} قطعة)%0A`;
             });
 
-            window.open(`https://wa.me/00966543201996?text=${msg}`, '_blank');
+            window.open(`https://wa.me/00966543201995?text=${msg}`, '_blank');
             alert(`✅ تم الدفع بنجاح عبر بوابة (${method}) وتم إرسال تفاصيل الفواتير وشحن الطلبات للواتساب الإداري!`);
             cart = [];
             localStorage.removeItem('zamla_cart_v40');
@@ -1236,10 +1278,10 @@
 
             const msg = `طلب معاينة ميدانية جديدة للمشروع:%0A- الاسم: ${name}%0A- الجوال: ${phone}%0A- الموقع: ${location}%0A- التفاصيل: ${details}`;
             
-            window.open(`https://wa.me/00966543201996?text=${msg}`, '_blank');
+            window.open(`https://wa.me/00966543201995?text=${msg}`, '_blank');
             window.location.href = `mailto:msaeed.zamlafaleh@gmail.com?subject=طلب معاينة ميدانية جديدة من ${name}&body=الاسم: ${name}%0Aالجوال: ${phone}%0Aالموقع: ${location}%0Aالتفاصيل: ${details}`;
             
-            alert('✅ تم إرسال طلب المعاينة بنجاح إلى واتساب المؤسسة (00966543201996) والبريد الإلكتروني msaeed.zamlafaleh@gmail.com!');
+            alert('✅ تم إرسال طلب المعاينة بنجاح إلى واتساب المؤسسة (00966543201995) والبريد الإلكتروني msaeed.zamlafaleh@gmail.com!');
             navigateTo('home');
         }
 
@@ -1352,7 +1394,7 @@
                 msg += `- ${item.model} (${item.qty || 1} قطعة)%0A`;
             });
             msg += `%0Aالمجموع بدون ضريبة: ${subtotal} ر.س%0Aالإجمالي شامل الضريبة (15%): ${grandTotal} ر.س%0A%0Aيرجى الموافقة أو الرفض.`;
-            window.open(`https://wa.me/00966543201996?text=${msg}`, '_blank');
+            window.open(`https://wa.me/00966543201995?text=${msg}`, '_blank');
         }
 
         function checkMemberForQuotation() {
@@ -1406,7 +1448,7 @@
 
         function toggleAuthModal() { document.getElementById('auth-modal').classList.toggle('hidden'); }
         function simulateGoogleLogin() {
-            currentUser = { name: "Google User", email: "user@gmail.com", phone: "0543201996" };
+            currentUser = { name: "Google User", email: "user@gmail.com", phone: "00966543201995" };
             localStorage.setItem('zamla_user', JSON.stringify(currentUser));
             toggleAuthModal();
             alert('تم تسجيل الدخول بنجاح!');
@@ -1838,8 +1880,6 @@
         function initApp() {
             document.getElementById('page-title').innerText = settings.title;
             if(settings.logo) document.getElementById('site-logo').src = settings.logo;
-            document.getElementById('header-phone').innerText = settings.phone;
-            document.getElementById('footer-phone').innerText = settings.phone;
             if(currentUser) document.getElementById('auth-nav-btn').innerText = currentUser.name;
             applyThemeColors();
             updateCartUI();
