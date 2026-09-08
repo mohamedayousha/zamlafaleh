@@ -2,7 +2,27 @@
 <html lang="ar" dir="rtl" id="html-root">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="zamla faleh">
+    <meta name="theme-color" content="#475569">
+    <link rel="apple-touch-icon" href="logo.jpeg">
+    <link rel="manifest" href='data:application/manifest+json,{
+      "name": "zamla faleh",
+      "short_name": "zamla faleh",
+      "start_url": "/",
+      "display": "standalone",
+      "background_color": "#f8fafc",
+      "theme_color": "#475569",
+      "icons": [
+        {
+          "src": "logo.jpeg",
+          "sizes": "192x192",
+          "type": "image/jpeg"
+        }
+      ]
+    }'>
     <meta name="description" content="مؤسسة زملة بنت فالح عامر الجهمي (zamlafaleh.com) ببيشة - توريد وتركيب شبكات التيار الخفيف، كاميرات المراقبة، سنترالات IP PBX، وحلول الفنادق والمشاريع الكبرى في المملكة.">
     <meta name="keywords" content="zamlafaleh.com, كاميرات مراقبة بيشة, مؤسسة زملة فالح, تيار خفيف السعودية, سنترالات جراندستريم, كوالين ذكية للفنادق, كاميرات مصاعد لاسلكية">
     <title id="page-title">مؤسسة زملة بنت فالح عامر الجهمي | أنظمة التيار الخفيف والشبكات</title>
@@ -10,7 +30,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Cairo', sans-serif; background-color: #f8fafc; color: #1e293b; }
+        body { font-family: 'Cairo', sans-serif; background-color: #f8fafc; color: #1e293b; -webkit-tap-highlight-color: transparent; }
         @keyframes marquee-ar {
             0% { transform: translateX(100%); }
             100% { transform: translateX(-100%); }
@@ -68,10 +88,10 @@
         <div class="bg-white w-full max-w-xl rounded-3xl shadow-2xl overflow-hidden flex flex-col relative animate-fade-in">
             <button onclick="closePromoPopup()" class="absolute top-4 left-4 z-10 bg-black/60 hover:bg-black text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm transition">✕</button>
             <div class="p-2.5 bg-slate-900 text-center">
-                <span class="text-orange-400 text-xs font-bold uppercase tracking-wider">🔥 بروشور العروض الرسمية - مؤسسة زملة فالح</span>
+                <span class="text-orange-400 text-xs font-bold uppercase tracking-wider">🔥 عروض وخدمات مؤسسة زملة فالح</span>
             </div>
             <div class="max-h-[75vh] overflow-y-auto bg-slate-950 flex items-center justify-center p-2">
-                <img id="popup-promo-img" src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&auto=format&fit=crop&q=80" alt="Wireless Elevator CCTV Brochure" class="w-full rounded-2xl object-contain max-h-[70vh]">
+                <img id="popup-promo-img" src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&auto=format&fit=crop&q=80" alt="Brochure" class="w-full rounded-2xl object-contain max-h-[70vh]">
             </div>
             <div class="p-4 bg-slate-900 flex justify-between items-center gap-3">
                 <a href="#survey" onclick="closePromoPopup(); navigateTo('survey');" class="flex-1 bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-xl text-center text-xs shadow transition">طلب معاينة ميدانية للمشاريع 🛠️</a>
@@ -96,25 +116,25 @@
         </div>
     </div>
 
-    <!-- الشريط العلوي الرفيع (يحتوي على مشاريع الفنادق، المعاينة الميدانية، الكروكي الذكي، وحاسبة التخزين) -->
+    <!-- الشريط العلوي الرفيع المتناسق للجوال والتابلت -->
     <div class="theme-header bg-[#475569] text-gray-200 text-xs py-2 px-4 border-b border-slate-600 no-print">
         <div class="max-w-7xl mx-auto flex justify-between items-center flex-wrap gap-2">
-            <div class="flex items-center gap-4 flex-wrap font-semibold text-xs">
-                <a href="#hotel-projects" onclick="navigateTo('hotel-projects')" class="hover:text-white transition text-orange-300 font-bold">مشاريع الفنادق والمؤسسات 🏨</a>
-                <a href="#survey" onclick="navigateTo('survey')" class="hover:text-white transition text-orange-300 font-bold">طلب معاينة ميدانية 🛠️</a>
-                <a href="#sketch" onclick="navigateTo('sketch')" class="hover:text-white transition text-cyan-300 font-bold">تصميم كروكي AI 📐</a>
+            <div class="flex items-center gap-3 flex-wrap font-semibold text-xs">
+                <a href="#hotel-projects" onclick="navigateTo('hotel-projects')" class="hover:text-white transition text-orange-300 font-bold">مشاريع الفنادق 🏨</a>
+                <a href="#survey" onclick="navigateTo('survey')" class="hover:text-white transition text-orange-300 font-bold">معاينة ميدانية 🛠️</a>
+                <a href="#sketch" onclick="navigateTo('sketch')" class="hover:text-white transition text-cyan-300 font-bold">كروكي AI 📐</a>
                 <a href="#calculator" onclick="navigateTo('calculator')" class="hover:text-white transition text-cyan-300 font-bold">حاسبة التخزين 🧮</a>
             </div>
-            <div class="flex items-center gap-4">
+            <div class="flex items-center gap-3">
                 <button onclick="openWebCallModal()" class="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold px-3 py-1.5 rounded-xl shadow-md flex items-center gap-1.5 transition transform hover:scale-105 text-xs">
                     <span>⏰</span>
-                    <span>خدمة العملاء (مباشر)</span>
+                    <span>خدمة العملاء</span>
                 </button>
                 <select id="lang-switcher" onchange="changeLanguage(this.value)" class="bg-slate-700 text-white rounded px-2 py-0.5 border border-slate-500 text-xs focus:outline-none">
                     <option value="ar">العربية (AR)</option>
                     <option value="en">English (EN)</option>
                 </select>
-                <button onclick="toggleAuthModal()" class="text-orange-300 font-bold hover:underline" id="auth-nav-btn">تسجيل الدخول</button>
+                <button onclick="toggleAuthModal()" class="text-orange-300 font-bold hover:underline" id="auth-nav-btn">دخول</button>
             </div>
         </div>
     </div>
@@ -128,45 +148,45 @@
 
     <!-- الشريط الرئيسي (Header) -->
     <header class="sticky top-0 z-50 theme-header bg-[#475569] shadow-lg border-b border-slate-600 text-white no-print">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-3">
             
-            <div class="flex items-center gap-3">
-                <a href="#home" onclick="navigateTo('home')" class="flex items-center gap-3 py-2">
+            <div class="flex items-center gap-2">
+                <a href="#home" onclick="navigateTo('home')" class="flex items-center gap-2 py-2">
                     <div class="bg-black p-1 rounded-xl border border-orange-500/50 flex items-center gap-2">
-                        <img id="site-logo" src="logo.jpeg" alt="Logo" class="w-10 h-10 object-cover rounded-full" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=200'">
+                        <img id="site-logo" src="logo.jpeg" alt="Logo" class="w-9 h-9 object-cover rounded-full" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=200'">
                         <div>
-                            <span class="block text-[11px] font-black tracking-wider text-orange-400 leading-none">ZAMLA BINT FALIH AMER</span>
-                            <span class="block text-[8px] text-cyan-300 font-mono tracking-tight mt-0.5">AL AMER AL JAHMI COMPANY</span>
+                            <span class="block text-[10px] font-black tracking-wider text-orange-400 leading-none">ZAMLA FALEH</span>
+                            <span class="block text-[7px] text-cyan-300 font-mono tracking-tight mt-0.5">APP SYSTEM</span>
                         </div>
                     </div>
                 </a>
             </div>
 
-            <div class="flex-1 max-w-2xl flex items-center bg-white rounded-xl overflow-hidden shadow-inner border border-gray-300">
+            <div class="flex-1 max-w-xl flex items-center bg-white rounded-xl overflow-hidden shadow-inner border border-gray-300">
                 <div class="relative">
-                    <button onclick="toggleMegaMenu()" class="bg-[#f97316] hover:bg-[#ea580c] text-white px-4 h-12 flex items-center gap-2 font-bold text-sm transition">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                    <button onclick="toggleMegaMenu()" class="bg-[#f97316] hover:bg-[#ea580c] text-white px-3 h-11 flex items-center gap-1 font-bold text-xs transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
                         <span data-i18n="categories">الأقسام</span> ▾
                     </button>
                 </div>
-                <input type="text" id="search-input" oninput="handleSearch()" placeholder="ابحث عن أجهزة، كاميرات، راوترات، سنترالات..." data-i18n-placeholder="search_placeholder" class="w-full px-4 h-12 text-slate-900 text-sm focus:outline-none">
-                <button class="bg-gray-100 px-4 h-12 text-gray-600 hover:text-slate-900">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                <input type="text" id="search-input" oninput="handleSearch()" placeholder="ابحث عن أجهزة، كاميرات، راوترات..." data-i18n-placeholder="search_placeholder" class="w-full px-3 h-11 text-slate-900 text-xs focus:outline-none">
+                <button class="bg-gray-100 px-3 h-11 text-gray-600 hover:text-slate-900">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                 </button>
             </div>
 
-            <div class="flex items-center gap-5">
+            <div class="flex items-center gap-3">
                 <div class="hidden xl:flex items-center gap-3">
-                    <button onclick="openWebCallModal()" class="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold px-4 py-2.5 rounded-2xl shadow-lg flex items-center gap-2 transition transform hover:scale-105 text-xs">
-                        <span class="text-base">⏰</span>
+                    <button onclick="openWebCallModal()" class="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold px-3.5 py-2 rounded-xl shadow-lg flex items-center gap-2 transition transform hover:scale-105 text-xs">
+                        <span class="text-sm">⏰</span>
                         <div class="text-right">
-                            <span class="block text-[9px] text-orange-100 uppercase tracking-wide">اتصال دولي ومحلي</span>
-                            <span class="block text-xs font-black">خدمة العملاء</span>
+                            <span class="block text-[8px] text-orange-100 uppercase">اتصال مباشر</span>
+                            <span class="block text-[11px] font-black">خدمة العملاء</span>
                         </div>
                     </button>
                 </div>
 
-                <div class="flex items-center gap-3">
+                <div class="flex items-center gap-2">
                     <button onclick="toggleCart()" class="relative p-2.5 bg-slate-600 hover:bg-slate-500 rounded-xl transition flex items-center gap-1 text-white">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
                         <span id="cart-count" class="absolute -top-1 -right-1 bg-orange-500 text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold text-white">0</span>
@@ -188,7 +208,7 @@
     <!-- منطقة عرض الصفحات -->
     <main class="flex-1" id="main-content"></main>
 
-    <!-- الفوتر (يحتوي على طرق السداد، اتصل بنا، وطلب عرض سعر في الأسفل) -->
+    <!-- الفوتر (طرق السداد، اتصل بنا، طلب عرض سعر في الأسفل) -->
     <footer class="theme-footer bg-[#334155] text-gray-200 py-16 text-xs border-t border-slate-600 mt-auto no-print">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
             <div class="space-y-3">
@@ -377,9 +397,9 @@
             <div class="flex border-b bg-slate-100 px-6 gap-4 overflow-x-auto">
                 <button onclick="switchAdminTab('analytics')" id="tab-btn-analytics" class="py-3 font-bold border-b-2 border-orange-500 text-orange-600 whitespace-nowrap">مؤشرات الأداء</button>
                 <button onclick="switchAdminTab('products')" id="tab-btn-products" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">إدارة المنتجات</button>
-                <button onclick="switchAdminTab('categories')" id="tab-btn-categories" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">إدارة التصنيفات والبروشور</button>
+                <button onclick="switchAdminTab('categories')" id="tab-btn-categories" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">إدارة التصنيفات</button>
                 <button onclick="switchAdminTab('ads')" id="tab-btn-ads" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">إدارة الإعلانات الخارجية</button>
-                <button onclick="switchAdminTab('articles')" id="tab-btn-articles" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">المقالات والإرشادات التقنية</button>
+                <button onclick="switchAdminTab('articles')" id="tab-btn-articles" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">المقالات والإرشادات</button>
                 <button onclick="switchAdminTab('members')" id="tab-btn-members" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">قائمة الأعضاء</button>
                 <button onclick="switchAdminTab('affiliate-admin')" id="tab-btn-affiliate-admin" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">جدول المسوقين</button>
                 <button onclick="switchAdminTab('import')" id="tab-btn-import" class="py-3 font-bold text-gray-600 border-b-2 border-transparent whitespace-nowrap">رفع ملف أكسيل</button>
@@ -433,18 +453,18 @@
                     </div>
                     <div id="admin-products-list" class="space-y-2 max-h-72 overflow-y-auto border p-3 rounded-2xl bg-white"></div>
                 </div>
-                <!-- التصنيفات والبروشور -->
+                <!-- التصنيفات -->
                 <div id="admin-tab-categories" class="hidden space-y-6">
                     <div class="bg-slate-50 p-4 rounded-2xl border space-y-3">
-                        <h4 class="font-bold text-slate-800 text-sm">تعديل البروشور الإعلاني وعروض التركيب في الواجهة</h4>
+                        <h4 class="font-bold text-slate-800 text-sm">تعديل العروض في الواجهة</h4>
                         <form onsubmit="saveHeroBanner(event)" class="space-y-3">
-                            <input type="text" id="hero-title-input" placeholder="عنوان البروشور أو العرض" class="w-full bg-white border rounded-xl px-3 py-2" value="أنظمة التيار الخفيف والشبكات المعتمدة في المملكة">
-                            <textarea id="hero-desc-input" rows="2" placeholder="وصف البروشور" class="w-full bg-white border rounded-xl px-3 py-2">توريد وتركيب أجهزة الشبكات، كاميرات المصاعد اللاسلكية، السنترالات والحلول الأمنية المتكاملة.</textarea>
+                            <input type="text" id="hero-title-input" placeholder="عنوان العرض" class="w-full bg-white border rounded-xl px-3 py-2" value="أنظمة التيار الخفيف والشبكات المعتمدة في المملكة">
+                            <textarea id="hero-desc-input" rows="2" placeholder="وصف العرض" class="w-full bg-white border rounded-xl px-3 py-2">توريد وتركيب أجهزة الشبكات، كاميرات المصاعد اللاسلكية، السنترالات والحلول الأمنية المتكاملة.</textarea>
                             <div>
-                                <label class="block font-bold mb-1">رفع صورة البروشور الإعلاني الكبير</label>
+                                <label class="block font-bold mb-1">رفع صورة العرض الكبير</label>
                                 <input type="file" id="hero-img-file" accept="image/*" class="w-full bg-white border rounded-xl px-3 py-1.5 text-xs">
                             </div>
-                            <button type="submit" class="bg-orange-500 text-white font-bold px-6 py-2.5 rounded-xl">حفظ وتحديث البروشور</button>
+                            <button type="submit" class="bg-orange-500 text-white font-bold px-6 py-2.5 rounded-xl">حفظ وتحديث العرض</button>
                         </form>
                     </div>
                     <div class="bg-slate-50 p-4 rounded-2xl border space-y-3">
@@ -463,26 +483,25 @@
                 <!-- إدارة الإعلانات الخارجية -->
                 <div id="admin-tab-ads" class="hidden space-y-6">
                     <div class="bg-slate-50 p-6 rounded-2xl border space-y-4">
-                        <h4 class="font-bold text-slate-800 text-sm">📢 إدارة الإعلانات الخارجية والنافذة المنبثقة عند الدخول (Popup Ads)</h4>
-                        <p class="text-xs text-gray-500">قم برفع صورة البروشور أو الإعلان الخارجي الجديد لتغيير ما يظهر للزوار تلقائياً فور دخولهم للموقع:</p>
+                        <h4 class="font-bold text-slate-800 text-sm">📢 إدارة الإعلانات والنافذة المنبثقة عند الدخول (Popup Ads)</h4>
                         <form onsubmit="saveExternalAd(event)" class="space-y-3">
                             <div>
-                                <label class="block font-bold mb-1">صورة الإعلان الخارجي (رأسي أو عرضي)</label>
+                                <label class="block font-bold mb-1">صورة الإعلان الخارجي</label>
                                 <input type="file" id="ext-ad-file" accept="image/*" required class="w-full bg-white border rounded-xl px-3 py-2 text-xs">
                             </div>
                             <button type="submit" class="bg-orange-500 text-white font-bold px-6 py-2.5 rounded-xl">تحديث ونشر الإعلان الفوري 🚀</button>
                         </form>
                     </div>
                 </div>
-                <!-- إدارة المقالات والإرشادات التقنية -->
+                <!-- المقالات -->
                 <div id="admin-tab-articles" class="hidden space-y-6">
                     <div class="bg-slate-50 p-6 rounded-2xl border space-y-4">
-                        <h4 class="font-bold text-slate-800 text-sm">✍️ إدارة المقالات والإرشادات التقنية (إضافة / تعديل)</h4>
+                        <h4 class="font-bold text-slate-800 text-sm">✍️ إدارة المقالات والإرشادات التقنية</h4>
                         <form id="article-form" onsubmit="saveArticleData(event)" class="space-y-3">
                             <input type="hidden" id="art-edit-id" value="">
                             <input type="text" id="art-title" placeholder="عنوان المقال" required class="w-full bg-white border rounded-xl px-3 py-2">
-                            <input type="text" id="art-cat" placeholder="التصنيف (مثال: كاميرات مراقبة)" required class="w-full bg-white border rounded-xl px-3 py-2">
-                            <textarea id="art-desc" placeholder="محتوى المقال أو الإرشاد التقني الكامل..." rows="3" required class="w-full bg-white border rounded-xl px-3 py-2"></textarea>
+                            <input type="text" id="art-cat" placeholder="التصنيف" required class="w-full bg-white border rounded-xl px-3 py-2">
+                            <textarea id="art-desc" placeholder="محتوى المقال..." rows="3" required class="w-full bg-white border rounded-xl px-3 py-2"></textarea>
                             <div>
                                 <label class="block font-bold mb-1">صورة المقال</label>
                                 <input type="file" id="art-img" accept="image/*" class="w-full bg-white border rounded-xl px-3 py-1.5 text-xs">
@@ -492,7 +511,7 @@
                         <div id="admin-articles-list" class="space-y-2 mt-4 max-h-48 overflow-y-auto"></div>
                     </div>
                 </div>
-                <!-- قائمة الأعضاء -->
+                <!-- الأعضاء -->
                 <div id="admin-tab-members" class="hidden space-y-6">
                     <div class="bg-slate-50 p-6 rounded-2xl border space-y-4">
                         <h4 class="font-bold text-slate-800 text-sm">قائمة الأعضاء والمشتركين المسجلين في الموقع</h4>
@@ -504,7 +523,7 @@
                     <div class="bg-slate-50 p-6 rounded-2xl border space-y-4">
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                             <input type="text" id="aff-marketer-name" placeholder="اسم المسوق" class="bg-white border rounded-xl px-3 py-2">
-                            <input type="tel" id="aff-marketer-phone" placeholder="رقم الجوال (واتساب)" class="bg-white border rounded-xl px-3 py-2">
+                            <input type="tel" id="aff-marketer-phone" placeholder="رقم الجوال" class="bg-white border rounded-xl px-3 py-2">
                             <input type="number" id="aff-marketer-rate" placeholder="نسبة العمولة (%)" value="10" class="bg-white border rounded-xl px-3 py-2">
                         </div>
                         <button onclick="addAffiliateMarketer()" class="bg-emerald-600 text-white font-bold px-6 py-2.5 rounded-xl shadow">إضافة مسوق وتوليد كود وإرساله للواتساب 📱</button>
@@ -544,7 +563,7 @@
         </div>
     </div>
 
-    <!-- الكود البرمجي وجداول البيانات المحدثة -->
+    <!-- الكود البرمجي وجداول البيانات -->
     <script>
         const translations = {
             ar: {
@@ -653,7 +672,7 @@
             { id: 1, title: "كيف تختار كاميرات ColorVu للتصوير المليلي الملون؟", category: "كاميرات المراقبة", desc: "تعرف على أهم الفروقات بين كاميرات الأشعة تحت الحمراء التقليدية وكاميرات التصوير الملّون بالكامل في الظلام التام.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500" }
         ];
         let settings = JSON.parse(localStorage.getItem('zamla_settings_v40')) || { 
-            title: "ZAMLA BINT FALIH AMER", 
+            title: "zamla faleh", 
             logo: "logo.jpeg", 
             phone: "00966543201995",
             themeColor: "#475569",
@@ -782,7 +801,6 @@
                             <img src="${settings.heroImg}" alt="Zamla Faleh Official Banner" class="w-full h-full object-cover">
                         </div>
                         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center space-y-6 pt-12 sm:pt-20">
-                            <span class="bg-orange-500 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest shadow">بروشور العروض والتركيبات الرسمية 2026</span>
                             <h1 class="text-3xl sm:text-5xl font-black leading-tight max-w-3xl drop-shadow-md">${settings.heroTitle}</h1>
                             <p class="text-xs sm:text-sm text-gray-100 max-w-2xl leading-relaxed drop-shadow">${settings.heroDesc}</p>
                             <div class="flex gap-4 pt-6">
@@ -1763,7 +1781,7 @@
                     settings.heroImg = imgUrl;
                 }
                 localStorage.setItem('zamla_settings_v40', JSON.stringify(settings));
-                alert('تم تحديث البروشور بنجاح!');
+                alert('تم تحديث العرض بنجاح!');
                 navigateTo('home');
             };
 
