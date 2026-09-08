@@ -10,12 +10,12 @@
     <style>
         body { font-family: 'Cairo', sans-serif; background-color: #f8fafc; color: #1e293b; }
         @keyframes marquee-ar {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-        @keyframes marquee-en {
             0% { transform: translateX(100%); }
             100% { transform: translateX(-100%); }
+        }
+        @keyframes marquee-en {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
         }
         .animate-marquee-ar {
             display: inline-block;
@@ -47,9 +47,9 @@
 </head>
 <body class="antialiased flex flex-col min-h-screen" id="body-theme">
 
-    <!-- نافذة الإعلان المنبثق التلقائي عند دخول الموقع (Promo Popup Modal) -->
+    <!-- نافذة الإعلان المنبثق التلقائي عند دخول الموقع (Promo Popup Modal - قابلة للتغيير من الداشبورد) -->
     <div id="promo-popup-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 no-print">
-        <div class="bg-white w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden flex flex-col relative">
+        <div class="bg-white w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden flex flex-col relative animate-fade-in">
             <button onclick="closePromoPopup()" class="absolute top-4 left-4 z-10 bg-black/60 hover:bg-black text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm transition">✕</button>
             <div class="p-2 bg-slate-900 text-center">
                 <span class="text-orange-400 text-xs font-bold uppercase tracking-wider">🔥 حصرياً من مؤسسة زملة فالح</span>
@@ -58,7 +58,7 @@
                 <img id="popup-promo-img" src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&auto=format&fit=crop&q=80" alt="Promo Flyer" class="w-full rounded-2xl object-contain max-h-[70vh]">
             </div>
             <div class="p-4 bg-slate-900 flex justify-between items-center gap-3">
-                <a href="#sketch" onclick="closePromoPopup(); navigateTo('sketch');" class="flex-1 bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-xl text-center text-xs shadow transition">طلب استشارة أو كروكي ذكي 📐</a>
+                <a href="#survey" onclick="closePromoPopup(); navigateTo('survey');" class="flex-1 bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-xl text-center text-xs shadow transition">طلب معاينة ميدانية للمشاريع 🛠️</a>
                 <button onclick="closePromoPopup()" class="bg-slate-700 hover:bg-slate-600 text-white font-bold px-5 py-3 rounded-xl text-xs transition">متابعة للمتجر</button>
             </div>
         </div>
@@ -83,7 +83,7 @@
         </div>
     </div>
 
-    <!-- شريط عرض المنتجات المتحرك العريض (أصفر بخط كحلي واضح وبطيء - اتجاه حسب اللغة) -->
+    <!-- شريط عرض المنتجات المتحرك العريض (أصفر بخط كحلي واضح - الحركة تتكيف مع اللغة) -->
     <div class="bg-[#facc15] text-[#0f172a] text-sm font-black py-3.5 overflow-hidden whitespace-nowrap shadow-md no-print">
         <div id="ticker-wrapper" class="px-4">
             <div id="ticker-products" class="font-bold"></div>
@@ -341,13 +341,14 @@
                 <!-- التصنيفات والبروشور الإعلاني الكبير -->
                 <div id="admin-tab-categories" class="hidden space-y-6">
                     <div class="bg-slate-50 p-4 rounded-2xl border space-y-3">
-                        <h4 class="font-bold text-slate-800 text-sm">تعديل البروشور الإعلاني الكبير وعروض التركيب في الواجهة</h4>
+                        <h4 class="font-bold text-slate-800 text-sm">تعديل البروشور الإعلاني والنافذة المنبثقة للكمبيوتر والجوال</h4>
                         <form onsubmit="saveHeroBanner(event)" class="space-y-3">
                             <input type="text" id="hero-title-input" placeholder="عنوان البروشور أو العرض" class="w-full bg-white border rounded-xl px-3 py-2" value="أنظمة التيار الخفيف والشبكات المعتمدة في المملكة">
                             <textarea id="hero-desc-input" rows="2" placeholder="وصف البروشور" class="w-full bg-white border rounded-xl px-3 py-2">توريد وتركيب أجهزة الشبكات، كاميرات المصاعد اللاسلكية، السنترالات والحلول الأمنية المتكاملة.</textarea>
                             <div>
-                                <label class="block font-bold mb-1">رفع صورة البروشور الإعلاني الكبير (Promo Brochure Image)</label>
+                                <label class="block font-bold mb-1">رفع صورة البروشور المنبثق والإعلاني الجديد (Popup & Banner Image)</label>
                                 <input type="file" id="hero-img-file" accept="image/*" class="w-full bg-white border rounded-xl px-3 py-1.5 text-xs">
+                                <span class="text-[10px] text-gray-400 block mt-1">قم برفع بروشور إعلاني رأسي أو عرضي ليظهر تلقائياً في نافذة الترحيب وعند الدخول للموقع</span>
                             </div>
                             <button type="submit" class="bg-orange-500 text-white font-bold px-6 py-2.5 rounded-xl">حفظ وتحديث البروشور الإعلاني</button>
                         </form>
@@ -392,10 +393,9 @@
                         <button onclick="handleExcelUpload()" class="bg-emerald-600 text-white font-bold px-6 py-3 rounded-xl">سحب واستيراد الأصناف</button>
                     </div>
                 </div>
-                <!-- إعدادات الألوان والهوية -->
+                <!-- إعدادات -->
                 <div id="admin-tab-settings" class="hidden space-y-6">
                     <div class="bg-slate-50 p-6 rounded-2xl border space-y-4">
-                        <h4 class="font-bold text-slate-800 text-sm">تغيير ألوان الموقع بسهولة من الداشبورد</h4>
                         <form onsubmit="saveSettings(event)" class="space-y-4">
                             <div><label class="block font-bold mb-1">اسم المؤسسة</label><input type="text" id="s-title" class="w-full bg-white border rounded-xl px-3 py-2" value="ZAMLA FALEH"></div>
                             <div>
@@ -418,7 +418,7 @@
         </div>
     </div>
 
-    <!-- البرمجة الشاملة والتفاعلية وقاموس اللغات الشامل -->
+    <!-- البرمجة الشاملة والتفاعلية -->
     <script>
         const translations = {
             ar: {
@@ -475,7 +475,7 @@
             const switcher = document.getElementById('lang-switcher');
             if(switcher) switcher.value = currentLang;
 
-            // ضبط حركة شريط الإعلانات حسب اللغة
+            // اتجاه شريط الإعلانات حسب اللغة (العربية يسار ليمين، الإنجليزية يمين لليسار)
             const wrapper = document.getElementById('ticker-wrapper');
             if(wrapper) {
                 if(currentLang === 'ar') {
@@ -498,8 +498,8 @@
             { id: 8, sku: "ELEV-CAM-001", model: "Zamla-Elevator-Wireless", name: "نظام كاميرات مصاعد لاسلكي بالكامل", category: "المراقبة", price: 1450.00, stock: 1, desc: "نقل فيديو عالي الدقة وثابت بدون تمديد أسلاك في شافت المصعد.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80", featured: true }
         ];
 
-        let products = JSON.parse(localStorage.getItem('zamla_products_v33')) || initialProducts;
-        let categories = JSON.parse(localStorage.getItem('zamla_categories_v33')) || [
+        let products = JSON.parse(localStorage.getItem('zamla_products_v34')) || initialProducts;
+        let categories = JSON.parse(localStorage.getItem('zamla_categories_v34')) || [
             { name: 'المراقبة', icon: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=200' },
             { name: 'أجهزة التسجيل', icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=200' },
             { name: 'الشبكات', icon: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=200' },
@@ -507,13 +507,13 @@
             { name: 'طابعات', icon: 'https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=200' },
             { name: 'الحاسب', icon: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=200' }
         ];
-        let affiliates = JSON.parse(localStorage.getItem('zamla_affiliates_v33')) || [
+        let affiliates = JSON.parse(localStorage.getItem('zamla_affiliates_v34')) || [
             { name: "أحمد محمد", phone: "0543201995", code: "ZF-AFF-7068", rate: 10 }
         ];
-        let members = JSON.parse(localStorage.getItem('zamla_members_v33')) || [
+        let members = JSON.parse(localStorage.getItem('zamla_members_v34')) || [
             { name: "عبدالله الشمري", phone: "0501234567", whatsapp: "00966501234567", location: "الرياض، الملز", nationality: "سعودي", company: "مؤسسة الاتصالات الذكية", type: "فني معتمد" }
         ];
-        let settings = JSON.parse(localStorage.getItem('zamla_settings_v33')) || { 
+        let settings = JSON.parse(localStorage.getItem('zamla_settings_v34')) || { 
             title: "ZAMLA BINT FALIH AMER", 
             logo: "logo.jpeg", 
             phone: "0543201995",
@@ -522,7 +522,7 @@
             heroDesc: "توريد وتركيب أجهزة الشبكات، كاميرات المصاعد اللاسلكية، السنترالات والحلول الأمنية المتكاملة.",
             heroImg: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&auto=format&fit=crop&q=80"
         };
-        let cart = JSON.parse(localStorage.getItem('zamla_cart_v33')) || [];
+        let cart = JSON.parse(localStorage.getItem('zamla_cart_v34')) || [];
         let currentUser = JSON.parse(localStorage.getItem('zamla_user')) || null;
         let isAdminLoggedIn = false;
         window.currentPage = 'home';
@@ -546,26 +546,10 @@
             
             if (page === 'home') {
                 main.innerHTML = `
-                    <!-- المساحة الإعلانية الكبيرة (بروشور العروض والتركيبات) التحكم بها من الداشبورد -->
-                    <section class="relative bg-slate-800 text-white py-16 overflow-hidden shadow-xl no-print">
-                        <div class="absolute inset-0 opacity-40">
-                            <img src="${settings.heroImg}" alt="Promo Brochure" class="w-full h-full object-cover">
-                        </div>
-                        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center space-y-4">
-                            <span class="bg-orange-500 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest">بروشور العروض والتركيبات الرسمية 2026</span>
-                            <h1 class="text-3xl sm:text-4xl font-black leading-tight max-w-3xl">${settings.heroTitle}</h1>
-                            <p class="text-xs sm:text-sm text-gray-200 max-w-2xl leading-relaxed">${settings.heroDesc}</p>
-                            <div class="flex gap-4 pt-2">
-                                <a href="#store" onclick="navigateTo('store')" class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-xl shadow-lg transition">تصفح المنتجات الآن</a>
-                                <a href="#sketch" onclick="navigateTo('sketch')" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-xl shadow-lg transition">📐 تصميم كروكي ذكي</a>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- أقسام المتجر البارزة -->
-                    <section class="py-10 bg-white border-b border-gray-200 no-print">
+                    <!-- 1. الأقسام البارزة في الأعلى -->
+                    <section class="py-8 bg-white border-b border-gray-200 no-print">
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                            <h2 class="text-lg font-black text-slate-800 mb-6 text-center">أقسام المتجر الرئيسية</h2>
+                            <h2 class="text-base font-black text-slate-800 mb-6 text-center">أقسام المتجر الرئيسية</h2>
                             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 text-center">
                                 ${categories.map(c => `
                                     <div onclick="navigateTo('category', '${c.name}')" class="bg-slate-50 border p-3 rounded-2xl hover:shadow-md cursor-pointer transition flex flex-col items-center gap-2">
@@ -577,7 +561,23 @@
                         </div>
                     </section>
 
-                    <!-- عرض المنتجات فوراً في الصفحة الرئيسية أسفل الأقسام -->
+                    <!-- 2. مساحة إعلانية لعرض صور المشاريع السابقة والتركيبات -->
+                    <section class="relative bg-slate-800 text-white py-16 overflow-hidden shadow-xl no-print">
+                        <div class="absolute inset-0 opacity-40">
+                            <img src="${settings.heroImg}" alt="Previous Projects" class="w-full h-full object-cover">
+                        </div>
+                        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center space-y-4">
+                            <span class="bg-orange-500 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest">معرض أعمالنا ومشاريعنا السابقة 2026</span>
+                            <h1 class="text-3xl sm:text-4xl font-black leading-tight max-w-3xl">${settings.heroTitle}</h1>
+                            <p class="text-xs sm:text-sm text-gray-200 max-w-2xl leading-relaxed">${settings.heroDesc}</p>
+                            <div class="flex gap-4 pt-2">
+                                <a href="#store" onclick="navigateTo('store')" class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-xl shadow-lg transition">تصفح الكتالوج الآن</a>
+                                <a href="#survey" onclick="navigateTo('survey')" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-xl shadow-lg transition">🛠️ طلب معاينة ميدانية</a>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 3. الكتالوج الشامل للمنتجات -->
                     <section class="py-16 bg-slate-100 no-print">
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                             <div class="flex justify-between items-center mb-8">
@@ -585,6 +585,33 @@
                                 <button onclick="navigateTo('store')" class="text-orange-600 font-bold text-xs hover:underline">${t.view_all} ←</button>
                             </div>
                             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="home-products-grid"></div>
+                        </div>
+                    </section>
+
+                    <!-- 4. قسم المقالات والمدونة الإرشادية -->
+                    <section class="py-16 bg-white border-t border-gray-200 no-print">
+                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+                            <div class="text-center">
+                                <h2 class="text-2xl font-black text-slate-900">تعرف على أحدث المقالات والإرشادات التقنية</h2>
+                                <p class="text-xs text-gray-500 mt-2">دليلك الاحترافي لفهم أنظمة التيار الخفيف، كاميرات المراقبة، وحلول الشبكات في السعودية.</p>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <div class="bg-slate-50 border rounded-2xl p-5 space-y-3 shadow-sm">
+                                    <span class="bg-orange-100 text-orange-700 px-2 py-0.5 rounded text-[10px] font-bold">كاميرات مراقبة</span>
+                                    <h3 class="font-bold text-sm text-slate-900">كيف تختار كاميرات ColorVu للتصوير المليلي الملون؟</h3>
+                                    <p class="text-xs text-gray-600 leading-relaxed">تعرف على أهم الفروقات بين كاميرات الأشعة تحت الحمراء التقليدية وكاميرات التصوير الملّون بالكامل في الظلام التام.</p>
+                                </div>
+                                <div class="bg-slate-50 border rounded-2xl p-5 space-y-3 shadow-sm">
+                                    <span class="bg-blue-100 text-blue-700 px-2 py-0.5 rounded text-[10px] font-bold">شبكات ومصاعد</span>
+                                    <h3 class="font-bold text-sm text-slate-900">حلول كاميرات المصاعد اللاسلكية بدون تمديد أسلاك</h3>
+                                    <p class="text-xs text-gray-600 leading-relaxed">دليلك الفني لنقل إشارة الفيديو عالية الدقة عبر شافت المصعد بثبات واستقرار تام ودون تلف الأسلاك المتحركة.</p>
+                                </div>
+                                <div class="bg-slate-50 border rounded-2xl p-5 space-y-3 shadow-sm">
+                                    <span class="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded text-[10px] font-bold">سنترالات IP PBX</span>
+                                    <h3 class="font-bold text-sm text-slate-900">أهمية سنترالات Grandstream في إدارة اتصالات الشركات</h3>
+                                    <p class="text-xs text-gray-600 leading-relaxed">كيف تساهم وحدات UCM في توحيد الاتصالات الداخلية والخارجية وتحويل الهواتف الذكية إلى فروع داخلية للمكتب.</p>
+                                </div>
+                            </div>
                         </div>
                     </section>
                 `;
@@ -655,7 +682,6 @@
 
                 main.innerHTML = `
                     <div class="max-w-4xl mx-auto px-4 py-12 bg-white my-8 rounded-3xl shadow-xl border border-gray-200 relative overflow-hidden" id="printable-quotation">
-                        <!-- العلامة المائية الباهتة المائلة لمنع الاستخدام غير المعتمد -->
                         <div class="quotation-watermark">
                             ⚠️ عرض مبدئي من الموقع..<br>يرجى التواصل مع المؤسسة قبل التأكيد
                         </div>
@@ -708,7 +734,6 @@
                         <div class="flex justify-between items-center border-t pt-6 no-print relative z-10">
                             <button onclick="navigateTo('store')" class="bg-gray-600 text-white px-6 py-2.5 rounded-xl font-bold">← متابعة التسوق</button>
                             <button onclick="sendQuotationToAdminWhatsApp(${subtotal.toFixed(2)}, ${grandTotal.toFixed(2)})" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-xl font-bold shadow">طلب موافقة الإدارة وإرسال الطلب للواتساب 📱</button>
-                            <!-- طباعة وحفظ PDF مقتصرة حصرياً على الـ Admin المشرف -->
                             ${isAdminLoggedIn ? `<button onclick="window.print()" class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-xl font-bold shadow">طباعة العرض / حفظ PDF 🖨️</button>` : `<span class="text-red-500 font-bold text-xs">طباعة وحفظ PDF مقتصرة على الإدارة فقط</span>`}
                         </div>
                     </div>
@@ -730,21 +755,29 @@
                 `;
             }
             else if (page === 'survey') {
+                // استبدال الكروكي بطلب معاينة ميدانية للمشاريع مع إرفاق صور وإرسال واتساب وإيميل
                 main.innerHTML = `
                     <div class="max-w-2xl mx-auto px-4 py-16 no-print">
                         <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 space-y-6">
-                            <h1 class="text-2xl font-black text-slate-900 border-b pb-4">🛠️ طلب معاينة ميدانية للمشاريع</h1>
-                            <form onsubmit="event.preventDefault(); alert('تم حجز المعاينة بنجاح!'); navigateTo('home');" class="space-y-4 text-xs">
-                                <div><label class="block font-bold mb-1">اسم المسؤول</label><input type="text" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
-                                <div><label class="block font-bold mb-1">رقم الجوال</label><input type="tel" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
-                                <div><label class="block font-bold mb-1">الموقع (المدينة / الحي)</label><input type="text" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
-                                <button type="submit" class="w-full bg-orange-500 text-white font-bold py-3.5 rounded-xl text-sm">تأكيد حجز المعاينة</button>
+                            <h1 class="text-2xl font-black text-slate-900 border-b pb-4">🛠️ طلب معاينة ميدانية للمشاريع وتفاصيل الموقع</h1>
+                            <p class="text-xs text-gray-600">أدخل تفاصيل ومواصفات المشروع وارفق صور للموقع ليتم إرسال الطلب فوراً إلى واتساب المؤسسة وإلى البريد الإلكتروني (msaeed.zamlafaleh@gmail.com):</p>
+                            <form onsubmit="submitSurveyWithEmailAndWhatsApp(event)" class="space-y-4 text-xs">
+                                <div><label class="block font-bold mb-1">اسم المسؤول / العميل</label><input type="text" id="srv-name" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
+                                <div><label class="block font-bold mb-1">رقم الاتصال (جوال / واتساب)</label><input type="tel" id="srv-phone" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm" placeholder="05xxxxxxxx"></div>
+                                <div><label class="block font-bold mb-1">الموقع (المدينة / الحي / الشارع)</label><input type="text" id="srv-location" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm"></div>
+                                <div><label class="block font-bold mb-1">تفاصيل المشروع والمتطلبات</label><textarea id="srv-details" rows="3" required class="w-full bg-slate-50 border rounded-xl p-3 text-sm" placeholder="مثال: تركيب كاميرات مراقبة وتمديد شبكات..."></textarea></div>
+                                <div>
+                                    <label class="block font-bold mb-1">إرفاق صور للموقع أو المخطط (صور متعددة)</label>
+                                    <input type="file" id="srv-images" accept="image/*" multiple class="w-full bg-slate-50 border rounded-xl p-3 text-sm">
+                                </div>
+                                <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 rounded-xl text-sm shadow">إرسال طلب المعاينة عبر الواتساب والإيميل 📱✉️</button>
                             </form>
                         </div>
                     </div>
                 `;
             }
             else if (page === 'sketch') {
+                // أداة تصميم كروكي ذكي مع احتساب التمديد والتركيب
                 main.innerHTML = `
                     <div class="max-w-3xl mx-auto px-4 py-16 no-print">
                         <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 space-y-6">
@@ -871,6 +904,26 @@
             updateLanguageUI();
         }
 
+        // إرسال طلب المعاينة الميدانية مع الصور للواتساب والإيميل
+        function submitSurveyWithEmailAndWhatsApp(e) {
+            e.preventDefault();
+            const name = document.getElementById('srv-name').value;
+            const phone = document.getElementById('srv-phone').value;
+            const location = document.getElementById('srv-location').value;
+            const details = document.getElementById('srv-details').value;
+
+            const msg = `طلب معاينة ميدانية جديدة:%0A- الاسم: ${name}%0A- الجوال: ${phone}%0A- الموقع: ${location}%0A- التفاصيل: ${details}`;
+            
+            // فتح واتساب الإدارة
+            window.open(`https://wa.me/00966543201995?text=${msg}`, '_blank');
+            
+            // إرسال عبر الإيميل الإداري msaeed.zamlafaleh@gmail.com
+            window.location.href = `mailto:msaeed.zamlafaleh@gmail.com?subject=طلب معاينة ميدانية جديدة من ${name}&body=الاسم: ${name}%0Aالجوال: ${phone}%0Aالموقع: ${location}%0Aالتفاصيل: ${details}`;
+            
+            alert('تم إرسال طلب المعاينة بنجاح إلى واتساب المؤسسة والبريد الإلكتروني msaeed.zamlafaleh@gmail.com!');
+            navigateTo('home');
+        }
+
         // حماية لوحة التحكم بيوزر وباسورد للادمن فقط
         function requestAdminAccess() {
             const user = prompt("أدخل اسم المستخدم المشرف (Admin Username):");
@@ -953,7 +1006,7 @@
             if(p1) { p1.qty = count; cart.push(p1); }
             if(p2) { p2.qty = 1; cart.push(p2); }
             if(p3) { p3.qty = 1; cart.push(p3); }
-            localStorage.setItem('zamla_cart_v33', JSON.stringify(cart));
+            localStorage.setItem('zamla_cart_v34', JSON.stringify(cart));
             updateCartUI();
             alert('تمت إضافة جميع الاحتياجات والقطع المقترحة للسلة بنجاح!');
             navigateTo('quotation-preview');
@@ -989,7 +1042,7 @@
 
             const newMember = { name, phone, whatsapp, location, nationality, company, type };
             members.push(newMember);
-            localStorage.setItem('zamla_members_v33', JSON.stringify(members));
+            localStorage.setItem('zamla_members_v34', JSON.stringify(members));
 
             currentUser = { name, phone, email: phone + '@zamla.com' };
             localStorage.setItem('zamla_user', JSON.stringify(currentUser));
@@ -1042,7 +1095,7 @@
             if(!name || !phone) { alert('أدخل الاسم ورقم الجوال'); return; }
             const code = 'ZF-AFF-' + Math.floor(1000 + Math.random() * 9000);
             affiliates.push({ name, phone, code, rate });
-            localStorage.setItem('zamla_affiliates_v33', JSON.stringify(affiliates));
+            localStorage.setItem('zamla_affiliates_v34', JSON.stringify(affiliates));
             renderAffiliateTable();
             const text = `السلام عليكم ${name},%0Aتم اعتمادك في برنامج البيع بالعمولة لمؤسسة زمله بنت فالح بربح نسبة ${rate}%.%0Aكود التسويق الخاص بك هو: *${code}*`;
             window.open(`https://wa.me/966${phone.replace(/^0/, '')}?text=${text}`, '_blank');
@@ -1057,7 +1110,7 @@
                         <tr><th class="p-2.5">اسم المسوق</th><th class="p-2.5">الجوال</th><th class="p-2.5">الكود</th><th class="p-2.5">النسبة</th><th class="p-2.5">إجراء</th></tr>
                     </thead>
                     <tbody>
-                        ${affiliates.map((a, i) => `<tr class="border-b"><td class="p-2.5 font-bold">${a.name}</td><td class="p-2.5">${a.phone}</td><td class="p-2.5 font-mono text-orange-600 font-bold">${a.code}</td><td class="p-2.5">${a.rate}%</td><td class="p-2.5"><button onclick="affiliates.splice(${i},1); localStorage.setItem('zamla_affiliates_v33', JSON.stringify(affiliates)); renderAffiliateTable();" class="text-red-500 font-bold">حذف</button></td></tr>`).join('')}
+                        ${affiliates.map((a, i) => `<tr class="border-b"><td class="p-2.5 font-bold">${a.name}</td><td class="p-2.5">${a.phone}</td><td class="p-2.5 font-mono text-orange-600 font-bold">${a.code}</td><td class="p-2.5">${a.rate}%</td><td class="p-2.5"><button onclick="affiliates.splice(${i},1); localStorage.setItem('zamla_affiliates_v34', JSON.stringify(affiliates)); renderAffiliateTable();" class="text-red-500 font-bold">حذف</button></td></tr>`).join('')}
                     </tbody>
                 </table>
             `;
@@ -1180,7 +1233,7 @@
             } else {
                 cart.push({ ...p, qty: 1 });
             }
-            localStorage.setItem('zamla_cart_v33', JSON.stringify(cart));
+            localStorage.setItem('zamla_cart_v34', JSON.stringify(cart));
             updateCartUI();
             toggleCart();
         }
@@ -1191,13 +1244,13 @@
             if (cart[index].qty <= 0) {
                 cart.splice(index, 1);
             }
-            localStorage.setItem('zamla_cart_v33', JSON.stringify(cart));
+            localStorage.setItem('zamla_cart_v34', JSON.stringify(cart));
             updateCartUI();
         }
 
         function removeFromCart(i) {
             cart.splice(i, 1);
-            localStorage.setItem('zamla_cart_v33', JSON.stringify(cart));
+            localStorage.setItem('zamla_cart_v34', JSON.stringify(cart));
             updateCartUI();
         }
 
@@ -1227,7 +1280,7 @@
         }
 
         function toggleCart() { document.getElementById('cart-drawer').classList.toggle('-translate-x-full'); }
-        function proceedToCheckout() { alert('تم تأكيد الطلب بنجاح!'); cart = []; localStorage.removeItem('zamla_cart_v33'); updateCartUI(); toggleCart(); navigateTo('home'); }
+        function proceedToCheckout() { alert('تم تأكيد الطلب بنجاح!'); cart = []; localStorage.removeItem('zamla_cart_v34'); updateCartUI(); toggleCart(); navigateTo('home'); }
 
         function toggleAdminModal() {
             document.getElementById('admin-modal').classList.toggle('hidden');
@@ -1278,7 +1331,7 @@
                 } else {
                     products.unshift({ id: Date.now(), model, name, category, price, stock, desc, featured, image: imgUrl || "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500" });
                 }
-                localStorage.setItem('zamla_products_v33', JSON.stringify(products));
+                localStorage.setItem('zamla_products_v34', JSON.stringify(products));
                 document.getElementById('product-form').reset();
                 renderAdminProducts();
                 renderInventoryAnalytics();
@@ -1308,7 +1361,7 @@
 
         function deleteProduct(id) {
             products = products.filter(p => p.id !== id);
-            localStorage.setItem('zamla_products_v33', JSON.stringify(products));
+            localStorage.setItem('zamla_products_v34', JSON.stringify(products));
             renderAdminProducts();
             renderInventoryAnalytics();
         }
@@ -1325,7 +1378,7 @@
                 } else {
                     categories.push({ name, icon: iconUrl || 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=200' });
                 }
-                localStorage.setItem('zamla_categories_v33', JSON.stringify(categories));
+                localStorage.setItem('zamla_categories_v34', JSON.stringify(categories));
                 document.getElementById('category-form').reset();
                 renderAdminCategories();
                 populateCategoryDropdown();
@@ -1351,7 +1404,7 @@
                     const promoImg = document.getElementById('popup-promo-img');
                     if (promoImg) promoImg.src = imgUrl;
                 }
-                localStorage.setItem('zamla_settings_v33', JSON.stringify(settings));
+                localStorage.setItem('zamla_settings_v34', JSON.stringify(settings));
                 alert('تم تحديث البروشور والاعلان المنبثق بنجاح!');
                 navigateTo('home');
             };
@@ -1370,7 +1423,7 @@
 
         function deleteCategory(i) {
             categories.splice(i, 1);
-            localStorage.setItem('zamla_categories_v33', JSON.stringify(categories));
+            localStorage.setItem('zamla_categories_v34', JSON.stringify(categories));
             renderAdminCategories();
             populateCategoryDropdown();
         }
@@ -1409,7 +1462,7 @@
                         };
                         products.unshift(newP);
                     });
-                    localStorage.setItem('zamla_products_v33', JSON.stringify(products));
+                    localStorage.setItem('zamla_products_v34', JSON.stringify(products));
                     renderAdminProducts();
                     renderInventoryAnalytics();
                     alert('تم استيراد الأصناف والمخزون بنجاح!');
@@ -1431,7 +1484,7 @@
                 settings.phone = phone;
                 settings.themeColor = themeColor;
                 if(logoUrl) settings.logo = logoUrl;
-                localStorage.setItem('zamla_settings_v33', JSON.stringify(settings));
+                localStorage.setItem('zamla_settings_v34', JSON.stringify(settings));
                 applyThemeColors();
                 initApp();
                 alert('تم حفظ الألوان وإعدادات الهوية بنجاح!');
