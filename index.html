@@ -39,6 +39,23 @@
 </head>
 <body class="antialiased flex flex-col min-h-screen">
 
+    <!-- نافذة الإعلان المنبثق التلقائي عند دخول الموقع (Promo Popup Modal) -->
+    <div id="promo-popup-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 no-print">
+        <div class="bg-white w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden flex flex-col relative animate-fade-in">
+            <button onclick="closePromoPopup()" class="absolute top-4 left-4 z-10 bg-black/60 hover:bg-black text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm transition">✕</button>
+            <div class="p-2 bg-slate-900 text-center">
+                <span class="text-orange-400 text-xs font-bold uppercase tracking-wider">🔥 حصرياً من مؤسسة زملة فالح</span>
+            </div>
+            <div class="max-h-[75vh] overflow-y-auto bg-slate-950 flex items-center justify-center p-2">
+                <img id="popup-promo-img" src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&auto=format&fit=crop&q=80" alt="Promo Flyer" class="w-full rounded-2xl object-contain max-h-[70vh]">
+            </div>
+            <div class="p-4 bg-slate-900 flex justify-between items-center gap-3">
+                <a href="#sketch" onclick="closePromoPopup(); navigateTo('sketch');" class="flex-1 bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-xl text-center text-xs shadow transition">طلب استشارة أو كروكي ذكي 📐</a>
+                <button onclick="closePromoPopup()" class="bg-slate-700 hover:bg-slate-600 text-white font-bold px-5 py-3 rounded-xl text-xs transition">متابعة للمتجر</button>
+            </div>
+        </div>
+    </div>
+
     <!-- الشريط العلوي الرفيع -->
     <div class="bg-[#475569] text-gray-200 text-xs py-2 px-4 border-b border-slate-600 no-print">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
@@ -229,7 +246,7 @@
         </div>
     </div>
 
-    <!-- نافذة تسجيل دخول الإدارة (Admin Login Modal بـ Username & Password) -->
+    <!-- نافذة تسجيل دخول الإدارة (Admin Login Modal) -->
     <div id="admin-login-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4 no-print">
         <div class="bg-white w-full max-w-sm rounded-3xl shadow-2xl flex flex-col overflow-hidden text-xs p-6 space-y-4">
             <div class="flex justify-between items-center border-b pb-3">
@@ -456,11 +473,11 @@
             { id: 5, sku: "VOIP-GS-001", model: "GRP2602P", name: "هاتف IP مكتبي خطين مع PoE", category: "الاتصالات", price: 119.00, stock: 18, desc: "هاتف IP أساسي عالي الدقة للشركات ومراكز الاتصال.", image: "https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=500&auto=format&fit=crop&q=80", featured: false },
             { id: 6, sku: "PRN-001", model: "Epson-L3250", name: "طابعة إبسون الحبرية الملونة المتعددة", category: "طابعات", price: 680.00, stock: 7, desc: "طابعة اقتصادية ملونة ليزر ونفاثة للحبر للمكاتب والشركات مع واي فاي.", image: "https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=500&auto=format&fit=crop&q=80", featured: true },
             { id: 7, sku: "MON-001", model: "MSI-MAG-27", name: "شاشة ألعاب احترافية 27 بوصة 165Hz", category: "الحاسب", price: 990.00, stock: 9, desc: "شاشة بدقة عالية جداً وألوان حية مناسبة للمصممين واللاعبين.", image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500&auto=format&fit=crop&q=80", featured: true },
-            { id: 8, sku: "ELEV-CAM-001", model: "Zamla-Elevator-Wireless", name: "نظام كاميرات مصاعد لاسلكي بالكامل", category: "المراقبة", price: 1450.00, stock: 1, desc: "ن نقل فيديو عالي الدقة وثابت بدون تمديد أسلاك في شافت المصعد.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80", featured: true }
+            { id: 8, sku: "ELEV-CAM-001", model: "Zamla-Elevator-Wireless", name: "نظام كاميرات مصاعد لاسلكي بالكامل", category: "المراقبة", price: 1450.00, stock: 1, desc: "نقل فيديو عالي الدقة وثابت بدون تمديد أسلاك في شافت المصعد.", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500&auto=format&fit=crop&q=80", featured: true }
         ];
 
-        let products = JSON.parse(localStorage.getItem('zamla_products_v31')) || initialProducts;
-        let categories = JSON.parse(localStorage.getItem('zamla_categories_v31')) || [
+        let products = JSON.parse(localStorage.getItem('zamla_products_v32')) || initialProducts;
+        let categories = JSON.parse(localStorage.getItem('zamla_categories_v32')) || [
             { name: 'المراقبة', icon: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=200' },
             { name: 'أجهزة التسجيل', icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=200' },
             { name: 'الشبكات', icon: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=200' },
@@ -468,13 +485,13 @@
             { name: 'طابعات', icon: 'https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=200' },
             { name: 'الحاسب', icon: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=200' }
         ];
-        let affiliates = JSON.parse(localStorage.getItem('zamla_affiliates_v31')) || [
+        let affiliates = JSON.parse(localStorage.getItem('zamla_affiliates_v32')) || [
             { name: "أحمد محمد", phone: "0543201995", code: "ZF-AFF-7068", rate: 10 }
         ];
-        let members = JSON.parse(localStorage.getItem('zamla_members_v31')) || [
+        let members = JSON.parse(localStorage.getItem('zamla_members_v32')) || [
             { name: "عبدالله الشمري", phone: "0501234567", whatsapp: "00966501234567", location: "الرياض، الملز", nationality: "سعودي", company: "مؤسسة الاتصالات الذكية", type: "فني معتمد" }
         ];
-        let settings = JSON.parse(localStorage.getItem('zamla_settings_v31')) || { 
+        let settings = JSON.parse(localStorage.getItem('zamla_settings_v32')) || { 
             title: "ZAMLA BINT FALIH AMER", 
             logo: "logo.jpeg", 
             phone: "0543201995",
@@ -482,10 +499,14 @@
             heroDesc: "توريد وتركيب أجهزة الشبكات، كاميرات المصاعد اللاسلكية، السنترالات والحلول الأمنية المتكاملة.",
             heroImg: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&auto=format&fit=crop&q=80"
         };
-        let cart = JSON.parse(localStorage.getItem('zamla_cart_v31')) || [];
+        let cart = JSON.parse(localStorage.getItem('zamla_cart_v32')) || [];
         let currentUser = JSON.parse(localStorage.getItem('zamla_user')) || null;
         let isAdminLoggedIn = false;
         window.currentPage = 'home';
+
+        function closePromoPopup() {
+            document.getElementById('promo-popup-modal').classList.add('hidden');
+        }
 
         function navigateTo(page, param = null) {
             window.currentPage = page;
@@ -887,7 +908,7 @@
             if(p1) { p1.qty = count; cart.push(p1); }
             if(p2) { p2.qty = 1; cart.push(p2); }
             if(p3) { p3.qty = 1; cart.push(p3); }
-            localStorage.setItem('zamla_cart_v31', JSON.stringify(cart));
+            localStorage.setItem('zamla_cart_v32', JSON.stringify(cart));
             updateCartUI();
             alert('تمت إضافة جميع الاحتياجات والقطع المقترحة للسلة بنجاح!');
             navigateTo('quotation-preview');
@@ -923,7 +944,7 @@
 
             const newMember = { name, phone, whatsapp, location, nationality, company, type };
             members.push(newMember);
-            localStorage.setItem('zamla_members_v31', JSON.stringify(members));
+            localStorage.setItem('zamla_members_v32', JSON.stringify(members));
 
             currentUser = { name, phone, email: phone + '@zamla.com' };
             localStorage.setItem('zamla_user', JSON.stringify(currentUser));
@@ -976,7 +997,7 @@
             if(!name || !phone) { alert('أدخل الاسم ورقم الجوال'); return; }
             const code = 'ZF-AFF-' + Math.floor(1000 + Math.random() * 9000);
             affiliates.push({ name, phone, code, rate });
-            localStorage.setItem('zamla_affiliates_v31', JSON.stringify(affiliates));
+            localStorage.setItem('zamla_affiliates_v32', JSON.stringify(affiliates));
             renderAffiliateTable();
             const text = `السلام عليكم ${name},%0Aتم اعتمادك في برنامج البيع بالعمولة لمؤسسة زمله بنت فالح بربح نسبة ${rate}%.%0Aكود التسويق الخاص بك هو: *${code}*`;
             window.open(`https://wa.me/966${phone.replace(/^0/, '')}?text=${text}`, '_blank');
@@ -991,7 +1012,7 @@
                         <tr><th class="p-2.5">اسم المسوق</th><th class="p-2.5">الجوال</th><th class="p-2.5">الكود</th><th class="p-2.5">النسبة</th><th class="p-2.5">إجراء</th></tr>
                     </thead>
                     <tbody>
-                        ${affiliates.map((a, i) => `<tr class="border-b"><td class="p-2.5 font-bold">${a.name}</td><td class="p-2.5">${a.phone}</td><td class="p-2.5 font-mono text-orange-600 font-bold">${a.code}</td><td class="p-2.5">${a.rate}%</td><td class="p-2.5"><button onclick="affiliates.splice(${i},1); localStorage.setItem('zamla_affiliates_v31', JSON.stringify(affiliates)); renderAffiliateTable();" class="text-red-500 font-bold">حذف</button></td></tr>`).join('')}
+                        ${affiliates.map((a, i) => `<tr class="border-b"><td class="p-2.5 font-bold">${a.name}</td><td class="p-2.5">${a.phone}</td><td class="p-2.5 font-mono text-orange-600 font-bold">${a.code}</td><td class="p-2.5">${a.rate}%</td><td class="p-2.5"><button onclick="affiliates.splice(${i},1); localStorage.setItem('zamla_affiliates_v32', JSON.stringify(affiliates)); renderAffiliateTable();" class="text-red-500 font-bold">حذف</button></td></tr>`).join('')}
                     </tbody>
                 </table>
             `;
@@ -1114,7 +1135,7 @@
             } else {
                 cart.push({ ...p, qty: 1 });
             }
-            localStorage.setItem('zamla_cart_v31', JSON.stringify(cart));
+            localStorage.setItem('zamla_cart_v32', JSON.stringify(cart));
             updateCartUI();
             toggleCart();
         }
@@ -1125,13 +1146,13 @@
             if (cart[index].qty <= 0) {
                 cart.splice(index, 1);
             }
-            localStorage.setItem('zamla_cart_v31', JSON.stringify(cart));
+            localStorage.setItem('zamla_cart_v32', JSON.stringify(cart));
             updateCartUI();
         }
 
         function removeFromCart(i) {
             cart.splice(i, 1);
-            localStorage.setItem('zamla_cart_v31', JSON.stringify(cart));
+            localStorage.setItem('zamla_cart_v32', JSON.stringify(cart));
             updateCartUI();
         }
 
@@ -1161,7 +1182,7 @@
         }
 
         function toggleCart() { document.getElementById('cart-drawer').classList.toggle('-translate-x-full'); }
-        function proceedToCheckout() { alert('تم تأكيد الطلب بنجاح!'); cart = []; localStorage.removeItem('zamla_cart_v31'); updateCartUI(); toggleCart(); navigateTo('home'); }
+        function proceedToCheckout() { alert('تم تأكيد الطلب بنجاح!'); cart = []; localStorage.removeItem('zamla_cart_v32'); updateCartUI(); toggleCart(); navigateTo('home'); }
 
         function toggleAdminModal() {
             document.getElementById('admin-modal').classList.toggle('hidden');
@@ -1212,7 +1233,7 @@
                 } else {
                     products.unshift({ id: Date.now(), model, name, category, price, stock, desc, featured, image: imgUrl || "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500" });
                 }
-                localStorage.setItem('zamla_products_v31', JSON.stringify(products));
+                localStorage.setItem('zamla_products_v32', JSON.stringify(products));
                 document.getElementById('product-form').reset();
                 renderAdminProducts();
                 renderInventoryAnalytics();
@@ -1242,7 +1263,7 @@
 
         function deleteProduct(id) {
             products = products.filter(p => p.id !== id);
-            localStorage.setItem('zamla_products_v31', JSON.stringify(products));
+            localStorage.setItem('zamla_products_v32', JSON.stringify(products));
             renderAdminProducts();
             renderInventoryAnalytics();
         }
@@ -1259,7 +1280,7 @@
                 } else {
                     categories.push({ name, icon: iconUrl || 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=200' });
                 }
-                localStorage.setItem('zamla_categories_v31', JSON.stringify(categories));
+                localStorage.setItem('zamla_categories_v32', JSON.stringify(categories));
                 document.getElementById('category-form').reset();
                 renderAdminCategories();
                 populateCategoryDropdown();
@@ -1280,9 +1301,13 @@
             const fileInput = document.getElementById('hero-img-file');
             
             const finishHero = (imgUrl) => {
-                if(imgUrl) settings.heroImg = imgUrl;
-                localStorage.setItem('zamla_settings_v31', JSON.stringify(settings));
-                alert('تم تحديث البروشور الإعلاني بنجاح!');
+                if(imgUrl) {
+                    settings.heroImg = imgUrl;
+                    const promoImg = document.getElementById('popup-promo-img');
+                    if (promoImg) promoImg.src = imgUrl;
+                }
+                localStorage.setItem('zamla_settings_v32', JSON.stringify(settings));
+                alert('تم تحديث البروشور والاعلان المنبثق بنجاح!');
                 navigateTo('home');
             };
 
@@ -1300,7 +1325,7 @@
 
         function deleteCategory(i) {
             categories.splice(i, 1);
-            localStorage.setItem('zamla_categories_v31', JSON.stringify(categories));
+            localStorage.setItem('zamla_categories_v32', JSON.stringify(categories));
             renderAdminCategories();
             populateCategoryDropdown();
         }
@@ -1339,7 +1364,7 @@
                         };
                         products.unshift(newP);
                     });
-                    localStorage.setItem('zamla_products_v31', JSON.stringify(products));
+                    localStorage.setItem('zamla_products_v32', JSON.stringify(products));
                     renderAdminProducts();
                     renderInventoryAnalytics();
                     alert('تم استيراد الأصناف والمخزون بنجاح!');
@@ -1358,7 +1383,7 @@
                 settings.title = title;
                 settings.phone = phone;
                 if(logoUrl) settings.logo = logoUrl;
-                localStorage.setItem('zamla_settings_v31', JSON.stringify(settings));
+                localStorage.setItem('zamla_settings_v32', JSON.stringify(settings));
                 initApp();
                 alert('تم حفظ الإعدادات!');
             };
