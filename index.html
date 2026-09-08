@@ -83,6 +83,33 @@
         </div>
     </div>
 
+    <!-- نافذة اشتراك ووصول الفنيين والمبرمجين (Pro Tools & AI Access) -->
+    <div id="pro-tools-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4 no-print">
+        <div class="bg-white w-full max-w-2xl rounded-3xl shadow-2xl p-6 space-y-4 max-h-[90vh] overflow-y-auto text-xs">
+            <div class="flex justify-between items-center border-b pb-3">
+                <h3 class="font-bold text-base text-slate-900">🛠️ بوابة الفنيين والمبرمجين المحترفين (Pro Subscription)</h3>
+                <button onclick="document.getElementById('pro-tools-modal').classList.add('hidden')" class="text-gray-400 font-bold text-lg">✕</button>
+            </div>
+            <p class="text-gray-600 leading-relaxed">أهلاً بك زميلي المهندس والفني. يرجى تفعيل اشتراكك لجلسة جهاز واحد (جوال أو لاب توب). في حال فقدان الجهاز أو احتجت للمساعدة، تواصل مع الدعم الفني فوراً.</p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                <div class="bg-blue-50 border border-blue-200 p-4 rounded-2xl space-y-2">
+                    <h4 class="font-bold text-blue-900 text-sm">🤖 مبرمج AI (Smart Programmer)</h4>
+                    <p class="text-gray-600">مساعد ذكي لتوليد أكواد السنترالات، برمجة شبكات الـ IP، وتكوين مسارات الكاميرات والرواتب.</p>
+                    <button onclick="alert('تم تفعيل جلسة مبرمج AI لهذا الجهاز بنجاح!'); document.getElementById('pro-tools-modal').classList.add('hidden'); navigateTo('sketch');" class="bg-blue-600 text-white font-bold px-4 py-2 rounded-xl w-full">دخول مبرمج AI 💻</button>
+                </div>
+                <div class="bg-orange-50 border border-orange-200 p-4 rounded-2xl space-y-2">
+                    <h4 class="font-bold text-orange-900 text-sm">👷 الفني الميداني (Field Engineer Toolbox)</h4>
+                    <p class="text-gray-600">صندوق الأدوات الميداني: حاسبة الهاردسك، اختبارات الإشارة، جداول التمديد، وطلب القطع والمقايسات.</p>
+                    <button onclick="alert('تم تفعيل جلسة الفني الميداني لهذا الجهاز بنجاح!'); document.getElementById('pro-tools-modal').classList.add('hidden'); navigateTo('calculator');" class="bg-orange-500 text-white font-bold px-4 py-2 rounded-xl w-full">دخول صندوق الفني 🧰</button>
+                </div>
+            </div>
+            <div class="pt-4 border-t text-center">
+                <a href="https://wa.me/00966543201995?text=سلام عليكم، احتجت المساعدة في استعادة أو نقل اشتراكي لجلسة جديدة" target="_blank" class="text-emerald-600 font-bold hover:underline">💬 تواصل مع الدعم الفني للموقع في حال فقدان الجلسة</a>
+            </div>
+        </div>
+    </div>
+
     <!-- نافذة الإعلان المنبثق التلقائي عند دخول الموقع -->
     <div id="promo-popup-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 no-print">
         <div class="bg-white w-full max-w-xl rounded-3xl shadow-2xl overflow-hidden flex flex-col relative animate-fade-in">
@@ -124,6 +151,7 @@
                 <a href="#survey" onclick="navigateTo('survey')" class="hover:text-white transition text-orange-300 font-bold">معاينة ميدانية 🛠️</a>
                 <a href="#sketch" onclick="navigateTo('sketch')" class="hover:text-white transition text-cyan-300 font-bold">كروكي AI 📐</a>
                 <a href="#calculator" onclick="navigateTo('calculator')" class="hover:text-white transition text-cyan-300 font-bold">حاسبة التخزين 🧮</a>
+                <button onclick="document.getElementById('pro-tools-modal').classList.remove('hidden')" class="bg-cyan-600 hover:bg-cyan-700 text-white px-2.5 py-1 rounded-lg font-bold text-[11px] shadow">🤖 مبرمج AI | 🧰 الفني</button>
             </div>
             <div class="flex items-center gap-3">
                 <button onclick="openWebCallModal()" class="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold px-3 py-1.5 rounded-xl shadow-md flex items-center gap-1.5 transition transform hover:scale-105 text-xs">
@@ -146,17 +174,20 @@
         </div>
     </div>
 
-    <!-- الشريط الرئيسي (Header) -->
+    <!-- الشريط الرئيسي (Header) مع اللوجو المستطيل الجديد بدون كلمة company -->
     <header class="sticky top-0 z-50 theme-header bg-[#475569] shadow-lg border-b border-slate-600 text-white no-print">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-3">
             
             <div class="flex items-center gap-2">
                 <a href="#home" onclick="navigateTo('home')" class="flex items-center gap-2 py-2">
-                    <div class="bg-black p-1 rounded-xl border border-orange-500/50 flex items-center gap-2">
-                        <img id="site-logo" src="logo.jpeg" alt="Logo" class="w-9 h-9 object-cover rounded-full" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=200'">
+                    <div class="bg-black p-1.5 rounded-2xl border border-orange-500/50 flex items-center gap-2.5 shadow-md">
+                        <!-- تصميم اللوجو المستطيل المتناسق المحدث بناءً على طلبك وصورة الهوية -->
+                        <div class="w-12 h-8 rounded-lg overflow-hidden flex items-center justify-center bg-slate-900 border border-orange-400">
+                            <img id="site-logo" src="logo.jpeg" alt="Logo" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=200'">
+                        </div>
                         <div>
-                            <span class="block text-[10px] font-black tracking-wider text-orange-400 leading-none">ZAMLA FALEH</span>
-                            <span class="block text-[7px] text-cyan-300 font-mono tracking-tight mt-0.5">APP SYSTEM</span>
+                            <span class="block text-[11px] font-black tracking-wider text-orange-400 leading-tight">ZAMLA FALEH</span>
+                            <span class="block text-[8px] text-cyan-300 font-mono tracking-tighter">AMER AL JAHMI</span>
                         </div>
                     </div>
                 </a>
@@ -804,25 +835,36 @@
                             <h1 class="text-3xl sm:text-5xl font-black leading-tight max-w-3xl drop-shadow-md">${settings.heroTitle}</h1>
                             <p class="text-xs sm:text-sm text-gray-100 max-w-2xl leading-relaxed drop-shadow">${settings.heroDesc}</p>
                             <div class="flex gap-4 pt-6">
-                                <a href="#store" onclick="navigateTo('store')" class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-xl transition transform hover:scale-105">تصفح الكتالوج الآن</a>
+                                <a href="#store" onclick="navigateTo('store')" class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-xl transition transform hover:scale-105">تصفح المتجر الآن</a>
                                 <a href="#survey" onclick="navigateTo('survey')" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-xl shadow-xl transition transform hover:scale-105">🛠️ طلب معاينة ميدانية</a>
+                                <button onclick="document.getElementById('pro-tools-modal').classList.remove('hidden')" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold px-6 py-4 rounded-xl shadow-xl transition transform hover:scale-105">🤖 مبرمج AI | 🧰 صندوق الفني</button>
                             </div>
                         </div>
                     </section>
 
-                    <!-- 3. الكتالوج الشامل للمنتجات -->
-                    <section class="py-16 bg-slate-100 no-print">
+                    <!-- 3. متجر المنتجات وظهور جميع المنتجات في الصفحة الرئيسية للعميل لسهولة الوصول -->
+                    <section class="py-16 bg-slate-100 no-print" id="store">
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                             <div class="flex justify-between items-center mb-8">
-                                <h2 class="text-2xl font-black text-slate-950">الكتالوج الشامل للمنتجات المعتمدة (${products.length} صنف)</h2>
+                                <h2 class="text-2xl font-black text-slate-950">متجر المنتجات الشامل (جميع الأصناف)</h2>
                                 <button onclick="navigateTo('store')" class="text-orange-600 font-bold text-xs hover:underline">${t.view_all} ←</button>
                             </div>
                             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="home-products-grid"></div>
                         </div>
                     </section>
 
-                    <!-- 4. قسم المقالات والإرشادات التقنية -->
+                    <!-- 4. المنتجات المميزة بالأسفل -->
                     <section class="py-16 bg-white border-t border-gray-200 no-print">
+                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div class="flex justify-between items-center mb-8">
+                                <h2 class="text-2xl font-black text-slate-950">⭐ المنتجات المميزة والموصى بها للمشاريع</h2>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="home-featured-grid"></div>
+                        </div>
+                    </section>
+
+                    <!-- 5. قسم المقالات والإرشادات التقنية -->
+                    <section class="py-16 bg-slate-50 border-t border-gray-200 no-print">
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
                             <div class="text-center">
                                 <h2 class="text-2xl font-black text-slate-900">تعرف على أحدث المقالات والإرشادات التقنية</h2>
@@ -830,7 +872,7 @@
                             </div>
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="home-articles-grid">
                                 ${articles.map(art => `
-                                    <div onclick="openArticleModal(${art.id})" class="bg-slate-50 border rounded-2xl overflow-hidden shadow-sm space-y-3 cursor-pointer hover:shadow-md transition">
+                                    <div onclick="openArticleModal(${art.id})" class="bg-white border rounded-2xl overflow-hidden shadow-sm space-y-3 cursor-pointer hover:shadow-md transition">
                                         <img src="${art.image || 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500'}" class="w-full h-40 object-cover">
                                         <div class="p-5 space-y-2">
                                             <span class="bg-orange-100 text-orange-700 px-2 py-0.5 rounded text-[10px] font-bold">${art.category}</span>
@@ -1558,10 +1600,14 @@
 
         function renderHomeProducts() {
             const grid = document.getElementById('home-products-grid');
-            if(!grid) return;
-            const feat = products.filter(p => p.featured);
-            const list = feat.length > 0 ? feat : products.slice(0, 12);
-            grid.innerHTML = list.map(p => productCardHTML(p)).join('');
+            if(grid) {
+                grid.innerHTML = products.map(p => productCardHTML(p)).join('');
+            }
+            const featGrid = document.getElementById('home-featured-grid');
+            if(featGrid) {
+                const feat = products.filter(p => p.featured);
+                featGrid.innerHTML = (feat.length > 0 ? feat : products.slice(0, 4)).map(p => productCardHTML(p)).join('');
+            }
             
             const ticker = document.getElementById('ticker-products');
             if(ticker) {
